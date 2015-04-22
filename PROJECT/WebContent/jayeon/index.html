@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>자바스크립트 달력</title>
+	<link href="css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+ 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="js/script.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		
+		kCalendar('kCalendar');
+		
+		$( "#dialog" ).dialog({
+		      autoOpen: false,
+		      buttons : {
+				   	 submit : function(){
+				   		 var eventname = $('#event_name').val();
+				   		 var startdate = $('#start_date').val();
+				   		 var enddate = $('#end_date').val();
+				   		 												// .division이라고 하니 클래스명이 division인 모든 div에 붙여넣어진다... 다이얼로그를 부른 div에만 붙여넣는 방법은?
+				   		 														// List<schedule> 에 넣어서 div에서 그 list를 불러오는 방법을 생각중...
+				   		 $('<span></span>').html(eventname).appendTo('.division').val();
+				   		 $('#dialog').dialog('close');
+				   	 },
+				   	 cancel : function(){$(this).dialog("close")},
+				   	 reset : function(){
+				   		 $('#event_name').val('');
+				   		 $('#start_date').val('');
+				   		 $('#end_date').val('');
+				   		 $('#event_content').val('');
+				   	 }
+				  }	
+		     });
+		
+		$( ".division" ).click(function() {
+		      $( "#dialog" ).dialog( "open" );
+		    });
+		
+		$( "#start_date" ).datepicker({
+	    	dateFormat : 'yy년mm월dd일',
+	    });
+		
+		$( "#end_date" ).datepicker({
+	    	dateFormat : 'yy년mm월dd일',
+	    });
+	});
+	</script>
+	<style type="text/css">
+		body .ui-dialog {
+			font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana",
+				"sans-serif";
+			font-size: 72.5%;
+			
+		}
+	</style>
+</head>
+<body>
+	<div id="kCalendar"></div>
+	
+	<div id="dialog" title="일정입력">
+  		<label for="event_name">제목</label><br>
+  		<input type="text" id="event_name"><br>
+  		
+  		<label for="event_date">일정날짜</label><br>
+		<input type="text" id="start_date" size="10">~<input type="text" id="end_date" size="10"><br>
+		
+		<label for="event_content">내용</label><br>
+		<input type="text" id="event_content"><br>
+	</div>
+</body>
+</html>
