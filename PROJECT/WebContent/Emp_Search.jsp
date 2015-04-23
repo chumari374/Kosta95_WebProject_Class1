@@ -6,45 +6,61 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script type="text/javascript">
-$(function() {
-    $( "#search" ).menu();
-  });
-</script>
-<style>
-  .ui-menu { width: 150px; }
-  </style>
+<style type="text/css">
+ table, tr, td{
+ 	border: 1px solid gray;
+ 	border-collapse: collapse;
+ 	padding: 5px;
+ 	padding-left: 10px; 
+ 	padding-right: 10px;
+ } 
+</style>
 </head>
 <body>
-	<table>
+	<table width="60%">
 		<tr>
-			<td colspan="6">
-				<ul id="search">
-				  <li>개발부
-				     <ul>
-				      <li>솔루션팀</li>
-				      <li>외주팀</li>
-				    </ul>
-				  </li>
-				  <li>영업부
-				  	<ul>
-				      <li>기술경영팀</li>
-				      <li>A/S팀</li>
-				    </ul>
-				  </li>
-				  <li>총무부
-				  	<ul>
-				      <li>경리팀</li>
-				      <li>경영팀</li>
-				      <li>인사팀</li>
-				    </ul>
-				  </li>
-				</ul>
+			<td colspan="6" align="center">
+				<select>
+					<option>선택</option>
+					<option>개발부</option>
+					<option>영업부</option>
+					<option>총무부</option>
+				</select>
+				<input type="text" placeholder="이름으로 검색">&nbsp;<input type="button" value="검색">
 			</td>
+		</tr>
+		<!-- 동적으로 구성 -->
+		<tr>
+			<td>부서</td>
+			<td>팀</td>
+			<td>이름</td>
+			<td>직급</td>
+			<td>사내전화번호</td>
+			<td>핸드폰</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td align="right"><input type="button" value="쪽지"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td align="right"><input type="button" value="쪽지"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td align="right"><input type="button" value="쪽지"></td>
 		</tr>
 	</table>
 </body>
