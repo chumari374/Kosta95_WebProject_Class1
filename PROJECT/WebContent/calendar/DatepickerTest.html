@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/ui-darkness/jquery-ui.css">
+	<style type="text/css">
+		body {
+			font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+			font-size: 62.5%;
+		}
+	</style>
+	<script type="text/javascript">
+	  $(function() {
+	    $("#datepicker").datepicker();
+	    $(".ui-datepicker-calendar tr td").click(function(){
+	    	$("#date").val(' ');
+	    	var year = $(this).context.dataset.year;
+	    	var month = $(this).context.dataset.month;
+	    	var day = $(this).text();
+	    	var date = year+'년'+month+'월'+day+'일';
+	    	
+	    	alert(date);
+	    	console.log(date);
+	    	$("#date").val(date);
+	    });
+	  });
+	</script>
+</head>
+<body>
+	<p>Date: <input type="text" id="date" class="hasDatepicker"></p>
+	<div id="datepicker"></div>
+</body>
+</html>
