@@ -1,0 +1,31 @@
+/* Kurien / Kurien's Blog / http://blog.kurien.co.kr */
+/* 二쇱꽍留� �젣嫄고븯吏� �븡�뒗�떎硫�, �뼱�뼡 �슜�룄濡� �궗�슜�븯�뀛�룄 醫뗭뒿�땲�떎. */
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+* {font-family: 'Nanum Gothic', serif;}
+
+#kCalendar {width: 600px; height: 570px; border: 1px solid black;}
+
+#kCalendar #header {height: 50px; line-height: 50px; text-align: center; font-size: 18px; font-weight: bold}
+#kCalendar .button {color: #000; text-decoration: none;}
+#kCalendar .division {height: 50px}
+
+#kCalendar table {width: 600px; height: 500px;}
+#kCalendar caption {display: none;}
+
+#kCalendar .sun {text-align: right; color: deeppink; font-size: 12px; height: 20px; background-color: #EFEFEF; padding-right: 5px;}
+#kCalendar .mon {text-align: right; height: 20px; font-size: 12px; background-color: #EFEFEF; padding-right: 5px;}
+#kCalendar .tue {text-align: right; height: 20px; font-size: 12px; background-color: #EFEFEF; padding-right: 5px;}
+#kCalendar .wed {text-align: right; height: 20px; font-size: 12px; background-color: #EFEFEF; padding-right: 5px;}
+#kCalendar .thu {text-align: right; height: 20px; font-size: 12px; background-color: #EFEFEF; padding-right: 5px;}
+#kCalendar .fri {text-align: right; height: 20px; font-size: 12px; background-color: #EFEFEF; padding-right: 5px;}
+#kCalendar .sat {text-align: right; color: deepskyblue; font-size: 12px; height: 20px; background-color: #EFEFEF; padding-right: 5px;}
+
+
+#kCalendar .sunday 		{text-align: center; color: deeppink; height: 30px; background-color: #999999;}
+#kCalendar .monday 		{text-align: center; height: 30px; background-color: #999999;}
+#kCalendar .tuesday 	{text-align: center; height: 30px; background-color: #999999;}
+#kCalendar .wednesday 	{text-align: center; height: 30px; background-color: #999999;}
+#kCalendar .thursday 	{text-align: center; height: 30px; background-color: #999999;}
+#kCalendar .friday 		{text-align: center; height: 30px; background-color: #999999;}
+#kCalendar .saturday 	{text-align: center; color: deepskyblue; height: 30px; background-color: #999999;}
