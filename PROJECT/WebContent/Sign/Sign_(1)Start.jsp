@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-받는 사람 : <br>
-제목 : <br>
-내용 : <br>
+
 </body>
 </html>
