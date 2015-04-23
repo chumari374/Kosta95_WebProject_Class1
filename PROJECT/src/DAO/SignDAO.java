@@ -9,7 +9,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.sun.org.apache.bcel.internal.generic.GETSTATIC;
+import sun.awt.SunToolkit.InfiniteLoop;
 
 public class SignDAO {
 
@@ -30,26 +30,34 @@ public class SignDAO {
 
 	
 	public String getGetSign() {
-		String getGetSign_sql = "select ename from emp where grade = ? "
-				+ ", dept = ?" + ", teamname = '?'";
+		String getGetSign_sql = "select emp.ename, grade.gradename from emp join grade on emp.grade = grade.grade "
+							  + "where grade = ?";
+		
+		String[] searchGS = {", deptcode = ?",  ", teamname = '?'"};
+		
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(getGetSign_sql);
-		/*	rs = pstmt.setInt(1, );
-			rs = pstmt.setInt(2, );
-			rs = pstmt.setString(3, );*/
 			
 			rs = pstmt.executeQuery();
 			
-			
-			while(true) {
+			for(int i = 0 ; ; i++) {
 				
-				if(rs.next()) {
+				/*
+				pstmt.setInt(1, ); 내 직급등급의 - 1
+				pstmt.setInt(2, ); 내 부서
+				pstmt.setString(3, ); 내 팀
+				*/
 				
+				if(rs.getRow() != 1) {
+					String GetSign = rs.getString(1) + " " + rs.getInt(2);
+					return GetSign;
 				}
 				
-				
+				getGetSign_sql = getGetSign_sql + searchGS[i];
 			}
+			
+			
 		}
 
 		catch (Exception ex) {
