@@ -56,7 +56,7 @@
 			    			<input class="form-control" placeholder="비밀번호" name="pwd" type="password" value="">
 			    		</div>
 			    		<div>
-			    	    		<a href="Pwd_Search.jsp">비밀번호 찾기</a><p />
+			    	    		<a href="Pwd_Search.jsp">비밀번호 찾기</a>
 			    	    </div>
 			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="로그인">
 			    	</fieldset>
