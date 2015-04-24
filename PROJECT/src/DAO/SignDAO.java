@@ -51,7 +51,7 @@ public class SignDAO {
 				pstmt = conn.prepareStatement(getGetSign_sql);
 
 				
-				pstmt.setInt(1, grade); //내 직급등급의 - 1 
+				pstmt.setInt(1, grade-1); //내 직급등급의 - 1 
 				pstmt.setInt(2, deptcode); //내 부서
 				pstmt.setInt(3, teamcode); //내 팀
 				
@@ -92,7 +92,7 @@ public class SignDAO {
 	}
 
 	// ========== 결재문서 작성(기안,상부보고)========
-	public boolean Sign(SignDTO sign) {
+	public boolean Sign(SignDTO sign, int grade, int deptcode, int teamcode) {
 
 		String getGetSign_sql = "select empno from emp where";
 
@@ -111,10 +111,11 @@ public class SignDAO {
 				getGetSign_sql = getGetSign_sql + searchGS[i];
 				pstmt = conn.prepareStatement(getGetSign_sql);
 
-				/*
-				 * pstmt.setInt(1, ); 내 직급등급의 - 1 pstmt.setInt(2, ); 내 부서
-				 * pstmt.setString(3, ); 내 팀
-				 */
+				
+				 pstmt.setInt(1, grade-1); //내 직급등급의 - 1 
+				 pstmt.setInt(2, deptcode); //내 부서
+				 pstmt.setInt(3, teamcode); //내 팀
+				 
 
 				rs = pstmt.executeQuery();
 
