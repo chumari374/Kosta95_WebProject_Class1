@@ -91,7 +91,7 @@ public class SignDAO {
 	
 	
 	
-	// ========== 받은 결재 문서에서 나한테 결재 보내준 사람 보기========================
+	// ========== 받은 결재 문서에서 내가받은결재문서========================
 	public List getGetSignList(int page, int limit) {
 		String getGetSignList_sql = "select * from sign where getsign = empno";
 		
@@ -144,6 +144,6 @@ public class SignDAO {
 		}
 		return null;
 	}
-	// ========== 받은 결재 문서에서 나한테 결재 보내준 사람 보기 끝========================
+	// ========== 받은 결재 문서에서 내가받은결재문서 끝========================
 
 }
