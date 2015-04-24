@@ -170,7 +170,7 @@ public class SignDAO {
    }
    // ========== 결재문서 작성(기안, 상부보고) 끝==================================================
    
-   // ========== 받은 결재 문서에서 내가받은결재문서========================
+   // ========== 받은 결재 함 ========================
       public List<SignDTO> getGetSignList(int page, int limit) {
          String getGetSignList_sql = "select * from sign where getsign = empno";
          
@@ -224,4 +224,6 @@ public class SignDAO {
          return null;
       }
    // ========== 받은 결재 문서에서 내가받은결재문서 끝========================
+      
+   // ========== 문서상태별 분류 =======================================
 }

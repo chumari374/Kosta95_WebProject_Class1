@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import Action.SignAction;
 import Action.SignActionForward;
 
-@WebServlet("*.hong")
+// @WebServlet("*.hong")
 public class SignFrontController {
 	private static final long serialVersionUID = 1L;
 	
