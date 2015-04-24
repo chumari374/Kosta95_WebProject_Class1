@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Action.Action;
 import Action.ActionForward;
+import Action.Pwd_SearchAction;
 
 
 //@WebServlet("/AdminFrontController")
@@ -39,7 +40,12 @@ public class AdminFrontController extends HttpServlet {
 		
 		if(command.equals("/pwd_search.ps")){
 			
-			
+			action = new Pwd_SearchAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
     }
     
