@@ -80,10 +80,9 @@ background-color: #5f5f5f !important;
     <a href="#demo5" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">결재</a>
      <div class="collapse" id="demo5">
       <a href="" class="list-group-item">결재 현황</a>
-      <a href="" class="list-group-item">결재 기한</a>
+      <a href="" class="list-group-item">결재 기안</a>
       <a href="" class="list-group-item">보낸 결재</a>
-            <a href="" class="list-group-item">받은 결재</a>
-      <a href="" class="list-group-item">사원검색</a>
+      <a href="" class="list-group-item">받은 결재</a>      
       <a href="" class="list-group-item">완료 결재함</a>
     </div>
     <a href="#demo7" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">사원검색</a>
@@ -100,6 +99,10 @@ background-color: #5f5f5f !important;
     </aside>
 
     <section id="main">
+    <div id="div1">사내 공지사항</div>
+    <div id="div2">...</div>
+    <div id="div3">...</div>
+    <div id="div4">...</div>
     </section>
     
 
