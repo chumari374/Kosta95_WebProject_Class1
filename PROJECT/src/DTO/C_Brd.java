@@ -1,18 +1,18 @@
 package DTO;
-
+//====================게시판==========================
 import java.sql.Date;
 
 public class C_Brd {
 
-	private int num;
-	private int empno;
-	private String title;
-	private String content;
-	private String notice;
-	private Date write_date;
-	private int ref;
-	private int dpth;
-	private int step;
+	private int num;	//글번호
+	private int empno;	//작성자번호
+	private String title;	//제목
+	private String content;	//내용
+	private String notice;	//공지
+	private Date write_date;//작성일자
+	private int ref;	//답글
+	private int dpth;	//들여쓰기
+	private int step;	//답글계층
 	
 	public C_Brd(){}
 	
