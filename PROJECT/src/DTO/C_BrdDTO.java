@@ -2,7 +2,7 @@ package DTO;
 //====================게시판==========================
 import java.sql.Date;
 
-public class C_Brd {
+public class C_BrdDTO {
 
 	private int num;	//글번호
 	private int empno;	//작성자번호
@@ -14,9 +14,9 @@ public class C_Brd {
 	private int dpth;	//들여쓰기
 	private int step;	//답글계층
 	
-	public C_Brd(){}
+	public C_BrdDTO(){}
 	
-	public C_Brd(int num, int empno, String title, String content,
+	public C_BrdDTO(int num, int empno, String title, String content,
 			String notice, Date write_date, int ref, int dpth, int step) {
 		this.num = num;
 		this.empno = empno;

@@ -3,7 +3,7 @@ package DTO;
 import java.sql.Date;
 
 // ====================게시판 댓글==========================
-public class Re_C_Brd {
+public class Re_C_BrdDTO {
 	private int renum;	//댓글번호
 	private int num;	//글번호
 	private int empno;	//사원번호
@@ -11,9 +11,9 @@ public class Re_C_Brd {
 	private String content;	//내용
 	private Date write_date;	//작성일자
 	
-	public Re_C_Brd(){}	
+	public Re_C_BrdDTO(){}	
 	
-	public Re_C_Brd(int renum, int num, int empno, String title,
+	public Re_C_BrdDTO(int renum, int num, int empno, String title,
 			String content, Date write_date) {
 		this.renum = renum;
 		this.num = num;
