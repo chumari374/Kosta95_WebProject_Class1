@@ -13,6 +13,16 @@ public class GetSignListAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		SignDAO signdao = new SignDAO();
 		List getsignlist = new ArrayList();
+		
+		int page = 1;
+		int limit = 10;
+
+		if (request.getParameter("page") != null) {
+			page = Integer.parseInt(request.getParameter("page"));
+		}
+		
+		
+		
 		return null;
 	}
 }
