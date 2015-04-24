@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Action.Action;
 import Action.ActionForward;
-import Action.GetSignListAction;
+import Action.Sign.GetSignListAction;
 
 @WebServlet("*.hong")
 public class SignFrontController extends HttpServlet {
