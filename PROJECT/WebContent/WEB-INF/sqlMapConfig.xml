@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMapConfig      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+ 
+  <sqlMapConfig>
+  <settings 
+      cacheModelsEnabled="true"      
+      enhancementEnabled="true" 
+      useStatementNamespaces="true"	
+      lazyLoadingEnabled="true" 
+      maxRequests="512" 
+      maxSessions="128" 
+      maxTransactions="32" />
+    <sqlMap resource="Query/Query.xml" />   <!-- 쿼리문이 있는 xml파일 경로 -->
+</sqlMapConfig>
+
+   
+ 	
+

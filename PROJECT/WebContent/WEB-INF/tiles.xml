@@ -7,22 +7,35 @@
     <definition name="main" template="Main.jsp">
     </definition>
     
-    <definition name="read" extends="main">
-    <put-attribute name="title" value="상세페이지"></put-attribute>
-    <put-attribute name="body" value="/WEB-INF/menu/read.jsp" />
+    <definition name="Dept_View" extends="main">
+    <put-attribute name="title" value="Dept_View"></put-attribute>
+    <put-attribute name="body" value="/Deptb/Dept_View.jsp" />
     </definition>
     
     
-    <definition name="mainpage" extends="main">
-        <put-attribute name="title" value="게시판" />
-        <put-attribute name="body" value="/WEB-INF/menu/list.jsp" /> 
+    <definition name="Dept_List" extends="main">
+        <put-attribute name="title" value="Dept_List" />
+        <put-attribute name="body" value="/Deptb/Dept_List.jsp" /> 
         
     </definition> 
 
-	<definition name="join" extends="main">
-        <put-attribute name="title" value="회원가입" />
-        <put-attribute name="body" value="/WEB-INF/menu/join.jsp" />
+	<definition name="Dept_Write" extends="main">
+        <put-attribute name="title" value="Dept_Write" />
+        <put-attribute name="body" value="/Deptb/Dept_Write.jsp" />
     </definition>
+    
+    <definition name="Dept_Edit" extends="main">
+        <put-attribute name="title" value="Dept_Edit" />
+        <put-attribute name="body" value="/Deptb/Dept_Edit.jsp" />
+    </definition>
+    
+    <definition name="Dept_Delete" extends="main">
+        <put-attribute name="title" value="Dept_Delete" />
+        <put-attribute name="body" value="/Deptb/Dept_Delete.jsp" />
+    </definition>
+    
+    <!-- Deptb부서게시판 설정끝 -->
+    
    <!--  <definition name="gesipan_Write" extends="main">
         <put-attribute name="title" value="글쓰기" />
         <put-attribute name="body" value="/WEB-INF/menu/gesipan_Write.jsp" />
