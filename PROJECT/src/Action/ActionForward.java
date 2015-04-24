@@ -1,6 +1,6 @@
 package Action;
 
-public class SignActionForward {
+public class ActionForward {
 	private boolean isRedirect = false;
 	private String path = null;
 	

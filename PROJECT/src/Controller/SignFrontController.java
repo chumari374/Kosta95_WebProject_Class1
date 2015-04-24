@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Action.GetSignListAction;
-import Action.SignAction;
-import Action.SignActionForward;
+import Action.Action;
+import Action.ActionForward;
 
 @WebServlet("*.hong")
 public class SignFrontController {
@@ -40,8 +40,8 @@ public class SignFrontController {
 		System.out.println("command : " + command);
 		*/
 		
-		SignActionForward forward = null;
-		SignAction action = null;
+		ActionForward forward = null;
+		Action action = null;
 		
 		if(command.equals("/getsignlist.hong")) {
 			System.out.println("signlist Display");
