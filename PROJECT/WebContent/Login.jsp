@@ -30,7 +30,10 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td><a href="#">비밀번호 찾기</a></td>
+					<td>
+						<a href="Pwd_Search.jsp">비밀번호 찾기</a>
+						<a href="Register.jsp">회원가입</a>
+					</td>
 				</tr>
 			</table>
 			
