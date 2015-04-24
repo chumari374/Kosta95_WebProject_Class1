@@ -53,7 +53,7 @@
 			    		    <input class="form-control" placeholder="사원번호" name="empno" type="text">
 			    		</div>
 			    		<div class="form-group">
-			    			<input class="form-control" placeholder="비밀번호" name="password" type="password" value="">
+			    			<input class="form-control" placeholder="비밀번호" name="pwd" type="password" value="">
 			    		</div>
 			    		<div>
 			    	    		<a href="Pwd_Search.jsp">비밀번호 찾기</a><p />
