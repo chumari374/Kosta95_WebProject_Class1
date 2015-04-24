@@ -4,13 +4,13 @@ import java.sql.Date;
 
 //====================관리자 부여==========================
 public class Domain_SetDTO {
-	private int empno;
-	private String emptel;
-	private Date hiredate;
-	private Date firedate;
-	private String sex;
-	private Date birth;
-	private String exist;
+	private int empno;	//사원번호
+	private String emptel;	//사내전화번호	
+	private Date hiredate;	//입사일
+	private Date firedate;	//퇴사일
+	private String sex;	//성별
+	private Date birth;	//생년월일
+	private String exist;	//재직여부
 	
 	public Domain_SetDTO(){}
 	
