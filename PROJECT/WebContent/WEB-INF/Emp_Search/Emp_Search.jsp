@@ -6,57 +6,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 <style type="text/css">
- body {font-size: 62.5%;}
  table, tr, td{
  	border: 1px solid gray;
  	border-collapse: collapse;
  	padding: 5px;
  	padding-left: 10px; 
  	padding-right: 10px;
- }
- .ui-menu { width: 90px; }
+ } 
 </style>
-<script type="text/javascript">
-	$(function(){
-		$('ul').menu();
-	});
-</script>
 </head>
 <body>
 	<table width="60%">
 		<tr>
-			<td colspan="1" align="center" width="60">
-				<ul>
-					<li>선택
-						<ul>
-							<li>개발부
-								<ul>
-									<li>솔루션개발팀</li>
-									<li>외주팀</li>
-								</ul>
-							</li>
-							<li>영업부
-								<ul>
-									<li>기술경영팀</li>
-									<li>A/S팀</li>
-								</ul>
-							</li>
-							<li>총무부
-								<ul>
-									<li>인사팀</li>
-									<li>경리팀</li>
-									<li>경영팀</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</td>
-			<td colspan="5">
+			<td colspan="6" align="center">
+				<select>
+					<option>선택</option>
+					<option>개발부</option>
+					<option>영업부</option>
+					<option>총무부</option>
+				</select>
 				<input type="text" placeholder="이름으로 검색">&nbsp;<input type="button" value="검색">
 			</td>
 		</tr>
