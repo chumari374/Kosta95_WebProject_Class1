@@ -1,8 +1,12 @@
 package etc;
 
  
+import java.util.List;
 import java.util.Properties;
  
+
+
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -10,10 +14,15 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
+import DTO.AccountsDTO;
+
  
 public class NaverMailTest {
-    public static void main(String args[]) throws MessagingException{
+    public void sendmail(AccountsDTO account) throws MessagingException{
         // 메일 관련 정보
+    	//info(0) : accounts
+    	
         String host = "smtp.naver.com";
         final String username = "";
         final String password = "";
