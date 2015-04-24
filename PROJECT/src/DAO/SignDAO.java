@@ -31,63 +31,7 @@ public class SignDAO {
 		}
 	}
 
-	// ========== 결재문서작성에서 결재받는사람 정하기 ==============================================
-	public String getGetSign() {
-		String getGetSign_sql = "select emp.ename, grade.gradename from emp join grade on emp.grade = grade.grade "
-							  + "where grade = ?";
-		
-		String[] searchGS = {", deptcode = ?",  ", teamname = '?'"};
-		
-		try {
-			conn = ds.getConnection();
-			pstmt = conn.prepareStatement(getGetSign_sql);
-			
-			rs = pstmt.executeQuery();
-			
-			for(int i = 0 ; ; i++) {
-				
-				/*
-				pstmt.setInt(1, ); 내 직급등급의 - 1
-				pstmt.setInt(2, ); 내 부서
-				pstmt.setString(3, ); 내 팀
-				*/
-				
-				if(rs.getRow() != 1) {
-					String GetSign = rs.getString(1) + " " + rs.getInt(2);
-					return GetSign;
-				}
-				
-				getGetSign_sql = getGetSign_sql + searchGS[i];
-			}
-			
-			
-		}
-
-		catch (Exception ex) {
-			System.out.println("");
-		}
-
-		finally {
-			if (rs != null)
-				try {
-					rs.close();
-				} catch (SQLException ex) {
-				}
-			if (pstmt != null)
-				try {
-					pstmt.close();
-				} catch (SQLException ex) {
-				}
-			if (conn != null)
-				try {
-					conn.close();
-				} catch (SQLException ex) {
-				}
-		}
-		return null;
-	}
 	
-	// ========== 결재문서작성에서 결재받는사람 정하기 끝==============================================
 	
 	
 	
