@@ -12,13 +12,13 @@ import javax.sql.DataSource;
 import DTO.AccountsDTO;
 
 
-public class AccoutsDAO {
+public class AccountsDAO {
 	DataSource ds;
 	Connection conn;
 	PreparedStatement ps;
 	ResultSet rs;
 	
-	public AccoutsDAO(){
+	public AccountsDAO(){
 		try{
 			Context context = new InitialContext();
 			ds = (DataSource)context.lookup("java:comp/env/jdbc/oracle");
