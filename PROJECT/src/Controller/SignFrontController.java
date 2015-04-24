@@ -9,10 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Action.GetSignListAction;
 import Action.SignAction;
 import Action.SignActionForward;
 
-// @WebServlet("*.hong")
+@WebServlet("*.hong")
 public class SignFrontController {
 	private static final long serialVersionUID = 1L;
 	
@@ -33,11 +34,26 @@ public class SignFrontController {
 		String ContextPath = request.getContextPath();
 		String command = RequestURI.substring(ContextPath.length()); // 슬래쉬 전까지 자른다
 		
+		/*
 		System.out.println("RequestURI : " + RequestURI);
 		System.out.println("ContextPath : " + ContextPath);
 		System.out.println("command : " + command);
+		*/
 		
 		SignActionForward forward = null;
 		SignAction action = null;
+		
+		if(command.equals("/getsignlist.hong")) {
+			System.out.println("signlist Display");
+			
+			action = new GetSignListAction();
+			
+			try {
+				forward = action.execute(request, response);
+				// System.out.println("getsignlist :  forward");
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }
