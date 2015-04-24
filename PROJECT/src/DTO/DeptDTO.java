@@ -1,9 +1,10 @@
 package DTO;
 
+// ====================부서==========================
 public class DeptDTO {
 
-	private String deptcode;
-	private String deptname;
+	private String deptcode;	//부서코드
+	private String deptname;	//부서명
 	
 	public DeptDTO(){}
 	

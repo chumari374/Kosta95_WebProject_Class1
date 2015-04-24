@@ -1,13 +1,13 @@
 package DTO;
-
+// ====================계정==========================
 public class AccountsDTO {
-	private int empno;
-	private String pwd;
-	private String email;
-	private String addr;
-	private String celphone;
-	private String p_picture;
-	private String p_content;
+	private int empno;	//사원번호
+	private String pwd;	//패스워드
+	private String email;	//이메일주소
+	private String addr;	//주소
+	private String celphone;	//핸드폰 번호
+	private String p_picture;	//프로필사진
+	private String p_content;	//프로필내용
 	
 	public AccountsDTO(){}
 	

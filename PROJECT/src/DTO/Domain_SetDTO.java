@@ -2,6 +2,7 @@ package DTO;
 
 import java.sql.Date;
 
+//====================관리자 부여==========================
 public class Domain_SetDTO {
 	private int empno;
 	private String emptel;
