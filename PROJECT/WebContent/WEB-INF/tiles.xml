@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  tiles-definitions PUBLIC
+    "-//Aapche Software Foundation//DTD Tiles Configuration 2.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>    
+    <definition name="main" template="Main.jsp">
+    </definition>
+    
+    <definition name="read" extends="main">
+    <put-attribute name="title" value="상세페이지"></put-attribute>
+    <put-attribute name="body" value="/WEB-INF/menu/read.jsp" />
+    </definition>
+    
+    
+    <definition name="mainpage" extends="main">
+        <put-attribute name="title" value="게시판" />
+        <put-attribute name="body" value="/WEB-INF/menu/list.jsp" /> 
+        
+    </definition> 
+
+	<definition name="join" extends="main">
+        <put-attribute name="title" value="회원가입" />
+        <put-attribute name="body" value="/WEB-INF/menu/join.jsp" />
+    </definition>
+   <!--  <definition name="gesipan_Write" extends="main">
+        <put-attribute name="title" value="글쓰기" />
+        <put-attribute name="body" value="/WEB-INF/menu/gesipan_Write.jsp" />
+    </definition>
+    <definition name="gesipan_review" extends="main">
+        <put-attribute name="title" value="글쓰기" />
+        <put-attribute name="body" value="/WEB-INF/menu/gesipan_review.jsp" />
+    </definition>
+    <definition name="gesipan_reple" extends="main">
+        <put-attribute name="title" value="글쓰기" />
+        <put-attribute name="body" value="/WEB-INF/menu/gesipan_reple.jsp" />
+    </definition>
+    <definition name="gesipan_join" extends="main">
+        <put-attribute name="title" value="회원가입" />
+        <put-attribute name="body" value="/WEB-INF/menu/gesipan_join.jsp" />
+        </definition> -->
+
+
+</tiles-definitions>
+
+    
+ 
