@@ -55,13 +55,7 @@ background-color: #5f5f5f !important;
           </ul>
         </li>
       </ul>
-      <form>
-      	 <div align="right">
-                                   
-			<button type="submit" class="btn btn-success" onclick="" >로그인 하러가기</button>
-		</div>
-		
-     </form>
+      
     </div>
   </div>
 </nav>
