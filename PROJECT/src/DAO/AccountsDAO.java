@@ -54,17 +54,23 @@ public class AccountsDAO {
 		return result;
 	}
 	
-	public String pwd_search(int empno){
-		String pwd = "";
+	public AccountsDTO pwd_search(int empno){
+		AccountsDTO account = null;
 		try{
 			conn = ds.getConnection();
-			String sql = "select pwd from accounts where empno=?";
+			String sql = "select * from accounts where empno=?";
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, empno);
 			
 			rs = ps.executeQuery();
 			if(rs.next()){
-				pwd = rs.getString("pwd");
+				account.setEmpno(rs.getInt("empno"));
+				account.setPwd(rs.getString("pwd"));
+				account.setEmail(rs.getString("email"));
+				account.setAddr(rs.getString("addr"));
+				account.setCelphone(rs.getString("celphone"));
+				account.setP_picture(rs.getString("p_picture"));
+				account.setP_content(rs.getString("p_content"));
 			}
 		}catch(Exception e){
 			e.getStackTrace();
@@ -73,6 +79,6 @@ public class AccountsDAO {
 			if (ps != null)try {ps.close();} catch (Exception e) {}
 			if (conn != null)try {conn.close();} catch (Exception e) {}
 		}
-		return pwd;
+		return account;
 	}
 }
