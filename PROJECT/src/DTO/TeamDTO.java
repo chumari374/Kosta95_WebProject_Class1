@@ -1,9 +1,10 @@
 package DTO;
 
+//====================ÆÀ==========================
 public class TeamDTO {
-	private int teamcode;
-	private String teamname;
-	private int deptcode;
+	private int teamcode;	//ÆÀÄÚµå
+	private String teamname;	//ÆÀÀÌ¸§
+	private int deptcode;	//ºÎ¼­ÄÚµå
 	
 	public TeamDTO() {
 

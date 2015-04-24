@@ -1,16 +1,17 @@
 package DTO;
 
+//====================사원==========================
 public class EmpDTO {
 
-	private int empno;
-	private String ename;
-	private String teamname;
-	private String signcheck;
-	private String msgcheck;
-	private String admin;
-	private int deptcode;
-	private int teamcode;
-	private int grade;
+	private int empno;	//사원번호
+	private String ename;	//이름
+	private String teamname;	//팀명
+	private String signcheck;	//결제확인
+	private String msgcheck;	//쪽지확인
+	private String admin;	//관리자
+	private int deptcode;	//부서코드
+	private int teamcode;	//팀코드
+	private int grade;	//직급코드
 	
 	public EmpDTO(){}
 	
