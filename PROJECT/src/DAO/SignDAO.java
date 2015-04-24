@@ -173,7 +173,8 @@ public class SignDAO {
 
 	// ========== 받은 결재 함========================
 	public List<SignDTO> getGetSignList(int empno, String status) {
-		String getGetSignList_sql = "select * from sign where getsign = ?, status = '?'";
+		String getGetSignList_sql = "select * from sign where getsign = ?, status = '?' "
+								  + "order by SIGNNUM";
 
 		List list = new ArrayList<SignDTO>();
 
