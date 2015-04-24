@@ -9,18 +9,23 @@
 <link type="text/css" rel="stylesheet" href="css/mystyle.css">
 <style>
   body{ 
-          background-image: url("img/2.jpg");
+          background-image: url("img/10.jpg");
           background-size: cover;
           background-repeat: no-repeat;
   }
   .container
   {
-    margin-top: 180px !important;
+    margin-top: 10px !important;
+    margin-left: 33% !important;
+    
   }
   #mainpagetitle {
                      color: white;
                      font-family: 맑은 고딕, 고딕, sans-serif;
                      text-align: center;
+                     float: right;
+                     margin-right: 6%;
+                     margin-bottom: 10%;
   }
 </style>
 <!-- Latest compiled and minified CSS -->
@@ -33,7 +38,7 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="mainpagetitle"><h3>KOSTA 95기 1조 회사 인트라넷 페이지</h3></div>
+<div id="mainpagetitle"><h1><b>KOSTA 95기 1조 회사 인트라넷 페이지</b></h1></div>
 <div class="container">
     <div class="row">
     	<div class="col-md-4 col-md-offset-4">
