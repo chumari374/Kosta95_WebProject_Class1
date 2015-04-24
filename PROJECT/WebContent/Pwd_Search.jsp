@@ -9,6 +9,12 @@
 		table {border:1px solid black}
 		th {text-align: right}
 	</style>
+<!-- 	<script type="text/javascript">
+		/* function pwd_search(){
+			//out.print('<jsp:forward page="pwd_search.ps"></jsp:forward>');
+			location.href="pwd_search.ps";
+		} */
+	</script> -->
 </head>
 <body>
 	<div id="pwd_search_div">
