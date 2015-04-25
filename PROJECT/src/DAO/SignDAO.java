@@ -222,6 +222,62 @@ public class SignDAO {
 		}
 		return null;
 	}
+	
+	// ========== 받은 결재 이건가?=============================
+	
+	public List getGetSignList2(int page, int limit) {
+		String getGetSignList2_sql = "select rownum, signnum, title, content, empno, getsign, ref, step, write_date, status"
+								+ "from sign"
+								+ "where rownum>=? and rownum<=?";
+		
+		List list = new ArrayList();
+		int startrow = (page - 1) * 10 + 1;
+		int endrow = startrow + limit - 1; // 읽을 마지막 row 번호.
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(getGetSignList2_sql);
+			pstmt.setInt(1, startrow); // 11 21 code
+			pstmt.setInt(2, endrow); // 20 30 code
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				SignDTO SignBoard = new SignDTO(); // 한 건의
+				SignBoard.setSignnum(rs.getInt("SIGNNUM"));
+				SignBoard.setStarter(rs.getInt("STARTER"));
+				SignBoard.setEmpno(rs.getInt("EMPNO"));
+				SignBoard.setGetsign(rs.getInt("GETSIGN"));
+				SignBoard.setTitle(rs.getString("TITLE"));
+				SignBoard.setContent(rs.getString("CONTENT"));
+				SignBoard.setWrite_date(rs.getDate("WRITE_DATE"));
+				SignBoard.setRef(rs.getInt("REF"));
+				// SignBoard.setStep(rs.getInt("STEP"));
+				SignBoard.setStatus(rs.getString("STATUS"));
+				list.add(SignBoard); // key point (여러건의 데이터 collection사용)
+			}
+			return list;
+		} catch (Exception ex) {
+			System.out.println("getBoardList 에러 : " + ex);
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+				}
+		}
+		return null;
+
+	}
 
 	// ========== 보낸 결재 함========================
 	public List<SignDTO> getSendSignList(int empno, String status) {
