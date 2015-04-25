@@ -5,20 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기안서 작성</title>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script>
+	$(function(){
+		$("td:first-child").css("background-color","#EFEFEF");
+	});
+</script>
 <style type="text/css">
 table, td, tr {
    border: 1px solid gray;
    border-collapse: collapse;
    width: 800px;
-}
-
-.left {
-   width: 100px;
-   height: 24px;
-   font-size: 13px;
-   text-align: center;
-   vertical-align: middle;
-   background-color: #EAEAEA;
 }
 
 .content {
@@ -61,31 +58,33 @@ table, td, tr {
 </SCRIPT>
 </head>
 <body>
+<form>
+<center>
   <table>
       <tr>
-         <td class="left">문서종류</td>
+         <td>문서종류</td>
          <td>&nbsp;<select><option>선택하세요</option></select></td>
       </tr>
       <tr>
-         <td class="left">부서</td>
+         <td>부서</td>
          <td></td>
       </tr>
         <tr>
-         <td class="left">팀</td>
+         <td>팀</td>
          <td></td>
       </tr>
       <tr>
       </tr>
       <tr>
-         <td class="left">제목</td>
+         <td>제목</td>
          <td></td>
       </tr>
       <tr>
-         <td class="left">파일첨부</td>
-         <td>&nbsp;<input type="button" value="첨부하기"></td>
+         <td>파일첨부</td>
+         <td>&nbsp;<input type="file"></td>
       </tr>
       <tr class="content">
-         <td class="left">내용</td>
+         <td>내용</td>
          <td><textarea rows="10" cols="60" name="content" id="content"></textarea>
             <script type="text/javascript">
                CKEDITOR.replace('content');
@@ -93,13 +92,13 @@ table, td, tr {
          </td>
       </tr>
       <tr>
-         <td class="left">결재자</td>
+         <td>결재자</td>
          <td></td>
       </tr>
    </table>
-   <button>미리보기</button>&nbsp;<button>임시저장</button>&nbsp;<button>작성완료</button>
-
-
+   <button>미리보기</button>&nbsp;<button>임시저장</button>&nbsp;<input type="submit" value="작성완료">
+   </center>
+</form>
 </body>
 </html>
 
