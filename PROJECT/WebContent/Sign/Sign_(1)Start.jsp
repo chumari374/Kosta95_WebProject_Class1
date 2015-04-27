@@ -82,7 +82,7 @@ table, td, tr {
       </tr>
       <tr>
          <td>제목</td>
-         <td></td>
+         <td><input type="text" style="width: 500px"></td>
       </tr>
       <tr>
          <td>파일첨부</td>
