@@ -1,3 +1,4 @@
+<%@page import="DTO.EmpDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!-- 게시판이나 사원검새에서 '사원상제정보보기'를 눌렀을때 나오는 화면 -->
@@ -14,6 +15,9 @@ join grade g
 on e.grade = g.grade
 where e.empno = ?; // 사원번호
  -->
+<% 
+
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
