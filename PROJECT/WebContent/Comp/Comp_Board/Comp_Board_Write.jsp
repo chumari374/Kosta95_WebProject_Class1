@@ -3,6 +3,7 @@
 	String empno = (String)session.getAttribute("empno"); 
 	String ename = (String)session.getAttribute("ename");
 	String teamcode = (String)session.getAttribute("teamcode");
+	String teamname = (String)session.getAttribute("teamname");
 	String deptcode = (String)session.getAttribute("deptcode");
 	String grade = (String)session.getAttribute("grade");
 	
@@ -43,16 +44,18 @@
     }
 	);
 	</script>
+	
 	<script language="javascript">
 	function addboard(){
 		boardform.submit();
 	}
 	</script>
+	
 </head>
 <body>
 <!-- 게시판 등록 -->
-<form action="BoardAddAction.cp" method="post" name="boardform">
-<input type="hidden" name="BOARD_ID" value="<%=ename %>">
+<form action="CompBoardWrite.cp" method="post" name="boardform">
+<input type="hidden" name="BOARD_ID" value="<%=empno %>">
 <table cellpadding="0" cellspacing="0" width="100%">
 	<tr align="center" valign="middle">
 		<td colspan="5"> 사내 게시판</td>
