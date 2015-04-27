@@ -63,7 +63,7 @@ public class CompBoardAddAction implements Action {
 			   		
 			   		System.out.println("게시판 등록 완료");
 			   		
-			   		forward.setRedirect(true);
+			   		forward.setRedirect(false);
 			   		forward.setPath("./Comp/Comp_Board/Comp_Board_List.jsp");
 			   		return forward;
 			   		

@@ -61,7 +61,7 @@
               <ul class="submenu">         
                  <li><a href="#" onclick="ppurija('main');" >공지사항</a></li>          
                  <li><a href="#" onclick="ppurija2('main');" >자료실</a></li>       
-                 <li><a href="#" onclick="ppurija3('main');" >게시판</a></li>    
+                 <li><a href="#" onclick="location.href='<%=request.getContextPath()%>/CompBoardWrite.cp'" >게시판</a></li>    
               </ul>    
          </li>
         
