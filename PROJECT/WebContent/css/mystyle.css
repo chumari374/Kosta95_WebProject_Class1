@@ -9,7 +9,7 @@ html{height: 100%}
 body {height:100%}
 
 body {
-      background-color: #3a5795 !important;
+      background-color: #0469af !important;
 }
 
 header {
@@ -35,13 +35,13 @@ margin-top: 0px;
 margin-left: 10px;
 margin-bottom: 0px;
 float: left;
-background-color: #3a5795;
+background-color: #0469af;
 font-family: ¸¼Àº °íµñ;
 border-left: 1px;
 border-top: 1px;
 border-bottom: 1px;
 border-right: 1px;
-border-color: #3a5795;
+border-color: 0469af;
 border-style: solid;
 font-size: 13px;
 }
@@ -71,7 +71,7 @@ text-indent: 15px;
 }
 
 #leftdiv2 ul li {
-background: #3a5795;;
+background: #0469af;
 line-height: 28px;
 }
 
@@ -88,12 +88,12 @@ font-style: bold;
 }
 
 #leftdiv2 li:hover{
-	background: #3a5795;
+	background: #0469af;
 color: #C1F3FF;
 }
 
 #leftdiv2 ul li#active {
-background: #3a5795;
+background: #0469af;
 }
 
 
@@ -138,7 +138,7 @@ background: #3a5795;
 	text-align: left;
 	font-family: °íµñ, Helvetica, sans-serif;
 	font-style: bold;
-	background-color: #3a5795 !important;
+	background-color: #0469af; !important;
 
 }
 
@@ -153,7 +153,7 @@ width: 81%;
 height: 100%;
 min-height: 90%;
 border-style: solid;
-border-color: #3a5795;
+border-color: #0469af;
 border-width: 1px;
 margin-top: 0px;
 margin-bottom: 0px;
