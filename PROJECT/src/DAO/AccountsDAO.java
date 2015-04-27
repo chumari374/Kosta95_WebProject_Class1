@@ -55,13 +55,13 @@ public class AccountsDAO {
 	}
 	
 	public AccountsDTO pwd_search(int empno){
-		AccountsDTO account = null;
+		AccountsDTO account = new AccountsDTO();
 		try{
 			conn = ds.getConnection();
 			String sql = "select * from accounts where empno=?";
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, empno);
-			
+			System.out.println("µµÂø1");
 			rs = ps.executeQuery();
 			if(rs.next()){
 				account.setEmpno(rs.getInt("empno"));
@@ -71,6 +71,8 @@ public class AccountsDAO {
 				account.setCelphone(rs.getString("celphone"));
 				account.setP_picture(rs.getString("p_picture"));
 				account.setP_content(rs.getString("p_content"));
+				System.out.println("µµÂø2");
+				System.out.println(rs.getInt("empno")+" / "+rs.getString("pwd"));
 			}
 		}catch(Exception e){
 			e.getStackTrace();

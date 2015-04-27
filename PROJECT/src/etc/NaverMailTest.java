@@ -52,7 +52,7 @@ public class NaverMailTest {
         session.setDebug(true); //for debug
           
         Message mimeMessage = new MimeMessage(session);
-        mimeMessage.setFrom(new InternetAddress(account.getEmail()));
+        mimeMessage.setFrom(new InternetAddress("public_kosta@naver.com"));
         mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
         mimeMessage.setSubject(subject);
         mimeMessage.setText(body);

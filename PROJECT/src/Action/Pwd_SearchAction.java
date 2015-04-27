@@ -20,7 +20,7 @@ public class Pwd_SearchAction implements Action{
 		int empno = Integer.parseInt(request.getParameter("empno"));
 		
 		AccountsDTO account = dao.pwd_search(empno);
-		System.out.println("account="+account.toString());
+		System.out.println("account="+account);
 		
 		new NaverMailTest().sendmail(account);
 		
