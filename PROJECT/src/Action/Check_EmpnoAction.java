@@ -22,10 +22,12 @@ public class Check_EmpnoAction implements Action{
 	   		PrintWriter out;
 			try {
 				out = response.getWriter();
-				out.println("<script>");
+				/*out.println("<script>");
 		   		out.println("alert('존재하는 사원번호입니다.');");
 		   		out.println("history.go(-1);");
-		   		out.println("</script>");
+		   		out.println("</script>");*/
+		   		
+		   		
 		   		out.close();
 		   		return null;
 			} catch (IOException e) {
@@ -37,10 +39,13 @@ public class Check_EmpnoAction implements Action{
 	   		PrintWriter out;
 			try {
 				out = response.getWriter();
-				out.println("<script>");
+				/*out.println("<script>");
 		   		out.println("alert('사용 가능한 사원번호입니다.');");
 		   		out.println("history.go(-1);");
-		   		out.println("</script>");
+		   		out.println("</script>");*/
+
+		   		out.println(empno);
+		   		
 		   		out.close();
 		   		return null;
 			} catch (IOException e) {

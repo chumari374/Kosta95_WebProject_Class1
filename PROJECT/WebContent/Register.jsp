@@ -23,13 +23,14 @@
 	<script type="text/javascript">
 		$(function(){
 			$('#checkEmpno').click(function(){
-				var length = $('#empno').val().length;
+				open('Popup_Empno.jsp', 'checkEmpno', 'width=500 height=200');
+				/* var length = $('#empno').val().length;
 				if(length==0){
 					alert('입력하세요');
 					return false;
 				}
 				document.registerForm.action='empnoCheck.ad';
-				document.registerForm.submit();
+				document.registerForm.submit(); */
 			});
 			
 			$('#checkEmail').click(function(){
@@ -43,6 +44,13 @@
 			});
 			
 			$('#registerOk').click(function(){
+				var pwd = $('#pwd').val();
+				var pwd2 = $('#pwd2').val();
+				
+				if(pwd2!=pwd){
+					alert('비밀번호 확인이 맞지 않습니다');
+					return false;
+				}
 				document.registerForm.action='register_Ok.ad';
 				document.registerForm.submit();
 			});
@@ -61,7 +69,7 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-8">
 					<div class="form-group">
-                        <input type="text" name="empno" id="empno" class="form-control input-lg" placeholder="사원번호" tabindex="1">
+                        <input type="text" name="empno" id="empno" class="form-control input-lg" placeholder="사원번호" tabindex="1" readonly="readonly">
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-4">

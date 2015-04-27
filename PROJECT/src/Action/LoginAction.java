@@ -18,6 +18,7 @@ public class LoginAction implements Action{
 		AccountsDAO dao = new AccountsDAO();
 		
 		int empno = Integer.parseInt(request.getParameter("empno"));
+		System.out.println("empno/"+empno);
 		String pwd = request.getParameter("pwd");
 		boolean loginCheck = dao.loginCheck(empno, pwd);
 		
