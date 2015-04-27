@@ -87,7 +87,7 @@
 			<div align="center">내 용</div>
 		</td>
 		<td>
-			<textarea class="ckeditor" id="content" name="content" name="BOARD_CONTENT" cols="80" rows="15"></textarea>
+			<textarea class="ckeditor" id="content" name="BOARD_CONTENT" cols="80" rows="15"></textarea>
 			
 		</td>
 	</tr>

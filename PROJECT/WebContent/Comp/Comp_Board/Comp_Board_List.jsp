@@ -63,7 +63,7 @@
 		</tr>
 		<tr>
 			<td colspan="4" align="center"> &lt; 1 2 3 4 5 6 7 8 9 10 &gt; </td>
-			<td align="center"><input type="button" value="글쓰기"></td>
+			<td align="center"><input type="button" value="글쓰기" onclick="location.href='<%=request.getContextPath()%>/CompBoardWrite.cp'"></td>
 		</tr>
 	</table>
 </body>
