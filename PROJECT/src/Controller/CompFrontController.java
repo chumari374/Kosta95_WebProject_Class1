@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import Action.Action;
 import Action.ActionForward;
 import Action.Comp.CompBoardAddAction;
+import Action.Comp.CompBoardDetailAction;
 
 @WebServlet("*.cp")
 public class CompFrontController extends HttpServlet {
@@ -30,16 +31,46 @@ public class CompFrontController extends HttpServlet {
 	 ActionForward forward=null;
 	 Action action=null;
 	   
-	   if(command.equals("/CompBoardList.cp")){
+	   if(command.equals("/CompBoardList.cp")){//리스트페이지
 		   forward=new ActionForward();
 		   forward.setRedirect(false);
 		   forward.setPath("./Comp/Comp_Board/Comp_Board_List.jsp");
-	   }else if(command.equals("/CompBoardWrite.cp")){
+	   }else if(command.equals("/CompBoardWrite.cp")){//쓰기페이지
 		   forward=new ActionForward();
-		   forward.setRedirect(false);
+		   forward.setRedirect(true);
 		   forward.setPath("./Comp/Comp_Board/Comp_Board_Write.jsp");
 	   }else if(command.equals("/CompBoardWriteOk.cp")){
 		   	action = new CompBoardAddAction();
+		   try{
+			   forward=action.execute(request, response);
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
+	   }else if(command.equals("/CompBoardDetail.cp")){//상세페이지
+		   	action = new CompBoardDetailAction();
+		   try{
+			   forward=action.execute(request, response);
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
+	   }else if(command.equals("/CompBoardReplyAction.cp")){//답변페이지
+		   	action = new CompBoardDetailAction();
+		   try{
+			   forward=action.execute(request, response);
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
+	   }
+	   else if(command.equals("CompBoardModify.cp")){//수정
+		   	action = new CompBoardDetailAction();
+		   try{
+			   forward=action.execute(request, response);
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
+	   }
+	   else if(command.equals("/CompBoardDeleteAction.cp")){//삭제
+		   	action = new CompBoardDetailAction();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
