@@ -15,6 +15,8 @@ import org.apache.catalina.Session;
 import org.apache.catalina.connector.Request;
 import org.apache.catalina.connector.Response;
 
+import com.sun.xml.internal.ws.api.ha.StickyFeature;
+
 import DTO.SignDTO;
 
 public class SignDAO {
@@ -37,9 +39,10 @@ public class SignDAO {
 	// ========== 결재문서작성에서 결재받는사람 표시==
 	public List getInfoList(int grade, int deptcode, int teamcode) {
 		
+		
 		String getDeptName_sql = "select deptname from dept where deptcode = ?";
 		String getTeamName_sql = "select teamname from team where teamcode = ?";
-		String getGetSign_sql = "select e.ename, g.gradename from emp e join grade g "
+		String getGetSign_sql = "select e.ename, g.gradename, e.empno from emp e join grade g "
 							  + " on e.grade = g.grade where ";
 
 		String[] searchGS = { "e.GRADE = ?", " and e.DEPTCODE = ?",
@@ -91,6 +94,8 @@ public class SignDAO {
 					while (rs.next()) {
 						infoList.add((rs.getString("ENAME") + " " + rs
 								.getString("GRADENAME")));
+						infoList.add(rs.getString("empno"));
+						
 						
 						return infoList;
 					}
@@ -123,58 +128,40 @@ public class SignDAO {
 		return infoList;
 	}
 
-	// ========== 결재문서 작성(기안,상부보고)========
-	public boolean Sign(SignDTO sign, int grade, int deptcode, int teamcode) {
+	// ========== 결재문서 작성(기안, 상부 보고)========
+	public boolean SignStart(SignDTO sign) {
 
-		String getGetSign_sql = "select empno from emp where";
-
-		String[] searchGS = { "e.grade = ?" + ", deptcode = ?",
-				", teamname = '?'" };
-
-		int getSign = 0;
-
-		int getSignNum = 0;
-
+		
 		try {
 			conn = ds.getConnection();
-
-			for (int i = 0;; i++) {
-
-				getGetSign_sql = getGetSign_sql + searchGS[i];
-				pstmt = conn.prepareStatement(getGetSign_sql);
-
-				pstmt.setInt(1, grade - 1); // 내 직급등급의 - 1
-				pstmt.setInt(2, deptcode); // 내 부서
-				pstmt.setInt(3, teamcode); // 내 팀
-
-				rs = pstmt.executeQuery();
-
-				if (rs.getRow() != 1) {
-					getSign = rs.getInt(1);
-					break;
-				}
-			}
-
-			String getSignNum_sql = "select max(signnum) from sign";
-			pstmt = conn.prepareStatement(getSignNum_sql);
+			
+			int getMax = 0;			
+			
+			pstmt = conn.prepareStatement("select max(signnum) from sign");
 			rs = pstmt.executeQuery();
-
-			getSignNum = rs.getInt(1);
-
-			String startSign_sql = "insert into sign (Signnum, starter, empno, getsign, title, content"
-					+ "write_date, ref, step, status) values(SIGNNUM_seq.nextval,?,?,?,?,?,sysdate,?,?,?)";
+			while(rs.next()){
+				getMax = rs.getInt(1) + 1;
+			}
+			
+			String startSign_sql = "insert into sign (signnum, starter, empno, getsign, title, content"
+					+ "write_date, ref, step, status) values(?,?,?,?,?,?,sysdate,?,?,?)";
 
 			pstmt = conn.prepareStatement(startSign_sql);
 
-			pstmt.setInt(1, sign.getStarter()); // 기안자
-			pstmt.setInt(2, sign.getEmpno()); // 내 사번
-			pstmt.setInt(3, getSign);
-			pstmt.setString(4, sign.getTitle());
-			pstmt.setString(5, sign.getContent());
+			pstmt.setInt(1, getMax);
+			pstmt.setInt(2, sign.getStarter()); // 기안자
+			pstmt.setInt(3, sign.getEmpno()); // 내 사번
+			pstmt.setInt(4, sign.getSignnum());
+			pstmt.setString(5, sign.getTitle());
+			pstmt.setString(6, sign.getContent());
 			// sysdate
-			pstmt.setInt(6, sign.getRef());
-			pstmt.setInt(7, sign.getStep());
-			pstmt.setString(8, sign.getStatus());
+			if(sign.getRef() == 0){
+				pstmt.setInt(7, getMax);
+			} else {
+				pstmt.setInt(7, sign.getRef());
+			}
+			pstmt.setInt(8, sign.getStep());
+			pstmt.setString(9, sign.getStatus());
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -200,9 +187,8 @@ public class SignDAO {
 
 		return false;
 	}
-
+	
 	// ========== 받은 결재 함=============================
-
 	public List getGetSignList(int empno, int page, int limit, String status) {
 		String getGetSignList_sql = "select rownum, signnum, title, content, empno, getsign, ref, step, write_date, status"
 				+ "from sign"
