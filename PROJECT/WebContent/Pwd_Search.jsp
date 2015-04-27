@@ -9,16 +9,19 @@
 		table {border:1px solid black}
 		th {text-align: right}
 	</style>
-<!-- 	<script type="text/javascript">
-		/* function pwd_search(){
-			//out.print('<jsp:forward page="pwd_search.ps"></jsp:forward>');
-			location.href="pwd_search.ps";
-		} */
-	</script> -->
+	<script type="text/javascript">
+		window.onload = function(){
+			document.getElementById("pwd_search_ok").onclick = function(){
+				//location.href = "pwd_search.ps";
+			}
+		}
+		
+	</script>
 </head>
 <body>
 	<div id="pwd_search_div">
 		비밀번호 찾기
+		<form action="pwd_search.ps">
 		<table id="pwd_search_table">
 			<tr>
 				<th>사원번호</th>
@@ -31,11 +34,12 @@
 			<tr>
 				<td></td>
 				<td>
-					<input type="button" id="pwd_search_ok" value="찾기" onclick="">
+					<input type="submit" id="pwd_search_ok" value="찾기">
 					<input type="button" id="pwd_search_cancel" value="취소" onclick="">
 				</td>
 			</tr>
 		</table>
+		</form>
 	</div>
 </body>
 </html>

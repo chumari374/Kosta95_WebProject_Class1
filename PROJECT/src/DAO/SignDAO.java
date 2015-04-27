@@ -170,21 +170,27 @@ public class SignDAO {
 
 		return false;
 	}
-
-	// ========== 받은 결재 함========================
-	public List<SignDTO> getGetSignList(int empno, String status) {
-		String getGetSignList_sql = "select * from sign where getsign = ?, status = '?' "
-								  + "order by SIGNNUM";
-
-		List list = new ArrayList<SignDTO>();
-
+	
+	// ========== 받은 결재 이건가?=============================
+	
+	public List getGetSignList(int empno, int page, int limit, String status) {
+		String getGetSignList_sql = "select rownum, signnum, title, content, empno, getsign, ref, step, write_date, status"
+								+ "from sign"
+								+ "where getsign = ? and rownum>=? and rownum<=? and status = '?'";
+		
+		List list = new ArrayList();
+		int startrow = (page - 1) * 10 + 1;
+		int endrow = startrow + limit - 1; // 읽을 마지막 row 번호.
+		
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(getGetSignList_sql);
 			pstmt.setInt(1, empno);
-			pstmt.setString(2, status);
+			pstmt.setInt(2, startrow); // 11 21 code
+			pstmt.setInt(3, endrow); // 20 30 code
+			pstmt.setString(4, status);
 			rs = pstmt.executeQuery();
-
+			
 			while (rs.next()) {
 				SignDTO SignBoard = new SignDTO(); // 한 건의
 				SignBoard.setSignnum(rs.getInt("SIGNNUM"));
@@ -199,10 +205,9 @@ public class SignDAO {
 				SignBoard.setStatus(rs.getString("STATUS"));
 				list.add(SignBoard); // key point (여러건의 데이터 collection사용)
 			}
-
 			return list;
 		} catch (Exception ex) {
-			System.out.println("SignBoard 에러 : " + ex);
+			System.out.println("getBoardList 에러 : " + ex);
 		} finally {
 			if (rs != null)
 				try {
@@ -221,21 +226,28 @@ public class SignDAO {
 				}
 		}
 		return null;
+
 	}
 
 	// ========== 보낸 결재 함========================
-	public List<SignDTO> getSendSignList(int empno, String status) {
-		String getGetSignList_sql = "select * from sign where empno = ?, status = '?'";
-
-		List list = new ArrayList<SignDTO>();
-
+	public List getSendSignList(int empno, String status, int page, int limit) {
+		String getSendSignList_sql = "select rownum, signnum, title, content, empno, getsign, ref, step, write_date, status"
+								+ "from sign"
+								+ "where empno = ? and rownum>=? and rownum<=? and status = '?'";
+		
+		List list = new ArrayList();
+		int startrow = (page - 1) * 10 + 1;
+		int endrow = startrow + limit - 1; // 읽을 마지막 row 번호.
+		
 		try {
 			conn = ds.getConnection();
-			pstmt = conn.prepareStatement(getGetSignList_sql);
+			pstmt = conn.prepareStatement(getSendSignList_sql);
 			pstmt.setInt(1, empno);
-			pstmt.setString(2, status);
+			pstmt.setInt(2, startrow); // 11 21 code
+			pstmt.setInt(3, endrow); // 20 30 code
+			pstmt.setString(4, status);
 			rs = pstmt.executeQuery();
-
+			
 			while (rs.next()) {
 				SignDTO SignBoard = new SignDTO(); // 한 건의
 				SignBoard.setSignnum(rs.getInt("SIGNNUM"));
@@ -250,10 +262,9 @@ public class SignDAO {
 				SignBoard.setStatus(rs.getString("STATUS"));
 				list.add(SignBoard); // key point (여러건의 데이터 collection사용)
 			}
-
 			return list;
 		} catch (Exception ex) {
-			System.out.println("SignBoard 에러 : " + ex);
+			System.out.println("getBoardList 에러 : " + ex);
 		} finally {
 			if (rs != null)
 				try {
@@ -272,10 +283,10 @@ public class SignDAO {
 				}
 		}
 		return null;
+
 	}
 	
 	// ======== 글의 갯수 구하는 함수 =========================================
-	
 	public int getSignListCount() {
 		int rowcount = 0;
 		try {

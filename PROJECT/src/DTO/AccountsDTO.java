@@ -78,6 +78,13 @@ public class AccountsDTO {
 	public void setP_content(String p_content) {
 		this.p_content = p_content;
 	}
+
+	@Override
+	public String toString() {
+		return "AccountsDTO [empno=" + empno + ", pwd=" + pwd + ", email="
+				+ email + ", addr=" + addr + ", celphone=" + celphone
+				+ ", p_picture=" + p_picture + ", p_content=" + p_content + "]";
+	}
 	
 	
 }

@@ -31,12 +31,12 @@
 			<h2>회원가입 <small>환영합니다</small></h2>
 			<hr class="colorgraph">
 			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-6">
+				<div class="col-xs-12 col-sm-6 col-md-8">
 					<div class="form-group">
                         <input type="text" name="empno" id="empno" class="form-control input-lg" placeholder="사원번호" tabindex="1">
 					</div>
 				</div>
-				<div class="col-xs-12 col-sm-6 col-md-6">
+				<div class="col-xs-12 col-sm-6 col-md-4">
 				<input class="btn btn-lg btn-danger btn-block" type="submit" value="중복확인">
 				</div>
 			</div>
