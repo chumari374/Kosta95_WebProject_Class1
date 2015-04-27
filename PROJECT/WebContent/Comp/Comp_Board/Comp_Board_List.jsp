@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
-<!-- »ç³»°Ô½ÃÆÇ ÆäÀÌÁö -->
+    pageEncoding="UTF-8"%>
+<!-- ì‚¬ë‚´ê²Œì‹œíŒ íŽ˜ì´ì§€ -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,28 +25,28 @@
                          <tr>
 			<td colspan="5" align="right">
 				<select>
-					<option>Á¦¸ñ</option>
-					<option>³»¿ë</option>
-					<option>ÀÛ¼ºÀÚ</option>
+					<option>ì œëª©</option>
+					<option>ë‚´ìš©</option>
+					<option>ìž‘ì„±ìž</option>
 				</select>
 				&nbsp;
 				<input type="text">
 				&nbsp;
-				<input type="button" value="°Ë»ö">
+				<input type="button" value="ê²€ìƒ‰">
 			</td>
 		</tr>
                     </thead>
                     <tbody>
                       <tr>
-                           <td>±Û¹øÈ£</td>
-                           <td>Á¦¸ñ</td>
-                           <td>ÀÛ¼ºÀÚ</td>
-                           <td>ÀÛ¼ºÀÏ</td>
-                           <td>Á¶È¸¼ö</td>
+                           <td>ê¸€ë²ˆí˜¸</td>
+                           <td>ì œëª©</td>
+                           <td>ìž‘ì„±ìž</td>
+                           <td>ìž‘ì„±ì¼</td>
+                           <td>ì¡°íšŒìˆ˜</td>
                         </tr>
                        
-		<!-- µ¿ÀûÀ¸·Î ±¸¼º -->
-		<!-- WebJSP7_BasicBoard > board_list.jsp Âü°í -->
+		<!-- ë™ì ìœ¼ë¡œ êµ¬ì„± -->
+		<!-- WebJSP7_BasicBoard > board_list.jsp ì°¸ê³  -->
 		<tr>
 				<td></td>
                 <td></td>
@@ -70,7 +70,7 @@
 		</tr>
 		<tr>
 			<td colspan="4" align="center"> &lt; 1 2 3 4 5 6 7 8 9 10 &gt; </td>
-			<td align="center"><input type="button" value="±Û¾²±â" onclick="location.href='<%=request.getContextPath()%>/CompBoardWrite.cp'"></td>
+			<td align="center"><input type="button" value="ê¸€ì“°ê¸°" onclick="location.href='<%=request.getContextPath()%>/CompBoardWrite.cp'"></td>
 		</tr>
                     </tbody>
 	
