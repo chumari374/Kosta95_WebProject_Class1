@@ -33,7 +33,10 @@ public class SignFrontController extends HttpServlet {
 	
 	private void Process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String RequestURI = request.getRequestURI();
-		String ContextPath = request.getContextPath();
+		String ContextPath = request.getContextPath() + "/Sign";
+		
+		System.out.println(RequestURI);
+		System.out.println(ContextPath);
 		
 		String command = RequestURI.substring(ContextPath.length()); // 슬래쉬 전까지 자른다
 		
@@ -48,7 +51,7 @@ public class SignFrontController extends HttpServlet {
 		Action action = null;
 		
 		// 받은결재함
-		if(command.equals("Sign/getSignList.hong")) {
+		if(command.equals("/getSignList.hong")) {
 			// System.out.println("getsignlist Display");
 			action = new GetSignListAction(); // action에 어떤 함수를 쓸껀지 쓰는것 마다 만들어 준다
 			// action 객체 변수 ....
@@ -62,13 +65,13 @@ public class SignFrontController extends HttpServlet {
 		}
 		
 		// 결재문서 작성
-		else if(command.equals("Sign/SignWrite.hong")) {
+		else if(command.equals("/SignWrite.hong")) {
 			forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("Sign_(1)Start.jsp");
 			System.out.println("redirect : " + forward.getPath());
 		}
-		else if(command.equals("Sign/SignAddAction.hong")) {
+		else if(command.equals("/SignAddAction.hong")) {
 			System.out.println("SignWriteBefore");
 			
 			action = new SignAddAction();
