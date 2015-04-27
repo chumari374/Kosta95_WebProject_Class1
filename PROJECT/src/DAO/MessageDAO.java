@@ -12,7 +12,6 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import DTO.MessageDTO;
-import DTO.SignDTO;
 
 public class MessageDAO {
 	
