@@ -1,16 +1,21 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="DAO.SignDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	SignDAO sign = new SignDAO();
-	String getSign = sign.getGetSignName(4, 110, 1101);
+	ArrayList infoList = (ArrayList)sign.getInfoList(4, 110, 1101);
+	
+	String deptname = (String)infoList.get(0);
+	String teamname = (String)infoList.get(1);
+	String getSign = (String)infoList.get(2);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기안서 작성</title>
-<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://icode.jquery.com/jquery-1.11.2.min.js"></script>
 <script>
 	$(function(){
 		$("td:first-child").css("background-color","#EFEFEF");
@@ -72,11 +77,11 @@ table, td, tr {
       </tr>
       <tr>
          <td>부서</td>
-         <td></td>
+         <td><%=deptname %></td>
       </tr>
         <tr>
          <td>팀</td>
-         <td></td>
+         <td><%=teamname %></td>
       </tr>
       <tr>
       </tr>

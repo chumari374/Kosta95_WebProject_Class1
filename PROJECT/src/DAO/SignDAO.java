@@ -35,17 +35,38 @@ public class SignDAO {
 	}
 
 	// ========== 결재문서작성에서 결재받는사람 표시==
-	public String getGetSignName(int grade, int deptcode, int teamcode) {
-
-		String getGetSign_sql = "select e.ename, g.gradename"
-				+ " from emp e join grade g on e.grade = g.grade where ";
+	public List getInfoList(int grade, int deptcode, int teamcode) {
+		
+		String getDeptName_sql = "select deptname from dept where deptcode = ?";
+		String getTeamName_sql = "select teamname from team where teamcode = ?";
+		String getGetSign_sql = "select e.ename, g.gradename from emp e join grade g "
+							  + " on e.grade = g.grade where ";
 
 		String[] searchGS = { "e.GRADE = ?", " and e.DEPTCODE = ?",
 				" and e.TEAMCODE = ?" };
+		
+		List infoList = new ArrayList<String>();
+		
 		System.out.println("도착1");
 		try {
 			conn = ds.getConnection();
-
+			
+			pstmt = conn.prepareStatement(getDeptName_sql);
+			pstmt.setInt(1, deptcode);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				infoList.add(rs.getString(1));
+			}			
+			
+			pstmt = conn.prepareStatement(getTeamName_sql);
+			pstmt.setInt(1, teamcode);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				infoList.add(rs.getString(1));
+			}	
+			
 			for (int i = 0;; i++) {
 				getGetSign_sql = getGetSign_sql + searchGS[i];
 
@@ -68,10 +89,10 @@ public class SignDAO {
 				
 				if (rs.getRow() == 0) {
 					while (rs.next()) {
-						String getGetSignName = (rs.getString("ENAME") + " " + rs
-								.getString("GRADENAME"));
-						System.out.println(getGetSignName);
-						return getGetSignName;
+						infoList.add((rs.getString("ENAME") + " " + rs
+								.getString("GRADENAME")));
+						
+						return infoList;
 					}
 				}
 			}
@@ -99,7 +120,7 @@ public class SignDAO {
 				}
 		}
 
-		return null;
+		return infoList;
 	}
 
 	// ========== 결재문서 작성(기안,상부보고)========
