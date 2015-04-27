@@ -3,7 +3,7 @@ window.onload = function() {
 
 	getip();
 	getEname();
-	var ws = new WebSocket("ws://192.168.7.155:8070");
+	var ws = new WebSocket("ws://192.168.7.235:8070");
 	console.log(ws);
 	
 	var clientCount = function(count){

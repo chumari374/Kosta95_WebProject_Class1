@@ -3,7 +3,7 @@ var WebSocket = require('faye-websocket'), //websocket 요구
 	http = require('http'), 
 	server = http.createServer(), //서버를 생성
 	clients = new Array(); //클라이언트를 넣을 배열 
-var team1 = ["192.168.7.155","192.168.7.174","192.168.7.107","192.168.7.209"]
+var team1 = ["192.168.7.235","192.168.7.192","192.168.7.237","192.168.7.209"]
 
 //리스너 추가
 server.addListener('upgrade', function(request, socket, head) {
