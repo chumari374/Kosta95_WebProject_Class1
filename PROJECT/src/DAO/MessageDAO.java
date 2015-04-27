@@ -64,6 +64,38 @@ public class MessageDAO {
 		return null;
 	}
 	
+	// 메세지 내용보기
+	public MessageDTO getMessageDetail(int num){
+		
+		MessageDTO message = null;
+		
+		try{
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement("select * from message where msgnum = ?");
+			pstmt.setInt(1, num);
+			
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()){
+				message = new MessageDTO();
+				message.setMsgnum(rs.getInt("MSGNUM"));
+				message.setEmpno(rs.getInt("EMPNO"));
+				message.setTitle(rs.getString("TITLE"));
+				message.setContent(rs.getString("CONTENT"));
+				message.setFilepath(rs.getString("FILEPATH"));
+				message.setSendempno(rs.getInt("SENDEMPNO"));
+			}
+			return message;
+		}catch(Exception ex){
+			System.out.println("getMessageDetail 에러 : " + ex);
+		}finally{
+			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(pstmt !=null)try{pstmt.close();}catch(SQLException ex){}
+			if(conn !=null)try{conn.close();}catch(SQLException ex){}
+		}
+		return null;
+	}
+	
 	// 메세지 작성
 	public boolean MessageWrite(MessageDTO MessageBoard){
 		
@@ -106,6 +138,33 @@ public class MessageDAO {
 			if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}
 			if (conn != null) try { conn.close(); } catch (SQLException ex) {}
 		}
+		return false;
+	}
+	
+	//메세지 삭제
+	public boolean messageDelete(int num){
+		
+		String messageDelete_sql = "delete from message where msgnum=?";
+		
+		int result=0;
+		
+		try{
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(messageDelete_sql);
+			pstmt.setInt(1, num);
+			result=pstmt.executeUpdate();
+			if(result==0)return false;
+			
+			return true;
+		}catch(Exception ex){
+			System.out.println("messageDelete 에러 : "+ex);
+		}finally{
+			try{
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			}catch(Exception ex) {}
+		}
+		
 		return false;
 	}
 }
