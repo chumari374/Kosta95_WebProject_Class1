@@ -1,5 +1,10 @@
+<%@page import="DAO.SignDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	SignDAO sign = new SignDAO();
+	String getSign = sign.getGetSignName(4, 110, 1101);
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -93,7 +98,7 @@ table, td, tr {
       </tr>
       <tr>
          <td>결재자</td>
-         <td></td>
+         <td><%=getSign %></td>
       </tr>
    </table>
    <button>미리보기</button>&nbsp;<button>임시저장</button>&nbsp;<input type="submit" value="작성완료">
@@ -101,4 +106,3 @@ table, td, tr {
 </form>
 </body>
 </html>
-
