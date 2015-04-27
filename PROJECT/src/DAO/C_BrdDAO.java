@@ -150,8 +150,8 @@ public class C_BrdDAO {
 				num = 1;
 
 			sql = "insert into c_brd (NUM, EMPNO, TITLE,";
-			sql += "CONTENT, NOTICE, WRITE_DATE, REF, DPTH, STEP)"
-					+ "values(?,?,?,?,?,?,?,?,?)";
+			sql += "CONTENT, NOTICE, WRITE_DATE, REF, DPTH, STEP , ENAME , COUNT)"
+					+ "values(?,?,?,?,?,?,?,?,?,?,?)";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
