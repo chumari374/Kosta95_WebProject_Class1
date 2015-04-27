@@ -60,12 +60,12 @@ font-size: 15px;
 color: white;
 list-style: none;
 text-indent: 15px;
+
 }
 
 #leftdiv2 ul li {
-background: #3a5795;
+background: #3a5795;;
 line-height: 28px;
-border-bottom: 0px solid white;
 }
 
 #leftdiv2 ul li a {
@@ -75,8 +75,14 @@ display: block;
 }
 
 #leftdiv2 ul li a:hover {
-background: #F6F6F6;
-color: #3a5795;
+background: white;
+font-style: bold;
+ color: #2BA5BA; 
+}
+
+#leftdiv2 li:hover{
+	background: #3a5795;
+color: #5CD1E5;
 }
 
 #leftdiv2 ul li#active {
@@ -87,7 +93,7 @@ background: #3a5795;
                                             
                      .menu:hover {      }         /* 마우스 오버 시 아이콘 스타일 지정 */         
                                           
-                      #leftdiv2 li:hover .submenu{    display: block;      /*visivilty:visible ;*/    
+                      #leftdiv2 li:hover .submenu{    font-size: 12px; display: block;      /*visivilty:visible ;*/    
                               -webkit-animation: fadeIn 0.2s ease-in;    }                         
 
                       /* 서브 메뉴 컨테이너 스타일 지정*/    
@@ -124,6 +130,9 @@ background: #3a5795;
 	margin: 10px;
 	text-align: left;
 	font-family: 고딕, Helvetica, sans-serif;
+	font-style: bold;
+	background-color: #3a5795 !important;
+
 }
 
 #main {
