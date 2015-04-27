@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!-- 메인페이지 -->
+<%
+	Object empno = session.getAttribute("empno");
+	Object ename = session.getAttribute("ename");
+	String session_val = empno+"/"+ename;
+	
+	out.print("<script>");
+	out.print("console.log('"+session_val+"')");
+	out.print("</script>");
+%>
 <!DOCTYPE HTML>
 <HTML>
 <HEAD>
@@ -20,6 +29,7 @@ background-color: #5f5f5f !important;
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 </HEAD>
 
 <BODY>

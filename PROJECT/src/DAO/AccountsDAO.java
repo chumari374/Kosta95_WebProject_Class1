@@ -11,7 +11,9 @@ import javax.sql.DataSource;
 
 
 
+
 import DTO.AccountsDTO;
+import DTO.EmpDTO;
 
 
 public class AccountsDAO {
@@ -110,7 +112,7 @@ public class AccountsDAO {
 		boolean isExistEmpno = false;
 		try {
 			conn = ds.getConnection();
-			String sql = "select empno from emp";
+			String sql = "select empno from accounts";
 			ps = conn.prepareStatement(sql);
 			
 			rs = ps.executeQuery();
@@ -151,5 +153,56 @@ public class AccountsDAO {
 			if (conn != null)try {conn.close();} catch (Exception e) {}
 		}
 		return isExistEmail;
+	}
+	
+	public boolean loginCheck(int empno,String pwd){
+		boolean loginCheck = false;
+		try {
+			conn = ds.getConnection();
+			String sql = "select pwd from accounts where empno=?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, empno);
+			
+			rs = ps.executeQuery();
+			if(rs.next()){
+				if(rs.getString("pwd").equals(pwd)){
+					loginCheck = true;
+				}
+			}
+		}catch(Exception e){
+			e.getStackTrace();
+		}finally{
+			if (rs != null)try {rs.close();} catch (Exception e) {}
+			if (ps != null)try {ps.close();} catch (Exception e) {}
+			if (conn != null)try {conn.close();} catch (Exception e) {}
+		}
+		return loginCheck;
+	}
+	
+	public EmpDTO getEmp(int empno){
+		EmpDTO emp = new EmpDTO();
+		try{
+			conn = ds.getConnection();
+			String sql = "select empno,ename,teamcode,teamname,deptcode,grade from emp where empno=?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, empno);
+			
+			rs = ps.executeQuery();
+			if(rs.next()){
+				emp.setEmpno(rs.getInt("empno"));
+				emp.setEname(rs.getString("ename"));
+				emp.setTeamcode(rs.getInt("teamcode"));
+				emp.setTeamname(rs.getString("teamname"));
+				emp.setDeptcode(rs.getInt("deptcode"));
+				emp.setGrade(rs.getInt("grade"));
+			}
+		}catch(Exception e){
+			e.getStackTrace();
+		}finally{
+			if (rs != null)try {rs.close();} catch (Exception e) {}
+			if (ps != null)try {ps.close();} catch (Exception e) {}
+			if (conn != null)try {conn.close();} catch (Exception e) {}
+		}
+		return emp;
 	}
 }
