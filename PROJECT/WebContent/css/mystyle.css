@@ -83,6 +83,22 @@ color: #3a5795;
 background: #3a5795;
 }
 
+
+                                            
+                     .menu:hover {      }         /* 마우스 오버 시 아이콘 스타일 지정 */         
+                                          
+                      #leftdiv2 li:hover .submenu{    display: block;      /*visivilty:visible ;*/    
+                              -webkit-animation: fadeIn 0.2s ease-in;    }                         
+
+                      /* 서브 메뉴 컨테이너 스타일 지정*/    
+                      .submenu{ /*visivilty:hidden;    opacity: 0;*/  display:none;
+                                 
+                                                
+                     }               
+                                  
+
+
+
 #leftdiv1 {
 	
 	width: 90%;
@@ -196,3 +212,9 @@ height: 50px;
 clear: both;
 }
 }
+
+
+
+
+   
+                                             
