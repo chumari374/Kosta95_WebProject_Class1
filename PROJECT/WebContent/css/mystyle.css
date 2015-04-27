@@ -53,6 +53,13 @@ font-size: 20px;
 color: white;
 }
 
+#left h4:hover {
+text-align: center;
+font-family: °íµñ, Helvetica, sans-serif;
+font-size: 20px;
+color: #C1F3FF;
+}
+
 #leftdiv2 ul {
 text-align: left;
 font-family: Arial, Helvetica, sans-serif;
