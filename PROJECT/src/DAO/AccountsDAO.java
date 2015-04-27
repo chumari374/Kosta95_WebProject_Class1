@@ -3,10 +3,12 @@ package DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
 
 
 import DTO.AccountsDTO;
@@ -61,7 +63,7 @@ public class AccountsDAO {
 			String sql = "select * from accounts where empno=?";
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, empno);
-			System.out.println("µµÂø1");
+			
 			rs = ps.executeQuery();
 			if(rs.next()){
 				account.setEmpno(rs.getInt("empno"));
@@ -71,8 +73,6 @@ public class AccountsDAO {
 				account.setCelphone(rs.getString("celphone"));
 				account.setP_picture(rs.getString("p_picture"));
 				account.setP_content(rs.getString("p_content"));
-				System.out.println("µµÂø2");
-				System.out.println(rs.getInt("empno")+" / "+rs.getString("pwd"));
 			}
 		}catch(Exception e){
 			e.getStackTrace();
@@ -82,5 +82,27 @@ public class AccountsDAO {
 			if (conn != null)try {conn.close();} catch (Exception e) {}
 		}
 		return account;
+	}
+	
+	public boolean isEmail(int empno,String email){
+		boolean isEmail = false;
+		try {
+			conn = ds.getConnection();
+			String sql = "select empno, email from accounts where empno=?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, empno);
+			
+			rs = ps.executeQuery();
+			if(rs.next()){
+				isEmail = rs.getString("email").equals(email) ? true:false;
+			}
+		}catch(Exception e){
+			e.getStackTrace();
+		}finally{
+			if (rs != null)try {rs.close();} catch (Exception e) {}
+			if (ps != null)try {ps.close();} catch (Exception e) {}
+			if (conn != null)try {conn.close();} catch (Exception e) {}
+		}
+		return isEmail;
 	}
 }
