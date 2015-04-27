@@ -23,7 +23,7 @@ public class CompFrontController extends HttpServlet {
     
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
    	 
-    	request.setCharacterEncoding("UTF-8");
+     request.setCharacterEncoding("UTF-8");
      String RequestURI=request.getRequestURI();
 	 String contextPath=request.getContextPath();
 	 String command=RequestURI.substring(contextPath.length());
@@ -35,6 +35,10 @@ public class CompFrontController extends HttpServlet {
 		   forward.setRedirect(false);
 		   forward.setPath("./Comp/Comp_Board/Comp_Board_List.jsp");
 	   }else if(command.equals("/CompBoardWrite.cp")){
+		   forward=new ActionForward();
+		   forward.setRedirect(false);
+		   forward.setPath("./Comp/Comp_Board/Comp_Board_Write.jsp");
+	   }else if(command.equals("/CompBoardWriteOk.cp")){
 		   	action = new CompBoardAddAction();
 		   try{
 			   forward=action.execute(request, response);
