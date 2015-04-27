@@ -14,7 +14,6 @@ public class MemberInfoAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		ActionForward forward = new ActionForward();
 		MemberInfoDAO dao = new MemberInfoDAO();
 		
 		int empno = Integer.parseInt(request.getParameter("empno"));
@@ -32,7 +31,8 @@ public class MemberInfoAction implements Action{
 		session.setAttribute("p_picture", member.getP_picture());
 		session.setAttribute("p_content", member.getP_content());
 
-		forward.setRedirect(true);
+		ActionForward forward = new ActionForward();
+		forward.setRedirect(false);
 		forward.setPath("./Emp_Info.jsp");
 		return forward;
 	}
