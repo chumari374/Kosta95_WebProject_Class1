@@ -24,17 +24,44 @@ where e.empno = ?; // 사원번호
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <style type="text/css">
-	table, tr, td {
-		border: 1px solid gray;
+
+
+
+table {
+   border: 2px solid grey;
+   border-radius: 5px;
+   margin: 10px;
+}
+
+		
+    th {
+    
+    background-color: #D5D5D5;
+    
+    }
+
+	tr, td {
+		border-bottom: 1px solid grey;
  		border-collapse: collapse;
- 		padding: 5px;
- 		padding-left: 10px; 
- 		padding-right: 10px;
+ 		background-color: #F6F6F6;
+ 
+ 		
+ 		
 	}
 </style>
+
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<table>
+
+	<table width="500px" height="300px">
 		<tr>
 			<th colspan="3" align="center">님의 사원정보</th>
 		</tr>
@@ -76,5 +103,6 @@ where e.empno = ?; // 사원번호
 			<td colspan="3" align="center"><input type="button" value="닫기"></td>
 		</tr>
 	</table>
+
 </body>
 </html>
