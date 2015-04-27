@@ -31,13 +31,15 @@
 
 <BODY>
    <header>
+   2015년 3월 27일 월요일 현재 접속자수 10명 
    </header>
 
    <nav>
-   2015년 3월 27일 월요일 현재 접속자수 10명 
+   &nbsp;
    </nav> 
 
    <aside id="left">
+      <h4><b>KOSTA 인트라넷</b></h4>
       <div id="leftdiv1">
                   <p>회원 Login 정보 표시</p>
                   <p><img src="img/S_10.jpg" width="80px" height="80px"></p>
