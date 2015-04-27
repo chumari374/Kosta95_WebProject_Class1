@@ -45,7 +45,7 @@ table, td, tr {
             uiColor: '#9AB8F3',
         }
     );
-</script>c
+</script>
 <SCRIPT type="text/javascript">
 	function check() {
 
@@ -81,7 +81,7 @@ table, td, tr {
 </SCRIPT>
 </head>
 <body>
-	<form>
+	<form action="SignAddAction.hong" method="post">
 		<center>
 			<table>
 				<tr>

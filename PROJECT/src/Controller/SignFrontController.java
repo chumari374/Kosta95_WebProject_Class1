@@ -33,7 +33,10 @@ public class SignFrontController extends HttpServlet {
 	
 	private void Process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String RequestURI = request.getRequestURI();
-		String ContextPath = request.getContextPath();
+		String ContextPath = request.getContextPath() + "/Sign";
+		
+		System.out.println(RequestURI);
+		System.out.println(ContextPath);
 		
 		String command = RequestURI.substring(ContextPath.length()); // 슬래쉬 전까지 자른다
 		
