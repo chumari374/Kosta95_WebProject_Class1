@@ -232,4 +232,27 @@ clear: both;
 
 
 
+
+
+table {
+   border: 2px solid grey;
+   border-radius: 5px;
+   margin: 10px;
+}
+
+		
+    th {
+    
+    background-color: #D5D5D5;
+    
+    }
+
+	tr, td {
+		border: 1px solid grey;
+ 		border-collapse: collapse;
+ 		background-color: #F6F6F6;
+ 
+ 		
+ 		
+	}
                                              

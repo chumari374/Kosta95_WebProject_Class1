@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import Action.Action;
 import Action.ActionForward;
 import Action.Sign.GetSignListAction;
+import Action.Sign.SignAddAction;
+import Action.Sign.SignAddAction;
 
 @WebServlet("*.hong")
 public class SignFrontController extends HttpServlet {
@@ -67,7 +69,15 @@ public class SignFrontController extends HttpServlet {
 		}
 		else if(command.equals("/SignAddAction.hong")) {
 			System.out.println("SignWriteBefore");
-			// 추가해야함
+			
+			action = new SignAddAction();
+			
+			try {
+				forward = action.execute(request, response);
+				System.out.println("SignWriteAfter");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	

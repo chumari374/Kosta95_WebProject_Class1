@@ -87,18 +87,18 @@
 			<div align="center">내 용</div>
 		</td>
 		<td>
-			<textarea class="ckeditor" id="content" name="content" name="BOARD_CONTENT" cols="80" rows="15"></textarea>
+			<textarea class="ckeditor" id="content" name="BOARD_CONTENT" cols="80" rows="15"></textarea>
 			
 		</td>
 	</tr>
-	<tr>
-		<td style="font-family:돋음; font-size:12">
-			<div align="center">파일 첨부</div>
-		</td>
-		<td>
-			<input name="BOARD_FILE" type="file"/>
-		</td>
-	</tr>
+<!-- 	<tr> -->
+<!-- 		<td style="font-family:돋음; font-size:12"> -->
+<!-- 			<div align="center">파일 첨부</div> -->
+<!-- 		</td> -->
+<!-- 		<td> -->
+<!-- 			<input name="BOARD_FILE" type="file"/> -->
+<!-- 		</td> -->
+<!-- 	</tr> -->
 	<tr bgcolor="cccccc">
 		<td colspan="2" style="height:1px;">
 		</td>

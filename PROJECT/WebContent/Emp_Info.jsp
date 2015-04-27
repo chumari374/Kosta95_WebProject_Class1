@@ -1,22 +1,18 @@
-<%@page import="DTO.EmpDTO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!-- °Ô½ÃÆÇÀÌ³ª »ç¿ø°Ë»õ¿¡¼­ '»ç¿ø»óÁ¦Á¤º¸º¸±â'¸¦ ´­·¶À»¶§ ³ª¿À´Â È­¸é -->
-<!-- 
-select e.empno, e.ename, a.celphone, a.email, d.deptname, e.teamname, g.gradename, ds.emptel, a.p_picture, a.p_content
-from emp e
-join domain_set ds
-on e.empno = ds.empno
-join accounts a
-on e.empno = a.empno
-join dept d
-on e.deptcode = d.deptcode
-join grade g
-on e.grade = g.grade
-where e.empno = ?; // »ç¿ø¹øÈ£
- -->
+<%@page import="DAO.MemberInfoDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!-- ê²Œì‹œíŒì´ë‚˜ ì‚¬ì›ê²€ìƒˆì—ì„œ 'ì‚¬ì›ìƒì œì •ë³´ë³´ê¸°'ë¥¼ ëˆŒë €ì„ë•Œ ë‚˜ì˜¤ëŠ” í™”ë©´ -->
 <% 
-
+	int empno = (int)session.getAttribute("empno");
+	String ename = (String)session.getAttribute("ename");
+	String celphone = (String)session.getAttribute("celphone");
+	String email = (String)session.getAttribute("email");
+	String deptname = (String)session.getAttribute("deptname");
+	String teamname = (String)session.getAttribute("teamname");
+	String gradename = (String)session.getAttribute("gradename");
+	String emptel = (String)session.getAttribute("emptel");
+	String p_picture = (String)session.getAttribute("p_picture");
+	String p_content = (String)session.getAttribute("p_content");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -24,57 +20,85 @@ where e.empno = ?; // »ç¿ø¹øÈ£
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <style type="text/css">
-	table, tr, td {
-		border: 1px solid gray;
+
+
+
+table {
+   border: 2px solid grey;
+   border-radius: 5px;
+   margin: 10px;
+}
+
+		
+    th {
+    
+    background-color: #D5D5D5;
+    
+    }
+
+	tr, td {
+		border-bottom: 1px solid grey;
  		border-collapse: collapse;
- 		padding: 5px;
- 		padding-left: 10px; 
- 		padding-right: 10px;
+ 		background-color: #F6F6F6;
+ 
+ 		
+ 		
 	}
 </style>
+
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<table>
+
+	<table width="500px" height="300px">
 		<tr>
-			<th colspan="3" align="center">´ÔÀÇ »ç¿øÁ¤º¸</th>
+			<th colspan="3" align="center"><%= ename %>ë‹˜ì˜ ì‚¬ì›ì •ë³´</th>
 		</tr>
 		<tr>
-			<td rowspan="5">ÇÁ·ÎÇÊ»çÁø</td>
-			<td>»ç¿ø¹øÈ£</td>
-			<td></td>
+			<td rowspan="5"><%= p_picture %><br>í”„ë¡œí•„ì‚¬ì§„</td>
+			<td>ì‚¬ì›ë²ˆí˜¸</td>
+			<td><%= empno %></td>
 		</tr>
 		<tr>
-			<td>ÀÌ¸§</td>
-			<td></td>
+			<td>ì´ë¦„</td>
+			<td><%= ename %></td>
 		</tr>
 		<tr>
-			<td>ÇÚµåÆù</td>
-			<td></td>
+			<td>í•¸ë“œí°</td>
+			<td><%= celphone %></td>
 		</tr>
 		<tr>
-			<td>ÀÌ¸ŞÀÏ</td>
-			<td></td>
+			<td>ì´ë©”ì¼</td>
+			<td><%= email %></td>
 		</tr>
 		<tr>
-			<td>¼Ò¼ÓºÎ¼­</td>
-			<td></td>
+			<td>ì†Œì†ë¶€ì„œ</td>
+			<td><%= deptname %></td>
 		</tr>
 		<tr>
-			<td rowspan="3">ÇÁ·ÎÇÊ¸Ş¼¼Áö</td>
-			<td>¼Ò¼ÓÆÀ</td>
-			<td></td>
+			<td rowspan="3"><%= p_content %><!-- í”„ë¡œí•„ë©”ì„¸ì§€ --></td>
+			<td>ì†Œì†íŒ€</td>
+			<td><%= teamname %></td>
 		</tr>
 		<tr>
-			<td>Á÷±Ş</td>
-			<td></td>
+			<td>ì§ê¸‰</td>
+			<td><%= gradename %></td>
 		</tr>
 		<tr>
-			<td>»ç³»ÀüÈ­¹øÈ£</td>
-			<td></td>
+			<td>ì‚¬ë‚´ì „í™”ë²ˆí˜¸</td>
+			<td><%= emptel %></td>
 		</tr>
 		<tr>
-			<td colspan="3" align="center"><input type="button" value="´İ±â"></td>
+			<td colspan="3" align="center"><input type="button" value="ë‹«ê¸°"></td>
 		</tr>
 	</table>
+
 </body>
 </html>

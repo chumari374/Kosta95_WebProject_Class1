@@ -1,50 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!-- ì‚¬ë‚´ê²Œì‹œíŒ í˜ì´ì§€ -->
+    pageEncoding="EUC-KR"%>
+<!-- ÆÀ°Ô½ÃÆÇ ÆäÀÌÁö -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	table, tr, td {
-		border: 1px solid gray;
- 		border-collapse: collapse;
- 		padding: 5px;
- 		padding-left: 10px; 
- 		padding-right: 10px;
-	}
-</style>
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<!--
-		í•„ìš”ì»¬ëŸ¼  
-		empno, num, title, write_date, depth, step, teamname
-	
-	-->
-	<table width="80%" id="team_board_table">
-		<tr>
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+    	 <table class="table table-list-search">
+                    <thead>
+                      
+                         <tr>
 			<td colspan="5" align="right">
 				<select>
-					<option>ì œëª©</option>
-					<option>ë‚´ìš©</option>
-					<option>ì‘ì„±ì</option>
+					<option>Á¦¸ñ</option>
+					<option>³»¿ë</option>
+					<option>ÀÛ¼ºÀÚ</option>
 				</select>
 				&nbsp;
 				<input type="text">
 				&nbsp;
-				<input type="button" value="ê²€ìƒ‰">
+				<input type="button" value="°Ë»ö">
 			</td>
 		</tr>
-		<tr>
-                <th>ê¸€ë²ˆí˜¸</th>
-                <th>ì œëª©</th>
-                <th>ì‘ì„±ì</th>
-                <th>ì‘ì„±ì¼</th>
-                <th>ì¡°íšŒìˆ˜</th>
-        </tr>    
-		<!-- ë™ì ìœ¼ë¡œ êµ¬ì„± -->
-		<!-- WebJSP7_BasicBoard > board_list.jsp ì°¸ê³  -->
+                    </thead>
+                    <tbody>
+                      <tr>
+                           <td>±Û¹øÈ£</td>
+                           <td>Á¦¸ñ</td>
+                           <td>ÀÛ¼ºÀÚ</td>
+                           <td>ÀÛ¼ºÀÏ</td>
+                           <td>Á¶È¸¼ö</td>
+                        </tr>
+                       
+		<!-- µ¿ÀûÀ¸·Î ±¸¼º -->
+		<!-- WebJSP7_BasicBoard > board_list.jsp Âü°í -->
 		<tr>
 				<td></td>
                 <td></td>
@@ -68,8 +70,13 @@
 		</tr>
 		<tr>
 			<td colspan="4" align="center"> &lt; 1 2 3 4 5 6 7 8 9 10 &gt; </td>
-			<td align="center"><input type="button" value="ê¸€ì“°ê¸°"></td>
+			<td align="center"><input type="button" value="±Û¾²±â" onclick="location.href='<%=request.getContextPath()%>/CompBoardWrite.cp'"></td>
 		</tr>
+                    </tbody>
+	
 	</table>
+	</div>
+	</div>
+	</div>
 </body>
 </html>
