@@ -14,6 +14,7 @@ public class SignDTO {
 	private int ref; // 기안자 결재번호
 	private int step; // 결재 계층
 	private String status; // 결재 상태
+	private String file_sign; // 파일 업로드 경로
 	
 	public int getSignnum() {
 		return signnum;
@@ -75,5 +76,12 @@ public class SignDTO {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public String getFile_sign() {
+		return file_sign;
+	}
+	public void setFile_sign(String file_sign) {
+		this.file_sign = file_sign;
+	}
+	
 // ===================결재 끝 =================================
 }
