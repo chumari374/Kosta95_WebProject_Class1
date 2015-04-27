@@ -6,9 +6,9 @@
 	Object ename = session.getAttribute("ename");
 	String session_val = empno+"/"+ename;
 	
-	out.print("<script>");
+/* 	out.print("<script>");
 	out.print("console.log('"+session_val+"')");
-	out.print("</script>");
+	out.print("</script>"); */
 %>
 <!DOCTYPE HTML>
 <HTML>
@@ -16,7 +16,7 @@
    <meta charset="UTF-8">
    <TITLE> index </TITLE>
    <link type="text/css" rel="stylesheet" href="css/mystyle.css">
-<script type="text/javascript" src="js/myscript.js"></script>
+	<script type="text/javascript" src="js/myscript.js"></script>
    <style>
    </style>
    <!-- Latest compiled and minified CSS -->
@@ -27,10 +27,7 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script>
 
-
-</script> 
 
 </HEAD>
 
@@ -70,7 +67,7 @@
               <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;부서     
               <ul class="submenu">         
                  <li><a href="#">부서 게시판</a></li>          
-                 <li><a href="#">팀 게시판</a></li>       
+                 <li><a href="chatting/client.html?">팀 게시판</a></li>       
                  <li><a href="#">자료실</a></li>    
               </ul>    
            </li>
@@ -111,7 +108,7 @@
       </div>
       </div>
     </aside>
-
+	<input type="hidden" id="ip">
 
     <section id="main">
     사내 공지사항

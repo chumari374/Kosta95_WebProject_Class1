@@ -28,6 +28,17 @@ function getip(){
 	);
 }
 
+function getip2(){
+	$.get(
+			"chatting/getIP.jsp",
+			function(data){
+				data2 = data.replace("\n\n","");
+				/*console.log(data2);*/
+				$('#chatting').attr('href','http://'+data2+':8090/PROJECT/chatting/client.html?');
+			}
+	);
+}
+
 function getEname(){
 	$.get(
 			"getEname.jsp",
