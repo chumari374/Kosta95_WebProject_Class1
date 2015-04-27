@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%
-	String empno = (String)session.getAttribute("empno"); 
+	String empno = (String.valueOf(session.getAttribute("empno"))); 
 	String ename = (String)session.getAttribute("ename");
-	String teamcode = (String)session.getAttribute("teamcode");
+	String teamcode = (String.valueOf(session.getAttribute("teamcode")));
 	String teamname = (String)session.getAttribute("teamname");
-	String deptcode = (String)session.getAttribute("deptcode");
-	String grade = (String)session.getAttribute("grade");
+	String deptcode = (String.valueOf(session.getAttribute("deptcode")));
+	String grade = (String.valueOf(session.getAttribute("grade")));
 	
 
 	/*
@@ -54,7 +54,7 @@
 </head>
 <body>
 <!-- 게시판 등록 -->
-<form action="CompBoardWrite.cp" method="post" name="boardform">
+<form action="CompBoardWriteOk.cp" method="post" name="boardform">
 <input type="hidden" name="BOARD_ID" value="<%=empno %>">
 <table cellpadding="0" cellspacing="0" width="100%">
 	<tr align="center" valign="middle">

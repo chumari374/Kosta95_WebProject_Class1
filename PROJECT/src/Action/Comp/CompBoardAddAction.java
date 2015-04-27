@@ -28,17 +28,22 @@ public class CompBoardAddAction implements Action {
 			   	request.setCharacterEncoding("UTF-8");		   	
 			   	
 		   		boolean result=false;
-		   		
+		   		String notice = "";
 		   		PrintWriter out = response.getWriter();
 		   		
 		   		try{
-
+		   			
+		   			if(request.getParameter("BOARD_NOTICE")!=null){
+		   				notice = "true";
+		   			}else{
+		   				notice = "false";
+		   			}
 		   
-		   			boarddto.setEmpno(Integer.parseInt((String)session.getAttribute("empno")));
+		   			boarddto.setEmpno((int)session.getAttribute("empno"));
 		   			boarddto.setEname((String)session.getAttribute("ename"));
 		   			boarddto.setTitle(request.getParameter("BOARD_TITLE"));
-		   			boarddto.setContent(request.getParameterValues("BOARD_NOTICE")[0]);
-		   			boarddto.setNotice(request.getParameter("BOARD_NOTICE"));
+		   			boarddto.setContent(request.getParameter("BOARD_CONTENT"));
+		   			boarddto.setNotice(notice);
 		   				   		
 			   		result=boarddao.Insert(boarddto);
 			   		
