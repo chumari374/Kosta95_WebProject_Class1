@@ -48,14 +48,51 @@
       
       </div>
       <div id="leftdiv2">
-          <ul>
+      <div id="MainMenu">
+    <a href="#demo3" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">사내</a>
+    <div class="collapse" id="demo3">
+        <a href="#" class="list-group-item" data-parent="#SubMenu1">공지사항</a>
+              <a href="#" class="list-group-item" data-parent="#SubMenu1">자료실</a>
+              <a href="#" class="list-group-item" data-parent="#SubMenu1">게시판</a>
+
+      </div>
+    <a href="#demo4" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">부서</a>
+    <div class="collapse" id="demo4">
+      <a href="" class="list-group-item">부서 게시판</a>
+      <a href="" class="list-group-item">팀 게시판</a>
+      <a href="" class="list-group-item">자료실</a>
+    </div>
+  </div>
+    <a href="#demo5" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">결재</a>
+     <div class="collapse" id="demo5">
+      <a href="" class="list-group-item">결재 현황</a>
+      <a href="" class="list-group-item">결재 기안</a>
+      <a href="" class="list-group-item">보낸 결재</a>
+      <a href="" class="list-group-item">받은 결재</a>      
+      <a href="" class="list-group-item">완료 결재함</a>
+    </div>
+    <a href="#demo7" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">사원검색</a>
+        <a href="#demo8" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">마이 페이지</a>
+     <div class="collapse" id="demo8">
+      <a href="" class="list-group-item">개인정보 수정</a>
+      <a href="" class="list-group-item">메세지함</a>
+      <a href="" class="list-group-item">일정관리</a>
+    </div>
+        <a href="#demo6" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">관리자 페이지</a>
+     <div class="collapse" id="demo6">
+      <a href="" class="list-group-item">사원정보 수정</a>
+      
+         <!--  <ul>
             <li><a href="http://www.google.com"><span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;사내</a></li>
+           <li><a href="http://www.google.com"><span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;사내</a></li>
+           <li><a href="http://www.google.com"><span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;사내</a></li>
+           <li><a href="http://www.google.com"><span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;사내</a></li>
             <li><a href="http://www.google.com"><span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;부서</a></li>
             <li><a href="http://www.google.com"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;결재</a></li>
             <li><a href="http://www.google.com"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;사원검색</a></li>
             <li><a href="http://www.google.com"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;마이페이지</a></li>
             <li><a href="http://www.google.com"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp;관리자페이지</a></li>
-          </ul>
+          </ul> -->
       </div>
     </aside>
 
