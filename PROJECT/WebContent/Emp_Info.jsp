@@ -1,5 +1,4 @@
 <%@page import="DAO.MemberInfoDAO"%>
-<%@page import="DTO.EmpDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!-- 게시판이나 사원검새에서 '사원상제정보보기'를 눌렀을때 나오는 화면 -->

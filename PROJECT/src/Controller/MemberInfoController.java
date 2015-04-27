@@ -41,7 +41,8 @@ public class MemberInfoController extends HttpServlet {
 		Action action = null;
 		
 		if(command.equals("/Member.info")){
-			
+			forward=new ActionForward();
+			forward.setRedirect(false);
 			action = new MemberInfoAction();
 			
 			try {
