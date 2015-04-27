@@ -6,14 +6,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	table, tr, td {
-		border: 1px solid gray;
+<style>
+
+
+table {
+   border: 2px solid grey;
+   border-radius: 5px;
+   margin: 10px;
+}
+
+		
+    th {
+    
+    background-color: #D5D5D5;
+    
+    }
+
+	tr, td {
+		border-bottom: 1px solid grey;
  		border-collapse: collapse;
- 		padding: 5px;
- 		padding-left: 10px; 
- 		padding-right: 10px;
+ 		background-color: #F6F6F6;
+ 
+ 		
+ 		
 	}
+</style>
 </style>
 </head>
 <body>

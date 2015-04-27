@@ -5,10 +5,6 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 	<title>Insert title here</title>
-	<style>
-		table {border:1px solid black}
-		th {text-align: right}
-	</style>
 	<script type="text/javascript">
 		window.onload = function(){
 			document.getElementById("pwd_search_ok").onclick = function(){
@@ -17,29 +13,45 @@
 		}
 		
 	</script>
+		<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
+	
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<style>
+	  body {
+	    background-color: #f5f5f5;
+	  
+	  }
+	</style>
 </head>
 <body>
-	<div id="pwd_search_div">
-		비밀번호 찾기
-		<form action="pwd_search.ad" method="post">
-		<table id="pwd_search_table">
-			<tr>
-				<th>사원번호</th>
-				<td><input type="text" name="empno"></td>
-			</tr>
-			<tr>
-				<th>이메일</th>
-				<td><input type="text" name="email"></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>
-					<input type="submit" id="pwd_search_ok" value="찾기">
-					<input type="button" id="pwd_search_cancel" value="취소" onclick="">
-				</td>
-			</tr>
-		</table>
+<div class="container">
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+		<form action="pwd_search.ad" role="form" method="post" name="registerForm" id="pwd_search_div">
+			<h2>비밀번호 찾기 <small></small></h2>
+			<hr class="colorgraph">
+	
+				<div class="form-group">
+					<input type="text" name="empno" id="email" class="form-control input-lg" placeholder="사원번호" tabindex="2">
+				</div>
+				<div class="form-group">
+					<input type="email" name="empno" id="email" class="form-control input-lg" placeholder="이메일" tabindex="3">
+				</div>
+	
+			<hr class="colorgraph">
+			<div class="row">
+				<div class="col-xs-12 col-md-6"><input type="submit" value="찾기" class="btn btn-primary btn-block btn-lg" tabindex="7" id="registerOk"></div>
+				<div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">취소</a></div>
+			</div>
 		</form>
 	</div>
+</div>
+</div>
 </body>
 </html>

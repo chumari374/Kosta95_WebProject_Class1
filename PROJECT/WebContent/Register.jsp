@@ -6,10 +6,9 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>회원 가입</title>
-	<link type="text/css" rel="stylesheet" href="css/mystyle.css">
 	<style>
-		#p_content {
-		     border-color: red;
+		body {
+		    background-color: #f5f5f5;
 		}
 	</style>
 	<!-- Latest compiled and minified CSS -->
@@ -50,7 +49,6 @@
 	</script>
 </head>
 <body>
-
 <div class="container">
 
 <div class="row">

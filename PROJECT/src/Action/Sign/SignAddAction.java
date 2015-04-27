@@ -46,6 +46,17 @@ public class SignAddAction implements Action {
 			signdata.setFile_sign(multi.getFilesystemName((String)multi.getFileNames().nextElement()));
 			
 			result = signdao.SignStart(signdata);
+			
+			if (result == false) {
+				System.out.println("Insert Fail");
+				return null;
+			}
+			System.out.println("Insert success");
+			
+			ActionForward forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("getSignList.hong");
+			return forward;
 		}
 		
 		catch (Exception e){
