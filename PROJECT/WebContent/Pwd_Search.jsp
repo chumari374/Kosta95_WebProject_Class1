@@ -21,7 +21,7 @@
 <body>
 	<div id="pwd_search_div">
 		비밀번호 찾기
-		<form action="pwd_search.ps">
+		<form action="pwd_search.ps" method="post">
 		<table id="pwd_search_table">
 			<tr>
 				<th>사원번호</th>

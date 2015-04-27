@@ -2,6 +2,7 @@ package Controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,6 +46,26 @@ public class AdminFrontController extends HttpServlet {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
+			}
+		}
+		
+		if(forward != null){
+			if(forward.isRedirect()){
+				System.out.println("forward.isRedirect() : " + forward.isRedirect());
+				try {
+					response.sendRedirect(forward.getPath());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}else{
+				System.out.println("forward.getPath() : " + forward.getPath());
+				RequestDispatcher dispatcher =
+				request.getRequestDispatcher(forward.getPath());
+				try {
+					dispatcher.forward(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		}
     }
