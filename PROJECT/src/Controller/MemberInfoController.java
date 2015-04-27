@@ -42,7 +42,7 @@ public class MemberInfoController extends HttpServlet {
 		
 		if(command.equals("/Member.info")){
 			forward=new ActionForward();
-			forward.setRedirect(false);
+			forward.setRedirect(true);
 			action = new MemberInfoAction();
 			
 			try {

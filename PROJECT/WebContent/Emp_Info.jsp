@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <!-- 게시판이나 사원검새에서 '사원상제정보보기'를 눌렀을때 나오는 화면 -->
 <% 
-	int empno = (int)session.getAttribute("empno");
+	int empno = Integer.parseInt((String)session.getAttribute("empno"));
 	String ename = (String)session.getAttribute("ename");
 	String celphone = (String)session.getAttribute("celphone");
 	String email = (String)session.getAttribute("email");

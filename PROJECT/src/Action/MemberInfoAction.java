@@ -33,7 +33,7 @@ public class MemberInfoAction implements Action{
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("./Emp_Info.jsp");
+		forward.setPath("Emp_Info.jsp");
 		return forward;
 	}
 
