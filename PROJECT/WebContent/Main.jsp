@@ -16,6 +16,7 @@
    <meta charset="UTF-8">
    <TITLE> index </TITLE>
    <link type="text/css" rel="stylesheet" href="css/mystyle.css">
+<script type="text/javascript" src="js/myscript.js"></script>
    <style>
    </style>
    <!-- Latest compiled and minified CSS -->
@@ -26,6 +27,10 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script>
+
+
+</script> 
 
 </HEAD>
 
@@ -47,13 +52,14 @@
                   <p><input type="button" value="로그아웃"></p>
       
       </div>
+      
       <div id="leftdiv2">
       <div id="MainMenu">
     <a href="#demo3" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">사내</a>
     <div class="collapse" id="demo3">
-        <a href="#" class="list-group-item" data-parent="#SubMenu1">공지사항</a>
-              <a href="#" class="list-group-item" data-parent="#SubMenu1">자료실</a>
-              <a href="#" class="list-group-item" data-parent="#SubMenu1">게시판</a>
+        <a href="#" onclick="ppurija('main');" class="list-group-item" data-parent="#SubMenu1">공지사항</a>
+              <a href="#" onclick="ppurija2('main');" target="main" class="list-group-item" data-parent="#SubMenu1">자료실</a>
+              <a href="#" onclick="ppurija3('main');" target="main" class="list-group-item" data-parent="#SubMenu1">게시판</a>
 
       </div>
     <a href="#demo4" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">부서</a>
@@ -93,6 +99,7 @@
             <li><a href="http://www.google.com"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;마이페이지</a></li>
             <li><a href="http://www.google.com"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp;관리자페이지</a></li>
           </ul> -->
+      </div>
       </div>
     </aside>
 
