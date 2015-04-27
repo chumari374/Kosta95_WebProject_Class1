@@ -8,9 +8,6 @@
    <TITLE> index </TITLE>
    <link type="text/css" rel="stylesheet" href="css/mystyle.css">
    <style>
-body {
-background-color: #5f5f5f !important;
-}
    </style>
    <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
@@ -24,86 +21,41 @@ background-color: #5f5f5f !important;
 
 <BODY>
    <header>
-   <nav class="navbar navbar-default">
-  <div class="container-fluid">
-   
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-     <a class="navbar-brand" href="#"><b><i><font style="color:#2F9D27; font-size:15pt; font-family:맑은 고딕">KOSTA</font></i></b></a>
-    </div>
-
-   
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      
-    </div>
-  </div>
-</nav>
    </header>
 
-   <aside id="left">
-<div id="MainMenu">
-    <a href="#demo3" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">사내</a>
-    <div class="collapse" id="demo3">
-        <a href="#" class="list-group-item" data-parent="#SubMenu1">공지사항</a>
-              <a href="#" class="list-group-item" data-parent="#SubMenu1">자료실</a>
-              <a href="#" class="list-group-item" data-parent="#SubMenu1">게시판</a>
+   <nav>
+   2015년 3월 27일 월요일 현재 접속자수 10명 
+   </nav> 
 
+   <aside id="left">
+      <div id="leftdiv1">
+                  <p>회원 Login 정보 표시</p>
+                  <p><img src="img/S_10.jpg" width="80px" height="80px"></p>
+                  <p>20100390님 로그인 하셨습니다.</p>
+                  <p><input type="button" value="로그아웃"></p>
+      
       </div>
-    <a href="#demo4" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">부서</a>
-    <div class="collapse" id="demo4">
-      <a href="" class="list-group-item">부서 게시판</a>
-      <a href="" class="list-group-item">팀 게시판</a>
-      <a href="" class="list-group-item">자료실</a>
-    </div>
-  </div>
-    <a href="#demo5" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">결재</a>
-     <div class="collapse" id="demo5">
-      <a href="" class="list-group-item">결재 현황</a>
-      <a href="" class="list-group-item">결재 기안</a>
-      <a href="" class="list-group-item">보낸 결재</a>
-      <a href="" class="list-group-item">받은 결재</a>      
-      <a href="" class="list-group-item">완료 결재함</a>
-    </div>
-    <a href="#demo7" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">사원검색</a>
-        <a href="#demo8" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">마이 페이지</a>
-     <div class="collapse" id="demo8">
-      <a href="" class="list-group-item">개인정보 수정</a>
-      <a href="" class="list-group-item">메세지함</a>
-      <a href="" class="list-group-item">일정관리</a>
-    </div>
-        <a href="#demo6" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">관리자 페이지</a>
-     <div class="collapse" id="demo6">
-      <a href="" class="list-group-item">사원정보 수정</a>
-    </div>
+      <div id="leftdiv2">
+          <ul>
+            <li><a href="http://www.google.com"><span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;사내</a></li>
+            <li><a href="http://www.google.com"><span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;부서</a></li>
+            <li><a href="http://www.google.com"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;결재</a></li>
+            <li><a href="http://www.google.com"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;사원검색</a></li>
+            <li><a href="http://www.google.com"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;마이페이지</a></li>
+            <li><a href="http://www.google.com"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp;관리자페이지</a></li>
+          </ul>
+      </div>
     </aside>
 
+
     <section id="main">
-    <div id="div1">사내 공지사항</div>
-    <div id="div2">...</div>
-    <div id="div3">...</div>
-    <div id="div4">...</div>
+    사내 공지사항
+<!-- <div id="div1">사내 공지사항</div>
+    <div id="div2">...div2</div>
+    <div id="div3">...div3</div>
+    <div id="div4">...div4</div> -->
     </section>
     
+    <footer>Copyright (c) 2015 KOSTA</footer>
 
 </HTML>
