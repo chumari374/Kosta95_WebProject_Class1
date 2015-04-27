@@ -1,7 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!-- 게시판이나 사원검새에서 '사원상제정보보기'를 눌렀을때 나오는 화면 -->
-<!--  -->
+<!-- 
+select e.empno, e.ename, a.celphone, a.email, d.deptname, e.teamname, g.gradename, ds.emptel, a.p_picture, a.p_content
+from emp e
+join domain_set ds
+on e.empno = ds.empno
+join accounts a
+on e.empno = a.empno
+join dept d
+on e.deptcode = d.deptcode
+join grade g
+on e.grade = g.grade
+where e.empno = ?; // 사원번호
+ -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
