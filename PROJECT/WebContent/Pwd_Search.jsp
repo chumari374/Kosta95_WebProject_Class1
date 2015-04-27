@@ -21,6 +21,12 @@
 	
 	<!-- Latest compiled JavaScript -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<style>
+	  body {
+	    background-color: #f5f5f5;
+	  
+	  }
+	</style>
 </head>
 <body>
 <div class="container">
