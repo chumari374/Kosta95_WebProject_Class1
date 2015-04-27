@@ -48,6 +48,14 @@ public class C_BrdDAO {
 		}
 	}
 	
+	public List noticeList(){
+		
+		
+		
+		return null;
+		
+	}
+	
 //	 게시판 리스트 출력
 	public List getList(int page, int limit){//limit 페이지사이즈
 		// 글 목록 보기
