@@ -39,7 +39,7 @@ public class AdminFrontController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		
-		if(command.equals("/pwd_search.ps")){
+		if(command.equals("/pwd_search.ad")){
 			
 			action = new Pwd_SearchAction();
 			try {

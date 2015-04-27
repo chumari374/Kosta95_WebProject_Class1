@@ -4,22 +4,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>회원 가입</title>
-<link type="text/css" rel="stylesheet" href="css/mystyle.css">
-<style>
-	#p_content {
-	     border-color: red;
-	}
-</style>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>회원 가입</title>
+	<link type="text/css" rel="stylesheet" href="css/mystyle.css">
+	<style>
+		#p_content {
+		     border-color: red;
+		}
+	</style>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
+	
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	
 </head>
 <body>
 
@@ -37,7 +38,7 @@
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-4">
-				<input class="btn btn-lg btn-danger btn-block" type="submit" value="중복확인">
+				<input class="btn btn-lg btn-danger btn-block" type="submit" value="중복확인" onclick>
 				</div>
 			</div>
 				<div class="form-group">
