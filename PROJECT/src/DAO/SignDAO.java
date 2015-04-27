@@ -334,5 +334,10 @@ public class SignDAO {
 		}
 		return rowcount;
 	}
-	
+	/*
+	public String SignStatus(int ref, int step) {
+		String checkstatus_sql = "update sign set status = ? where ref = ?";
+		// String reviewstatus_sql = "";
+		String rejectstatus_sql = "update sign set status = '¹Ý·Á' where step = ?";
+	}*/
 }

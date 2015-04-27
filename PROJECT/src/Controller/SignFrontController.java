@@ -2,6 +2,7 @@ package Controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -77,6 +78,17 @@ public class SignFrontController extends HttpServlet {
 				System.out.println("SignWriteAfter");
 			} catch (Exception e) {
 				e.printStackTrace();
+			}
+		}
+		
+		if(forward != null){
+			if(forward.isRedirect()){ //view 단 바로....재접속 하시겠습니까? true
+				System.out.println("forward.isRedirect() : " + forward.isRedirect());
+				response.sendRedirect(forward.getPath()); // 재요청
+			}else{ // false
+				System.out.println("forward.getPath() : " + forward.getPath());
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath()); // 어디로갈지
+				dispatcher.forward(request, response); // 그 주소로 보낸다
 			}
 		}
 	}
