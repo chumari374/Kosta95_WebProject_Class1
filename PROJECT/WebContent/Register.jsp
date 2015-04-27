@@ -33,13 +33,14 @@
 			});
 			
 			$('#checkEmail').click(function(){
-				var length = $('#email').val().length;
+				open('Popup_Email.jsp', 'checkEmail', 'width=500 height=200');
+				/* var length = $('#email').val().length;
 				if(length==0){
 					alert('입력하세요');
 					return false;
 				}
 				document.registerForm.action='emailCheck.ad';
-				document.registerForm.submit();
+				document.registerForm.submit(); */
 			});
 			
 			$('#registerOk').click(function(){
@@ -83,7 +84,7 @@
 			<div class="row">
 				<div class="col-xs-8 col-sm-9 col-md-8">
 					<div class="form-group">
-				<input type="email" name="email" id="email" class="form-control input-lg" placeholder="이메일 주소" tabindex="4">
+				<input type="text" name="email" id="email" class="form-control input-lg" placeholder="이메일 주소" tabindex="4" readonly="readonly">
 			</div>
 				</div>
 				<div class="col-xs-4 col-sm-3 col-md-4">

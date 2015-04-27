@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-	<title>사원번호 확인</title>
+	<title>Email 확인</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
 	
@@ -15,24 +15,23 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			$('#checkEmpno').click(function(){
-				var length = $('#empno').val().length;
-				var empno = $('#empno').val();
+			$('#checkEmail').click(function(){
+				var length = $('#email').val().length;
+				var email = $('#email').val();
 				if(length==0){
 					alert('입력하세요');
 					return false;
 				}
 				$.post(
-					url="empnoCheck.ad",
-					'empno='+empno,
+					url="emailCheck.ad",
+					'email='+email,
 					function(data){
-						opener.document.registerForm.empno.value = data;
-						console.log(data);
+						opener.document.registerForm.email.value = data;
 						if(data.length>0){
-							alert('사용가능한 사원번호입니다.');
+							alert('사용 가능한 이메일입니다.');
 							window.close();
 						}else{
-							alert('존재하는 사원번호입니다.');
+							alert('존재하는 이메일입니다.');
 						}
 						
 					}
@@ -56,11 +55,11 @@
 			<div class="row">
 				<div class="col-xs-8 col-sm-9 col-md-8">
 					<div class="form-group">
-                        <input type="text" name="empno" id="empno" class="form-control input-lg" placeholder="사원번호" tabindex="1">
-					</div>
+				<input type="text" name="email" id="email" class="form-control input-lg" placeholder="이메일 주소" tabindex="4">
+			</div>
 				</div>
 				<div class="col-xs-4 col-sm-3 col-md-4">
-				<input class="btn btn-lg btn-danger btn-block" type="button" value="중복확인" id="checkEmpno">
+					<input class="btn btn-lg btn-warning btn-block" type="button" value="중복확인" id="checkEmail">
 				</div>
 			</div>
 		</form>
