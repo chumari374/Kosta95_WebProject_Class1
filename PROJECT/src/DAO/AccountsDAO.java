@@ -105,4 +105,51 @@ public class AccountsDAO {
 		}
 		return isEmail;
 	}
+	
+	public boolean isExistEmpno(int empno){
+		boolean isExistEmpno = false;
+		try {
+			conn = ds.getConnection();
+			String sql = "select empno from emp";
+			ps = conn.prepareStatement(sql);
+			
+			rs = ps.executeQuery();
+			while(rs.next()){
+				if(rs.getInt("empno")==empno){
+					isExistEmpno = true;
+				}
+			}
+		}catch(Exception e){
+			e.getStackTrace();
+		}finally{
+			if (rs != null)try {rs.close();} catch (Exception e) {}
+			if (ps != null)try {ps.close();} catch (Exception e) {}
+			if (conn != null)try {conn.close();} catch (Exception e) {}
+		}
+		return isExistEmpno;
+	}
+	
+	public boolean isExistEmail(String email){
+		boolean isExistEmail = false;
+		try {
+			conn = ds.getConnection();
+			String sql = "select email from accounts";
+			ps = conn.prepareStatement(sql);
+			
+			rs = ps.executeQuery();
+			while(rs.next()){
+				System.out.println(rs.getString("email")+" / "+email);
+				if(rs.getString("email").equals(email)){
+					isExistEmail = true;
+				}
+			}
+		}catch(Exception e){
+			e.getStackTrace();
+		}finally{
+			if (rs != null)try {rs.close();} catch (Exception e) {}
+			if (ps != null)try {ps.close();} catch (Exception e) {}
+			if (conn != null)try {conn.close();} catch (Exception e) {}
+		}
+		return isExistEmail;
+	}
 }

@@ -20,7 +20,39 @@
 	
 	<!-- Latest compiled JavaScript -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	
+	<script type="text/javascript">
+		$(function(){
+			$('#checkEmpno').click(function(){
+				var length = $('#empno').val().length;
+				if(length==0){
+					alert('입력하세요');
+					return false;
+				}
+				document.registerForm.action='empnoCheck.ad';
+				document.registerForm.submit();
+			});
+			
+			$('#checkEmail').click(function(){
+				var length = $('#email').val().length;
+				if(length==0){
+					alert('입력하세요');
+					return false;
+				}
+				document.registerForm.action='emailCheck.ad';
+				document.registerForm.submit();
+			});
+			
+			$('#registerOk').click(function(){
+				var length = $('#email').val().length;
+				if(length==0){
+					alert('입력하세요');
+					return false;
+				}
+				document.registerForm.action='emailCheck.ad';
+				document.registerForm.submit();
+			});
+		});
+	</script>
 </head>
 <body>
 
@@ -28,7 +60,7 @@
 
 <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-		<form role="form">
+		<form role="form" method="post" name="registerForm">
 			<h2>회원가입 <small>환영합니다</small></h2>
 			<hr class="colorgraph">
 			<div class="row">
@@ -38,7 +70,7 @@
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-4">
-				<input class="btn btn-lg btn-danger btn-block" type="submit" value="중복확인" onclick>
+				<input class="btn btn-lg btn-danger btn-block" type="button" value="중복확인" id="checkEmpno">
 				</div>
 			</div>
 				<div class="form-group">
@@ -54,7 +86,7 @@
 			</div>
 				</div>
 				<div class="col-xs-4 col-sm-3 col-md-4">
-					<input class="btn btn-lg btn-warning btn-block" type="submit" value="중복확인">
+					<input class="btn btn-lg btn-warning btn-block" type="submit" value="중복확인" id="checkEmail">
 				</div>
 			</div>
 			<div class="form-group">
@@ -88,8 +120,8 @@
 			
 			<hr class="colorgraph">
 			<div class="row">
-				<div class="col-xs-12 col-md-6"><input type="submit" value="회원가입" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
-				<div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">로그인</a></div>
+				<div class="col-xs-12 col-md-6"><input type="submit" value="회원가입" class="btn btn-primary btn-block btn-lg" tabindex="7" id="registerOk"></div>
+				<div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">취소</a></div>
 			</div>
 		</form>
 	</div>

@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import Action.Action;
 import Action.ActionForward;
+import Action.Check_EmailAction;
+import Action.Check_EmpnoAction;
 import Action.Pwd_SearchAction;
+import DAO.AccountsDAO;
 
 
 //@WebServlet("/AdminFrontController")
@@ -47,7 +51,24 @@ public class AdminFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/empnoCheck.ad")){
+			action = new Check_EmpnoAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/emailCheck.ad")){
+			action = new Check_EmailAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+		
 		
 		if(forward != null){
 			if(forward.isRedirect()){
