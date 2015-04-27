@@ -48,7 +48,7 @@ public class SignFrontController extends HttpServlet {
 		Action action = null;
 		
 		// 받은결재함
-		if(command.equals("/getSignList.hong")) {
+		if(command.equals("Sign/getSignList.hong")) {
 			// System.out.println("getsignlist Display");
 			action = new GetSignListAction(); // action에 어떤 함수를 쓸껀지 쓰는것 마다 만들어 준다
 			// action 객체 변수 ....
@@ -62,13 +62,13 @@ public class SignFrontController extends HttpServlet {
 		}
 		
 		// 결재문서 작성
-		else if(command.equals("/SignWrite.hong")) {
+		else if(command.equals("Sign/SignWrite.hong")) {
 			forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("Sign_(1)Start.jsp");
 			System.out.println("redirect : " + forward.getPath());
 		}
-		else if(command.equals("/SignAddAction.hong")) {
+		else if(command.equals("Sign/SignAddAction.hong")) {
 			System.out.println("SignWriteBefore");
 			
 			action = new SignAddAction();
