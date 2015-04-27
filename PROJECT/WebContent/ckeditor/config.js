@@ -7,7 +7,13 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here.
 	// For complete reference see:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
-
+	CKEDITOR.editorConfig = function( config ) {
+        config.height = '600px'; //Editor 높이
+    };
+ 
+CKEDITOR.config.allowedContent = true; //Editor 안에서 CSS사용 가능
+	
+	
 	// The toolbar groups arrangement, optimized for two toolbar rows.
 	config.toolbarGroups = [
 		{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },

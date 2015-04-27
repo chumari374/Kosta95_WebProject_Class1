@@ -11,7 +11,7 @@ import Action.ActionForward;
 import DAO.SignDAO;
 import DTO.SignDTO;
 
-public class SignAddAction implements Action {
+public class SignStartAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		SignDAO signdao = new SignDAO();
