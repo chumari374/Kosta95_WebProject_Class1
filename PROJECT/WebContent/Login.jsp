@@ -47,7 +47,7 @@
 			    	<h3 class="panel-title">로그인하세요</h3>
 			 	</div>
 			  	<div class="panel-body">
-			    	<form accept-charset="UTF-8" role="form">
+			    	<form accept-charset="UTF-8" role="form" action="login_Ok.ad">
                     <fieldset>
 			    	  	<div class="form-group">
 			    		    <input class="form-control" placeholder="사원번호" name="empno" type="text">

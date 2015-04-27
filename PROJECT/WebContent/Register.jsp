@@ -43,12 +43,7 @@
 			});
 			
 			$('#registerOk').click(function(){
-				var length = $('#email').val().length;
-				if(length==0){
-					alert('입력하세요');
-					return false;
-				}
-				document.registerForm.action='emailCheck.ad';
+				document.registerForm.action='register_Ok.ad';
 				document.registerForm.submit();
 			});
 		});

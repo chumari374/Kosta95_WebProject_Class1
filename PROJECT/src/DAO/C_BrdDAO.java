@@ -30,7 +30,7 @@ public class C_BrdDAO {
 	}
 	
 	// 게시판 리스트 출력
-	public List getC_BrdList(int page, int limit){
+	public List getList(int page, int limit){
 		// 글 목록 보기
 				/*
 				 * 18건 
@@ -94,7 +94,7 @@ public class C_BrdDAO {
 	
 	// 글 내용 보기
 	
-	public C_BrdDTO getC_BrdDetail(int num){
+	public C_BrdDTO getDetail(int num){
 		
 		C_BrdDTO c_brd = null;
 		
@@ -132,37 +132,26 @@ public class C_BrdDAO {
 	}
 	
 	// 글 등록
-	public boolean c_brdInsert(C_BrdDTO c_brd){
+	public boolean Insert(C_BrdDTO c_brd){
 		
 		int num = 0;
 		String sql = "";
-
 		int result = 0;
 		
 		try {
+			
+			sql = "insert into c_brd (NUM, EMPNO, TITLE, CONTENT, NOTICE, WRITE_DATE, REF, DPTH, STEP , ENAME , COUNT)"
+					+ "values(Comp_board_num.nextval,?,?,?,?,sysdate,Comp_board_refer.nextval,0,0,?,0)";
+			
 			conn = ds.getConnection();
-			pstmt = conn.prepareStatement("select max(num) from c_brd");
-			rs = pstmt.executeQuery();
-
-			if (rs.next())
-				num = rs.getInt(1) + 1;
-			else
-				num = 1;
-
-			sql = "insert into c_brd (NUM, EMPNO, TITLE,";
-			sql += "CONTENT, NOTICE, WRITE_DATE, REF, DPTH, STEP , ENAME , COUNT)"
-					+ "values(?,?,?,?,?,?,?,?,?,?,?)";
-
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, num);
-			pstmt.setInt(2, c_brd.getEmpno());
-			pstmt.setString(3, c_brd.getTitle());
-			pstmt.setString(4, c_brd.getContent());
-			pstmt.setString(5, c_brd.getNotice());
-			pstmt.setDate(6, c_brd.getWrite_date());
-			pstmt.setInt(7, num);
-			pstmt.setInt(8, 0);
-			pstmt.setInt(9, 0);
+		
+			pstmt.setInt(1, c_brd.getEmpno());
+			pstmt.setString(2, c_brd.getTitle());
+			pstmt.setString(3, c_brd.getContent());
+			pstmt.setString(4, c_brd.getNotice());
+			pstmt.setString(5, c_brd.getEname());
+
 
 			result = pstmt.executeUpdate();
 			
@@ -182,7 +171,7 @@ public class C_BrdDAO {
 	
 	// 글 답변 (key point)
 	// 글을 읽고 그 글에 대한 답변(게시글)
-	public int c_brdReply(C_BrdDTO c_brd){
+	public int Reply(C_BrdDTO c_brd){
 		// 답변 2개의 쿼리
 		// 1, update ... 내가 자리잡을 위치 board_re_seq
 		// 2, insert ... 실 데이터 처리
@@ -247,7 +236,7 @@ public class C_BrdDAO {
 	}
 	
 	// 글 수정
-	public boolean c_brdModify(C_BrdDTO modifyc_brd){
+	public boolean Modify(C_BrdDTO modifyc_brd){
 		
 		String sql = "update c_brd set TITLE=?, CONTENT=? where NUM=?";
 		
@@ -271,7 +260,7 @@ public class C_BrdDAO {
 	
 	// 글 삭제
 		// delete.jsp
-		public boolean c_brdDelete(int num) {
+		public boolean Delete(int num) {
 			// 주의점
 			// 규칙 : 원본글이 삭제되면 다 지워 (ref = 1 ) .....
 

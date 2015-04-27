@@ -13,7 +13,9 @@ import Action.Action;
 import Action.ActionForward;
 import Action.Check_EmailAction;
 import Action.Check_EmpnoAction;
+import Action.LoginAction;
 import Action.Pwd_SearchAction;
+import Action.RegisterAction;
 import DAO.AccountsDAO;
 
 
@@ -61,6 +63,22 @@ public class AdminFrontController extends HttpServlet {
 			}
 		}else if(command.equals("/emailCheck.ad")){
 			action = new Check_EmailAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/register_Ok.ad")){
+			action = new RegisterAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/login_Ok.ad")){
+			action = new LoginAction();
 			
 			try {
 				forward = action.execute(request, response);
