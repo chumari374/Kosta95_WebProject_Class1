@@ -79,14 +79,13 @@
 		for(int i=0;i<MemberList.size();i++){
 			MemberInfoDTO MID = (MemberInfoDTO)MemberList.get(i);
 	%>
-		
 		<tr>
 			<td><%= MID.getDeptname() %></td>
 			<td><%= MID.getTeamname() %></td>
 			<td><%= MID.getEname() %></td>
 			<td><%= MID.getGradename() %></td>
 			<td><%= MID.getTeamname() %></td>
-			<td><%= MID.getCelphone()%><input type="button" value="쪽지"></td>
+			<td><%= MID.getCelphone()%></td>
 		</tr>
 	<%} %>
 	</table>
