@@ -28,7 +28,7 @@ public class SendSignListAction implements Action {
 		}
 		
 		int sendsignlistcount = signdao.sendSignListCount(); // ÃÑ ¸®½ºÆ® ¼ö ¹Þ¾Æ¿È
-		sendsignlistcount = signdao.getSendSignList(empno, page, limit, status);
+		sendsignlistcount = signdao.sendSendSignList(empno, page, limit, status);
 		
 		int maxpage = (int) ((double) sendsignlistcount / limit + 0.95);
 		int startpage = (((int) ((double) page / 10 + 0.9)) - 1) * 10 + 1;
