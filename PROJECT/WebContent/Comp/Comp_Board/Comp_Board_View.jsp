@@ -10,6 +10,8 @@
 </head>
 
 <body>
+<jsp:include page="../../Main.jsp"></jsp:include>
+   <div id="main" align="center">
 <!-- 게시판 수정 -->
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
@@ -101,6 +103,8 @@
 		</td>
 	</tr>
 </table>
+</div>
+<jsp:include page="../../Footer.jsp"></jsp:include>
 <!-- 게시판 수정 -->
 </body>
 </html>
