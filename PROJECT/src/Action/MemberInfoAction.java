@@ -16,20 +16,20 @@ public class MemberInfoAction implements Action{
 		
 		MemberInfoDAO dao = new MemberInfoDAO();
 		
-		int memberNo = Integer.parseInt(request.getParameter("empno"));
+		int num = Integer.parseInt(request.getParameter("empno"));
 
-		MemberInfoDTO member = dao.getMemberInfo(memberNo);
-		HttpSession session = request.getSession();
-		session.setAttribute("empno", member.getEmpno());
-		session.setAttribute("ename", member.getEname());
-		session.setAttribute("celphone", member.getCelphone());
-		session.setAttribute("email", member.getEmail());
-		session.setAttribute("deptname", member.getDeptname());
-		session.setAttribute("teamname", member.getTeamname());
-		session.setAttribute("gradename", member.getGradename());
-		session.setAttribute("emptel", member.getEmptel());
-		session.setAttribute("p_picture", member.getP_picture());
-		session.setAttribute("p_content", member.getP_content());
+		MemberInfoDTO member = dao.getMemberInfo(num);
+		//HttpSession session = request.getSession();
+		request.setAttribute("empno", member.getEmpno());
+		request.setAttribute("ename", member.getEname());
+		request.setAttribute("celphone", member.getCelphone());
+		request.setAttribute("email", member.getEmail());
+		request.setAttribute("deptname", member.getDeptname());
+		request.setAttribute("teamname", member.getTeamname());
+		request.setAttribute("gradename", member.getGradename());
+		request.setAttribute("emptel", member.getEmptel());
+		request.setAttribute("p_picture", member.getP_picture());
+		request.setAttribute("p_content", member.getP_content());
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

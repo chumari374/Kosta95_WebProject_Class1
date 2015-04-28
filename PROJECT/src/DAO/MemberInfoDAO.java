@@ -36,9 +36,7 @@ public class MemberInfoDAO {
 		
 		try{
 			conn = ds.getConnection();
-			pstmt = conn.prepareStatement("select empno, ename, celphone, email, deptname, "
-					+ "teamname, gradename, emptel, p_picture, p_content"
-					+ "from memberinfo where e.empno = ?");
+			pstmt = conn.prepareStatement("select * from memberinfo where empno = ?");
 			pstmt.setInt(1, num);
 			
 			rs= pstmt.executeQuery();
@@ -56,7 +54,8 @@ public class MemberInfoDAO {
 				memberinfo.setGradename(rs.getString("GRADENAME"));
 				memberinfo.setEmptel(rs.getString("EMPTEL"));
 			}
-			return memberinfo;
+			//return memberinfo;
+			
 		}catch(Exception ex){
 			System.out.println("getMemberInfo ¿¡·¯ : " + ex);
 		}finally{
@@ -64,6 +63,6 @@ public class MemberInfoDAO {
 			if(pstmt !=null)try{pstmt.close();}catch(SQLException ex){}
 			if(conn !=null)try{conn.close();}catch(SQLException ex){}
 		}
-		return null;
+		return memberinfo;
 	}
 }

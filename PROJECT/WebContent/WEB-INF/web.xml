@@ -5,11 +5,19 @@
     <welcome-file>Login.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <servlet-name>pwd_search</servlet-name>
+    <servlet-name>Administrator</servlet-name>
     <servlet-class>Controller.AdminFrontController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>pwd_search</servlet-name>
+    <servlet-name>Administrator</servlet-name>
     <url-pattern>*.ad</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MyPage</servlet-name>
+    <servlet-class>Controller.MyPageFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyPage</servlet-name>
+    <url-pattern>*.mp</url-pattern>
   </servlet-mapping>
 </web-app>
