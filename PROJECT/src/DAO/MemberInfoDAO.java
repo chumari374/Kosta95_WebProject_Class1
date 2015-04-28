@@ -70,9 +70,9 @@ public class MemberInfoDAO {
 	}
 	
 	// 사원리스트 출력(사원찾기에서)
-	public List<MemberInfoDTO> MemberList(){
+	public List MemberList(){
 		
-		List<MemberInfoDTO> list = new ArrayList<MemberInfoDTO>();
+		List list = new ArrayList();
 		
 		try{
 			conn = ds.getConnection();
