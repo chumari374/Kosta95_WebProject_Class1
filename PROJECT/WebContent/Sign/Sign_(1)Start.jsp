@@ -3,14 +3,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-/* 	int empno = Integer.parseInt((String)session.getAttribute("empno"));
-	int ename = Integer.parseInt((String)session.getAttribute("ename"));
-	int teamcode = Integer.parseInt((String)session.getAttribute("teamcode"));
-	int deptcode = Integer.parseInt((String)session.getAttribute("deptcode"));
-	int grade = Integer.parseInt((String)session.getAttribute("grade")); */
+	int empno = (Integer)session.getAttribute("empno");
+	int teamcode = (Integer)session.getAttribute("teamcode");
+	int deptcode = (Integer)session.getAttribute("deptcode");
+	int grade = (Integer)session.getAttribute("grade");
 
 	SignDAO sign = new SignDAO();
-	ArrayList infoList = (ArrayList) sign.getInfoList(4, 110, 1101);
+	ArrayList infoList = (ArrayList) sign.getInfoList(grade, deptcode, teamcode);
 
 	String deptname = (String) infoList.get(0);
 	String teamname = (String) infoList.get(1);
@@ -81,7 +80,7 @@ table, td, tr {
 </SCRIPT>
 </head>
 <body>
-	<form action="SignAddAction.hong" method="post">
+	<form action="SignAddAction.hong" method="post" enctype="multipart/form-data">
 		<center>
 			<table>
 				<tr>
@@ -100,11 +99,11 @@ table, td, tr {
 				</tr>
 				<tr>
 					<td>제목</td>
-					<td><input id="TITLE" type="text" style="width: 500px"></td>
+					<td><input id="TITLE" name="TITLE" type="text" style="width: 500px"></td>
 				</tr>
 				<tr>
 					<td>파일첨부</td>
-					<td>&nbsp;<input id="FILEPATH" type="file"></td>
+					<td>&nbsp;<input id="File_sign" name="File_sign" type="file"></td>
 				</tr>
 				<tr class="content">
 					<td>내용</td>
@@ -115,9 +114,13 @@ table, td, tr {
 				</tr>
 				<tr>
 					<td>결재자</td>
-					<td><%=getSign%><input id = "SIGNNUM" type="hidden" value="<%=getSignNum %>"></td>
+					<td><%=getSign%></td>
 				</tr>
 			</table>
+			<input id = "STARTER" name = "STARTER" type="hidden" value="<%=empno%>">
+			<input id = "EMPNO" name = "STARTER" type="hidden" value="<%=empno%>">
+			<input id = "SIGNNUM" name = "SIGNNUM" type="hidden" value="<%=getSignNum %>">
+			<input id = "STEP" name = "STEP" type="hidden" value="1">
 			<button>미리보기</button>
 			&nbsp;
 			<button>임시저장</button>

@@ -30,23 +30,33 @@ public class SignAddAction implements Action {
 		boolean result = false;
 		
 		try {
+			
+			System.out.println(request.getParameter("STARTER"));
+			
+			
 			MultipartRequest multi = null;
 			multi = new MultipartRequest(request, realFolder, filesize, "utf-8", new DefaultFileRenamePolicy());
 			
-			HttpSession session = request.getSession();
+			System.out.println("try까지 왔군, 칭찬 해 주지");
 			
-			signdata.setStarter((int) session.getAttribute("STARTER"));
-			signdata.setEmpno((int) session.getAttribute("EMPNO"));
+			System.out.println(Integer.parseInt(multi.getParameter("STARTER")));
+			System.out.println(Integer.parseInt(multi.getParameter("EMPNO")));
+			System.out.println(Integer.parseInt(multi.getParameter("GETSIGN")));
+			System.out.println(multi.getParameter("TITLE"));
+			System.out.println(multi.getParameter("CONTENT"));
+			System.out.println(Integer.parseInt(multi.getParameter("STEP")));
+			
+			signdata.setStarter(Integer.parseInt(multi.getParameter("STARTER")));
+			signdata.setEmpno(Integer.parseInt(multi.getParameter("EMPNO")));
 			signdata.setGetsign(Integer.parseInt(multi.getParameter("GETSIGN")));
 			signdata.setTitle(multi.getParameter("TITLE")); // 제목
 			signdata.setContent(multi.getParameter("CONTENT")); // 내용
-			signdata.setRef(Integer.parseInt(multi.getParameter("REF")));
 			signdata.setStep(Integer.parseInt(multi.getParameter("STEP")));
 			signdata.setStatus("대기");
 			signdata.setFile_sign(multi.getFilesystemName((String)multi.getFileNames().nextElement()));
 			
-			result = signdao.SignStart(signdata);
-			
+		/*	result = signdao.SignStart(signdata);
+			*/
 			if (result == false) {
 				System.out.println("Insert Fail");
 				return null;
@@ -60,6 +70,7 @@ public class SignAddAction implements Action {
 		}
 		
 		catch (Exception e) {
+			System.out.println("않되잖아 멍청아");
 			e.printStackTrace();
 		}
 		
