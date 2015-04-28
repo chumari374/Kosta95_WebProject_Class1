@@ -19,17 +19,7 @@ public class MemberInfoAction implements Action{
 		int num = Integer.parseInt(request.getParameter("empno"));
 
 		MemberInfoDTO member = dao.getMemberInfo(num);
-		//HttpSession session = request.getSession();
-		request.setAttribute("empno", member.getEmpno());
-		request.setAttribute("ename", member.getEname());
-		request.setAttribute("celphone", member.getCelphone());
-		request.setAttribute("email", member.getEmail());
-		request.setAttribute("deptname", member.getDeptname());
-		request.setAttribute("teamname", member.getTeamname());
-		request.setAttribute("gradename", member.getGradename());
-		request.setAttribute("emptel", member.getEmptel());
-		request.setAttribute("p_picture", member.getP_picture());
-		request.setAttribute("p_content", member.getP_content());
+		request.setAttribute("member", member);
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

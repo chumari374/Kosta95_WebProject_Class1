@@ -47,6 +47,8 @@ public class MemberInfoDAO {
 				memberinfo.setP_content(rs.getString("P_CONTENT"));
 				memberinfo.setEmpno(rs.getInt("EMPNO"));
 				memberinfo.setEname(rs.getString("ENAME"));
+				memberinfo.setBirth(rs.getDate("BIRTH"));
+				memberinfo.setSex(rs.getString("SEX"));
 				memberinfo.setCelphone(rs.getString("CELPHONE"));
 				memberinfo.setEmail(rs.getString("EMAIL"));
 				memberinfo.setDeptname(rs.getString("DEPTNAME"));
