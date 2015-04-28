@@ -33,10 +33,11 @@ public class SignAddAction implements Action {
 			MultipartRequest multi = null;
 			multi = new MultipartRequest(request, realFolder, filesize, "utf-8", new DefaultFileRenamePolicy());
 			
-			HttpSession session = request.getSession();
+			System.out.println("try까지 왔군, 칭찬 해 주지");
 			
-			signdata.setStarter((int) session.getAttribute("STARTER"));
-			signdata.setEmpno((int) session.getAttribute("EMPNO"));
+			signdata.setStarter(Integer.parseInt(multi.getParameter("STARTER")));
+			System.out.println(Integer.parseInt(multi.getParameter("STARTER")));
+			signdata.setEmpno(Integer.parseInt(multi.getParameter("EMPNO")));
 			signdata.setGetsign(Integer.parseInt(multi.getParameter("GETSIGN")));
 			signdata.setTitle(multi.getParameter("TITLE")); // 제목
 			signdata.setContent(multi.getParameter("CONTENT")); // 내용
@@ -60,6 +61,7 @@ public class SignAddAction implements Action {
 		}
 		
 		catch (Exception e) {
+			System.out.println("않되잖아 멍청아");
 			e.printStackTrace();
 		}
 		

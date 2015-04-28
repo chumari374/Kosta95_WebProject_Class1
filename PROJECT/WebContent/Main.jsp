@@ -76,7 +76,7 @@
               <span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;결재   
               <ul class="submenu">         
                  <li><a href="#">결재 현황</a></li>          
-                 <li><a href="#">결재 기안</a></li>       
+                 <li><a href="./Sign/Sign_(1)Start.jsp">결재 기안</a></li>       
                  <li><a href="#">보낸 결재</a></li>    
                  <li><a href="#">받은 결재</a></li>    
                  <li><a href="#">완료 결재함</a></li>    
