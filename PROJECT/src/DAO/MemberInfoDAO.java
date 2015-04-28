@@ -10,7 +10,6 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import DTO.MemberInfoDTO;
-import DTO.MessageDTO;
 
 public class MemberInfoDAO {
 	
@@ -32,7 +31,7 @@ public class MemberInfoDAO {
 	// 맴버정보출력
 	public MemberInfoDTO getMemberInfo(int num){
 		
-		MemberInfoDTO memberinfo = null;
+		MemberInfoDTO memberinfo = new MemberInfoDTO();
 		
 		try{
 			conn = ds.getConnection();

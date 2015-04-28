@@ -16,17 +16,20 @@
  	padding-right: 10px;
  } 
 </style>
+<script type="text/javascript">
+
+</script>
 </head>
 <body>
 	<form>
 		<table>
 			<tr>
 				<td>사원번호  </td>
-				<td></td>
+				<td>${requestScope.account.empno}</td>
 			</tr>
 			<tr>
 				<td>이름 </td>
-				<td></td>
+				<td>${requestScope.account.ename}</td>
 			</tr>
 			<tr>
 				<td>생년월일  </td>
@@ -38,11 +41,11 @@
 			</tr>
 			<tr>
 				<td>소속부서 </td>
-				<td></td>
+				<td>${requestScope.account.deptname}</td>
 			</tr>
 			<tr>
 				<td>소속팀 </td>
-				<td></td>
+				<td>${requestScope.account.teamname}</td>
 			</tr>
 			<tr>
 				<td>패스워드  </td>
