@@ -48,7 +48,7 @@
              <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;사내     
               <ul class="submenu">         
                  <li><a href="#" >공지사항</a></li>          
-                 <li><a href="#" >자료실</a></li>       
+                 <li><a href="Comp/Comp_File/Comp_File_List.jsp" >자료실</a></li>       
                  <li><a href="CompBoardList.cp" >게시판</a></li>    
               </ul>    
          </li>

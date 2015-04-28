@@ -16,19 +16,23 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <style>
    #title {
-      margin: 70px;
+      margin: 50px;
    }
+   
+   tr { size: 100px}
 </style>
 </head>
 <body>
-<div id="title"><h3><b>사내자료실</b></h3></div>
+<jsp:include page="../../Main.jsp"></jsp:include>
+<div id="main" align="center">
+<div id="title"><h4><b>사내자료실</b></h4></div>
 <div class="container">
-	<div class="row">
+	<div class="row" style="width:700px">
 		<div class="col-md-9">
     	 <table class="table table-list-search">
-                    <thead>
+         <thead>
                       
-                         <tr>
+        <tr>
 			<td colspan="5" align="right">
 				<select>
 					<option>제목</option>
@@ -41,7 +45,7 @@
 				<input type="button" value="검색">
 			</td>
 		</tr>
-                    </thead>
+        </thead>
                     <tbody>
                       <tr>
                            <td>글번호</td>
@@ -84,5 +88,7 @@
 	</div>
 	</div>
 	</div>
+</div>
+<jsp:include page="../../Footer.jsp"></jsp:include>
 </body>
 </html>
