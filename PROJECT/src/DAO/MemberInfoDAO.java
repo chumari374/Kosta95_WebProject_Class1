@@ -32,7 +32,7 @@ public class MemberInfoDAO {
 	// 맴버정보출력
 	public MemberInfoDTO getMemberInfo(int num){
 		
-		MemberInfoDTO memberinfo = null;
+		MemberInfoDTO memberinfo = new MemberInfoDTO();
 		
 		try{
 			conn = ds.getConnection();
@@ -64,6 +64,6 @@ public class MemberInfoDAO {
 			if(pstmt !=null)try{pstmt.close();}catch(SQLException ex){}
 			if(conn !=null)try{conn.close();}catch(SQLException ex){}
 		}
-		return null;
+		return memberinfo;
 	}
 }
