@@ -54,9 +54,9 @@
 	
 	<style>
 	
-	body{
+/* 	body{
 	   text-align: center;
-	}
+	} */
 	
 	table {
 	    margin-top: 20px;
@@ -145,7 +145,6 @@
 				</a>
 				<a href="javascript:history.go(-1)" class="btn btn-success btn-inline-block btn-lg">
 				뒤로</a>
-				
 			</div>
 		</td>
 	</tr>
