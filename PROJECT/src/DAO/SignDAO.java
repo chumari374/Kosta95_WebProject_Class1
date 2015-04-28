@@ -265,10 +265,12 @@ public class SignDAO {
 
 	// ========== 보낸 결재 함========================
 	public List getSendSignList(int empno, int page, int limit, String status) {
-		String getSendSignList_sql = "select rownum, signnum, title, content, empno, getsign, ref, step, write_date, status"
-				+ "from sign"
+		String getSendSignList_sql = "select rownum, signnum, title, content, empno, getsign, ref, step, write_date, status "
+				+ "from sign "
 				+ "where empno = ? and rownum>=? and rownum<=? and status = ?";
 
+		System.out.println("DAO앵커1");
+		
 		List list = new ArrayList();
 		int startrow = (page - 1) * limit + 1;
 		int endrow = startrow + limit - 1; // 읽을 마지막 row 번호.
@@ -276,6 +278,9 @@ public class SignDAO {
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(getSendSignList_sql);
+			
+			System.out.println("DAO앵커2");
+			
 			pstmt.setInt(1, empno);
 			pstmt.setInt(2, startrow); // 11 21 code
 			pstmt.setInt(3, endrow); // 20 30 code
@@ -316,7 +321,7 @@ public class SignDAO {
 				} catch (SQLException ex) {
 				}
 		}
-		return null;
+		return list;
 	}
 	
 	
@@ -355,12 +360,12 @@ public class SignDAO {
 	}
 	
 	// ====== 보낸결재 갯수 구하는 함수=======================
-	public int sendSignListCount() {
+	public int sendSignListCount(int empno) {
 		int rowcount = 0;
 		try {
 			conn = ds.getConnection();
-			pstmt = conn
-					.prepareStatement("select count(*) from sign where getsign = ?");
+			pstmt = conn.prepareStatement("select count(*) from sign where getsign = ?");
+			pstmt.setInt(1, empno);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				rowcount = rs.getInt(1);
