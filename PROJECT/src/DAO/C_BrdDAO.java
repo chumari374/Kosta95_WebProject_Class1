@@ -48,11 +48,44 @@ public class C_BrdDAO {
 		}
 	}
 	
-	public List noticeList(){
+	public List getNoticeList(){
 		
+		String getC_BrdList_sql = "select * from (select rownum rnum,NUM,EMPNO,TITLE,CONTENT,REF,DPTH,STEP,COUNT,WRITE_DATE,ENAME,NOTICE from (select * from c_brd where notice = 'true' order by num desc)) where rnum>=1 and rnum<=3";
 		
+		List<C_BrdDTO> list = new ArrayList<C_BrdDTO>();
 		
-		return null;
+
+				try {
+					conn = ds.getConnection();
+					pstmt = conn.prepareStatement(getC_BrdList_sql);
+
+					rs = pstmt.executeQuery();
+
+					while (rs.next()) {
+						C_BrdDTO c_brd = new C_BrdDTO();
+						c_brd.setNum(rs.getInt("NUM"));
+						c_brd.setEmpno(rs.getInt("EMPNO"));
+						c_brd.setTitle(rs.getString("TITLE"));
+						c_brd.setContent(rs.getString("CONTENT"));
+						c_brd.setNotice(rs.getString("NOTICE"));
+						c_brd.setWrite_date(rs.getDate("WRITE_DATE"));
+						c_brd.setRef(rs.getInt("REF"));
+						c_brd.setDpth(rs.getInt("DPTH"));
+						c_brd.setStep(rs.getInt("STEP"));
+						c_brd.setCount(rs.getInt("COUNT"));
+						c_brd.setEname(rs.getString("ENAME"));
+						list.add(c_brd);
+					}
+
+					return list;
+				} catch (Exception ex) {
+					System.out.println("getNoticeList 에러 : " + ex);
+				} finally {
+					if (rs != null) try { rs.close(); } catch (SQLException ex) {}
+					if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}
+					if (conn != null) try { conn.close(); } catch (SQLException ex) {}
+				}
+				return null;
 		
 	}
 	
@@ -142,7 +175,7 @@ public class C_BrdDAO {
 
 					return list;
 				} catch (Exception ex) {
-					System.out.println("getC_BrdList 에러 : " + ex);
+					System.out.println("getBoardList 에러 : " + ex);
 				} finally {
 					if (rs != null) try { rs.close(); } catch (SQLException ex) {}
 					if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}

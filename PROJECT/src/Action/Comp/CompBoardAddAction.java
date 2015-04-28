@@ -54,7 +54,9 @@ public class CompBoardAddAction implements Action {
 				out.println("</script>");
 
 				System.out.println("게시판 등록 실패");
-				return null;
+				forward.setRedirect(true);
+				forward.setPath("./CompBoardList.cp");
+				return forward;
 			}
 
 			out.println("<script>");

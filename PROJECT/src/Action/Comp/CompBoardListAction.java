@@ -17,7 +17,8 @@ public class CompBoardListAction implements Action {
 			HttpServletResponse response) throws Exception {
 		C_BrdDAO boarddao = new C_BrdDAO();
 		// DB연결 ,,,, select 가지고 있는 객체
-		List boardlist = new ArrayList();
+		List boardlist;
+		List noticelist;
 		// 여러건의 데이터를 처리하기 위하여 배열
 
 		int page = 1;
@@ -32,6 +33,7 @@ public class CompBoardListAction implements Action {
 
 		int listcount = boarddao.getListCount(); // 총 리스트 수를 받아옴
 		boardlist = boarddao.getBoardList(page,limit); // 리스트를 받아옴
+		noticelist = boarddao.getNoticeList();
 		// page =2 , limit =10 (페이지당 개수)
 
 		// 총 페이지 수
@@ -56,6 +58,7 @@ public class CompBoardListAction implements Action {
 		request.setAttribute("endpage", endpage); // 현재 페이지에 표시할 끝 페이지 수
 		request.setAttribute("listcount", listcount); // 글 수
 		request.setAttribute("boardlist", boardlist);
+		request.setAttribute("noticelist", noticelist);
 
 		// forward 대한 처리 로직///////////////////////////
 		ActionForward forward = new ActionForward();

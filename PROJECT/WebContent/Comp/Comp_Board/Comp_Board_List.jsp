@@ -5,6 +5,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	List boardList=(List)request.getAttribute("boardlist");
+	List noticeList=(List)request.getAttribute("noticelist");
 	int listcount=(Integer)request.getAttribute("listcount");
 	int nowpage=(Integer)request.getAttribute("page");
 	int maxpage=(Integer)request.getAttribute("maxpage");
@@ -68,6 +69,41 @@ if(listcount > 0){
 			<div align="center">조회수</div>
 		</td> 
 	</tr>
+	
+	<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	
+		
+	<%
+		for(int i=0;i<noticeList.size();i++){
+			C_BrdDTO bl=(C_BrdDTO)noticeList.get(i);
+	%>
+	<tr align="center" valign="middle" bordercolor="#333333"
+		onmouseover="this.style.backgroundColor='F8F8F8'"
+		onmouseout="this.style.backgroundColor=''">
+		<td height="23" style="font-family:Tahoma;font-size:10pt;">
+			공지
+		</td>
+		
+		<td style="font-family:Tahoma;font-size:10pt;">
+			<div align="left">
+			<a href="CompBoardDetailAction.cp?num=<%=bl.getNum()%>">
+				<%=bl.getTitle()%>
+			</a>
+			</div>
+		</td>
+		
+		<td style="font-family:Tahoma;font-size:10pt;">
+			<div align="center"><%=bl.getEname() %></div>
+		</td>
+		<td style="font-family:Tahoma;font-size:10pt;">
+			<div align="center"><%=bl.getWrite_date() %></div>
+		</td>	
+		<td style="font-family:Tahoma;font-size:10pt;">
+			<div align="center"><%=bl.getCount() %></div>
+		</td>
+	</tr>
+	<%} %>
+	<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 	
 	<%
 		for(int i=0;i<boardList.size();i++){
