@@ -145,7 +145,7 @@
 				</a>
 				<a href="javascript:history.go(-1)" class="btn btn-success btn-inline-block btn-lg">
 				뒤로</a>
-			
+			</div>
 		</td>
 	</tr>
 </table>
