@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!-- ì‚¬ë‚´ê²Œì‹œíŒ íŽ˜ì´ì§€ -->
+    pageEncoding="EUC-KR"%>
+<!-- »ç³»°Ô½ÃÆÇ ÆäÀÌÁö -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,8 +14,15 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/myscript.js"></script>
+<style>
+   #title {
+      margin: 70px;
+   }
+</style>
 </head>
 <body>
+<div id="title"><h3><b>»ç³»°Ô½ÃÆÇ</b></h3></div>
 <div class="container">
 	<div class="row">
 		<div class="col-md-9">
@@ -25,28 +32,28 @@
                          <tr>
 			<td colspan="5" align="right">
 				<select>
-					<option>ì œëª©</option>
-					<option>ë‚´ìš©</option>
-					<option>ìž‘ì„±ìž</option>
+					<option>Á¦¸ñ</option>
+					<option>³»¿ë</option>
+					<option>ÀÛ¼ºÀÚ</option>
 				</select>
 				&nbsp;
 				<input type="text">
 				&nbsp;
-				<input type="button" value="ê²€ìƒ‰">
+				<input type="button" value="°Ë»ö">
 			</td>
 		</tr>
                     </thead>
                     <tbody>
                       <tr>
-                           <td>ê¸€ë²ˆí˜¸</td>
-                           <td>ì œëª©</td>
-                           <td>ìž‘ì„±ìž</td>
-                           <td>ìž‘ì„±ì¼</td>
-                           <td>ì¡°íšŒìˆ˜</td>
+                           <td>±Û¹øÈ£</td>
+                           <td>Á¦¸ñ</td>
+                           <td>ÀÛ¼ºÀÚ</td>
+                           <td>ÀÛ¼ºÀÏ</td>
+                           <td>Á¶È¸¼ö</td>
                         </tr>
                        
-		<!-- ë™ì ìœ¼ë¡œ êµ¬ì„± -->
-		<!-- WebJSP7_BasicBoard > board_list.jsp ì°¸ê³  -->
+		<!-- µ¿ÀûÀ¸·Î ±¸¼º -->
+		<!-- WebJSP7_BasicBoard > board_list.jsp Âü°í -->
 		<tr>
 				<td></td>
                 <td></td>
@@ -70,7 +77,7 @@
 		</tr>
 		<tr>
 			<td colspan="4" align="center"> &lt; 1 2 3 4 5 6 7 8 9 10 &gt; </td>
-			<td align="center"><input type="button" value="ê¸€ì“°ê¸°" onclick="location.href='<%=request.getContextPath()%>/CompBoardWrite.cp'"></td>
+			<td align="center"><a href="#" onclick="ppurija4('main');" ><input type="button" value="±Û¾²±â"></a></td>
 		</tr>
                     </tbody>
 	

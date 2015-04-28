@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%
 	String empno = (String.valueOf(session.getAttribute("empno"))); 
@@ -51,14 +52,46 @@
 	}
 	</script>
 	
+	<style>
+	
+	body{
+	   text-align: center;
+	}
+	
+	table {
+	    margin-top: 20px;
+	    margin-left: 20px;
+	}
+	
+	tr, td{
+	   border-bottom: 1px solid #D5D5D5;
+	}
+	
+	#bottons {
+	
+	   padding-left: 50px;
+	
+	}
+	
+
+	</style>
+	   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	
 </head>
 <body>
 <!-- 게시판 등록 -->
 <form action="CompBoardWriteOk.cp" method="post" name="boardform">
 <input type="hidden" name="BOARD_ID" value="<%=empno %>">
-<table cellpadding="0" cellspacing="0" width="100%">
+<table width="700px" height="600px" cellpadding="0" cellspacing="0" width="100%">
 	<tr align="center" valign="middle">
-		<td colspan="5"> 사내 게시판</td>
+		<td colspan="5"><h3><b>사내 게시판</b></h3></td>
 	</tr>
 	<tr>
 		<td style="font-family:돋음; font-size:12" height="16">
@@ -103,11 +136,17 @@
 		<td colspan="2" style="height:1px;">
 		</td>
 	</tr>
-	<tr><td colspan="2">&nbsp;</td></tr>
+	<tr><td colspan="2"></td>
 	<tr align="center" valign="middle">
 		<td colspan="5">
-			<a href="javascript:addboard()">[등록]</a>&nbsp;&nbsp;
-			<a href="javascript:history.go(-1)">[뒤로]</a>
+		
+				<a href="javascript:addboard()">
+				<input type="submit" value="등록" class="btn btn-primary btn-inline-block btn-lg">
+				</a>
+				<a href="javascript:history.go(-1)" class="btn btn-success btn-inline-block btn-lg">
+				뒤로</a>
+				
+			</div>
 		</td>
 	</tr>
 </table>
