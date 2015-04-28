@@ -58,7 +58,7 @@
               <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;부서     
               <ul class="submenu">         
                  <li><a href="#">부서 게시판</a></li>          
-                 <li><a href="chatting/client.html?">팀 게시판</a></li>       
+                 <li><a href="#" onclick="chatting_window()">팀 게시판</a></li>       
                  <li><a href="#">자료실</a></li>    
               </ul>    
            </li>
