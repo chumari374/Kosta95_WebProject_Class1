@@ -26,35 +26,13 @@
 		.ui-menu { width: 90px; }
 	</style>
 	<script type="text/javascript">
-		$(function(){
-			$('ul').menu();
+	$(function(){
+		$('ul').menu();
+		$("li").click(function(){
+		    console.log($(this).text());
 		});
-		
-		function dept(code) { 
-			   $.ajax({ 
-			      type : 'post', 
-			      url : "memberlist.info?dept="+code, 
-			      async : false, 
-			         data : {}, 
-			         error : function(xhr, status) {alert('Unknown error ' + status); }, 
-			         success : function(data) { 
-			             $("#main").html(data); 
-			         } 
-			   }); 
-			} 
-		
-		function team(ad) { 
-			   $.ajax({ 
-			      type : 'post', 
-			      url : ad, 
-			      async : false, 
-			         data : {}, 
-			         error : function(xhr, status) {alert('Unknown error ' + status); }, 
-			         success : function(data) { 
-			             $("#main").html(data); 
-			         } 
-			   }); 
-			} 
+	});
+	
 	</script>
 </head>
 <body>
@@ -64,7 +42,7 @@
 				<ul>
 					<li>선택
 						<ul>
-							<li onclick="dept(110)">개발부
+							<li>개발부
 								<ul>
 									<li>솔루션개발팀</li>
 									<li>외주팀</li>
