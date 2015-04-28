@@ -80,7 +80,7 @@ public class MemberInfoDAO {
 			
 			rs= pstmt.executeQuery();
 			
-			if(rs.next()){
+			while(rs.next()){
 				MemberInfoDTO memberinfo = new MemberInfoDTO();
 				memberinfo.setDeptname(rs.getString("DEPTNAME"));
 				memberinfo.setTeamname(rs.getString("TEAMNAME"));
