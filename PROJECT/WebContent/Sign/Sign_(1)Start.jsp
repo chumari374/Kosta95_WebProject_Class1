@@ -118,9 +118,9 @@ table, td, tr {
 				</tr>
 			</table>
 			<input id = "STARTER" name = "STARTER" type="hidden" value="<%=empno%>">
-			<input id = "EMPNO" name="STARTER" type="hidden" value="<%=empno%>">
-			<input id = "SIGNNUM" name="SIGNNUM" type="hidden" value="<%=getSignNum %>">
-			<input id = "STEP" name="STEP" type="hidden" value="1">
+			<input id = "EMPNO" name = "STARTER" type="hidden" value="<%=empno%>">
+			<input id = "SIGNNUM" name = "SIGNNUM" type="hidden" value="<%=getSignNum %>">
+			<input id = "STEP" name = "STEP" type="hidden" value="1">
 			<button>미리보기</button>
 			&nbsp;
 			<button>임시저장</button>
