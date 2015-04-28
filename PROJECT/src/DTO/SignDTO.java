@@ -15,7 +15,22 @@ public class SignDTO {
 	private int step; // 결재 계층
 	private String status; // 결재 상태
 	private String file_sign; // 파일 업로드 경로
+
+	private String starter_name;
+	private String getsign_name;
 	
+	public String getStarter_name() {
+		return starter_name;
+	}
+	public void setStarter_name(String starter_name) {
+		this.starter_name = starter_name;
+	}
+	public String getGetsign_name() {
+		return getsign_name;
+	}
+	public void setGetsign_name(String getsign_name) {
+		this.getsign_name = getsign_name;
+	}
 	public int getSignnum() {
 		return signnum;
 	}
