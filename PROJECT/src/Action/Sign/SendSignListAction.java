@@ -43,8 +43,8 @@ public class SendSignListAction implements Action {
 		request.setAttribute("maxpage", maxpage); // 최대 페이지 수
 		request.setAttribute("startpage", startpage); // 현재 페이지에 표시할 첫 페이지 수
 		request.setAttribute("endpage", endpage); // 현재 페이지에 표시할 끝 페이지 수
-		request.setAttribute("getsignlistcount", sendsignlistcount); // 글 수
-		request.setAttribute("getsignlist", sendsignlist);
+		request.setAttribute("sendsignlistcount", sendsignlistcount); // 글 수
+		request.setAttribute("sendsignlist", sendsignlist);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
