@@ -4,6 +4,7 @@
     pageEncoding="UTF-8"%>
 <% 
 	List MemberList = (List)request.getAttribute("MemberList");
+	request.setAttribute("MemberList", MemberList);
 %>
 <!-- 사원검색 페이지 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -26,13 +27,20 @@
 		.ui-menu { width: 90px; }
 	</style>
 	<script type="text/javascript">
-	$(function(){
-		$('ul').menu();
-		$("li").click(function(){
-		    console.log($(this).text());
+		$(function(){
+			$('ul').menu();
+			
+			$('#btn').click(function(){
+				$.ajax(
+						{
+							url : './Emp_Search/Search.jsp',
+							success : function(data){
+								$('#membertable').html(data);
+							}
+						}
+					);
+			});
 		});
-	});
-	
 	</script>
 </head>
 <body>
@@ -42,7 +50,7 @@
 				<ul>
 					<li>선택
 						<ul>
-							<li>개발부
+							<li onclick="dept(110)">개발부
 								<ul>
 									<li>솔루션개발팀</li>
 									<li>외주팀</li>
@@ -66,10 +74,9 @@
 				</ul>
 			</td>
 			<td colspan="5">
-				<input type="text" placeholder="이름으로 검색">&nbsp;<input type="button" value="검색">
+				<input type="text" placeholder="이름으로 검색">&nbsp;<input type="button" value="검색" id="btn">
 			</td>
 		</tr>
-		<!-- 동적으로 구성 -->
 		<tr>
 			<td>부서</td>
 			<td>팀</td>
@@ -78,20 +85,7 @@
 			<td>사내전화번호</td>
 			<td>핸드폰</td>
 		</tr>
-			
-	<%
-		for(int i=0;i<MemberList.size();i++){
-			MemberInfoDTO MID = (MemberInfoDTO)MemberList.get(i);
-	%>
-		<tr>
-			<td><%= MID.getDeptname() %></td>
-			<td><%= MID.getTeamname() %></td>
-			<td><%= MID.getEname() %></td>
-			<td><%= MID.getGradename() %></td>
-			<td><%= MID.getTeamname() %></td>
-			<td><%= MID.getCelphone()%></td>
-		</tr>
-	<%} %>
 	</table>
+			<div id="membertable"></div>
 </body>
 </html>
