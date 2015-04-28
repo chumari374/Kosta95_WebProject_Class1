@@ -265,7 +265,7 @@ public class SignDAO {
 
 	// ========== 보낸 결재 함========================
 	public List getSendSignList(int empno, int page, int limit, String status) {
-		String getSendSignList_sql = "select rownum, signnum, title, content, empno, getsign, ref, step, write_date, status "
+		String getSendSignList_sql = "select rownum, starter, signnum, title, content, empno, getsign, ref, step, write_date, status "
 				+ "from sign "
 				+ "where empno = ? and rownum>=? and rownum<=? and status = ?";
 
@@ -295,8 +295,9 @@ public class SignDAO {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
+				System.out.println("점검1");
 				SignDTO SignBoard = new SignDTO(); // 한 건의
-				SignBoard.setSignnum(rs.getInt("SIGNNUM"));
+				SignBoard.setSignnum(rs.getInt("signnum"));
 				SignBoard.setStarter(rs.getInt("STARTER"));
 				SignBoard.setEmpno(rs.getInt("EMPNO"));
 				SignBoard.setGetsign(rs.getInt("GETSIGN"));
