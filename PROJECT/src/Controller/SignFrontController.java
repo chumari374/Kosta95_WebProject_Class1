@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import Action.Action;
 import Action.ActionForward;
 import Action.Sign.GetSignListAction;
+import Action.Sign.SendSignListAction;
 import Action.Sign.SignAddAction;
 import Action.Sign.SignAddAction;
 
@@ -69,6 +70,22 @@ public class SignFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		
+		
+		// 보낸결재함
+				if (command.equals("/sendSignList.hong")) {
+					// System.out.println("getsignlist Display");
+					action = new SendSignListAction(); // action에 어떤 함수를 쓸껀지 쓰는것 마다 만들어
+														// 준다
+					// action 객체 변수 ....
+
+					try {
+						forward = action.execute(request, response);
+						System.out.println("sendsignlist :  forward");
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
 
 		// 결재문서 작성
 		else if (command.equals("/SignWrite.hong")) {
