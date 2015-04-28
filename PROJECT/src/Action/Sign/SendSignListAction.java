@@ -28,7 +28,7 @@ public class SendSignListAction implements Action {
 		}
 		
 		int sendsignlistcount = signdao.sendSignListCount(); // 총 리스트 수 받아옴
-		sendsignlistcount = signdao.sendSendSignList(empno, page, limit, status);
+		sendsignlist = signdao.getSendSignList(empno, page, limit, status);
 		
 		int maxpage = (int) ((double) sendsignlistcount / limit + 0.95);
 		int startpage = (((int) ((double) page / 10 + 0.9)) - 1) * 10 + 1;
@@ -45,4 +45,10 @@ public class SendSignListAction implements Action {
 		request.setAttribute("endpage", endpage); // 현재 페이지에 표시할 끝 페이지 수
 		request.setAttribute("getsignlistcount", sendsignlistcount); // 글 수
 		request.setAttribute("getsignlist", sendsignlist);
+		
+		ActionForward forward = new ActionForward();
+		forward.setRedirect(false);
+		forward.setPath("Sign_(3)Send.jsp");
+		return forward;
+	}
 }

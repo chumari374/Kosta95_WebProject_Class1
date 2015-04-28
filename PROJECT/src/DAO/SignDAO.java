@@ -11,12 +11,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import org.apache.catalina.Session;
-import org.apache.catalina.connector.Request;
-import org.apache.catalina.connector.Response;
-
-import com.sun.xml.internal.ws.api.ha.StickyFeature;
-
 import DTO.SignDTO;
 
 public class SignDAO {
@@ -324,6 +318,8 @@ public class SignDAO {
 		}
 		return null;
 	}
+	
+	
 
 	// ======== 받은 결재 글의 갯수 구하는 함수 ======
 	public int getSignListCount() {
@@ -357,7 +353,43 @@ public class SignDAO {
 		}
 		return rowcount;
 	}
+	
+	// ====== 보낸결재 갯수 구하는 함수=======================
+	public int sendSignListCount() {
+		int rowcount = 0;
+		try {
+			conn = ds.getConnection();
+			pstmt = conn
+					.prepareStatement("select count(*) from sign where getsign = ?");
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				rowcount = rs.getInt(1);
+			}
+		} catch (Exception e) {
 
+		} finally {
+			try {
+				rs.close();
+			} catch (SQLException s) {
+				s.printStackTrace();
+			}
+			try {
+				pstmt.close();
+			} catch (SQLException s) {
+				s.printStackTrace();
+			}
+			try {
+				conn.close();
+			} catch (SQLException s) {
+				s.printStackTrace();
+			}
+		}
+		return rowcount;
+	}
+	
+	
+	
+	// ====== 문서 상태 함수===============================
 	public void SignStatus(String status, int ref, int step) {
 
 		String signStatus_sql = "";
