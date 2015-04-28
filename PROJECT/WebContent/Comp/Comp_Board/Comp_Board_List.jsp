@@ -12,8 +12,8 @@
 	int startpage=(Integer)request.getAttribute("startpage");
 	int endpage=(Integer)request.getAttribute("endpage");
 	
-	System.out.println(listcount + "/ " + nowpage + " / " + maxpage + " / ");
-	System.out.println(startpage + " / " + endpage);
+// 	System.out.println(listcount + "/ " + nowpage + " / " + maxpage + " / ");
+// 	System.out.println(startpage + " / " + endpage);
 %>
 <!-- 사내게시판 페이지 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -126,10 +126,7 @@ if(listcount > 0){
 			<%}else{ %>
 				▶
 			<%} %>
-<%-- 			<a href="CompBoardDetailAction.cp?num=<%=bl.getNum()%>"> --%>
-<%-- 				<%=bl.getTitle()%> --%>
-<!-- 			</a> -->
-				<a onclick="ppurija('CompBoardDetailAction.cp?num=<%=bl.getNum()%>')">
+			<a href="CompBoardDetailAction.cp?num=<%=bl.getNum()%>">
 				<%=bl.getTitle()%>
 			</a>
 			</div>
@@ -149,28 +146,23 @@ if(listcount > 0){
 	<tr align=center height=20>
 		<td colspan=7 style=font-family:Tahoma;font-size:10pt;>
 			<%if(nowpage<=1){ %>
-<!-- 			[이전]&nbsp; -->
 			<input type="button" value="이전" >&nbsp;
 			<%}else{ %>
-<%-- 			<a href="CompBoardList.cp?page=<%=nowpage-1 %>">[이전]</a>&nbsp; --%>
-			<input type="button" value="이전 " onclick="ppurija('CompBoardList.cp?page=<%=nowpage-1 %>')">&nbsp;
+			<a href ="CompBoardList.cp?page=<%=nowpage-1 %>"><input type="button" value="이전 "></a>&nbsp;
 			<%} %>
 			
 			<%for(int a=startpage;a<=endpage;a++){
 				if(a==nowpage){%>
-<%-- 				[<%=a %>] --%>
 				<input type="button" value="<%=a %>" style="background-color: #B2EBF4">&nbsp;
 				<%}else{ %>
-<%-- 				<a href="CompBoardList.cp?page=<%=a %>">[<%=a %>]</a>&nbsp; --%>
-					<input type="button" value="<%=a %>" onclick="ppurija('CompBoardList.cp?page=<%=a %>')">&nbsp;
+					<a href="CompBoardList.cp?page=<%=a %>"><input type="button" value="<%=a %>"></a>&nbsp;
 				<%} %>
 			<%} %>
 			
 			<%if(nowpage>=maxpage){ %>
 			<input type="button" value="다음">
 			<%}else{ %>
-<%-- 			<a href="CompBoardList.cp?page=<%=nowpage+1 %>">[다음]</a> --%>
-			<input type="button" value="다음" onclick="ppurija('CompBoardList.cp?page=<%=nowpage+1 %>')">
+			<a href="CompBoardList.cp?page=<%=nowpage+1 %>"><input type="button" value="다음"></a>
 			<%} %>
 		</td>
 	</tr>
@@ -190,7 +182,7 @@ if(listcount > 0){
 	%>
 	<tr align="right">
 		<td colspan="5">
-	   		<input type="button" value="글쓰기" onclick="ppurija('CompBoardWrite.cp')">
+	   		<a href="CompBoardWrite.cp"><input type="button" value="글쓰기"></a>
 		</td>
 	</tr>
 </table>

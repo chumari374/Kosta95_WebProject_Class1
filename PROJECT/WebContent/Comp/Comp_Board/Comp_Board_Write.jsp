@@ -125,14 +125,6 @@
 			
 		</td>
 	</tr>
-<!-- 	<tr> -->
-<!-- 		<td style="font-family:돋음; font-size:12"> -->
-<!-- 			<div align="center">파일 첨부</div> -->
-<!-- 		</td> -->
-<!-- 		<td> -->
-<!-- 			<input name="BOARD_FILE" type="file"/> -->
-<!-- 		</td> -->
-<!-- 	</tr> -->
 	<tr bgcolor="cccccc">
 		<td colspan="2" style="height:1px;">
 		</td>
@@ -144,9 +136,8 @@
 				<a href="javascript:addboard()">
 				<input type="submit" value="등록" class="btn btn-primary btn-inline-block btn-lg">
 				</a>
-				<a onclick="ppurija('CompBoardList.cp')" class="btn btn-success btn-inline-block btn-lg">
+				<a href="CompBoardList.cp" class="btn btn-success btn-inline-block btn-lg">
 				뒤로</a>
-			</div>
 		</td>
 	</tr>
 </table>
