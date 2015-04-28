@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -65,5 +67,38 @@ public class MemberInfoDAO {
 			if(conn !=null)try{conn.close();}catch(SQLException ex){}
 		}
 		return memberinfo;
+	}
+	
+	// 사원리스트 출력(사원찾기에서)
+	public List<MemberInfoDTO> MemberList(){
+		
+		List<MemberInfoDTO> list = new ArrayList<MemberInfoDTO>();
+		
+		try{
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement("select deptname, teamname, ename, gradename, emptel, celphone from memberinfo order by grade");
+			
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()){
+				MemberInfoDTO memberinfo = new MemberInfoDTO();
+				memberinfo.setDeptname(rs.getString("DEPTNAME"));
+				memberinfo.setTeamname(rs.getString("TEAMNAME"));
+				memberinfo.setEname(rs.getString("ENAME"));
+				memberinfo.setGradename(rs.getString("GRADENAME"));
+				memberinfo.setEmptel(rs.getString("EMPTEL"));
+				memberinfo.setCelphone(rs.getString("CELPHONE"));
+				list.add(memberinfo);
+			}
+			
+		}catch(Exception ex){
+			System.out.println("getMemberInfo 에러 : " + ex);
+		}finally{
+			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(pstmt !=null)try{pstmt.close();}catch(SQLException ex){}
+			if(conn !=null)try{conn.close();}catch(SQLException ex){}
+		}
+		return list;
+		
 	}
 }
