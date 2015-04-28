@@ -7,17 +7,22 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import DAO.AccountsDAO;
+import DAO.MemberInfoDAO;
 import DTO.EmpDTO;
+import DTO.MemberInfoDTO;
 
 public class LoginAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+
+		int empno = Integer.parseInt(request.getParameter("empno"));
 		ActionForward forward = new ActionForward();
 		AccountsDAO dao = new AccountsDAO();
+		MemberInfoDAO dao2 = new MemberInfoDAO();
+		MemberInfoDTO dto = dao2.getMemberInfo(empno);
 		
-		int empno = Integer.parseInt(request.getParameter("empno"));
 		System.out.println("empno/"+empno);
 		String pwd = request.getParameter("pwd");
 		boolean loginCheck = dao.loginCheck(empno, pwd);
@@ -40,6 +45,7 @@ public class LoginAction implements Action{
 		session.setAttribute("teamname", emp.getTeamname());
 		session.setAttribute("deptcode", emp.getDeptcode());
 		session.setAttribute("grade", emp.getGrade());
+		session.setAttribute("p_picture", dto.getP_picture());
 		
 		forward.setRedirect(false);
 		forward.setPath("Main.jsp");
