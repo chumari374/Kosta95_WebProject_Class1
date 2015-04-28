@@ -211,7 +211,7 @@ public class SignDAO {
 	public List getGetSignList(int empno, int page, int limit, String status) {
 		String getGetSignList_sql = "select rownum, signnum, title, content, empno, getsign, ref, step, write_date, status"
 				+ "from sign"
-				+ "where getsign = ? and rownum>=? and rownum<=? and status = '?'";
+				+ "where getsign = ? and rownum>=? and rownum<=? and status = ?";
 
 		List list = new ArrayList();
 		int startrow = (page - 1) * 10 + 1;
@@ -267,10 +267,10 @@ public class SignDAO {
 	public List getSendSignList(int empno, int page, int limit, String status) {
 		String getSendSignList_sql = "select rownum, signnum, title, content, empno, getsign, ref, step, write_date, status"
 				+ "from sign"
-				+ "where empno = ? and rownum>=? and rownum<=? and status = '?'";
+				+ "where empno = ? and rownum>=? and rownum<=? and status = ?";
 
 		List list = new ArrayList();
-		int startrow = (page - 1) * 10 + 1;
+		int startrow = (page - 1) * limit + 1;
 		int endrow = startrow + limit - 1; // 읽을 마지막 row 번호.
 
 		try {
