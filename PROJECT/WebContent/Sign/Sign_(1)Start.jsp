@@ -99,11 +99,11 @@ table, td, tr {
 				</tr>
 				<tr>
 					<td>제목</td>
-					<td><input id="TITLE" type="text" style="width: 500px"></td>
+					<td><input id="TITLE" name="TITLE" type="text" style="width: 500px"></td>
 				</tr>
 				<tr>
 					<td>파일첨부</td>
-					<td>&nbsp;<input id="File_sign" type="file"></td>
+					<td>&nbsp;<input id="File_sign" name="File_sign" type="file"></td>
 				</tr>
 				<tr class="content">
 					<td>내용</td>
@@ -117,9 +117,10 @@ table, td, tr {
 					<td><%=getSign%></td>
 				</tr>
 			</table>
-			<input id = "STARTER" type="hidden" value="<%=empno%>">
-			<input id = "EMPNO" type="hidden" value="<%=empno%>">
-			<input id = "SIGNNUM" type="hidden" value="<%=getSignNum %>">
+			<input id = "STARTER" name = "STARTER" type="hidden" value="<%=empno%>">
+			<input id = "EMPNO" name="STARTER" type="hidden" value="<%=empno%>">
+			<input id = "SIGNNUM" name="SIGNNUM" type="hidden" value="<%=getSignNum %>">
+			<input id = "STEP" name="STEP" type="hidden" value="1">
 			<button>미리보기</button>
 			&nbsp;
 			<button>임시저장</button>
