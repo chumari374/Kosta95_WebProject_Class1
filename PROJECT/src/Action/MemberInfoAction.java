@@ -16,9 +16,9 @@ public class MemberInfoAction implements Action{
 		
 		MemberInfoDAO dao = new MemberInfoDAO();
 		
-		int empno = Integer.parseInt(request.getParameter("empno"));
+		int memberNo = Integer.parseInt(request.getParameter("empno"));
 
-		MemberInfoDTO member = dao.getMemberInfo(empno);
+		MemberInfoDTO member = dao.getMemberInfo(memberNo);
 		HttpSession session = request.getSession();
 		session.setAttribute("empno", member.getEmpno());
 		session.setAttribute("ename", member.getEname());
