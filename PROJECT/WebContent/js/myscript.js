@@ -40,3 +40,16 @@ function ppurija3(id) {
 	         } 
 	   }); 
 	} 
+
+function ppurija4(id) { 
+	   $.ajax({ 
+	      type : 'post', 
+	      url : 'Comp/Comp_Board/Comp_Board_Write.jsp', 
+	      async : false, 
+	         data : {}, 
+	         error : function(xhr, status) {alert('Unknown error ' + status); }, 
+	         success : function(data) { 
+	             $("#"+ id).html(data); 
+	         } 
+	   }); 
+	} 

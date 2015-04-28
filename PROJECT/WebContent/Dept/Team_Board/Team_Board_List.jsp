@@ -14,8 +14,14 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<style>
+   #title {
+      margin: 70px;
+   }
+</style>
 </head>
 <body>
+<div id="title"><h3><b>ÆÀ°Ô½ÃÆÇ</b></h3></div>
 <div class="container">
 	<div class="row">
 		<div class="col-md-9">

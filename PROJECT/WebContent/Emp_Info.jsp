@@ -3,7 +3,18 @@
     pageEncoding="UTF-8"%>
 <!-- 게시판이나 사원검새에서 '사원상제정보보기'를 눌렀을때 나오는 화면 -->
 <% 
-	int empno = Integer.parseInt((String)session.getAttribute("empno"));
+ 	int empno = Integer.parseInt(request.getParameter("empno"));
+	String ename = request.getParameter("ename");
+	String celphone = request.getParameter("celphone");
+	String email = request.getParameter("email");
+	String deptname = request.getParameter("deptname");
+	String teamname = request.getParameter("teamname");
+	String gradename = request.getParameter("gradename");
+	String emptel = request.getParameter("emptel");
+	String p_content = request.getParameter("p_content");
+	String p_picture = request.getParameter("p_picture");
+	
+ 	/* int empno = Integer.parseInt((String)session.getAttribute("empno"));
 	String ename = (String)session.getAttribute("ename");
 	String celphone = (String)session.getAttribute("celphone");
 	String email = (String)session.getAttribute("email");
@@ -12,7 +23,7 @@
 	String gradename = (String)session.getAttribute("gradename");
 	String emptel = (String)session.getAttribute("emptel");
 	String p_picture = (String)session.getAttribute("p_picture");
-	String p_content = (String)session.getAttribute("p_content");
+	String p_content = (String)session.getAttribute("p_content"); */ 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

@@ -14,8 +14,15 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/myscript.js"></script>
+<style>
+   #title {
+      margin: 70px;
+   }
+</style>
 </head>
 <body>
+<div id="title"><h3><b>부서게시판</b></h3></div>
 <div class="container">
 	<div class="row">
 		<div class="col-md-9">
@@ -70,7 +77,7 @@
 		</tr>
 		<tr>
 			<td colspan="4" align="center"> &lt; 1 2 3 4 5 6 7 8 9 10 &gt; </td>
-			<td align="center"><input type="button" value="글쓰기" onclick="location.href='<%=request.getContextPath()%>/CompBoardWrite.cp'"></td>
+			<td align="center"><a href="#" onclick=";" ><input type="button" value="글쓰기"></a></td>
 		</tr>
                     </tbody>
 	

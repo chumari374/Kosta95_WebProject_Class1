@@ -1,15 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!-- 메인페이지 -->
-<%
-	Object empno = session.getAttribute("empno");
-	Object ename = session.getAttribute("ename");
-	String session_val = empno+"/"+ename;
-	
-/* 	out.print("<script>");
-	out.print("console.log('"+session_val+"')");
-	out.print("</script>"); */
-%>
 <!DOCTYPE HTML>
 <HTML>
 <HEAD>
@@ -45,7 +36,7 @@
       <div id="leftdiv1">
                   <p>회원 Login 정보 표시</p>
                   <p><img src="img/S_10.jpg" width="80px" height="80px"></p>
-                  <p>20100390님 로그인 하셨습니다.</p>
+                  <p>${sessionScope.ename }님 로그인 하셨습니다.</p>
                   <p><input type="button" value="로그아웃"></p>
       
       </div>
@@ -58,7 +49,7 @@
               <ul class="submenu">         
                  <li><a href="#" onclick="ppurija('main');" >공지사항</a></li>          
                  <li><a href="#" onclick="ppurija2('main');" >자료실</a></li>       
-                 <li><a href="#" onclick="location.href='<%=request.getContextPath()%>/CompBoardList.cp'" >게시판</a></li>    
+                 <li><a href="#" onclick="ppurija3('main');" >게시판</a></li>    
               </ul>    
          </li>
         
