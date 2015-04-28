@@ -134,11 +134,11 @@ public class SignDAO {
 				getMax = rs.getInt(1) + 1;
 			}
 
-			String startSign_sql = "insert into sign (signnum, starter, empno, getsign, title, content, write_date, ref, step, status, file_sign)" 
-								 + "values(?,?,?,?,?,?,sysdate,?,?,?,?)";
+			String startSign_sql = "insert into sign (signnum, starter, empno, getsign, title, content, write_date, ref, step, status, file_sign)"
+					+ "values(?,?,?,?,?,?,sysdate,?,?,?,?)";
 
 			pstmt = conn.prepareStatement(startSign_sql);
-			
+
 			System.out.println(getMax);
 			System.out.println(sign.getStarter());
 			System.out.println(sign.getEmpno());
@@ -149,7 +149,7 @@ public class SignDAO {
 			System.out.println(sign.getStep());
 			System.out.println(sign.getStatus());
 			System.out.println(sign.getFile_sign());
-			
+
 			pstmt.setInt(1, getMax);
 			System.out.println(1);
 			pstmt.setInt(2, sign.getStarter()); // 기안자
@@ -178,7 +178,7 @@ public class SignDAO {
 			} else {
 				pstmt.setString(10, sign.getFile_sign());
 			}
-			
+
 			System.out.println(10);
 			rs = pstmt.executeQuery();
 		} catch (SQLException e) {
@@ -269,10 +269,9 @@ public class SignDAO {
 				+ "from sign "
 				+ "where empno = ? and rownum>=? and rownum<=? and status = ?";
 
-		
 		System.out.println(getSendSignList_sql);
 		System.out.println("DAO앵커1");
-		
+
 		List list = new ArrayList();
 		int startrow = (page - 1) * limit + 1;
 		int endrow = startrow + limit - 1; // 읽을 마지막 row 번호.
@@ -280,14 +279,14 @@ public class SignDAO {
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(getSendSignList_sql);
-			
+
 			System.out.println("DAO앵커2");
-			
+
 			System.out.println(startrow);
 			System.out.println(endrow);
-			
+
 			System.out.println("갯수끝");
-			
+
 			pstmt.setInt(1, empno);
 			pstmt.setInt(2, startrow); // 11 21 code
 			pstmt.setInt(3, endrow); // 20 30 code
@@ -331,8 +330,6 @@ public class SignDAO {
 		}
 		return list;
 	}
-	
-	
 
 	// ======== 받은 결재 글의 갯수 구하는 함수 ======
 	public int getSignListCount(int empno) {
@@ -366,13 +363,14 @@ public class SignDAO {
 		}
 		return rowcount;
 	}
-	
+
 	// ====== 보낸결재 갯수 구하는 함수=======================
 	public int sendSignListCount(int empno) {
 		int rowcount = 0;
 		try {
 			conn = ds.getConnection();
-			pstmt = conn.prepareStatement("select count(*) from sign where empno = ?");
+			pstmt = conn
+					.prepareStatement("select count(*) from sign where empno = ?");
 			pstmt.setInt(1, empno);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
@@ -399,9 +397,7 @@ public class SignDAO {
 		}
 		return rowcount;
 	}
-	
-	
-	
+
 	// ====== 문서 상태 함수===============================
 	public void SignStatus(String status, int ref, int step) {
 
