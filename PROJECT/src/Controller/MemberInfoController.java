@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Action.Action;
 import Action.ActionForward;
+import Action.Emp_SearchAction;
 import Action.MemberInfoAction;
 
 @WebServlet("*.info")
@@ -50,7 +51,16 @@ public class MemberInfoController extends HttpServlet {
 			}catch(Exception e) {
 					e.printStackTrace();
 			}
+		} if(command.equals("/MemberList.info")){
+			forward=new ActionForward();
+			forward.setRedirect(true);
+			action = new Emp_SearchAction();
 			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+					e.printStackTrace();
+			}
 		}
 		
 		if(forward != null){
