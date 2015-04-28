@@ -47,9 +47,9 @@
         <li>    
              <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;사내     
               <ul class="submenu">         
-                 <li><a href="#" onclick="ppurija('CompNoticeList.cp');" >공지사항</a></li>          
-                 <li><a href="#" onclick="ppurija('CompNoticeList.cp');" >자료실</a></li>       
-                 <li><a href="#" onclick="ppurija('CompNoticeList.cp');" >게시판</a></li>    
+                 <li><a href="#" onclick="ppurija('CompBoardList.cp');" >공지사항</a></li>          
+                 <li><a href="#" onclick="ppurija('CompBoardList.cp');" >자료실</a></li>       
+                 <li><a href="#" onclick="ppurija('CompBoardList.cp');" >게시판</a></li>    
               </ul>    
          </li>
         
@@ -100,14 +100,13 @@
       </div>
     </aside>
 	<input type="hidden" id="ip">
-
-    <section id="main">
+    <div id="main" align="center" >
     사내 공지사항
 <!-- <div id="div1">사내 공지사항</div>
     <div id="div2">...div2</div>
     <div id="div3">...div3</div>
     <div id="div4">...div4</div> -->
-    </section>
+    </div>
     
     <footer>Copyright (c) 2015 KOSTA</footer>
 
