@@ -13,4 +13,8 @@ function ppurija(ad) {
              $("#main").html(data); 
          } 
    }); 
-} 
+}
+
+function chatting_window(){
+	window.open("chatting/client.html", "chattingroom", "height=500 width=350")
+}
