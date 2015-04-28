@@ -37,6 +37,8 @@
 </style>
 </head>
 <body>
+<jsp:include page="../../Main.jsp"></jsp:include>
+   <div id="main" align="center">
 <div id="title"><h3><b>사내게시판</b></h3></div>
 <div class="container">
 	<div class="row">
@@ -189,5 +191,7 @@ if(listcount > 0){
 	</div>
 	</div>
 	</div>
+	</div>
+	<jsp:include page="../../Footer.jsp"></jsp:include>
 </body>
 </html>

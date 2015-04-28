@@ -24,7 +24,7 @@
 
 <BODY>
    <header>
-   2015년 3월 27일 월요일 현재 접속자수 10명 
+   ${sessionScope.empno},${sessionScope.ename},${sessionScope.teamname},${sessionScope.grade}
    </header>
 
    <nav>
@@ -47,9 +47,9 @@
         <li>    
              <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;사내     
               <ul class="submenu">         
-                 <li><a href="#" onclick="ppurija('CompBoardList.cp');" >공지사항</a></li>          
-                 <li><a href="#" onclick="ppurija('CompBoardList.cp');" >자료실</a></li>       
-                 <li><a href="#" onclick="ppurija('CompBoardList.cp');" >게시판</a></li>    
+                 <li><a href="#" >공지사항</a></li>          
+                 <li><a href="#" >자료실</a></li>       
+                 <li><a href="CompBoardList.cp" >게시판</a></li>    
               </ul>    
          </li>
         
@@ -99,15 +99,15 @@
       </div>
       </div>
     </aside>
-	<input type="hidden" id="ip">
-    <div id="main" align="center" >
-    사내 공지사항
-<!-- <div id="div1">사내 공지사항</div>
-    <div id="div2">...div2</div>
-    <div id="div3">...div3</div>
-    <div id="div4">...div4</div> -->
-    </div>
+<!-- 	<input type="hidden" id="ip"> -->
+<!--     <div id="main" align="center" > -->
+<!--     사내 공지사항 -->
+<!-- <!-- <div id="div1">사내 공지사항</div> -->
+<!--     <div id="div2">...div2</div> -->
+<!--     <div id="div3">...div3</div> -->
+<!--     <div id="div4">...div4</div> -->
+<!--     </div> -->
     
-    <footer>Copyright (c) 2015 KOSTA</footer>
+<!--     <footer>Copyright (c) 2015 KOSTA</footer> -->
 
 </HTML>
