@@ -47,9 +47,9 @@
         <li>    
              <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;사내     
               <ul class="submenu">         
-                 <li><a href="#" onclick="ppurija('main');" >공지사항</a></li>          
-                 <li><a href="#" onclick="ppurija2('main');" >자료실</a></li>       
-                 <li><a href="#" onclick="ppurija3('main');" >게시판</a></li>    
+                 <li><a href="#" onclick="ppurija('CompNoticeList.cp');" >공지사항</a></li>          
+                 <li><a href="#" onclick="ppurija('CompNoticeList.cp');" >자료실</a></li>       
+                 <li><a href="#" onclick="ppurija('CompNoticeList.cp');" >게시판</a></li>    
               </ul>    
          </li>
         
