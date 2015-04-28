@@ -99,13 +99,13 @@
       </div>
       </div>
     </aside>
-	<input type="hidden" id="ip">
+ 	<input type="hidden" id="ip">
     <div id="main" align="center" >
     사내 공지사항
-<!-- <div id="div1">사내 공지사항</div>
+<div id="div1">사내 공지사항</div>
     <div id="div2">...div2</div>
     <div id="div3">...div3</div>
-    <div id="div4">...div4</div> -->
+    <div id="div4">...div4</div>
     </div>
     
     <footer>Copyright (c) 2015 KOSTA</footer>
