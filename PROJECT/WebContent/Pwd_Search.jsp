@@ -38,10 +38,10 @@
 			<hr class="colorgraph">
 	
 				<div class="form-group">
-					<input type="text" name="empno" id="email" class="form-control input-lg" placeholder="사원번호" tabindex="2">
+					<input type="text" name="empno" id="empno" class="form-control input-lg" placeholder="사원번호" tabindex="2">
 				</div>
 				<div class="form-group">
-					<input type="email" name="empno" id="email" class="form-control input-lg" placeholder="이메일" tabindex="3">
+					<input type="text" name="email" id="email" class="form-control input-lg" placeholder="이메일" tabindex="3">
 				</div>
 	
 			<hr class="colorgraph">
