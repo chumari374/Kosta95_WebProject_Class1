@@ -162,7 +162,7 @@ public class SignDAO {
 			System.out.println(2);
 			pstmt.setInt(3, sign.getEmpno()); // ³» »ç¹ø
 			System.out.println(3);
-			pstmt.setInt(4, sign.getSignnum());
+			pstmt.setInt(4, sign.getGetsign());
 			System.out.println(4);
 			pstmt.setString(5, sign.getTitle());
 			System.out.println(5);
