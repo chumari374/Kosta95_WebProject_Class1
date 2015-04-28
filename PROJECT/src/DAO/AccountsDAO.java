@@ -27,7 +27,7 @@ public class AccountsDAO {
 			Context context = new InitialContext();
 			ds = (DataSource)context.lookup("java:comp/env/jdbc/oracle");
 		}catch(Exception e){
-			System.out.println("DB연결 실패:" + e);
+			e.getStackTrace();
 			return;
 		}
 	}
