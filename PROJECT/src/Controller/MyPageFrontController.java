@@ -4,13 +4,13 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Action.Action;
 import Action.ActionForward;
+import Action.Mypage.Account_EditAction;
 
 //@WebServlet("/MyPageFrontController")
 public class MyPageFrontController extends HttpServlet {
@@ -37,8 +37,13 @@ public class MyPageFrontController extends HttpServlet {
 		//일괄처리를 위해서
 		ActionForward forward = null;
 		Action action = null;
-		if(command.equals("Account_Edit.mp")){
-			
+		if(command.equals("/Account_Edit.mp")){
+			action = new Account_EditAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(forward != null){

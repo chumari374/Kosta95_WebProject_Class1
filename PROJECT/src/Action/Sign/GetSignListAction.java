@@ -18,7 +18,7 @@ public class GetSignListAction implements Action {
 		List getsignlist = new ArrayList();
 		
 		HttpSession session = request.getSession();
-		int empno = (Integer)session.getAttribute("empno");;
+		int empno = (Integer)session.getAttribute("empno");
 		int page = 1;
 		int limit = 10;
 		String status = request.getParameter("status");
