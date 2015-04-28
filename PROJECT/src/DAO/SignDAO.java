@@ -269,6 +269,8 @@ public class SignDAO {
 				+ "from sign "
 				+ "where empno = ? and rownum>=? and rownum<=? and status = ?";
 
+		
+		System.out.println(getSendSignList_sql);
 		System.out.println("DAO¾ÞÄ¿1");
 		
 		List list = new ArrayList();
@@ -280,6 +282,11 @@ public class SignDAO {
 			pstmt = conn.prepareStatement(getSendSignList_sql);
 			
 			System.out.println("DAO¾ÞÄ¿2");
+			
+			System.out.println(startrow);
+			System.out.println(endrow);
+			
+			System.out.println("°¹¼ö³¡");
 			
 			pstmt.setInt(1, empno);
 			pstmt.setInt(2, startrow); // 11 21 code
@@ -327,12 +334,12 @@ public class SignDAO {
 	
 
 	// ======== ¹ÞÀº °áÀç ±ÛÀÇ °¹¼ö ±¸ÇÏ´Â ÇÔ¼ö ======
-	public int getSignListCount() {
+	public int getSignListCount(int empno) {
 		int rowcount = 0;
 		try {
 			conn = ds.getConnection();
 			pstmt = conn
-					.prepareStatement("select count(*) from sign where getsign = ?");
+					.prepareStatement("select count(*) from sign where empno = ?");
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				rowcount = rs.getInt(1);
@@ -364,7 +371,7 @@ public class SignDAO {
 		int rowcount = 0;
 		try {
 			conn = ds.getConnection();
-			pstmt = conn.prepareStatement("select count(*) from sign where getsign = ?");
+			pstmt = conn.prepareStatement("select count(*) from sign where empno = ?");
 			pstmt.setInt(1, empno);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {

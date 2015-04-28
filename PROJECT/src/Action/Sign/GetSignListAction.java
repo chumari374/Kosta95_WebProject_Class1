@@ -27,7 +27,7 @@ public class GetSignListAction implements Action {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
 		
-		int getsignlistcount = signdao.getSignListCount(); // ÃÑ ¸®½ºÆ® ¼ö ¹Þ¾Æ¿È
+		int getsignlistcount = signdao.getSignListCount(empno); // ÃÑ ¸®½ºÆ® ¼ö ¹Þ¾Æ¿È
 		getsignlist = signdao.getGetSignList(empno, page, limit, status); // ¸®½ºÆ® ¹Þ¾Æ¿È
 		
 		int maxpage = (int) ((double) getsignlistcount / limit + 0.95);

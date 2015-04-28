@@ -27,6 +27,7 @@ public class SendSignListAction implements Action {
 		int page = 1;
 		int limit = 10;
 		String status = request.getParameter("status");
+		status = "대기";
 		
 		System.out.println("앵커2");
 		
@@ -43,6 +44,9 @@ public class SendSignListAction implements Action {
 		
 		System.out.println("앵커4");
 		
+		System.out.println(sendsignlistcount);
+		System.out.println(sendsignlist.size());
+		
 		int maxpage = (int) ((double) sendsignlistcount / limit + 0.95);
 		int startpage = (((int) ((double) page / 10 + 0.9)) - 1) * 10 + 1;
 		
@@ -51,8 +55,6 @@ public class SendSignListAction implements Action {
 		if (endpage > maxpage) {
 			endpage = maxpage;
 		}
-		
-		
 		
 		request.setAttribute("page", page); // 현재 페이지 수
 		request.setAttribute("maxpage", maxpage); // 최대 페이지 수
