@@ -1,4 +1,4 @@
-package Action;
+ package Action;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ public class Emp_SearchAction implements Action{
 		
 		MemberInfoDAO dao = new MemberInfoDAO();
 		
-		List<MemberInfoDTO> MemberList = new ArrayList<MemberInfoDTO>();
+		List MemberList = new ArrayList();
 		MemberList = dao.MemberList();
 
 		request.setAttribute("MemberList", MemberList);
