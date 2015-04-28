@@ -56,8 +56,41 @@ public class C_BrdDAO {
 		
 	}
 	
+	public int getListCount() {
+		// select count(*) from board
+		int rowcount = 0;
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement("select count(*) from C_BRD");
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				rowcount = rs.getInt(1);
+			}
+		} catch (Exception e) {
+
+		} finally {
+			try {
+				rs.close();
+			} catch (SQLException s) {
+				s.printStackTrace();
+			}
+			try {
+				pstmt.close();
+			} catch (SQLException s) {
+				s.printStackTrace();
+			}
+			try {
+				conn.close();
+			} catch (SQLException s) {
+				s.printStackTrace();
+			}
+		}
+		return rowcount;
+	}
+	
 //	 게시판 리스트 출력
-	public List getList(int page, int limit){//limit 페이지사이즈
+//	public List getList(int page, int limit){//limit 페이지사이즈
+	public List getBoardList(int page, int limit){//limit 페이지사이즈
 		// 글 목록 보기
 				/*
 				 * 18건 
@@ -70,7 +103,8 @@ public class C_BrdDAO {
 				// List.jsp
 				// page =2 , limit =10(pagesize)
 		//글번호	제목	작성자	작성일	조회수
-		String getC_BrdList_sql = "select * from (select rownum rnum, NUM,EMPNO,TITLE,CONTENT,REF,DPTH,STEP,COUNT,WRITE_DATE from (select * from C_BRD order by REF desc,STEP asc)) where rnum>=? and rnum<=?";
+	//	int limit = 10;
+		String getC_BrdList_sql = "select * from (select rownum rnum, NUM,EMPNO,TITLE,CONTENT,REF,DPTH,STEP,COUNT,WRITE_DATE,ENAME,NOTICE from (select * from C_BRD order by REF desc,STEP asc)) where rnum>=? and rnum<=?";
 		
 		List<C_BrdDTO> list = new ArrayList<C_BrdDTO>();
 		

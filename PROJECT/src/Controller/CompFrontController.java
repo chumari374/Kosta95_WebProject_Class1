@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import Action.Action;
 import Action.ActionForward;
 import Action.Comp.CompBoardAddAction;
+import Action.Comp.CompBoardDetailAction;
+import Action.Comp.CompBoardListAction;
 
 @WebServlet("*.cp")
 public class CompFrontController extends HttpServlet {
@@ -31,15 +33,25 @@ public class CompFrontController extends HttpServlet {
 	 Action action=null;
 	   
 	   if(command.equals("/CompBoardList.cp")){
-		   forward=new ActionForward();
-		   forward.setRedirect(false);
-		   forward.setPath("./Comp/Comp_Board/Comp_Board_List.jsp");
+		   action = new CompBoardListAction();
+		   try{
+			   forward=action.execute(request, response);
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
 	   }else if(command.equals("/CompBoardWrite.cp")){
 		   forward=new ActionForward();
 		   forward.setRedirect(false);
 		   forward.setPath("./Comp/Comp_Board/Comp_Board_Write.jsp");
 	   }else if(command.equals("/CompBoardWriteOk.cp")){
 		   	action = new CompBoardAddAction();
+		   try{
+			   forward=action.execute(request, response);
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
+	   }else if(command.equals("/CompBoardDetailAction.cp")){
+		   	action = new CompBoardDetailAction();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
