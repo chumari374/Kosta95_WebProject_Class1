@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import Action.Action;
 import Action.ActionForward;
 import Action.Mypage.Account_EditAction;
+import Action.Mypage.Account_UpdateAction;
 
 //@WebServlet("/MyPageFrontController")
 public class MyPageFrontController extends HttpServlet {
@@ -39,6 +40,13 @@ public class MyPageFrontController extends HttpServlet {
 		Action action = null;
 		if(command.equals("/Account_Edit.mp")){
 			action = new Account_EditAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/Account_Update.mp")){
+			action = new Account_UpdateAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

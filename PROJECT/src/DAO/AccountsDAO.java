@@ -27,7 +27,7 @@ public class AccountsDAO {
 			Context context = new InitialContext();
 			ds = (DataSource)context.lookup("java:comp/env/jdbc/oracle");
 		}catch(Exception e){
-			System.out.println("DB¿¬°á ½ÇÆÐ:" + e);
+			System.out.println("DBì—°ê²° ì‹¤íŒ¨:" + e);
 			return;
 		}
 	}
@@ -45,6 +45,32 @@ public class AccountsDAO {
 			ps.setString(5, accounts.getCelphone());
 			ps.setString(6, accounts.getP_picture());
 			ps.setString(7, accounts.getP_content());
+			
+			result = ps.executeUpdate();
+			
+		}catch(Exception e){
+			e.getStackTrace();
+		}finally{
+			if (rs != null)try {rs.close();} catch (Exception e) {}
+			if (ps != null)try {ps.close();} catch (Exception e) {}
+			if (conn != null)try {conn.close();} catch (Exception e) {}
+		}
+		return result;
+	}
+	
+	public int AccountUpdate(int empno,AccountsDTO account){
+		int result = 0;
+		try{
+			conn = ds.getConnection();
+			String sql = "update accounts set pwd=?, email=?, addr=?, celphone=?, p_picture=?, p_content=? where empno=?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, account.getPwd());
+			ps.setString(2, account.getEmail());
+			ps.setString(3, account.getAddr());
+			ps.setString(4, account.getCelphone());
+			ps.setString(5, account.getP_picture());
+			ps.setString(6, account.getP_content());
+			ps.setInt(7, empno);
 			
 			result = ps.executeUpdate();
 			

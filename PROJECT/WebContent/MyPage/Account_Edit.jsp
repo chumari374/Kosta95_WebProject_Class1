@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
-<!-- °³ÀÎÁ¤º¸¼öÁ¤ ÆäÀÌÁö -->
-<!-- ÀÚ½ÅÀÌ ¼öÁ¤ÇÒ¼öÀÖ´Â Á¤º¸´Â input text°¡ ÀÖ°í, ¼öÁ¤ÇÒ¼ö¾ø´Â Á¤º¸´Â º¸¿©ÁÖ±â¸¸ -->
+    pageEncoding="UTF-8"%>
+<!-- ê°œì¸ì •ë³´ìˆ˜ì • í˜ì´ì§€ -->
+<!-- ìì‹ ì´ ìˆ˜ì •í• ìˆ˜ìˆëŠ” ì •ë³´ëŠ” input textê°€ ìˆê³ , ìˆ˜ì •í• ìˆ˜ì—†ëŠ” ì •ë³´ëŠ” ë³´ì—¬ì£¼ê¸°ë§Œ -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,58 +21,58 @@
 </script>
 </head>
 <body>
-	<form>
+	<form action="Account_Update.mp" method="post">
 		<table>
 			<tr>
-				<td>»ç¿ø¹øÈ£  </td>
+				<td>ì‚¬ì›ë²ˆí˜¸  </td>
 				<td>${requestScope.account.empno}</td>
 			</tr>
 			<tr>
-				<td>ÀÌ¸§ </td>
+				<td>ì´ë¦„ </td>
 				<td>${requestScope.account.ename}</td>
 			</tr>
 			<tr>
-				<td>»ı³â¿ùÀÏ  </td>
-				<td></td>
+				<td>ìƒë…„ì›”ì¼  </td>
+				<td>${requestScope.account.birth}</td>
 			</tr>
 			<tr>
-				<td>¼ºº°  </td>
-				<td></td>
+				<td>ì„±ë³„  </td>
+				<td>${requestScope.account.sex}</td>
 			</tr>
 			<tr>
-				<td>¼Ò¼ÓºÎ¼­ </td>
+				<td>ì†Œì†ë¶€ì„œ </td>
 				<td>${requestScope.account.deptname}</td>
 			</tr>
 			<tr>
-				<td>¼Ò¼ÓÆÀ </td>
+				<td>ì†Œì†íŒ€ </td>
 				<td>${requestScope.account.teamname}</td>
 			</tr>
 			<tr>
-				<td>ÆĞ½º¿öµå  </td>
-				<td><input type="text"></td>
+				<td>íŒ¨ìŠ¤ì›Œë“œ  </td>
+				<td><input type="text" name="pwd" id="pwd"></td>
 			</tr>
 			<tr>
-				<td>ÀÌ¸ŞÀÏ ÁÖ¼Ò </td>
-				<td><input type="text"  size="10">&nbsp;@&nbsp;<input type="text"></td>
+				<td>ì´ë©”ì¼ ì£¼ì†Œ </td>
+				<td><input type="text" name="email" id="email"></td>
 			</tr>
 			<tr>
-				<td>ÁÖ¼Ò  </td>
-				<td><input type="text" size="30"></td>
+				<td>ì£¼ì†Œ  </td>
+				<td><input type="text" size="30" name="addr" id="addr"></td>
 			</tr>
 			<tr>
-				<td>ÇÚµåÆù ¹øÈ£  </td>
-				<td><input type="text"></td>
+				<td>í•¸ë“œí° ë²ˆí˜¸  </td>
+				<td><input type="text" name="celphone" id="celphone"></td>
 			</tr>
 			<tr>
-				<td>ÇÁ·ÎÇÊ »çÁø  </td>
-				<td><input type="file"></td>
+				<td>í”„ë¡œí•„ ì‚¬ì§„  </td>
+				<td><input type="file" name="p_picture" id="p_picture"></td>
 			</tr>
 			<tr>
-				<td>ÇÁ·ÎÇÊ ¸Ş¼¼Áö </td>
-				<td><textarea rows="5" cols="60"></textarea></td>
+				<td>í”„ë¡œí•„ ë©”ì„¸ì§€ </td>
+				<td><textarea rows="5" cols="32" name="p_content" id="p_content"></textarea></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><input type="submit" value="¼öÁ¤">&nbsp;<input type="button" value="Ãë¼Ò"></td>
+				<td colspan="2" align="center"><input type="submit" value="ìˆ˜ì •">&nbsp;<input type="button" value="ì·¨ì†Œ"></td>
 			</tr>
 		</table>
 	</form>
