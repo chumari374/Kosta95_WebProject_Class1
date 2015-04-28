@@ -45,6 +45,7 @@ public class SignAddAction implements Action {
 			System.out.println(multi.getParameter("TITLE"));
 			System.out.println(multi.getParameter("CONTENT"));
 			System.out.println(Integer.parseInt(multi.getParameter("STEP")));
+			System.out.println(multi.getFilesystemName((String)multi.getFileNames().nextElement()));
 			
 			signdata.setStarter(Integer.parseInt(multi.getParameter("STARTER")));
 			signdata.setEmpno(Integer.parseInt(multi.getParameter("EMPNO")));
@@ -55,8 +56,8 @@ public class SignAddAction implements Action {
 			signdata.setStatus("´ë±â");
 			signdata.setFile_sign(multi.getFilesystemName((String)multi.getFileNames().nextElement()));
 			
-		/*	result = signdao.SignStart(signdata);
-			*/
+			result = signdao.SignStart(signdata);
+			
 			if (result == false) {
 				System.out.println("Insert Fail");
 				return null;
