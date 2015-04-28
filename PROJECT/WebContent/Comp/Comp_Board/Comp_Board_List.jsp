@@ -126,7 +126,10 @@ if(listcount > 0){
 			<%}else{ %>
 				▶
 			<%} %>
-			<a href="CompBoardDetailAction.cp?num=<%=bl.getNum()%>">
+<%-- 			<a href="CompBoardDetailAction.cp?num=<%=bl.getNum()%>"> --%>
+<%-- 				<%=bl.getTitle()%> --%>
+<!-- 			</a> -->
+				<a onclick="ppurija('CompBoardDetailAction.cp?num=<%=bl.getNum()%>')">
 				<%=bl.getTitle()%>
 			</a>
 			</div>
@@ -146,23 +149,28 @@ if(listcount > 0){
 	<tr align=center height=20>
 		<td colspan=7 style=font-family:Tahoma;font-size:10pt;>
 			<%if(nowpage<=1){ %>
-			[이전]&nbsp;
+<!-- 			[이전]&nbsp; -->
+			<input type="button" value="이전" >&nbsp;
 			<%}else{ %>
-			<a href="CompBoardList.cp?page=<%=nowpage-1 %>">[이전]</a>&nbsp;
+<%-- 			<a href="CompBoardList.cp?page=<%=nowpage-1 %>">[이전]</a>&nbsp; --%>
+			<input type="button" value="이전 " onclick="ppurija('CompBoardList.cp?page=<%=nowpage-1 %>')">&nbsp;
 			<%} %>
 			
 			<%for(int a=startpage;a<=endpage;a++){
 				if(a==nowpage){%>
-				[<%=a %>]
+<%-- 				[<%=a %>] --%>
+				<input type="button" value="<%=a %>" style="background-color: #B2EBF4">&nbsp;
 				<%}else{ %>
-				<a href="CompBoardList.cp?page=<%=a %>">[<%=a %>]</a>&nbsp;
+<%-- 				<a href="CompBoardList.cp?page=<%=a %>">[<%=a %>]</a>&nbsp; --%>
+					<input type="button" value="<%=a %>" onclick="ppurija('CompBoardList.cp?page=<%=a %>')">&nbsp;
 				<%} %>
 			<%} %>
 			
 			<%if(nowpage>=maxpage){ %>
-			[다음]
+			<input type="button" value="다음">
 			<%}else{ %>
-			<a href="CompBoardList.cp?page=<%=nowpage+1 %>">[다음]</a>
+<%-- 			<a href="CompBoardList.cp?page=<%=nowpage+1 %>">[다음]</a> --%>
+			<input type="button" value="다음" onclick="ppurija('CompBoardList.cp?page=<%=nowpage+1 %>')">
 			<%} %>
 		</td>
 	</tr>
@@ -178,21 +186,14 @@ if(listcount > 0){
 		</td>
 	</tr>
 	<%
-	}
+	} 
 	%>
 	<tr align="right">
 		<td colspan="5">
-	   		<a href="CompBoardWrite.cp" onclick="ppurija4('main');" ><input type="button" value="글쓰기"></a>
+	   		<input type="button" value="글쓰기" onclick="ppurija('CompBoardWrite.cp')">
 		</td>
 	</tr>
 </table>
-<!-- 		<tr> -->
-<!-- 			<td colspan="4" align="center"> &lt; 1 2 3 4 5 6 7 8 9 10 &gt; </td> -->
-<!-- 			<td align="center"><a href="#" onclick="ppurija4('main');" ><input type="button" value="글쓰기"></a></td> -->
-<!-- 		</tr> -->
-<!--                     </tbody> -->
-	
-<!-- 	</table> -->
 	</div>
 	</div>
 	</div>

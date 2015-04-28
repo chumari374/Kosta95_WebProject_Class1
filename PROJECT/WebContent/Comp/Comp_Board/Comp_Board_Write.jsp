@@ -120,6 +120,7 @@
 			<div align="center">내 용</div>
 		</td>
 		<td>
+		
 			<textarea class="ckeditor" id="content" name="BOARD_CONTENT" cols="80" rows="15"></textarea>
 			
 		</td>
@@ -143,7 +144,7 @@
 				<a href="javascript:addboard()">
 				<input type="submit" value="등록" class="btn btn-primary btn-inline-block btn-lg">
 				</a>
-				<a href="javascript:history.go(-1)" class="btn btn-success btn-inline-block btn-lg">
+				<a onclick="ppurija('CompBoardList.cp')" class="btn btn-success btn-inline-block btn-lg">
 				뒤로</a>
 			</div>
 		</td>
