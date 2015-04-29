@@ -95,7 +95,7 @@ table {
 			<td>${member.emptel}</td>
 		</tr>
 		<tr>
-			<td colspan="3" align="center"><input type="button" value="닫기"></td>
+			<td colspan="3" align="center"><input type="button" value="닫기" onclick="window.close()"></td>
 		</tr>
 	</table>
 </center>

@@ -58,6 +58,7 @@
 								+	"<td>직급</td>"
 								+	"<td>사내전화번호</td>"
 								+	"<td>핸드폰</td>"
+								+	"<td></td>"
 								+	"</tr>"		
 							);
 							$.each(data,function(index,entry){
@@ -67,7 +68,8 @@
 									"</td><td>" + entry.ename + 
 									"</td><td>" + entry.gradename + 
 									"</td><td>" + entry.emptel + 
-									"</td><td>" + entry.celphone  + "&nbsp;<button onclick='info("+entry.empno+")'>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
+									"</td><td>" + entry.celphone  + 
+									"</td><td><button onclick='info("+entry.empno+")'>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
 									+ "</td></tr>"		
 								);
 							});
@@ -109,6 +111,7 @@
 								+	"<td>직급</td>"
 								+	"<td>사내전화번호</td>"
 								+	"<td>핸드폰</td>"
+								+	"<td></td>"
 								+	"</tr>"		
 							);
 							$.each(data,function(index,entry){
@@ -118,7 +121,8 @@
 									"</td><td>" + entry.ename + 
 									"</td><td>" + entry.gradename + 
 									"</td><td>" + entry.emptel + 
-									"</td><td>" + entry.celphone  + "&nbsp;<button onclick='info("+entry.empno+")'>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
+									"</td><td>" + entry.celphone  + 
+									"</td><td><button onclick='info("+entry.empno+")'>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
 									+ "</td></tr>"		
 								);
 							});
@@ -126,6 +130,42 @@
 						error:function(data){alert("Error 발생");}
 					});
 			}); 
+	          
+	          
+	 		$('#btn').on("click",function(){
+						$('#emplist').empty();
+						$.ajax({
+							url : "./Emp_Search/Ename.jsp",
+							data:{ename:$('#Ename').val()},
+							dataType : "json",
+							success : function(data){
+								$('#emplist').append(
+										"<tr>"
+									+	"<td>부서</td>"
+									+	"<td>팀</td>"
+									+	"<td>이름</td>"
+									+	"<td>직급</td>"
+									+	"<td>사내전화번호</td>"
+									+	"<td>핸드폰</td>"
+									+	"<td></td>"
+									+	"</tr>"		
+								);
+								$.each(data,function(index,entry){
+									$('#emplist').append(
+										"<tr><td>" + entry.deptname + 
+										"</td><td>" + entry.teamname + 
+										"</td><td>" + entry.ename + 
+										"</td><td>" + entry.gradename + 
+										"</td><td>" + entry.emptel + 
+										"</td><td>" + entry.celphone  + 
+										"</td><td><button onclick='info("+entry.empno+")'>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
+										+ "</td></tr>"		
+									);
+								});
+							},
+							error:function(data){alert("Error 발생");}
+						});
+				}); 
 
 		});
 	</script>
@@ -135,20 +175,16 @@
    <div id="main" align="center">
 	<table width="60%">
 		<tr>
-		<td>
-			중분류 :
-		</td>
 			<td>
 				<select id="deptlist"></select>
 			</td>
 			<td>
-				소분류 :
-			</td>
-			<td>
-				<select id="teamlist"></select>
+				<select id="teamlist">
+					<option>부서를 선택하세요</option>
+				</select>
 			</td>
 			<td colspan="5">
-				<input type="text" placeholder="이름으로 검색">&nbsp;<input type="button" value="검색" id="btn">
+				<input type="text" placeholder="이름으로 검색" id="Ename">&nbsp;<input type="button" value="검색" id="btn">
 			</td>
 		</tr>
 		</table>
