@@ -16,7 +16,12 @@ public class DetailSendSignListAction implements Action {
 		SignDAO signdao = new SignDAO();
 		SignDTO signdata = new SignDTO();
 		
+		System.out.println("액션도달");
+		
+		
 		signdata = signdao.DetailsendSign(num);
+		
+		
 		
 		if(signdata == null) {
 			System.out.println("Null Data 처리");
@@ -28,7 +33,7 @@ public class DetailSendSignListAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("Sign_(4)View.jsp");
+		forward.setPath("/Sign/Sign_(4)Send_View.jsp");
 		return forward;
 	}
 }

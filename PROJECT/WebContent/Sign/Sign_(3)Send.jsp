@@ -69,7 +69,7 @@ if(listcount > 0){
 			<%=signdto.getSignnum()%>
 		</td>	
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=signdto.getTitle() %></div>
+			<a href="DetailSendSignList.hong?num=<%=signdto.getSignnum()%>"><div align="center"><%=signdto.getTitle() %></div></a>
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt;">
 			<div align="center"><%=signdto.getStarter_name() %></div>

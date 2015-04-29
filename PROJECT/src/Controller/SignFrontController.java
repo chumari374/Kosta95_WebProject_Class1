@@ -52,6 +52,8 @@ public class SignFrontController extends HttpServlet {
 		 * System.out.println("command : " + command);
 		 */
 
+		System.out.println(command);
+		
 		// 일괄처리를 위해서
 		ActionForward forward = null;
 		Action action = null;
@@ -106,7 +108,7 @@ public class SignFrontController extends HttpServlet {
 		}
 		
 		// 보낸결재에서 문서 상세보기
-		else if (command.equals("/detailSendSignList.hong")) {
+		else if (command.equals("/DetailSendSignList.hong")) {
 			// System.out.println("BoardDetailBefore");
 			// System.out.println("board num : " + request.getParameter("num"));
 			
