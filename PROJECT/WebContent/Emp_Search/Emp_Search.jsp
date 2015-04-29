@@ -82,7 +82,7 @@
 									"</td><td>" + entry.ename + 
 									"</td><td>" + entry.gradename + 
 									"</td><td>" + entry.emptel + 
-									"</td><td>" + entry.celphone + "<input type='button' value='회원상세정보' onclick= window.open('../Member.info?empno="+entry.empno+"', 'Empinfo', 'width=400 height=200')'>"
+									"</td><td>" + entry.celphone  + "<a href='Member.info?empno="+entry.empno+"'>클릭</a>"
 									+ "</td></tr>"		
 								);
 							});
@@ -133,7 +133,7 @@
 									"</td><td>" + entry.ename + 
 									"</td><td>" + entry.gradename + 
 									"</td><td>" + entry.emptel + 
-									"</td><td>" + entry.celphone + "<input type='button' value='회원상세정보' onclick= window.open('../Member.info?empno="+entry.empno+"', 'Empinfo', 'width=400 height=200')'>"
+									"</td><td>" + entry.celphone  + "<a href='Member.info?empno="+entry.empno+"'>클릭</a>"
 									+ "</td></tr>"		
 								);
 							});
@@ -141,6 +141,14 @@
 						error:function(data){alert("Error 발생");}
 					});
 			}); 
+	          
+	          /* $('#btn').on("click",function(){
+	        	  window.open('Member.info?empno="+entry.empno+"', 'Empinfo', 'width=400 height=200')'
+	          }); */
+	          
+	          /* $('#btn').on("click", function(){
+	        	    alert("The paragraph was clicked.");
+	        	}); */
 		});
 	</script>
 </head>
