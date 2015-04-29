@@ -1,6 +1,8 @@
 
+<%@page import="DTO.C_BrdDTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%
+	C_BrdDTO boarddata = (C_BrdDTO)request.getAttribute("boarddata");
 	String empno = (String.valueOf(session.getAttribute("empno"))); 
 	String ename = (String)session.getAttribute("ename");
 	String teamcode = (String.valueOf(session.getAttribute("teamcode")));
@@ -89,7 +91,7 @@
 <!-- 게시판 등록 -->
 <jsp:include page="../../Main.jsp"></jsp:include>
    <div id="main" align="center">
-<form action="CompBoardWriteOk.cp" method="post" name="boardform">
+<form action="CompBoardRealModifyAction.cp" method="post" name="boardform">
 <input type="hidden" name="BOARD_ID" value="<%=empno %>">
 <table width="700px" height="600px" cellpadding="0" cellspacing="0" width="100%">
 	<tr align="center" valign="middle">
@@ -109,7 +111,7 @@
 		</td>
 		<td style="font-family:돋음; font-size:12" height="16">
 			<input name="BOARD_TITLE" type="text" size="50" maxlength="100" 
-				value=""/>
+				value="<%=boarddata.getTitle()%>"/>
 		
 			 공지사항 <input type="checkbox" name = "BOARD_NOTICE"/>
 		
@@ -123,7 +125,7 @@
 		</td>
 		<td>
 		
-			<textarea class="ckeditor" id="content" name="BOARD_CONTENT" cols="80" rows="15"></textarea>
+			<textarea class="ckeditor" id="content" name="BOARD_CONTENT" cols="80" rows="15" ><%=boarddata.getContent() %></textarea>
 			
 		</td>
 	</tr>

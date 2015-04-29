@@ -350,83 +350,83 @@ public class C_BrdDAO {
 //		return false;
 //	}
 //	
-//	// 글 삭제
-//		// delete.jsp
-//		public boolean Delete(int num) {
-//			// 주의점
-//			// 규칙 : 원본글이 삭제되면 다 지워 (ref = 1 ) .....
-//
-//			// 규칙 : state 컬럼 : T , F 글이 삭제하는 것이 아니라 상태
-//			// : update set state = F where num=1
-//			// : F (삭제된 글) 문자만
-//
-//			// 규칙 : 원본글 답변 지워지지 않고 답변 이 있으면 삭제 금지
-//			// : 답변 1개라도 있으면 원본글(삭제)
-//			// : 답변에 답변이 1개라도 있다면 삭제금지
-//
-//			// Table column : state : t , f
-//			// 원본글
-//			// ->답변 삭제 (x) 답변
-//			// ->답변_1
-//			String c_brd_delete_sql = "delete from c_brd where num=?";
-//
-//			int result = 0;
-//
-//			try {
-//				conn = ds.getConnection();
-//				pstmt = conn.prepareStatement(c_brd_delete_sql);
-//				pstmt.setInt(1, num);
-//				result = pstmt.executeUpdate();
-//				if (result == 0)
-//					return false;
-//
-//				return true;
-//			} catch (Exception ex) {
-//				System.out.println("boardDelete 에러 : " + ex);
-//			} finally {
-//				try {
-//					if (pstmt != null) pstmt.close();
-//					if (conn != null) conn.close();
-//				} catch (Exception ex) {
-//					
-//				}
-//			}
-//
-//			return false;
-//		}
-//		
-//		// 조회수 업데이트
-//		// 테이블에 조회수가 없다..!!
-//		
-//		
-//		
-//		// 글쓴이인지 확인
-//		// 맞는지 확실하지 않음...
-//		public boolean isboardWriter(int num, String empno){
-//			
-//			String board_sql = "select * from c_brd where NUM=?";
-//			
-//			try{
-//				conn = ds.getConnection();
-//				pstmt = conn.prepareStatement(board_sql);
-//				pstmt.setInt(1, num);
-//				rs=pstmt.executeQuery();
-//				rs.next();
-//				
-//				if(empno.equals(rs.getString("EMPNO"))){
-//					return true;
-//				}
-//			}catch(SQLException ex){
-//				System.out.println("isBoardWriter 에러 : "+ex);
-//			}
-//			finally{
-//				try{
-//					if(pstmt!=null)pstmt.close();
-//					if(conn!=null)conn.close();
-//				}
-//				catch(Exception ex) {}
-//			}
-//			return false;
-//		}
+	// 글 삭제
+		// delete.jsp
+		public boolean Delete(int num) {
+			// 주의점
+			// 규칙 : 원본글이 삭제되면 다 지워 (ref = 1 ) .....
+
+			// 규칙 : state 컬럼 : T , F 글이 삭제하는 것이 아니라 상태
+			// : update set state = F where num=1
+			// : F (삭제된 글) 문자만
+
+			// 규칙 : 원본글 답변 지워지지 않고 답변 이 있으면 삭제 금지
+			// : 답변 1개라도 있으면 원본글(삭제)
+			// : 답변에 답변이 1개라도 있다면 삭제금지
+
+			// Table column : state : t , f
+			// 원본글
+			// ->답변 삭제 (x) 답변
+			// ->답변_1
+			String c_brd_delete_sql = "delete from c_brd where num=?";
+
+			int result = 0;
+
+			try {
+				conn = ds.getConnection();
+				pstmt = conn.prepareStatement(c_brd_delete_sql);
+				pstmt.setInt(1, num);
+				result = pstmt.executeUpdate();
+				if (result == 0)
+					return false;
+
+				return true;
+			} catch (Exception ex) {
+				System.out.println("boardDelete 에러 : " + ex);
+			} finally {
+				try {
+					if (pstmt != null) pstmt.close();
+					if (conn != null) conn.close();
+				} catch (Exception ex) {
+					
+				}
+			}
+
+			return false;
+		}
+		
+		// 조회수 업데이트
+		// 테이블에 조회수가 없다..!!
+		
+		
+		
+		// 글쓴이인지 확인
+		// 맞는지 확실하지 않음...
+		public boolean isboardWriter(int num, int empno){
+			
+			String board_sql = "select * from c_brd where NUM=?";
+			
+			try{
+				conn = ds.getConnection();
+				pstmt = conn.prepareStatement(board_sql);
+				pstmt.setInt(1, num);
+				rs=pstmt.executeQuery();
+				rs.next();
+				
+				if(empno == rs.getInt("EMPNO")){
+					return true;
+				}
+			}catch(SQLException ex){
+				System.out.println("isBoardWriter 에러 : "+ex);
+			}
+			finally{
+				try{
+					if(pstmt!=null)pstmt.close();
+					if(conn!=null)conn.close();
+				}
+				catch(Exception ex) {}
+			}
+			return false;
+		}
 		
 }

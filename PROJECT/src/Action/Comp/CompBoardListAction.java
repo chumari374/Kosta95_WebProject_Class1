@@ -62,6 +62,7 @@ public class CompBoardListAction implements Action {
 
 		// forward 대한 처리 로직///////////////////////////
 		ActionForward forward = new ActionForward();
+		System.out.println(request.getAttribute("page"));
 		forward.setRedirect(false);
 		forward.setPath("./Comp/Comp_Board/Comp_Board_List.jsp");
 		return forward;
