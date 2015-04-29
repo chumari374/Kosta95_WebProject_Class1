@@ -4,7 +4,13 @@
     pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-	List messagelist=(List)request.getAttribute("messagelist");
+List messageList=(List)request.getAttribute("messagelist");
+
+int listcount=(Integer)request.getAttribute("listcount");
+int nowpage=(Integer)request.getAttribute("page");
+int maxpage=(Integer)request.getAttribute("maxpage");
+int startpage=(Integer)request.getAttribute("startpage");
+int endpage=(Integer)request.getAttribute("endpage");
 	
 // 	System.out.println(listcount + "/ " + nowpage + " / " + maxpage + " / ");
 // 	System.out.println(startpage + " / " + endpage);
@@ -42,9 +48,9 @@
 				<th width="15%">작성자</th>
 				<th>제목</th>
 			</tr>
-		<%
-		for(int i=0;i<messagelist.size();i++){
-			MessageDTO ml=(MessageDTO)messagelist.get(i);
+	<%
+		for(int i=0;i<messageList.size();i++){
+			MessageDTO ml=(MessageDTO)messageList.get(i);
 	%>
 	<tr>
 		<td>

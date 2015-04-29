@@ -35,7 +35,7 @@ public class MessageListAction implements Action {
 				// page =2 , limit =10 (페이지당 개수)
 
 				// 총 페이지 수
-				// listcount =12/10
+				// messagelistcount =12/10
 				int maxpage = (int) ((double) messagelistcount / limit + 0.95);
 				// 0.95를 더해서 올림 처리
 

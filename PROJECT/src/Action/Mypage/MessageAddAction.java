@@ -24,7 +24,6 @@ public class MessageAddAction implements Action {
 		request.setCharacterEncoding("UTF-8");		   	
 
 		boolean result=false;
-		String notice = "";
 		PrintWriter out = response.getWriter();
 
 		try{
