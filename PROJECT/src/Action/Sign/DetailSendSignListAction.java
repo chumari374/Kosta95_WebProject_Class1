@@ -16,6 +16,19 @@ public class DetailSendSignListAction implements Action {
 		SignDAO signdao = new SignDAO();
 		SignDTO signdata = new SignDTO();
 		
-		signdata = signdao
+		signdata = signdao.DetailsendSign(num);
+		
+		if(signdata == null) {
+			System.out.println("Null Data 처리");
+			return null;
+		}
+		System.out.println("SignDTO Data 완료");
+		
+		request.setAttribute("signdata", signdata);
+		
+		ActionForward forward = new ActionForward();
+		forward.setRedirect(false);
+		forward.setPath("Sign_(4)View.jsp");
+		return forward;
 	}
 }
