@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Action.Action;
 import Action.ActionForward;
+import Action.Sign.DetailSendSignListAction;
 import Action.Sign.GetSignListAction;
 import Action.Sign.SendSignListAction;
 import Action.Sign.SignAddAction;
@@ -106,8 +107,17 @@ public class SignFrontController extends HttpServlet {
 		
 		// 보낸결재에서 문서 상세보기
 		else if (command.equals("/detailSendSignList.hong")) {
-			System.out.println("BoardDetailBefore");
-			System.out.println("board num : " + request.getParameter("num"));
+			// System.out.println("BoardDetailBefore");
+			// System.out.println("board num : " + request.getParameter("num"));
+			
+			action = new DetailSendSignListAction(); // action 객체 변수의 request 가지고 간다
+			
+			try {
+				request.setAttribute(arg0, arg1);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		}
 		
 		

@@ -16,5 +16,6 @@ public class DetailSendSignListAction implements Action {
 		SignDAO signdao = new SignDAO();
 		SignDTO signdata = new SignDTO();
 		
+		signdata = signdao
 	}
 }
