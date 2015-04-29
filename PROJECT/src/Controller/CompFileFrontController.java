@@ -14,7 +14,7 @@ import Action.ActionForward;
 import Action.CompFile.CompDataBoardListAction;
 
 
-@WebServlet("/CompFileFrontController")
+@WebServlet("*.cf")
 public class CompFileFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -40,7 +40,7 @@ public class CompFileFrontController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		
-		if(command.equals("/CompDataBoardList.cp")){
+		if(command.equals("/CompDataBoardList.cf")){
 			action = new CompDataBoardListAction();
 			try{
 				forward=action.execute(request, response);

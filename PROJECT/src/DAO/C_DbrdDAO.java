@@ -63,6 +63,7 @@ public class C_DbrdDAO {
 		// page =2 , limit =10(pagesize)
 		//글번호	제목	작성자	작성일	조회수
 		//int limit = 10;
+		System.out.println("도착1");
 		String getC_DbrdList_sql = "select * from (select rownum rnum, NUM,EMPNO,TITLE,CONTENT,WRITE_DATE,DATA from C_DBRD) where rnum>=? and rnum<=?";
 		
 		List<C_DbrdDTO> list = new ArrayList<C_DbrdDTO>();
