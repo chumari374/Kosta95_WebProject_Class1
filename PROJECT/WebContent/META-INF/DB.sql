@@ -752,3 +752,22 @@ ALTER TABLE accounts modify( --주소 50자는 크기는 줘야할듯...
 insert into accounts (empno,pwd,email,addr,celphone,signcheck,msgcheck) values (150129,1004,'0113784358@naver.com','서울시 성동구 행당동 317-130','02-2293-4358','true','true'); 
 commit;
 
+
+
+--어드민이 도메인 셋이 있어... 뷰쿼리가 이상해 일단 내가만든건데...
+create or replace view memberinfo
+as 
+  (select e.empno as empno, e.ename as ename, a.celphone as celphone, a.email as email, 
+  e.deptcode as deptcode, d.deptname as deptname, e.teamcode as teamcode, t.teamname as teamname, e.grade as grade, g.gradename as gradename, 
+  ds.emptel as emptel, a.p_picture as p_picture, a.p_content as p_content, ds.admin as admin
+  from emp e
+  join domain_set ds
+  on e.empno = ds.empno
+  join accounts a
+  on e.empno = a.empno
+  join dept d
+  on e.deptcode = d.deptcode
+  join grade g
+  on e.grade = g.grade
+  join team t
+  on e.teamcode = t.teamcode);
