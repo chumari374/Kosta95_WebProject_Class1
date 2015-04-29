@@ -51,7 +51,7 @@ public class CompDataBoardAddAction implements Action{
 
 			System.out.println("게시판 등록 완료");
 
-			forward.setRedirect(false);
+			forward.setRedirect(true);
 			forward.setPath("./CompDataBoardList.cf");
 
 		}catch(Exception ex){

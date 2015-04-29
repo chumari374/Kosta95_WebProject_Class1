@@ -26,22 +26,7 @@
 	</style>
 	<script type="text/javascript">
 		$(function(){
-			/* $('ul').menu(); */
 
-/* 			 $.ajax({
-	              url : './Emp_Search/Team.jsp',
-	              dataType : "json",
-	              success : function(data){
-	            	  var options="";
-	                  $.each(data, function(index,tlist){
-	                         options += "<option value="+tlist.teamcode+">"+tlist.teamname+"</option>";
-	                  });
-	                  $('#teamlist').append(options);
-	              },
-	             error: function (xhr,Options,thrownError) {
-	             }
-	          }); */
-	          
 	          $.ajax({
 	              url : './Emp_Search/Dept.jsp',
 	              dataType : "json",
@@ -73,6 +58,7 @@
 								+	"<td>직급</td>"
 								+	"<td>사내전화번호</td>"
 								+	"<td>핸드폰</td>"
+								+	"<td></td>"
 								+	"</tr>"		
 							);
 							$.each(data,function(index,entry){
@@ -82,8 +68,9 @@
 									"</td><td>" + entry.ename + 
 									"</td><td>" + entry.gradename + 
 									"</td><td>" + entry.emptel + 
-									"</td><td>" + entry.celphone + 
-									"</td></tr>"		
+									"</td><td>" + entry.celphone  + 
+									"</td><td><button onclick='info("+entry.empno+")'>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
+									+ "</td></tr>"		
 								);
 							});
 						},
@@ -124,6 +111,7 @@
 								+	"<td>직급</td>"
 								+	"<td>사내전화번호</td>"
 								+	"<td>핸드폰</td>"
+								+	"<td></td>"
 								+	"</tr>"		
 							);
 							$.each(data,function(index,entry){
@@ -133,14 +121,52 @@
 									"</td><td>" + entry.ename + 
 									"</td><td>" + entry.gradename + 
 									"</td><td>" + entry.emptel + 
-									"</td><td>" + entry.celphone + 
-									"</td></tr>"		
+									"</td><td>" + entry.celphone  + 
+									"</td><td><button onclick='info("+entry.empno+")'>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
+									+ "</td></tr>"		
 								);
 							});
 						},
 						error:function(data){alert("Error 발생");}
 					});
 			}); 
+	          
+	          
+	 		$('#btn').on("click",function(){
+						$('#emplist').empty();
+						$.ajax({
+							url : "./Emp_Search/Ename.jsp",
+							data:{ename:$('#Ename').val()},
+							dataType : "json",
+							success : function(data){
+								$('#emplist').append(
+										"<tr>"
+									+	"<td>부서</td>"
+									+	"<td>팀</td>"
+									+	"<td>이름</td>"
+									+	"<td>직급</td>"
+									+	"<td>사내전화번호</td>"
+									+	"<td>핸드폰</td>"
+									+	"<td></td>"
+									+	"</tr>"		
+								);
+								$.each(data,function(index,entry){
+									$('#emplist').append(
+										"<tr><td>" + entry.deptname + 
+										"</td><td>" + entry.teamname + 
+										"</td><td>" + entry.ename + 
+										"</td><td>" + entry.gradename + 
+										"</td><td>" + entry.emptel + 
+										"</td><td>" + entry.celphone  + 
+										"</td><td><button onclick='info("+entry.empno+")'>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
+										+ "</td></tr>"		
+									);
+								});
+							},
+							error:function(data){alert("Error 발생");}
+						});
+				}); 
+
 		});
 	</script>
 </head>
@@ -149,73 +175,20 @@
    <div id="main" align="center">
 	<table width="60%">
 		<tr>
-		<td>
-			중분류 :
-		</td>
 			<td>
-				<!-- <ul>
-					<li>선택
-						<ul>
-							<li onclick="dept(110)">개발부
-								<ul>
-									<li>솔루션개발팀</li>
-									<li>외주팀</li>
-								</ul>
-							</li>
-							<li>영업부
-								<ul>
-									<li>기술경영팀</li>
-									<li>A/S팀</li>
-								</ul>
-							</li>
-							<li>총무부
-								<ul>
-									<li>인사팀</li>
-									<li>경리팀</li>
-									<li>경영팀</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-				</ul> -->
-				<!-- <select id="teamlist"> -->
 				<select id="deptlist"></select>
 			</td>
 			<td>
-				소분류 :
-			</td>
-			<td>
-				<select id="teamlist"></select>
+				<select id="teamlist">
+					<option>부서를 선택하세요</option>
+				</select>
 			</td>
 			<td colspan="5">
-				<input type="text" placeholder="이름으로 검색">&nbsp;<input type="button" value="검색" id="btn">
+				<input type="text" placeholder="이름으로 검색" id="Ename">&nbsp;<input type="button" value="검색" id="btn">
 			</td>
 		</tr>
 		</table>
 		<table width="60%" id="emplist">
-		<!-- <tr>
-			<td>부서</td>
-			<td>팀</td>
-			<td>이름</td>
-			<td>직급</td>
-			<td>사내전화번호</td>
-			<td>핸드폰</td>
-		</tr> -->
-		<%-- <% 	
-				for(int i=0;i<MemberList.size();i++){
-					MemberInfoDTO MID = (MemberInfoDTO)MemberList.get(i);
-		%>
-				<tr>
-					<td><%= MID.getDeptname() %></td>
-					<td><%= MID.getTeamname() %></td>
-					<td><%= MID.getEname() %></td>
-					<td><%= MID.getGradename() %></td>
-					<td><%= MID.getEmptel() %></td>
-					<td><%= MID.getCelphone()%></td>
-				</tr>
-		<%
-			} 
-		%> --%>
 	</table>
 	</div>
 	<jsp:include page="../Footer.jsp"></jsp:include>

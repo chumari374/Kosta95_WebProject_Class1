@@ -9,13 +9,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%  
-	String deptcode = request.getParameter("deptcode");
-	String teamcode = request.getParameter("teamcode");
+	String ename = request.getParameter("ename");
 
 	Class.forName("oracle.jdbc.OracleDriver");
 	Connection con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.7.192:1521:XE", "PROJECT", "1004");
 	
-	String sql = "select empno, deptname, teamname, ename, gradename, emptel, celphone from memberinfo where deptcode like '%"+deptcode+"%' and teamcode like '%"+teamcode+"%' order by grade";
+	String sql = "select empno, deptname, teamname, ename, gradename, emptel, celphone from memberinfo where ename like '%"+ename+"%'order by grade";
 	PreparedStatement ps = con.prepareStatement(sql);
 
 	ResultSet rs = ps.executeQuery();

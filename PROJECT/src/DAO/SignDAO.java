@@ -447,7 +447,8 @@ public class SignDAO {
 		}
 		return rowcount;
 	}
-
+	
+	// ====== 보낸결재에서 자세히 보기 함수
 	public SignDTO DetailsendSign(int num) throws Exception {
 		SignDTO SignBoard = null;
 		try {
@@ -500,6 +501,52 @@ public class SignDAO {
 		return null;
 	}
 
+	
+	// ====== 받은 결재에서 자세히 보기 함수
+	public SignDTO DetailgetSign(int num) throws Exception {
+		SignDTO SignBoard = null;
+		try {
+			conn = ds.getConnection();
+			String getDetailGetSign_sql = "";
+			pstmt = conn.prepareStatement(getDetailGetSign_sql);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				SignBoard = new SignDTO();
+				SignBoard.setSignnum(rs.getInt("signnum"));
+				SignBoard.setTitle(rs.getString("TITLE"));
+				SignBoard.setContent(rs.getString("CONTENT"));
+				SignBoard.setStarter_name(rs.getString("gname") + " "
+						+ rs.getString("ename"));
+				SignBoard.setStarter_name(rs.getString("gname") + " "
+						+ rs.getString("mname"));
+				SignBoard.setWrite_date(rs.getDate("WRITE_DATE"));
+				SignBoard.setStatus(rs.getString("STATUS"));
+				SignBoard.setFile_sign(rs.getString("FILE_SIGN"));
+			}
+			return SignBoard;
+		} catch (Exception ex) {
+			System.out.println("Detail 에러 : " + ex);
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+				}
+		}
+		return null;
+	}
+	
 	// ====== 문서 상태 함수===============================
 	public void SignStatus(String status, int ref, int step) {
 

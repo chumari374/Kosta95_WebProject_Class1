@@ -22,7 +22,8 @@ public class CompBoardRealModifyAction implements Action {
 		C_BrdDTO boarddto=new C_BrdDTO();
 		ActionForward forward=new ActionForward();
 
-		request.setCharacterEncoding("UTF-8");		   	
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 
 		boolean result=false;
 		String notice = "";
@@ -40,30 +41,34 @@ public class CompBoardRealModifyAction implements Action {
 			boarddto.setEname((String)session.getAttribute("ename"));
 			boarddto.setTitle(request.getParameter("BOARD_TITLE"));
 			boarddto.setContent(request.getParameter("BOARD_CONTENT"));
+			boarddto.setNum((Integer.parseInt(request.getParameter("BOARD_NUM"))));
 			boarddto.setNotice(notice);
 
-			result=boarddao.Insert(boarddto);
+			result=boarddao.Modify(boarddto);
 
 			if(result==false){
 
 				out.println("<script>");
-				out.println("alert('게시판 등록 실패.');");
+				out.println("alert('게시판 수정 실패.');");
 				out.println("</script>");
 
-				System.out.println("게시판 등록 실패");
+				System.out.println("게시판 수정 실패");
 				forward.setRedirect(true);
 				forward.setPath("./CompBoardList.cp");
 				return forward;
 			}
 
 			out.println("<script>");
-			out.println("alert('게시판 등록 성공');");
+			out.println("alert('게시판 수정 성공');");
 			out.println("</script>");
 
-			System.out.println("게시판 등록 완료");
+			System.out.println("게시판 수정 완료");
 
 			forward.setRedirect(false);
+//			forward.setPath("./CompBoardDetailAction.cp?num="+boarddto.getNum());
+//			forward.setPath("./CompBoardDetailAction.cp?num="+Integer.parseInt(request.getParameter("BOARD_NUM")));
 			forward.setPath("./CompBoardList.cp");
+			
 			return forward;
 
 		}catch(Exception ex){

@@ -10,17 +10,19 @@ public class C_DbrdDTO {
 	private Date write_date;
 	
 	private String data;
+	private int count;
 	
 	public C_DbrdDTO(){}
 	
 	public C_DbrdDTO(int num, int empno, String title,
-			String content, Date write_date, String data){
+			String content, Date write_date, String data,int count){
 		this.num = num;
 		this.empno = empno;
 		this.title = title;
 		this.content = content;
 		this.write_date = write_date;
 		this.data = data;
+		this.count = count;
 	}
 
 	public int getNum() {
@@ -70,6 +72,13 @@ public class C_DbrdDTO {
 	public void setData(String data) {
 		this.data = data;
 	}
-	
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
 	
 }
