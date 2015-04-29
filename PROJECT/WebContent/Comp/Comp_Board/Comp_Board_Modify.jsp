@@ -93,6 +93,7 @@
    <div id="main" align="center">
 <form action="CompBoardRealModifyAction.cp" method="post" name="boardform">
 <input type="hidden" name="BOARD_ID" value="<%=empno %>">
+<input type="hidden" name="BOARD_NUM" value="<%=boarddata.getNum()%>">
 <table width="700px" height="600px" cellpadding="0" cellspacing="0" width="100%">
 	<tr align="center" valign="middle">
 		<td colspan="5"><h3><b>사내 게시판</b></h3></td>
