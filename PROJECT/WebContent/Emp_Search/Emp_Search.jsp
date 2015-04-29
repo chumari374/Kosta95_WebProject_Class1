@@ -82,7 +82,7 @@
 									"</td><td>" + entry.ename + 
 									"</td><td>" + entry.gradename + 
 									"</td><td>" + entry.emptel + 
-									"</td><td>" + entry.celphone  + "<a href='Member.info?empno="+entry.empno+"'>클릭</a>"
+									"</td><td>" + entry.celphone  + "<button onclick='info("+entry.empno+")'>상세정보</button>"
 									+ "</td></tr>"		
 								);
 							});
@@ -133,7 +133,7 @@
 									"</td><td>" + entry.ename + 
 									"</td><td>" + entry.gradename + 
 									"</td><td>" + entry.emptel + 
-									"</td><td>" + entry.celphone  + "<a href='Member.info?empno="+entry.empno+"'>클릭</a>"
+									"</td><td>" + entry.celphone  + "<button onclick='info("+entry.empno+")'>상세정보</button>"
 									+ "</td></tr>"		
 								);
 							});
