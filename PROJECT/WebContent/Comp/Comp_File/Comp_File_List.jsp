@@ -148,7 +148,7 @@ if(listcount > 0){
 	%>
 	<tr align="right">
 		<td colspan="5">
-	   		<a href="CompDataBoardWrite.cp"><input type="button" value="글쓰기"></a>
+	   		<a href="CompDataBoardWrite.cf"><input type="button" value="글쓰기"></a>
 		</td>
 	</tr>
 </table>

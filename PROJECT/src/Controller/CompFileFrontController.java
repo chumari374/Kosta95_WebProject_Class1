@@ -32,8 +32,8 @@ public class CompFileFrontController extends HttpServlet {
 		//ContextPath : /Web_JSP17_ServletBoard
 		//command : /boardList.do
 		
-		System.out.println("RequestURI : " + RequestURI);
-		System.out.println("ContextPath : " + ContextPath);
+		//System.out.println("RequestURI : " + RequestURI);
+		//System.out.println("ContextPath : " + ContextPath);
 		System.out.println("command : " + command);
 		
 		//일괄처리를 위해서
@@ -47,6 +47,10 @@ public class CompFileFrontController extends HttpServlet {
 			}catch(Exception e){
 				e.printStackTrace();
 			}
+		}else if(command.equals("/CompDataBoardWrite.cf")){
+			forward=new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("Comp/Comp_File/Comp_File_Write.jsp");
 		}
 		
 		if(forward != null){

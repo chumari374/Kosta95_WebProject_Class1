@@ -38,6 +38,7 @@ public class LoginAction implements Action{
 	   		return null;
 		}
 		EmpDTO emp = dao.getEmp(empno);
+		
 		HttpSession session = request.getSession();
 		session.setAttribute("empno", emp.getEmpno());
 		session.setAttribute("ename", emp.getEname());
@@ -45,6 +46,7 @@ public class LoginAction implements Action{
 		session.setAttribute("teamname", emp.getTeamname());
 		session.setAttribute("deptcode", emp.getDeptcode());
 		session.setAttribute("grade", emp.getGrade());
+		session.setAttribute("admin", emp.getAdmin());
 		session.setAttribute("p_picture", dto.getP_picture());
 		
 		forward.setRedirect(false);
