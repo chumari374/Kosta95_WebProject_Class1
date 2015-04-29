@@ -85,7 +85,7 @@ if(listcount > 0){
 		<td style="font-family:Tahoma;font-size:10pt;">
 			<div align="left">
 			&nbsp;&nbsp;&nbsp;
-			<a href="CompBoardDetailAction.cp?num=<%=bl.getNum()%>">
+			<a href="CompDataBoardDetailAction.cf?num=<%=bl.getNum()%>">
 				<%=bl.getTitle()%>
 			</a>
 			</div>
@@ -98,7 +98,7 @@ if(listcount > 0){
 			<div align="center"><%=bl.getWrite_date() %></div>
 		</td>	
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"></div>
+			<div align="center"><%=bl.getCount() %></div>
 		</td>
 	</tr>
 	<%} %>
@@ -107,21 +107,21 @@ if(listcount > 0){
 			<%if(nowpage<=1){ %>
 			<input type="button" value="이전" >&nbsp;
 			<%}else{ %>
-			<a href ="CompBoardList.cp?page=<%=nowpage-1 %>"><input type="button" value="이전 "></a>&nbsp;
+			<a href ="CompDataBoardList.cf?page=<%=nowpage-1 %>"><input type="button" value="이전 "></a>&nbsp;
 			<%} %>
 			
 			<%for(int a=startpage;a<=endpage;a++){
 				if(a==nowpage){%>
 				<input type="button" value="<%=a %>" style="background-color: #B2EBF4">&nbsp;
 				<%}else{ %>
-					<a href="CompBoardList.cp?page=<%=a %>"><input type="button" value="<%=a %>"></a>&nbsp;
+					<a href="CompDataBoardList.cf?page=<%=a %>"><input type="button" value="<%=a %>"></a>&nbsp;
 				<%} %>
 			<%} %>
 			
 			<%if(nowpage>=maxpage){ %>
 			<input type="button" value="다음">
 			<%}else{ %>
-			<a href="CompBoardList.cp?page=<%=nowpage+1 %>"><input type="button" value="다음"></a>
+			<a href="CompDataBoardList.cf?page=<%=nowpage+1 %>"><input type="button" value="다음"></a>
 			<%} %>
 		</td>
 	</tr>

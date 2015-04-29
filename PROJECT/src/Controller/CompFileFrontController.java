@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import Action.Action;
 import Action.ActionForward;
 import Action.CompFile.CompDataBoardAddAction;
+import Action.CompFile.CompDataBoardDetailAction;
 import Action.CompFile.CompDataBoardListAction;
 
 
@@ -55,6 +56,13 @@ public class CompFileFrontController extends HttpServlet {
 			
 		}else if(command.equals("/CompDataBoardWriteOk.cf")){
 			action = new CompDataBoardAddAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}else if(command.equals("/CompDataBoardDetailAction.cf")){
+			action = new CompDataBoardDetailAction();
 			try{
 				forward=action.execute(request, response);
 			}catch(Exception e){

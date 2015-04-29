@@ -12,6 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import DTO.C_DbrdDTO;
+import DTO.C_DbrdDTO;
 
 public class C_DbrdDAO {
 	DataSource ds;
@@ -111,8 +112,8 @@ public class C_DbrdDAO {
 		int result = 0;
 		
 		try {
-			String sql = "insert into c_dbrd(num,empno,title,content,write_date,data) "
-					+ "values(comp_databoard_num.nextval,?,?,?,sysdate,?)";
+			String sql = "insert into c_dbrd(num,empno,title,content,write_date,data,count) "
+					+ "values(comp_databoard_num.nextval,?,?,?,sysdate,?,0)";
 			conn = ds.getConnection();
 			
 			pstmt = conn.prepareStatement(sql);
@@ -131,5 +132,55 @@ public class C_DbrdDAO {
 			if (conn != null) try { conn.close(); } catch (SQLException ex) {}
 		}
 		return result;
+	}
+	
+	public void setReadCountUpdate(int num) throws Exception{
+		String sql="update C_DBRD set COUNT = COUNT+1 where NUM = "+num;
+		
+		try{
+			conn=ds.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.executeUpdate();
+		}catch(SQLException ex){
+			System.out.println("setReadCountUpdate 에러 : "+ex);
+		}
+		finally{
+			try{
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			}catch(Exception ex) {}
+		}
+	}
+	
+	public C_DbrdDTO getDetail(int num){
+		
+		C_DbrdDTO C_Dbrd = null;
+		
+		try {
+			conn = ds.getConnection();
+			String sql = "select * from C_Dbrd where num = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				C_Dbrd = new C_DbrdDTO();
+				C_Dbrd.setNum(rs.getInt("NUM"));
+				C_Dbrd.setEmpno(rs.getInt("EMPNO"));
+				C_Dbrd.setTitle(rs.getString("TITLE"));
+				C_Dbrd.setContent(rs.getString("CONTENT"));
+				C_Dbrd.setWrite_date(rs.getDate("WRITE_DATE"));
+				C_Dbrd.setCount(rs.getInt("COUNT"));
+			}
+			
+		} catch (Exception ex) {
+			System.out.println("getDetail 에러 : " + ex);
+		} finally {
+			if (rs != null) try { rs.close(); } catch (SQLException ex) {}
+			if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}
+			if (conn != null) try { conn.close(); } catch (SQLException ex) {}
+		}
+		return C_Dbrd;
 	}
 }
