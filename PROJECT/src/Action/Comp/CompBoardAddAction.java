@@ -65,7 +65,7 @@ public class CompBoardAddAction implements Action {
 
 			System.out.println("게시판 등록 완료");
 //			response.setCharacterEncoding("UTF-8");
-			forward.setRedirect(false);
+			forward.setRedirect(true);
 			forward.setPath("./CompBoardList.cp");
 			return forward;
 
