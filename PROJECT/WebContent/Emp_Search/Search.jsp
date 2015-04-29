@@ -11,9 +11,11 @@
 <%  
 	Class.forName("oracle.jdbc.OracleDriver");
 	Connection con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.7.192:1521:XE", "PROJECT", "1004");
-	String sql = "select deptname, teamname, ename, gradename, emptel, celphone from memberinfo where teamcode = ? order by grade";
+	//String sql = "select deptname, teamname, ename, gradename, emptel, celphone from memberinfo where teamcode = ? order by grade";
+	String sql = "select deptname, teamname, ename, gradename, emptel, celphone from memberinfo where deptcode = ? order by grade";
 	PreparedStatement ps = con.prepareStatement(sql);
-	ps.setString(1, request.getParameter("teamcode"));
+	//ps.setString(1, request.getParameter("teamcode"));
+	ps.setString(1, request.getParameter("deptcode"));
 	ResultSet rs = ps.executeQuery();
 	
 	JSONArray emplist = new JSONArray();

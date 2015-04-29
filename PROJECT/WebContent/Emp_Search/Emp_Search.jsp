@@ -29,7 +29,7 @@
 		$(function(){
 			/* $('ul').menu(); */
 
-			 $.ajax({
+			 /* $.ajax({
 	              url : './Emp_Search/Team.jsp',
 	              dataType : "json",
 	              success : function(data){
@@ -41,9 +41,23 @@
 	              },
 	             error: function (xhr,Options,thrownError) {
 	             }
+	          }); */
+	          
+	          $.ajax({
+	              url : './Emp_Search/Dept.jsp',
+	              dataType : "json",
+	              success : function(data){
+	            	  var options="";
+	                  $.each(data, function(index,dlist){
+	                         options += "<option value="+dlist.deptcode+">"+tlist.deptname+"</option>";
+	                  });
+	                  $('#deptlist').append(options);
+	              },
+	             error: function (xhr,Options,thrownError) {
+	             }
 	          });
-			
-			$('#teamlist').on("change",function(){
+	          
+			/* $('#teamlist').on("change",function(){
 					$('#emplist').empty();
 					$.ajax({
 						url : "./Emp_Search/Search.jsp",
@@ -74,7 +88,40 @@
 						},
 						error:function(data){alert("Error 발생");}
 					});
-			});
+			}); */
+			
+	          $('#deptlist').on("change",function(){
+					$('#emplist').empty();
+					$.ajax({
+						url : "./Emp_Search/Search.jsp",
+						data:{deptcode:$('#deptlist').val()},
+						dataType : "json",
+						success : function(data){
+							$('#emplist').append(
+									"<tr>"
+								+	"<td>부서</td>"
+								+	"<td>팀</td>"
+								+	"<td>이름</td>"
+								+	"<td>직급</td>"
+								+	"<td>사내전화번호</td>"
+								+	"<td>핸드폰</td>"
+								+	"</tr>"		
+							);
+							$.each(data,function(index,entry){
+								$('#emplist').append(
+									"<tr><td>" + entry.deptname + 
+									"</td><td>" + entry.teamname + 
+									"</td><td>" + entry.ename + 
+									"</td><td>" + entry.gradename + 
+									"</td><td>" + entry.emptel + 
+									"</td><td>" + entry.celphone + 
+									"</td></tr>"		
+								);
+							});
+						},
+						error:function(data){alert("Error 발생");}
+					});
+			}); 
 		});
 	</script>
 </head>
@@ -107,7 +154,8 @@
 						</ul>
 					</li>
 				</ul> -->
-				<select id="teamlist">
+				<!-- <select id="teamlist"> -->
+				<select id="deptlist">
 				</select>
 			</td>
 			<td colspan="5">

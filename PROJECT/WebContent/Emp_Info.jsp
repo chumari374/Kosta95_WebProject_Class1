@@ -47,7 +47,7 @@ table {
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+	<center>
 	<table width="500px" height="300px">
 		<tr>
 			<th colspan="3" align="center">${member.ename}님의 사원정보</th>
@@ -98,6 +98,6 @@ table {
 			<td colspan="3" align="center"><input type="button" value="닫기"></td>
 		</tr>
 	</table>
-
+</center>
 </body>
 </html>
