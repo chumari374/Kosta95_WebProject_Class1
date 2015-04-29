@@ -28,24 +28,42 @@
 	<script type="text/javascript">
 		$(function(){
 			$('ul').menu();
+
+			 $.ajax({
+	              url : './Emp_Search/Team.jsp',
+	              dataType : "json",
+	              success : function(data){
+	            	  var options="";
+	                  $.each(data, function(index,tlist){
+	                         options += "<option>"+tlist.teamcode+"</option>";
+	                  });
+	                  $('#teamlist').append(options);
+	              },
+	             error: function (xhr,Options,thrownError) {
+	             }
+	          });
 			
-			$.ajax({
-				url : './Emp_Search/Search.jsp',
-				dataType : "json",
-				success : function(data){
-					$.each(data,function(index,entry){
-						$('#emplist').append(
-							"<tr><td>" + entry.deptname + 
-							"</td><td>" + entry.teamname + 
-							"</td><td>" + entry.ename + 
-							"</td><td>" + entry.gradename + 
-							"</td><td>" + entry.emptel + 
-							"</td><td>" + entry.celphone + 
-							"</td></tr>"		
-						);
+			$('#deptlist').on("change",function(){
+					$('#emplist').empty();
+					$.ajax({
+						url : './Emp_Search/Search.jsp',
+						data:{teamcode:$('#teamlist').val()},
+						dataType : "json",
+						success : function(data){
+							$.each(data,function(index,entry){
+								$('#emplist').append(
+									"<tr><td>" + entry.deptname + 
+									"</td><td>" + entry.teamname + 
+									"</td><td>" + entry.ename + 
+									"</td><td>" + entry.gradename + 
+									"</td><td>" + entry.emptel + 
+									"</td><td>" + entry.celphone + 
+									"</td></tr>"		
+								);
+							});
+						},
+						error:function(data){alert("Error 발생");}
 					});
-				},
-				error:function(data){alert("Error 발생");}
 			});
 		});
 	</script>
@@ -54,7 +72,7 @@
 	<table width="60%" id="emplist">
 		<tr>
 			<td colspan="1" align="center" width="60">
-				<ul>
+				<!-- <ul>
 					<li>선택
 						<ul>
 							<li onclick="dept(110)">개발부
@@ -78,7 +96,9 @@
 							</li>
 						</ul>
 					</li>
-				</ul>
+				</ul> -->
+				<select id="teamlist">
+				</select>
 			</td>
 			<td colspan="5">
 				<input type="text" placeholder="이름으로 검색">&nbsp;<input type="button" value="검색" id="btn">

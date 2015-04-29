@@ -11,8 +11,9 @@
 <%  
 	Class.forName("oracle.jdbc.OracleDriver");
 	Connection con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.7.192:1521:XE", "PROJECT", "1004");
-	String sql = "select deptname, teamname, ename, gradename, emptel, celphone from memberinfo order by grade";
+	String sql = "select deptname, teamname, ename, gradename, emptel, celphone from memberinfo where teamcode = ? order by grade";
 	PreparedStatement ps = con.prepareStatement(sql);
+	ps.setInt(1, Integer.parseInt(request.getParameter("teamcode")));
 	ResultSet rs = ps.executeQuery();
 	
 	JSONArray rows = new JSONArray();
@@ -30,5 +31,8 @@
 	rs.close();
 	ps.close();
 	con.close();
-%>
+%> 
+<%-- <%
+	JSONArray rows = (JSONArray)request.getAttribute("JSONList");
+%> --%>
 <%=rows%>

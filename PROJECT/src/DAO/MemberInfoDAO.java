@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import DTO.MemberInfoDTO;
 
 public class MemberInfoDAO {
@@ -100,5 +102,37 @@ public class MemberInfoDAO {
 		}
 		return list;
 		
+	}
+	
+	// ¸â¹ö ¸®½ºÆ® JSON °´Ã¼·Î... 
+	public JSONArray MemberListJSON(){
+		
+		JSONArray rows = new JSONArray();
+		
+		try{
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement("select deptname, teamname, ename, gradename, emptel, celphone from memberinfo order by grade");
+			
+			rs= pstmt.executeQuery();
+			
+			while(rs.next()){
+				JSONObject jsonobject = new JSONObject();
+				jsonobject.put("deptname", rs.getString("deptname"));
+				jsonobject.put("teamname", rs.getString("teamname"));
+				jsonobject.put("ename", rs.getString("ename"));
+				jsonobject.put("gradename", rs.getString("gradename"));
+				jsonobject.put("emptel", rs.getString("emptel"));
+				jsonobject.put("celphone", rs.getString("celphone"));
+				rows.add(jsonobject);
+			}
+			
+		}catch(Exception ex){
+			System.out.println("getMemberInfo ¿¡·¯ : " + ex);
+		}finally{
+			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(pstmt !=null)try{pstmt.close();}catch(SQLException ex){}
+			if(conn !=null)try{conn.close();}catch(SQLException ex){}
+		}
+		return rows;	
 	}
 }

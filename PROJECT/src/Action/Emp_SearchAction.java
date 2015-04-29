@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.sf.json.JSONArray;
 import DAO.MemberInfoDAO;
 import DTO.MemberInfoDTO;
 
@@ -25,5 +26,17 @@ public class Emp_SearchAction implements Action{
 		forward.setRedirect(false);
 		forward.setPath("./Emp_Search/Emp_Search.jsp");
 		return forward;
+/*		
+		MemberInfoDAO dao = new MemberInfoDAO();
+		
+		JSONArray JSONList = new JSONArray();
+		JSONList = dao.MemberListJSON();
+		
+		request.setAttribute("JSONList", JSONList);
+		
+		ActionForward forward = new ActionForward();
+		forward.setRedirect(false);
+		forward.setPath("./Emp_Search/Search.jsp");
+		return forward;*/
 	}
 }
