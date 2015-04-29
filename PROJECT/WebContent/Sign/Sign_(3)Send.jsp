@@ -71,10 +71,10 @@ if(listcount > 0){
 			<div align="center"><%=signdto.getTitle() %></div>
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=signdto.getStarter() %></div>
+			<div align="center"><%=signdto.getStarter_name() %></div>
 		</td>	
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=signdto.getGetsign() %></div>
+			<div align="center"><%=signdto.getGetsign_name() %></div>
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt;">
 			<div align="center"><%=signdto.getWrite_date() %></div>
