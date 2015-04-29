@@ -707,16 +707,20 @@ create sequence Comp_Databoard_Num -- 사내자료실 num 시퀀스
      start with 1        
      nocache;
      
+     
+--직급 추가     
 insert into grade (grade,gradename) values(1,'대표이사');
 insert into grade (grade,gradename) values(2,'부장');
 insert into grade (grade,gradename) values(3,'팀장');
 insert into grade (grade,gradename) values(4,'사원');
      
+--부서코드 추가
 insert into dept (deptcode,deptname) values(100,'대표이사');
 insert into dept (deptcode,deptname) values(200,'개발부');
 insert into dept (deptcode,deptname) values(300,'총무부');
 insert into dept (deptcode,deptname) values(400,'영업부');
 
+--팀코드 추가
 insert into team (deptcode,teamcode,teamname) values(100,1000,'대표이사');
 insert into team (deptcode,teamcode,teamname) values(200,2001,'솔루션팀');
 insert into team (deptcode,teamcode,teamname) values(200,2002,'외주팀');
@@ -726,9 +730,11 @@ insert into team (deptcode,teamcode,teamname) values(300,3003,'경영팀');
 insert into team (deptcode,teamcode,teamname) values(400,4001,'기술경영팀');
 insert into team (deptcode,teamcode,teamname) values(400,4002,'A/S팀');
      
+commit;
+
 insert into emp (empno,ename,deptcode,teamcode,grade)values(150129,'홍순호',100,1000,1);
    
-ALTER TABLE domain_set modify(
+ALTER TABLE domain_set modify( --남성 여성 6글자 이상이어야 함...
   sex varchar2(6)
       );   
       
@@ -736,7 +742,7 @@ insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (
 
 commit;
 
-ALTER TABLE accounts modify(
+ALTER TABLE accounts modify( --주소 50자는 크기는 줘야할듯...
   ADDR varchar2(50)
       );   
       
