@@ -409,6 +409,28 @@ public class SignDAO {
 		return rowcount;
 	}
 
+	// ======= 보낸결재함 자세히 보기 함수 ====================
+	public SignDTO DetailsendSign(int num) throws Exception {
+		SignDTO sign = null;
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement("select rownum, s.signnum, s.title, s.content, s.empno, g.GRADENAME, e.ename, "
+										+ "s.getsign, r.GRADENAME, m.ename, s.ref, s.step, s.write_date, s.status, s.FILE_SIGN"
+										+ " from sign s join emp e on e.empno = s.empno"
+										+ " join emp m on m.empno = s.getsign join grade g"
+										+ " on g.GRADE = e.GRADE join grade r on r.GRADE = m.grade where s.signnum = ?");
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				sign = new SignDTO();
+				
+			}
+		}
+	}
+	
+	
+	
+	
 	// ====== 문서 상태 함수===============================
 	public void SignStatus(String status, int ref, int step) {
 

@@ -6,6 +6,7 @@
 <HEAD>
    <meta charset="UTF-8">
    <TITLE> index </TITLE>
+   <script type="text/javascript" src="chatting/js/async.js"></script>
    <link type="text/css" rel="stylesheet" href="css/mystyle.css">
 	<script type="text/javascript" src="js/myscript.js"></script>
    <style>
@@ -18,8 +19,9 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-
+<script type="text/javascript">
+	getip2();
+</script>
 </HEAD>
 
 <BODY>
@@ -99,7 +101,7 @@
       </div>
     </aside>
 
-<!-- 	<input type="hidden" id="ip"> -->
+ 	<input type="hidden" id="ip">
 <!--     <div id="main" align="center" > -->
 <!--     사내 공지사항 -->
 <!-- <!-- <div id="div1">사내 공지사항</div> -->
@@ -109,5 +111,4 @@
 <!--     </div> -->
     
 <!--     <footer>Copyright (c) 2015 KOSTA</footer> -->
-
 </HTML>
