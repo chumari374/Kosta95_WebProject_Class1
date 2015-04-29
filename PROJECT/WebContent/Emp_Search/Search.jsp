@@ -15,7 +15,7 @@
 	Class.forName("oracle.jdbc.OracleDriver");
 	Connection con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.7.192:1521:XE", "PROJECT", "1004");
 	
-	String sql = "select deptname, teamname, ename, gradename, emptel, celphone from memberinfo where deptcode like '%"+deptcode+"%' and teamcode like '%"+teamcode+"%' order by grade";
+	String sql = "select empno, deptname, teamname, ename, gradename, emptel, celphone from memberinfo where deptcode like '%"+deptcode+"%' and teamcode like '%"+teamcode+"%' order by grade";
 	PreparedStatement ps = con.prepareStatement(sql);
 
 	ResultSet rs = ps.executeQuery();
@@ -24,6 +24,7 @@
 	
 	while(rs.next()){
 		JSONObject jsonobject = new JSONObject();
+		jsonobject.put("empno",rs.getInt("empno"));
 		jsonobject.put("deptname", rs.getString("deptname"));
 		jsonobject.put("teamname", rs.getString("teamname"));
 		jsonobject.put("ename", rs.getString("ename"));

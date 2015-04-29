@@ -82,8 +82,8 @@
 									"</td><td>" + entry.ename + 
 									"</td><td>" + entry.gradename + 
 									"</td><td>" + entry.emptel + 
-									"</td><td>" + entry.celphone + 
-									"</td></tr>"		
+									"</td><td>" + entry.celphone + "<input type='button' value='회원상세정보' onclick= window.open('../Member.info?empno="+entry.empno+"', 'Empinfo', 'width=400 height=200')'>"
+									+ "</td></tr>"		
 								);
 							});
 						},
@@ -133,8 +133,8 @@
 									"</td><td>" + entry.ename + 
 									"</td><td>" + entry.gradename + 
 									"</td><td>" + entry.emptel + 
-									"</td><td>" + entry.celphone + 
-									"</td></tr>"		
+									"</td><td>" + entry.celphone + "<input type='button' value='회원상세정보' onclick= window.open('../Member.info?empno="+entry.empno+"', 'Empinfo', 'width=400 height=200')'>"
+									+ "</td></tr>"		
 								);
 							});
 						},
