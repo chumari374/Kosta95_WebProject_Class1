@@ -139,7 +139,7 @@
 		<td colspan="5">
 		
 				<a href="javascript:addboard()">
-				<input type="submit" value="등록" class="btn btn-primary btn-inline-block btn-lg">
+				<input type="submit" value="수정" class="btn btn-primary btn-inline-block btn-lg">
 				</a>
 				<a href="javascript:history.go(-1)" class="btn btn-success btn-inline-block btn-lg">
 				뒤로</a>
