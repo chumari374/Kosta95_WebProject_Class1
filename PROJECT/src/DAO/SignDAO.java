@@ -419,6 +419,8 @@ public class SignDAO {
 		return rowcount;
 	}
 
+	
+	// ====== 보낸결재에서 자세히 보기 함수
 	public SignDTO DetailsendSign(int num) throws Exception {
 		SignDTO SignBoard = null;
 		try {
