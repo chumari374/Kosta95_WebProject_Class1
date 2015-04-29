@@ -19,10 +19,12 @@
 
 <html>
 <head>
-	<title>MVC 게시판</title>
+	<title>보낸 결제함</title>
 </head>
 
 <body>
+<jsp:include page="../Main.jsp"></jsp:include>
+ <div id="main" align="center">
 <!-- 게시판 리스트 -->
 
 <table width=50% border="0" cellpadding="0" cellspacing="0">
@@ -30,7 +32,7 @@
 if(listcount > 0){
 %>
 	<tr align="center" valign="middle">
-		<td colspan="4">MVC 게시판</td>
+		<td colspan="4">보낸 결제함</td>
 		<td align=right>
 			<font size=2>글 개수 : ${listcount }</font>
 		</td>
@@ -123,6 +125,7 @@ if(listcount > 0){
 	%>
 	
 </table>
-
+</div>
+	<jsp:include page="../Footer.jsp"></jsp:include>
 </body>
 </html>

@@ -80,6 +80,8 @@ table, td, tr {
 </SCRIPT>
 </head>
 <body>
+<jsp:include page="../Main.jsp"></jsp:include>
+   <div id="main" align="center">
 	<form action="SignAddAction.hong" method="post"
 		enctype="multipart/form-data">
 		<center>
@@ -129,5 +131,7 @@ table, td, tr {
 			&nbsp;<input type="submit" value="작성완료">
 		</center>
 	</form>
+	</div>
+	<jsp:include page="../Footer.jsp"></jsp:include>
 </body>
 </html>
