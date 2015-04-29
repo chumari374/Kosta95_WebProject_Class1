@@ -695,3 +695,19 @@ ALTER TABLE Sign
 		REFERENCES EMP (
 			EMPNO
 		);
+		
+-- memberinfo ºä »ý¼º Äõ¸®¹®
+create or replace view memberinfo
+as 
+  (select e.empno as empno, e.ename as ename, ds.birth as birth, ds.sex as sex, a.celphone as celphone, a.email as email, 
+  e.deptcode as deptcode, d.deptname as deptname, e.teamcode as teamcode, e.teamname as teamname, e.grade as grade, g.gradename as gradename, 
+  ds.emptel as emptel, a.p_picture as p_picture, a.p_content as p_content
+  from emp e
+  join domain_set ds
+  on e.empno = ds.empno
+  join accounts a
+  on e.empno = a.empno
+  join dept d
+  on e.deptcode = d.deptcode
+  join grade g
+  on e.grade = g.grade);
