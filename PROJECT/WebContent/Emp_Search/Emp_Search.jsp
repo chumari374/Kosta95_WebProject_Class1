@@ -27,7 +27,7 @@
 	</style>
 	<script type="text/javascript">
 		$(function(){
-			$('ul').menu();
+			/* $('ul').menu(); */
 
 			 $.ajax({
 	              url : './Emp_Search/Team.jsp',
@@ -35,7 +35,7 @@
 	              success : function(data){
 	            	  var options="";
 	                  $.each(data, function(index,tlist){
-	                         options += "<option>"+tlist.teamcode+"</option>";
+	                         options += "<option value="+tlist.teamcode+">"+tlist.teamname+"</option>";
 	                  });
 	                  $('#teamlist').append(options);
 	              },
@@ -43,13 +43,23 @@
 	             }
 	          });
 			
-			$('#deptlist').on("change",function(){
+			$('#teamlist').on("change",function(){
 					$('#emplist').empty();
 					$.ajax({
-						url : './Emp_Search/Search.jsp',
+						url : "./Emp_Search/Search.jsp",
 						data:{teamcode:$('#teamlist').val()},
 						dataType : "json",
 						success : function(data){
+							$('#emplist').append(
+									"<tr>"
+								+	"<td>부서</td>"
+								+	"<td>팀</td>"
+								+	"<td>이름</td>"
+								+	"<td>직급</td>"
+								+	"<td>사내전화번호</td>"
+								+	"<td>핸드폰</td>"
+								+	"</tr>"		
+							);
 							$.each(data,function(index,entry){
 								$('#emplist').append(
 									"<tr><td>" + entry.deptname + 
@@ -69,7 +79,7 @@
 	</script>
 </head>
 <body>
-	<table width="60%" id="emplist">
+	<table width="60%">
 		<tr>
 			<td colspan="1" align="center" width="60">
 				<!-- <ul>
@@ -104,14 +114,16 @@
 				<input type="text" placeholder="이름으로 검색">&nbsp;<input type="button" value="검색" id="btn">
 			</td>
 		</tr>
-		<tr>
+		</table>
+		<table width="60%" id="emplist">
+		<!-- <tr>
 			<td>부서</td>
 			<td>팀</td>
 			<td>이름</td>
 			<td>직급</td>
 			<td>사내전화번호</td>
 			<td>핸드폰</td>
-		</tr>
+		</tr> -->
 		<%-- <% 	
 				for(int i=0;i<MemberList.size();i++){
 					MemberInfoDTO MID = (MemberInfoDTO)MemberList.get(i);

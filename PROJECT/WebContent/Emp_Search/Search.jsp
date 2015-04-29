@@ -13,10 +13,11 @@
 	Connection con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.7.192:1521:XE", "PROJECT", "1004");
 	String sql = "select deptname, teamname, ename, gradename, emptel, celphone from memberinfo where teamcode = ? order by grade";
 	PreparedStatement ps = con.prepareStatement(sql);
-	ps.setInt(1, Integer.parseInt(request.getParameter("teamcode")));
+	ps.setString(1, request.getParameter("teamcode"));
 	ResultSet rs = ps.executeQuery();
 	
-	JSONArray rows = new JSONArray();
+	JSONArray emplist = new JSONArray();
+	
 	while(rs.next()){
 		JSONObject jsonobject = new JSONObject();
 		jsonobject.put("deptname", rs.getString("deptname"));
@@ -25,7 +26,7 @@
 		jsonobject.put("gradename", rs.getString("gradename"));
 		jsonobject.put("emptel", rs.getString("emptel"));
 		jsonobject.put("celphone", rs.getString("celphone"));
-		rows.add(jsonobject);
+		emplist.add(jsonobject);
 	}
 		
 	rs.close();
@@ -35,4 +36,4 @@
 <%-- <%
 	JSONArray rows = (JSONArray)request.getAttribute("JSONList");
 %> --%>
-<%=rows%>
+<%=emplist%>

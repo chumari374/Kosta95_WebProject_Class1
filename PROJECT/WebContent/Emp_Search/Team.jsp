@@ -7,13 +7,14 @@
 <%  
 	Class.forName("oracle.jdbc.OracleDriver");
 	Connection con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.7.192:1521:XE", "PROJECT", "1004");
-	String sql = "select teamcode from team";
+	String sql = "select teamname, teamcode from team";
 	PreparedStatement ps = con.prepareStatement(sql);
 	ResultSet rs = ps.executeQuery();
 	
 	JSONArray rows = new JSONArray();
 	while(rs.next()){
 		JSONObject jsonobject = new JSONObject();
+		jsonobject.put("teamname", rs.getString("teamname"));
 		jsonobject.put("teamcode", rs.getInt("teamcode"));
 		rows.add(jsonobject);
 	}
