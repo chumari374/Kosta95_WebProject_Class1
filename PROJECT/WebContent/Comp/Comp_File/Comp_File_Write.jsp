@@ -88,7 +88,7 @@
 <!-- 게시판 등록 -->
 <jsp:include page="../../Main.jsp"></jsp:include>
    <div id="main" align="center">
-<form action="CompDataBoardWriteOk.cf" method="post" name="boardform">
+<form action="CompDataBoardWriteOk.cf" method="post" name="boardform" enctype="multipart/form-data">
 <input type="hidden" name="BOARD_ID" value="<%=empno %>">
 <table width="700px" height="600px" cellpadding="0" cellspacing="0" width="100%">
 	<tr align="center" valign="middle">
@@ -125,6 +125,7 @@
 	</tr>
 	<tr bgcolor="cccccc">
 		<td colspan="2" style="height:1px;">
+			<input type="file" id="data" name="data" size="50">
 		</td>
 	</tr>
 	<tr><td colspan="2"></td>
