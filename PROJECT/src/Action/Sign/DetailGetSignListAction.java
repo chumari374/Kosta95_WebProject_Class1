@@ -8,7 +8,7 @@ import Action.ActionForward;
 import DAO.SignDAO;
 import DTO.SignDTO;
 
-public class DetailgetSignListAction implements Action {
+public class DetailGetSignListAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
