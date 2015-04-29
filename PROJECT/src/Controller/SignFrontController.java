@@ -106,19 +106,20 @@ public class SignFrontController extends HttpServlet {
 		}
 		
 		// 보낸결재에서 문서 상세보기
-	/*	else if (command.equals("/detailSendSignList.hong")) {
+		else if (command.equals("/detailSendSignList.hong")) {
 			// System.out.println("BoardDetailBefore");
 			// System.out.println("board num : " + request.getParameter("num"));
 			
 			action = new DetailSendSignListAction(); // action 객체 변수의 request 가지고 간다
 			
 			try {
-				request.setAttribute(arg0, arg1);
+				request.setAttribute("signsign", "sign");
+				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			
-		}*/
+		}
 		
 		
 		// ====================================================================
