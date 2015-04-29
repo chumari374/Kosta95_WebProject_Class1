@@ -103,6 +103,15 @@ public class SignFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		
+		// 보낸결재에서 문서 상세보기
+		else if (command.equals("/detailSendSignList.hong")) {
+			System.out.println("BoardDetailBefore");
+			System.out.println("board num : " + request.getParameter("num"));
+		}
+		
+		
+		// ====================================================================
 
 		if (forward != null) {
 			if (forward.isRedirect()) { // view 단 바로....재접속 하시겠습니까? true
