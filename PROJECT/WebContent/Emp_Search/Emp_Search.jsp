@@ -4,7 +4,6 @@
     pageEncoding="UTF-8"%>
 <% 
 	List MemberList = (List)request.getAttribute("MemberList");
-	request.setAttribute("MemberList", MemberList);
 %>
 <!-- 사원검색 페이지 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -30,21 +29,29 @@
 		$(function(){
 			$('ul').menu();
 			
-			$('#btn').click(function(){
-				$.ajax(
-						{
-							url : './Emp_Search/Search.jsp',
-							success : function(data){
-								$('#membertable').html(data);
-							}
-						}
-					);
+			$.ajax({
+				url : './Emp_Search/Search.jsp',
+				dataType : "json",
+				success : function(data){
+					$.each(data,function(index,entry){
+						$('#emplist').append(
+							"<tr><td>" + entry.deptname + 
+							"</td><td>" + entry.teamname + 
+							"</td><td>" + entry.ename + 
+							"</td><td>" + entry.gradename + 
+							"</td><td>" + entry.emptel + 
+							"</td><td>" + entry.celphone + 
+							"</td></tr>"		
+						);
+					});
+				},
+				error:function(data){alert("Error 발생");}
 			});
 		});
 	</script>
 </head>
 <body>
-	<table width="60%">
+	<table width="60%" id="emplist">
 		<tr>
 			<td colspan="1" align="center" width="60">
 				<ul>
@@ -85,7 +92,21 @@
 			<td>사내전화번호</td>
 			<td>핸드폰</td>
 		</tr>
+		<%-- <% 	
+				for(int i=0;i<MemberList.size();i++){
+					MemberInfoDTO MID = (MemberInfoDTO)MemberList.get(i);
+		%>
+				<tr>
+					<td><%= MID.getDeptname() %></td>
+					<td><%= MID.getTeamname() %></td>
+					<td><%= MID.getEname() %></td>
+					<td><%= MID.getGradename() %></td>
+					<td><%= MID.getEmptel() %></td>
+					<td><%= MID.getCelphone()%></td>
+				</tr>
+		<%
+			} 
+		%> --%>
 	</table>
-			<div id="membertable"></div>
 </body>
 </html>
