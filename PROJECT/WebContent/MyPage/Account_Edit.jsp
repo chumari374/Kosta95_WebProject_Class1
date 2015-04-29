@@ -49,7 +49,7 @@
 			</tr>
 			<tr>
 				<td>패스워드  </td>
-				<td><input type="text" name="pwd" id="pwd"></td>
+				<td><input type="password" name="pwd" id="pwd"></td>
 			</tr>
 			<tr>
 				<td>이메일 주소 </td>

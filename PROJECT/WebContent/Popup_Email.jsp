@@ -50,7 +50,7 @@
 <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 		<form role="form" method="post" name="registerForm">
-			<h2>사원번호 <small>확인합니다</small></h2>
+			<h2>이메일 <small>확인합니다</small></h2>
 			<hr class="colorgraph">
 			<div class="row">
 				<div class="col-xs-8 col-sm-9 col-md-8">
