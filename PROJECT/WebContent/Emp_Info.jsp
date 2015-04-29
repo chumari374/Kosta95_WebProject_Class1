@@ -78,7 +78,7 @@ table {
 			<td>${member.email}</td>
 		</tr>
 		<tr>
-			<td rowspan="4">${p_content}<!-- 프로필메세지 --></td>
+			<td rowspan="4">${member.p_content}<!-- 프로필메세지 --></td>
 			<td>소속부서</td>
 			<td>${member.deptname}</td>
 		</tr>
