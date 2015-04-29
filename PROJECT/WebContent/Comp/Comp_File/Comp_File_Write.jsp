@@ -88,7 +88,7 @@
 <!-- 게시판 등록 -->
 <jsp:include page="../../Main.jsp"></jsp:include>
    <div id="main" align="center">
-<form action="CompBoardWriteOk.cp" method="post" name="boardform">
+<form action="CompDataBoardWriteOk.cp" method="post" name="boardform">
 <input type="hidden" name="BOARD_ID" value="<%=empno %>">
 <table width="700px" height="600px" cellpadding="0" cellspacing="0" width="100%">
 	<tr align="center" valign="middle">
@@ -134,7 +134,7 @@
 				<a href="javascript:addboard()">
 				<input type="submit" value="등록" class="btn btn-primary btn-inline-block btn-lg">
 				</a>
-				<a href="CompBoardList.cp" class="btn btn-success btn-inline-block btn-lg">
+				<a href="javascript:history.go(-1)" class="btn btn-success btn-inline-block btn-lg">
 				뒤로</a>
 		</td>
 	</tr>

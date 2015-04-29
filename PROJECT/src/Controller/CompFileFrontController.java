@@ -51,6 +51,8 @@ public class CompFileFrontController extends HttpServlet {
 			forward=new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("Comp/Comp_File/Comp_File_Write.jsp");
+		}else if(command.equals("/CompDataBoardWriteOk.cp")){
+			
 		}
 		
 		if(forward != null){
