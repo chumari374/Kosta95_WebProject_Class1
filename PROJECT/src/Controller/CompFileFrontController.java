@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Action.Action;
 import Action.ActionForward;
+import Action.CompFile.CompDataBoardAddAction;
 import Action.CompFile.CompDataBoardListAction;
 
 
@@ -51,8 +52,14 @@ public class CompFileFrontController extends HttpServlet {
 			forward=new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("Comp/Comp_File/Comp_File_Write.jsp");
-		}else if(command.equals("/CompDataBoardWriteOk.cp")){
 			
+		}else if(command.equals("/CompDataBoardWriteOk.cf")){
+			action = new CompDataBoardAddAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
 		}
 		
 		if(forward != null){

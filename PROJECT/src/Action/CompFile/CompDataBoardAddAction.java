@@ -19,13 +19,13 @@ public class CompDataBoardAddAction implements Action{
 		HttpSession session = request.getSession();
 		C_DbrdDAO boarddao = new C_DbrdDAO();
 		C_DbrdDTO boarddto = new C_DbrdDTO();
-		ActionForward forward=new ActionForward();
+		ActionForward forward = new ActionForward();
 
 		request.setCharacterEncoding("UTF-8");		   	
-
+		response.setCharacterEncoding("UTF-8");
 		int result=0;
 		PrintWriter out = response.getWriter();
-
+		System.out.println("도착1");
 		try{
 			boarddto.setEmpno((int)session.getAttribute("empno"));
 			boarddto.setTitle(request.getParameter("BOARD_TITLE"));
@@ -41,7 +41,7 @@ public class CompDataBoardAddAction implements Action{
 
 				System.out.println("게시판 등록 실패");
 				forward.setRedirect(true);
-				forward.setPath("./CompBoardList.cp");
+				forward.setPath("./CompDataBoardList.cf");
 				return forward;
 			}
 
@@ -52,7 +52,7 @@ public class CompDataBoardAddAction implements Action{
 			System.out.println("게시판 등록 완료");
 
 			forward.setRedirect(false);
-			forward.setPath("./CompBoardList.cp");
+			forward.setPath("./CompDataBoardList.cf");
 
 		}catch(Exception ex){
 			ex.printStackTrace();

@@ -122,6 +122,7 @@ public class C_DbrdDAO {
 			pstmt.setString(4, C_Dbrd.getData());
 			result = pstmt.executeUpdate();
 			
+			System.out.println("result:"+result);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

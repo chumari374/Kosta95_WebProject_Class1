@@ -88,7 +88,7 @@
 <!-- 게시판 등록 -->
 <jsp:include page="../../Main.jsp"></jsp:include>
    <div id="main" align="center">
-<form action="CompDataBoardWriteOk.cp" method="post" name="boardform">
+<form action="CompDataBoardWriteOk.cf" method="post" name="boardform">
 <input type="hidden" name="BOARD_ID" value="<%=empno %>">
 <table width="700px" height="600px" cellpadding="0" cellspacing="0" width="100%">
 	<tr align="center" valign="middle">

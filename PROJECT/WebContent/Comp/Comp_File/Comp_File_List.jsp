@@ -1,5 +1,5 @@
 <%@page import="java.util.List"%>
-<%@page import="DTO.C_BrdDTO"%>
+<%@page import="DTO.C_DbrdDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -73,7 +73,7 @@ if(listcount > 0){
 	
 	<%
 		for(int i=0;i<boardList.size();i++){
-			C_BrdDTO bl=(C_BrdDTO)boardList.get(i);
+			C_DbrdDTO bl=(C_DbrdDTO)boardList.get(i);
 	%>
 	<tr align="center" valign="middle" bordercolor="#333333"
 		onmouseover="this.style.backgroundColor='F8F8F8'"
@@ -84,14 +84,7 @@ if(listcount > 0){
 		
 		<td style="font-family:Tahoma;font-size:10pt;">
 			<div align="left">
-			<%if(bl.getDpth()!=0){ %>
-				<%for(int a=0;a<=bl.getDpth()*2;a++){ %>
-				&nbsp;
-				<%} %>
-				▶
-			<%}else{ %>
-				▶
-			<%} %>
+			&nbsp;&nbsp;&nbsp;
 			<a href="CompBoardDetailAction.cp?num=<%=bl.getNum()%>">
 				<%=bl.getTitle()%>
 			</a>
@@ -99,13 +92,13 @@ if(listcount > 0){
 		</td>
 		
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=bl.getEname() %></div>
+			<div align="center">${sessionScope.ename}</div>
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt;">
 			<div align="center"><%=bl.getWrite_date() %></div>
 		</td>	
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=bl.getCount() %></div>
+			<div align="center"></div>
 		</td>
 	</tr>
 	<%} %>
