@@ -265,20 +265,20 @@ public class SignDAO {
 
 	// ========== 보낸 결재 함========================
 	public List getSendSignList(int empno, int page, int limit, String status) {
-		String getSendSignList_sql = "select rownum, t.signnum, t.title, t.content, t.empno, t.sgrade, t.ename, t.getsign, t.ggrade ,t.mname, t.ref, t.step, t.write_date, t.status"
-				+ " from"
-				+ " (select s.signnum, s.title, s.content, s.empno as empno, g.gradename as sgrade, e.ename as ename, s.getsign, r.gradename as ggrade ,m.ename as mname, s.ref, s.step, s.write_date, s.status"
-				+ " from sign s"
+		String getSendSignList_sql = "select * from"
+				+ " (select rownum as rnum, signnum, title, content, sgrade, ename, ggrade, mname, write_date, status from"
+				+ " (select s.signnum as signnum, s.title as title, s.content as content, g.gradename as sgrade, e.ename as ename,"
+				+ " r.gradename as ggrade, m.ename as mname, s.write_date as write_date, s.status as status "
+				+ " from sign s "
 				+ " join emp e"
 				+ " on e.empno = s.empno"
 				+ " join emp m"
 				+ " on m.empno = s.getsign"
 				+ " join grade g"
-				+ " on e.grade = g.grade"
+				+ " on g.grade = e.grade"
 				+ " join grade r"
-				+ " on m.grade = r.grade"
-				+ " where s.empno = ? and s.status = ? order by s.signnum) t"
-				+ " where rownum>=? and rownum<=?";
+				+ " on r.grade = m.grade"
+				+ " where s.empno = ? and s.status = ? order by s.signnum)) where rnum>=? and rnum<=?";
 
 		System.out.println(getSendSignList_sql);
 		System.out.println("DAO앵커1");
@@ -295,7 +295,8 @@ public class SignDAO {
 			pstmt = conn.prepareStatement(getSendSignList_sql);
 
 			System.out.println("DAO앵커2");
-
+			
+			System.out.println(empno);
 			System.out.println(startrow);
 			System.out.println(endrow);
 
@@ -311,10 +312,12 @@ public class SignDAO {
 				System.out.println("점검1");
 				SignDTO SignBoard = new SignDTO(); // 한 건의
 				SignBoard.setSignnum(rs.getInt("signnum"));
-				SignBoard.setStarter_name(rs.getString("starter"));
-				SignBoard.setGetsign_name(rs.getString("getsign"));
 				SignBoard.setTitle(rs.getString("TITLE"));
 				SignBoard.setContent(rs.getString("CONTENT"));
+				SignBoard.setStarter_name(rs.getString("sgrade") + " "
+						+ rs.getString("ename"));
+				SignBoard.setGetsign_name(rs.getString("ggrade") + " "
+						+ rs.getString("mname"));
 				SignBoard.setWrite_date(rs.getDate("WRITE_DATE"));
 				SignBoard.setStatus(rs.getString("STATUS"));
 				list.add(SignBoard); // key point (여러건의 데이터 collection사용)
@@ -409,28 +412,22 @@ public class SignDAO {
 		return rowcount;
 	}
 
-	// ======= 보낸결재함 자세히 보기 함수 ====================
-	public SignDTO DetailsendSign(int num) throws Exception {
-		SignDTO sign = null;
-		try {
-			conn = ds.getConnection();
-			pstmt = conn.prepareStatement("select rownum, s.signnum, s.title, s.content, s.empno, g.GRADENAME, e.ename, "
-										+ "s.getsign, r.GRADENAME, m.ename, s.ref, s.step, s.write_date, s.status, s.FILE_SIGN"
-										+ " from sign s join emp e on e.empno = s.empno"
-										+ " join emp m on m.empno = s.getsign join grade g"
-										+ " on g.GRADE = e.GRADE join grade r on r.GRADE = m.grade where s.signnum = ?");
-			pstmt.setInt(1, num);
-			rs = pstmt.executeQuery();
-			if (rs.next()) {
-				sign = new SignDTO();
-				
-			}
-		}
-	}
-	
-	
-	
-	
+	/*
+	 * // ======= 보낸결재함 자세히 보기 함수 ==================== public SignDTO
+	 * DetailsendSign(int num) throws Exception { SignDTO sign = null; try {
+	 * conn = ds.getConnection(); pstmt = conn.prepareStatement(
+	 * "select rownum, s.signnum, s.title, s.content, s.empno, g.GRADENAME, e.ename, "
+	 * +
+	 * "s.getsign, r.GRADENAME, m.ename, s.ref, s.step, s.write_date, s.status, s.FILE_SIGN"
+	 * + " from sign s join emp e on e.empno = s.empno" +
+	 * " join emp m on m.empno = s.getsign join grade g" +
+	 * " on g.GRADE = e.GRADE join grade r on r.GRADE = m.grade where s.signnum = ?"
+	 * ); pstmt.setInt(1, num); rs = pstmt.executeQuery(); if (rs.next()) { sign
+	 * = new SignDTO();
+	 * 
+	 * } } }
+	 */
+
 	// ====== 문서 상태 함수===============================
 	public void SignStatus(String status, int ref, int step) {
 

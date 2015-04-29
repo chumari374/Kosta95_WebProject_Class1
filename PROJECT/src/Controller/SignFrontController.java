@@ -106,7 +106,7 @@ public class SignFrontController extends HttpServlet {
 		}
 		
 		// 보낸결재에서 문서 상세보기
-		else if (command.equals("/detailSendSignList.hong")) {
+	/*	else if (command.equals("/detailSendSignList.hong")) {
 			// System.out.println("BoardDetailBefore");
 			// System.out.println("board num : " + request.getParameter("num"));
 			
@@ -118,7 +118,7 @@ public class SignFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-		}
+		}*/
 		
 		
 		// ====================================================================
