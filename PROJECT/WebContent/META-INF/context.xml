@@ -11,16 +11,31 @@
 		 timeBetweenEvictionRunsMillis : 커넥션이 쉬고 있을 때 커넥션 체크 쿼리를 실행하는 시간 간격을 설정합니다. 밀리 세컨드로 설정하며, 저보통 60000(1분)을 줍니다. -->
 
 
-	 <Resource maxWait="-1" 
+<!-- 	 <Resource maxWait="-1"  -->
+<!-- 	          maxIdle="20"  -->
+<!-- 	          maxActive="10"  -->
+<!-- 	          password="1004" -->
+<!-- 		      username="PROJECT"  -->
+<!-- 		      url="jdbc:oracle:thin:@192.168.7.192:1521:XE" -->
+<!-- 			  driverClassName="oracle.jdbc.OracleDriver"  -->
+<!-- 			  type="javax.sql.DataSource" -->
+<!-- 		      auth="Container"  -->
+<!-- 		      name="jdbc/oracle" /> -->
+		      
+		      
+	<!-- 밑에는 각자 집에서 사용할 주소! -->	  
+	    
+	<Resource maxWait="-1" 
 	          maxIdle="20" 
 	          maxActive="10" 
 	          password="1004"
 		      username="PROJECT" 
-		      url="jdbc:oracle:thin:@192.168.7.192:1521:XE"
+		      url="jdbc:oracle:thin:@localhost:1521:XE"
 			  driverClassName="oracle.jdbc.OracleDriver" 
 			  type="javax.sql.DataSource"
 		      auth="Container" 
-		      name="jdbc/oracle" />
+		      name="jdbc/oracle" />	      
+		      
 		      
     <Resource maxWait="-1" 
 	          maxIdle="20" 

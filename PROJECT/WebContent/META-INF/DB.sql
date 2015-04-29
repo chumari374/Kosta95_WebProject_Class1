@@ -706,3 +706,43 @@ create sequence Comp_Databoard_Num -- 사내자료실 num 시퀀스
      increment by 1 
      start with 1        
      nocache;
+     
+insert into grade (grade,gradename) values(1,'대표이사');
+insert into grade (grade,gradename) values(2,'부장');
+insert into grade (grade,gradename) values(3,'팀장');
+insert into grade (grade,gradename) values(4,'사원');
+     
+insert into dept (deptcode,deptname) values(100,'대표이사');
+insert into dept (deptcode,deptname) values(200,'개발부');
+insert into dept (deptcode,deptname) values(300,'총무부');
+insert into dept (deptcode,deptname) values(400,'영업부');
+
+insert into team (deptcode,teamcode,teamname) values(100,1000,'대표이사');
+insert into team (deptcode,teamcode,teamname) values(200,2001,'솔루션팀');
+insert into team (deptcode,teamcode,teamname) values(200,2002,'외주팀');
+insert into team (deptcode,teamcode,teamname) values(300,3001,'경리팀');
+insert into team (deptcode,teamcode,teamname) values(300,3002,'인사팀');
+insert into team (deptcode,teamcode,teamname) values(300,3003,'경영팀');
+insert into team (deptcode,teamcode,teamname) values(400,4001,'기술경영팀');
+insert into team (deptcode,teamcode,teamname) values(400,4002,'A/S팀');
+     
+insert into emp (empno,ename,deptcode,teamcode,grade)values(150129,'홍순호',100,1000,1);
+   
+ALTER TABLE domain_set modify(
+  sex varchar2(6)
+      );   
+      
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150129,'02-2286-0321',sysdate,sysdate,'남자',sysdate,'true');
+
+commit;
+
+ALTER TABLE accounts modify(
+  ADDR varchar2(50)
+      );   
+      
+
+--쪽지... 결제 확인... 어떻게 할것인가 현재 not null 이라 무조건 넣어 줘야함...
+
+insert into accounts (empno,pwd,email,addr,celphone,signcheck,msgcheck) values (150129,1004,'0113784358@naver.com','서울시 성동구 행당동 317-130','02-2293-4358','true','true'); 
+commit;
+
