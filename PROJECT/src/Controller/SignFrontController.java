@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Action.Action;
 import Action.ActionForward;
+import Action.Sign.DetailGetSignListAction;
 import Action.Sign.DetailSendSignListAction;
 import Action.Sign.GetSignListAction;
 import Action.Sign.SendSignListAction;
@@ -52,6 +53,8 @@ public class SignFrontController extends HttpServlet {
 		 * System.out.println("command : " + command);
 		 */
 
+		System.out.println(command);
+		
 		// 일괄처리를 위해서
 		ActionForward forward = null;
 		Action action = null;
@@ -106,7 +109,7 @@ public class SignFrontController extends HttpServlet {
 		}
 		
 		// 보낸결재에서 문서 상세보기
-		else if (command.equals("/detailSendSignList.hong")) {
+		else if (command.equals("/DetailSendSignList.hong")) {
 			// System.out.println("BoardDetailBefore");
 			// System.out.println("board num : " + request.getParameter("num"));
 			
@@ -119,6 +122,22 @@ public class SignFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+		}
+		
+		// 받은결재에서 문서 상세보기
+		else if (command.equals("/DetailGetSignList.hong")) {
+			// System.out.println("BoardDetailBefore");
+			// System.out.println("board num : " + request.getParameter("num"));
+					
+			action = new DetailGetSignListAction(); // action 객체 변수의 request 가지고 간다
+					
+			try {
+				request.setAttribute("signsign", "sign");
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+					
 		}
 		
 		

@@ -167,4 +167,41 @@ public class MessageDAO {
 		
 		return false;
 	}
-}
+	
+	
+	
+
+	public int getMessageListCount() {
+			// select count(*) from board
+			int rowcount = 0;
+			try {
+				conn = ds.getConnection();
+				pstmt = conn.prepareStatement("select count(*) from C_BRD");
+				rs = pstmt.executeQuery();
+				if (rs.next()) {
+					rowcount = rs.getInt(1);
+				}
+			} catch (Exception e) {
+
+			} finally {
+				try {
+					rs.close();
+				} catch (SQLException s) {
+					s.printStackTrace();
+				}
+				try {
+					pstmt.close();
+				} catch (SQLException s) {
+					s.printStackTrace();
+				}
+				try {
+					conn.close();
+				} catch (SQLException s) {
+					s.printStackTrace();
+				}
+			}
+			return rowcount;
+		};
+	}
+
+

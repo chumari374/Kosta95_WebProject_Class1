@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 	<style type="text/css">
-		body {font-size: 62.5%;}
+		body {font-size: 82.5%;}
 		table, tr, td{
 			border: 1px solid gray;
 			border-collapse: collapse;
@@ -23,13 +23,12 @@
 			padding-left: 10px; 
 			padding-right: 10px;
 		}
-		.ui-menu { width: 90px; }
 	</style>
 	<script type="text/javascript">
 		$(function(){
 			/* $('ul').menu(); */
 
-			 /* $.ajax({
+/* 			 $.ajax({
 	              url : './Emp_Search/Team.jsp',
 	              dataType : "json",
 	              success : function(data){
@@ -48,8 +47,9 @@
 	              dataType : "json",
 	              success : function(data){
 	            	  var options="";
+	            	  		 options += "<option value=''>부서선택</option>";
 	                  $.each(data, function(index,dlist){
-	                         options += "<option value="+dlist.deptcode+">"+tlist.deptname+"</option>";
+	                         options += "<option value="+dlist.deptcode+">"+dlist.deptname+"</option>";
 	                  });
 	                  $('#deptlist').append(options);
 	              },
@@ -57,11 +57,12 @@
 	             }
 	          });
 	          
-			/* $('#teamlist').on("change",function(){
+ 			 $('#teamlist').on("change",function(){
 					$('#emplist').empty();
 					$.ajax({
 						url : "./Emp_Search/Search.jsp",
-						data:{teamcode:$('#teamlist').val()},
+						data:{deptcode:$('#deptlist').val(),
+							teamcode:$('#teamlist').val()},
 						dataType : "json",
 						success : function(data){
 							$('#emplist').append(
@@ -81,54 +82,85 @@
 									"</td><td>" + entry.ename + 
 									"</td><td>" + entry.gradename + 
 									"</td><td>" + entry.emptel + 
-									"</td><td>" + entry.celphone + 
-									"</td></tr>"		
-								);
-							});
-						},
-						error:function(data){alert("Error 발생");}
-					});
-			}); */
-			
-	          $('#deptlist').on("change",function(){
-					$('#emplist').empty();
-					$.ajax({
-						url : "./Emp_Search/Search.jsp",
-						data:{deptcode:$('#deptlist').val()},
-						dataType : "json",
-						success : function(data){
-							$('#emplist').append(
-									"<tr>"
-								+	"<td>부서</td>"
-								+	"<td>팀</td>"
-								+	"<td>이름</td>"
-								+	"<td>직급</td>"
-								+	"<td>사내전화번호</td>"
-								+	"<td>핸드폰</td>"
-								+	"</tr>"		
-							);
-							$.each(data,function(index,entry){
-								$('#emplist').append(
-									"<tr><td>" + entry.deptname + 
-									"</td><td>" + entry.teamname + 
-									"</td><td>" + entry.ename + 
-									"</td><td>" + entry.gradename + 
-									"</td><td>" + entry.emptel + 
-									"</td><td>" + entry.celphone + 
-									"</td></tr>"		
+									"</td><td>" + entry.celphone  + "<a href='Member.info?empno="+entry.empno+"'>클릭</a>"
+									+ "</td></tr>"		
 								);
 							});
 						},
 						error:function(data){alert("Error 발생");}
 					});
 			}); 
+			
+	          $('#deptlist').on("change",function(){
+	        	  	$('#teamlist').empty();
+	        	  	 $.ajax({
+	   	              url : './Emp_Search/Team.jsp',
+	   	              data:{deptcode:$('#deptlist').val()},
+	   	              dataType : "json",
+	   	              success : function(data){
+	   	            	  var options="";
+	   	            		options += "<option value=''>팀선택</option>";
+	   	                  $.each(data, function(index,tlist){
+	   	                         options += "<option value="+tlist.teamcode+">"+tlist.teamname+"</option>";
+	   	                  });
+	   	                  $('#teamlist').append(options);
+	   	              },
+	   	             error: function (xhr,Options,thrownError) {
+	   	             }
+	        	  	});
+	        	  	 
+					$('#emplist').empty();
+					$.ajax({
+						url : "./Emp_Search/Search.jsp",
+						data:{deptcode:$('#deptlist').val(), 
+							teamcode:$('#teamlist').val()},
+						dataType : "json",
+						success : function(data){
+							$('#emplist').append(
+									"<tr>"
+								+	"<td>부서</td>"
+								+	"<td>팀</td>"
+								+	"<td>이름</td>"
+								+	"<td>직급</td>"
+								+	"<td>사내전화번호</td>"
+								+	"<td>핸드폰</td>"
+								+	"</tr>"		
+							);
+							$.each(data,function(index,entry){
+								$('#emplist').append(
+									"<tr><td>" + entry.deptname + 
+									"</td><td>" + entry.teamname + 
+									"</td><td>" + entry.ename + 
+									"</td><td>" + entry.gradename + 
+									"</td><td>" + entry.emptel + 
+									"</td><td>" + entry.celphone  + "<a href='Member.info?empno="+entry.empno+"'>클릭</a>"
+									+ "</td></tr>"		
+								);
+							});
+						},
+						error:function(data){alert("Error 발생");}
+					});
+			}); 
+	          
+	          /* $('#btn').on("click",function(){
+	        	  window.open('Member.info?empno="+entry.empno+"', 'Empinfo', 'width=400 height=200')'
+	          }); */
+	          
+	          /* $('#btn').on("click", function(){
+	        	    alert("The paragraph was clicked.");
+	        	}); */
 		});
 	</script>
 </head>
 <body>
+<jsp:include page="../Main.jsp"></jsp:include>
+   <div id="main" align="center">
 	<table width="60%">
 		<tr>
-			<td colspan="1" align="center" width="60">
+		<td>
+			중분류 :
+		</td>
+			<td>
 				<!-- <ul>
 					<li>선택
 						<ul>
@@ -155,8 +187,13 @@
 					</li>
 				</ul> -->
 				<!-- <select id="teamlist"> -->
-				<select id="deptlist">
-				</select>
+				<select id="deptlist"></select>
+			</td>
+			<td>
+				소분류 :
+			</td>
+			<td>
+				<select id="teamlist"></select>
 			</td>
 			<td colspan="5">
 				<input type="text" placeholder="이름으로 검색">&nbsp;<input type="button" value="검색" id="btn">
@@ -188,5 +225,7 @@
 			} 
 		%> --%>
 	</table>
+	</div>
+	<jsp:include page="../Footer.jsp"></jsp:include>
 </body>
 </html>

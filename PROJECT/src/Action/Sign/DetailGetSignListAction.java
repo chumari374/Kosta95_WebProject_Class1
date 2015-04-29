@@ -8,7 +8,7 @@ import Action.ActionForward;
 import DAO.SignDAO;
 import DTO.SignDTO;
 
-public class DetailSendSignListAction implements Action {
+public class DetailGetSignListAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -18,10 +18,7 @@ public class DetailSendSignListAction implements Action {
 		
 		System.out.println("액션도달");
 		
-		
-		signdata = signdao.DetailsendSign(num);
-		
-		
+		signdata = signdao.DetailgetSign(num);
 		
 		if(signdata == null) {
 			System.out.println("Null Data 처리");
@@ -33,7 +30,8 @@ public class DetailSendSignListAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/Sign/Sign_(4)Send_View.jsp");
+		forward.setPath("/Sign/Sign_(5)Receive_View.jsp");
 		return forward;
 	}
+
 }

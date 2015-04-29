@@ -295,7 +295,7 @@ public class SignDAO {
 			pstmt = conn.prepareStatement(getSendSignList_sql);
 
 			System.out.println("DAO앵커2");
-			
+
 			System.out.println(empno);
 			System.out.println(startrow);
 			System.out.println(endrow);
@@ -312,7 +312,7 @@ public class SignDAO {
 				System.out.println("점검1");
 				SignDTO SignBoard = new SignDTO(); // 한 건의
 				SignBoard.setSignnum(rs.getInt("signnum"));
-				
+
 				SignBoard.setTitle(rs.getString("TITLE"));
 				SignBoard.setContent(rs.getString("CONTENT"));
 				System.out.println("1");
@@ -323,8 +323,10 @@ public class SignDAO {
 						+ rs.getString("mname"));
 				SignBoard.setWrite_date(rs.getDate("WRITE_DATE"));
 				SignBoard.setStatus(rs.getString("STATUS"));
-			/*	SignBoard.setStarter(rs.getInt("starter"));
-				SignBoard.setGetsign(rs.getInt("getsign"));*/
+				/*
+				 * SignBoard.setStarter(rs.getInt("starter"));
+				 * SignBoard.setGetsign(rs.getInt("getsign"));
+				 */
 				list.add(SignBoard); // key point (여러건의 데이터 collection사용)
 			}
 			return list;
@@ -416,54 +418,116 @@ public class SignDAO {
 		}
 		return rowcount;
 	}
-
+	
+	// ====== 보낸결재에서 자세히 보기 함수
 	public SignDTO DetailsendSign(int num) throws Exception {
-	      SignDTO SignBoard = null;
-	      try {
-	         conn = ds.getConnection();
-	         pstmt = conn.prepareStatement("select rownum, s.signnum, s.title, s.content, s.empno, g.GRADENAME as gname, e.ename as ename, "
-	                              + "s.getsign, r.GRADENAME as rname, m.ename = mname, s.ref, s.step, s.write_date as write_date, s.status as status, s.FILE_SIGN as file_sign"
-	                              + " from sign s join emp e on e.empno = s.empno"
-	                              + " join emp m on m.empno = s.getsign join grade g"
-	                              + " on g.GRADE = e.GRADE join grade r on r.GRADE = m.grade where s.signnum = ?"); 
-	         pstmt.setInt(1, num); 
-	         rs = pstmt.executeQuery(); 
-	         if (rs.next()) { 
-	            SignBoard = new SignDTO();
-	            SignBoard.setSignnum(rs.getInt("signnum"));
-	            SignBoard.setTitle(rs.getString("TITLE"));
-	            SignBoard.setContent(rs.getString("CONTENT"));
-	            SignBoard.setStarter_name(rs.getString("gname") + " "
-	                  + rs.getString("ename"));
-	            SignBoard.setStarter_name(rs.getString("gname") + " "
-	                  + rs.getString("mname"));
-	            SignBoard.setWrite_date(rs.getDate("WRITE_DATE"));
-	            SignBoard.setStatus(rs.getString("STATUS"));
-	            SignBoard.setFile_sign(rs.getString("FILE_SIGN"));
-	            }
-	         return SignBoard;
-	         } catch (Exception ex) {
-	            System.out.println("Detail 에러 : " + ex);
-	         } finally {
-	            if (rs != null)
-	               try {
-	                  rs.close();
-	               } catch (SQLException ex) {
-	               }
-	            if (pstmt != null)
-	               try {
-	                  pstmt.close();
-	               } catch (SQLException ex) {
-	               }
-	            if (conn != null)
-	               try {
-	                  conn.close();
-	               } catch (SQLException ex) {
-	               }
-	         }
-	         return null;
-	      }
+		SignDTO SignBoard = null;
+		try {
+			conn = ds.getConnection();
 
+			String getDetailSendSign_sql = "select rownum, s.signnum, s.title, s.content, s.empno, g.GRADENAME as gname, e.ename as ename, s.getsign, r.GRADENAME as rname, m.ename as mname, s.ref, s.step, s.write_date as write_date, s.status as status, s.FILE_SIGN as file_sign"
+					+ " from sign s"
+					+ " join emp e"
+					+ " on e.empno = s.empno"
+					+ " join emp m"
+					+ " on m.empno = s.getsign"
+					+ " join grade g"
+					+ " on g.GRADE = e.GRADE"
+					+ " join grade r"
+					+ " on r.GRADE = m.grade"
+					+ " where s.signnum = ?";
+
+			pstmt = conn.prepareStatement(getDetailSendSign_sql);
+			
+			System.out.println(num);
+			
+			pstmt.setInt(1, num);
+
+			System.out.println(getDetailSendSign_sql);
+
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				SignBoard = new SignDTO();
+				SignBoard.setSignnum(rs.getInt("signnum"));
+				SignBoard.setTitle(rs.getString("TITLE"));
+				SignBoard.setContent(rs.getString("CONTENT"));
+				SignBoard.setStarter_name(rs.getString("gname") + " "
+						+ rs.getString("ename"));
+				SignBoard.setStarter_name(rs.getString("gname") + " "
+						+ rs.getString("mname"));
+				SignBoard.setWrite_date(rs.getDate("WRITE_DATE"));
+				SignBoard.setStatus(rs.getString("STATUS"));
+				SignBoard.setFile_sign(rs.getString("FILE_SIGN"));
+			}
+			return SignBoard;
+		} catch (Exception ex) {
+			System.out.println("Detail 에러 : " + ex);
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+				}
+		}
+		return null;
+	}
+
+	
+	// ====== 받은 결재에서 자세히 보기 함수
+	public SignDTO DetailgetSign(int num) throws Exception {
+		SignDTO SignBoard = null;
+		try {
+			conn = ds.getConnection();
+			String getDetailGetSign_sql = "";
+			pstmt = conn.prepareStatement(getDetailGetSign_sql);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				SignBoard = new SignDTO();
+				SignBoard.setSignnum(rs.getInt("signnum"));
+				SignBoard.setTitle(rs.getString("TITLE"));
+				SignBoard.setContent(rs.getString("CONTENT"));
+				SignBoard.setStarter_name(rs.getString("gname") + " "
+						+ rs.getString("ename"));
+				SignBoard.setStarter_name(rs.getString("gname") + " "
+						+ rs.getString("mname"));
+				SignBoard.setWrite_date(rs.getDate("WRITE_DATE"));
+				SignBoard.setStatus(rs.getString("STATUS"));
+				SignBoard.setFile_sign(rs.getString("FILE_SIGN"));
+			}
+			return SignBoard;
+		} catch (Exception ex) {
+			System.out.println("Detail 에러 : " + ex);
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+				}
+		}
+		return null;
+	}
+	
 	// ====== 문서 상태 함수===============================
 	public void SignStatus(String status, int ref, int step) {
 
