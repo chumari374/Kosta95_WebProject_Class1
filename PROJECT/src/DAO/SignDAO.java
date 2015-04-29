@@ -265,13 +265,20 @@ public class SignDAO {
 
 	// ========== 보낸 결재 함========================
 	public List getSendSignList(int empno, int page, int limit, String status) {
-		String getSendSignList_sql = "select rownum, s.signnum, s.title, s.content, e.ename as starter, m.ename as getsign, s.write_date, s.status"
-            + " from sign s"
-            + " join emp e"
-            + " on e.empno = s.starter"
-            + " join emp m"
-            + " on m.empno = s.getsign"
-            + " where s.empno = ? and s.status = ? and rownum>=? and rownum<=? order by s.signnum";
+		String getSendSignList_sql = "select rownum, t.signnum, t.title, t.content, t.empno, t.sgrade, t.ename, t.getsign, t.ggrade ,t.mname, t.ref, t.step, t.write_date, t.status"
+				+ " from"
+				+ " (select s.signnum, s.title, s.content, s.empno as empno, g.gradename as sgrade, e.ename as ename, s.getsign, r.gradename as ggrade ,m.ename as mname, s.ref, s.step, s.write_date, s.status"
+				+ " from sign s"
+				+ " join emp e"
+				+ " on e.empno = s.empno"
+				+ " join emp m"
+				+ " on m.empno = s.getsign"
+				+ " join grade g"
+				+ " on e.grade = g.grade"
+				+ " join grade r"
+				+ " on m.grade = r.grade"
+				+ " where s.empno = ? and s.status = ? order by s.signnum) t"
+				+ " where rownum>=? and rownum<=?";
 
 		System.out.println(getSendSignList_sql);
 		System.out.println("DAO앵커1");
@@ -279,7 +286,7 @@ public class SignDAO {
 		List list = new ArrayList();
 		int startrow = (page - 1) * limit + 1;
 		int endrow = startrow + limit - 1; // 읽을 마지막 row 번호.
-		
+
 		System.out.println(startrow);
 		System.out.println(endrow);
 
