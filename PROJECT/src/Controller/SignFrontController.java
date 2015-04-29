@@ -38,7 +38,7 @@ public class SignFrontController extends HttpServlet {
 	private void Process(HttpServletRequest request,
 			HttpServletResponse response) throws IOException, ServletException {
 		String RequestURI = request.getRequestURI();
-		String ContextPath = request.getContextPath() + "/Sign";
+		String ContextPath = request.getContextPath();
 
 		System.out.println(RequestURI);
 		System.out.println(ContextPath);
@@ -89,8 +89,8 @@ public class SignFrontController extends HttpServlet {
 		// 결재문서 작성
 		else if (command.equals("/SignWrite.hong")) {
 			forward = new ActionForward();
-			forward.setRedirect(true);
-			forward.setPath("Sign_(1)Start.jsp");
+			forward.setRedirect(false);
+			forward.setPath("Sign/Sign_(1)Start.jsp");
 			System.out.println("redirect : " + forward.getPath());
 		} else if (command.equals("/SignAddAction.hong")) {
 			System.out.println("SignWriteBefore");

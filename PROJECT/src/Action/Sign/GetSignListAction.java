@@ -49,7 +49,7 @@ public class GetSignListAction implements Action {
 		// forward 대한 처리 로직///////////////////////////
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("Sign_(2)Receive.jsp");
+		forward.setPath("/Sign/Sign_(2)Receive.jsp");
 		return forward;
 	}
 }

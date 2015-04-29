@@ -68,7 +68,7 @@ public class SendSignListAction implements Action {
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("Sign_(3)Send.jsp");
+		forward.setPath("/Sign/Sign_(3)Send.jsp");
 		return forward;
 	}
 }

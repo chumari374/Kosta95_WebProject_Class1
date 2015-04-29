@@ -39,7 +39,7 @@ table, td, tr {
 	height: 250px;
 }
 </style>
-<script type="text/javascript" src="../ckeditor/ckeditor.js">
+<script type="text/javascript" src="./ckeditor/ckeditor.js">
 	CKEDITOR.replace('content', {
 		toolbar : 'Full',
 		uiColor : '#9AB8F3',

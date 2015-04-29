@@ -266,9 +266,9 @@ public class SignDAO {
 	// ========== 보낸 결재 함========================
 	public List getSendSignList(int empno, int page, int limit, String status) {
 		String getSendSignList_sql = "select * from"
-				+ " (select rownum as rnum, signnum, title, content, sgrade, ename, ggrade, mname, write_date, status from"
+				+ " (select rownum as rnum, signnum, title, content, sgrade, ename, ggrade, mname, write_date, status, starter, getsign from"
 				+ " (select s.signnum as signnum, s.title as title, s.content as content, g.gradename as sgrade, e.ename as ename,"
-				+ " r.gradename as ggrade, m.ename as mname, s.write_date as write_date, s.status as status "
+				+ " r.gradename as ggrade, m.ename as mname, s.write_date as write_date, s.status as status, s.starter as starter, s.getsign as getsign"
 				+ " from sign s "
 				+ " join emp e"
 				+ " on e.empno = s.empno"
@@ -312,14 +312,19 @@ public class SignDAO {
 				System.out.println("점검1");
 				SignDTO SignBoard = new SignDTO(); // 한 건의
 				SignBoard.setSignnum(rs.getInt("signnum"));
+				
 				SignBoard.setTitle(rs.getString("TITLE"));
 				SignBoard.setContent(rs.getString("CONTENT"));
+				System.out.println("1");
 				SignBoard.setStarter_name(rs.getString("sgrade") + " "
 						+ rs.getString("ename"));
+
 				SignBoard.setGetsign_name(rs.getString("ggrade") + " "
 						+ rs.getString("mname"));
 				SignBoard.setWrite_date(rs.getDate("WRITE_DATE"));
 				SignBoard.setStatus(rs.getString("STATUS"));
+			/*	SignBoard.setStarter(rs.getInt("starter"));
+				SignBoard.setGetsign(rs.getInt("getsign"));*/
 				list.add(SignBoard); // key point (여러건의 데이터 collection사용)
 			}
 			return list;
