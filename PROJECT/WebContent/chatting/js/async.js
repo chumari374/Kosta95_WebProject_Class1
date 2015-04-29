@@ -34,7 +34,8 @@ function getip2(){
 			function(data){
 				data2 = data.replace("\n\n","");
 				/*console.log(data2);*/
-				$('#chatting').attr('href','http://'+data2+':8090/PROJECT/chatting/client.html?');
+				$('#ip').val(data2);
+				$('header').append(","+$('#ip').val());
 			}
 	);
 }
