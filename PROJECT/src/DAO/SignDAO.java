@@ -279,6 +279,9 @@ public class SignDAO {
 		List list = new ArrayList();
 		int startrow = (page - 1) * limit + 1;
 		int endrow = startrow + limit - 1; // 읽을 마지막 row 번호.
+		
+		System.out.println(startrow);
+		System.out.println(endrow);
 
 		try {
 			conn = ds.getConnection();
