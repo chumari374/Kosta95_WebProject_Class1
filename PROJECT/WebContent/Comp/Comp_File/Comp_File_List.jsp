@@ -1,6 +1,20 @@
+<%@page import="java.util.List"%>
+<%@page import="DTO.C_BrdDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
-<!-- ªÁ≥ª¿⁄∑·Ω« ∆‰¿Ã¡ˆ -->
+    pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("UTF-8");
+	List boardList=(List)request.getAttribute("boardlist");
+	int listcount=(Integer)request.getAttribute("listcount");
+	int nowpage=(Integer)request.getAttribute("page");
+	int maxpage=(Integer)request.getAttribute("maxpage");
+	int startpage=(Integer)request.getAttribute("startpage");
+	int endpage=(Integer)request.getAttribute("endpage");
+	
+// 	System.out.println(listcount + "/ " + nowpage + " / " + maxpage + " / ");
+// 	System.out.println(startpage + " / " + endpage);
+%>
+<!-- ÏÇ¨ÎÇ¥ÏûêÎ£åÏã§ ÌéòÏù¥ÏßÄ -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,81 +28,134 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/myscript.js"></script>
 <style>
    #title {
-      margin: 50px;
+      margin: 70px;
    }
-   
-   tr { size: 100px}
 </style>
 </head>
 <body>
 <jsp:include page="../../Main.jsp"></jsp:include>
-<div id="main" align="center">
-<div id="title"><h4><b>ªÁ≥ª¿⁄∑·Ω«</b></h4></div>
+   <div id="main" align="center">
+<div id="title"><h3><b>ÏÇ¨ÎÇ¥ÏûêÎ£åÏã§</b></h3></div>
 <div class="container">
 	<div class="row">
 		<div class="col-md-9">
-    	 <table class="table table-list-search">
-         <thead>
-                      
-        <tr>
-			<td colspan="5" align="right">
-				<select>
-					<option>¡¶∏Ò</option>
-					<option>≥ªøÎ</option>
-					<option>¿€º∫¿⁄</option>
-				</select>
-				&nbsp;
-				<input type="text">
-				&nbsp;
-				<input type="button" value="∞Àªˆ">
-			</td>
-		</tr>
-        </thead>
-                    <tbody>
-                      <tr>
-                           <td>±€π¯»£</td>
-                           <td>¡¶∏Ò</td>
-                           <td>¿€º∫¿⁄</td>
-                           <td>¿€º∫¿œ</td>
-                           <td>¡∂»∏ºˆ</td>
-                        </tr>
-                       
-		<!-- µø¿˚¿∏∑Œ ±∏º∫ -->
-		<!-- WebJSP7_BasicBoard > board_list.jsp ¬¸∞Ì -->
-		<tr>
-				<td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-		</tr>
-		<tr>
-				<td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-		</tr>
-		<tr>
-				<td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-		</tr>
-		<tr>
-			<td colspan="4" align="center"> &lt; 1 2 3 4 5 6 7 8 9 10 &gt; </td>
-			<td align="center"><input type="button" value="±€æ≤±‚" onclick="location.href='<%=request.getContextPath()%>/CompBoardWrite.cp'"></td>
-		</tr>
-                    </tbody>
+    	<table width=50% border="0" cellpadding="0" cellspacing="0">
+<%
+if(listcount > 0){
+%>
+	<tr align="center" valign="middle">
+		<td colspan="4">ÏÇ¨ÎÇ¥ ÏûêÎ£åÏã§</td>
+		<td align=right>
+			<font size=2>Í∏Ä Í∞úÏàò : ${listcount }</font>
+		</td>
+	</tr>
 	
-	</table>
+	<tr align="center" valign="middle" bordercolor="#333333">
+		<td style="font-family:Tahoma;font-size:8pt;" width="8%" height="26">
+			<div align="center">Î≤àÌò∏</div>
+		</td>
+		<td style="font-family:Tahoma;font-size:8pt;" width="50%">
+			<div align="center">Ï†úÎ™©</div>
+		</td>
+		<td style="font-family:Tahoma;font-size:8pt;" width="14%">
+			<div align="center">ÏûëÏÑ±Ïûê</div>
+		</td>
+		<td style="font-family:Tahoma;font-size:8pt;" width="17%">
+			<div align="center">ÎÇ†Ïßú</div>
+		</td>
+		<td style="font-family:Tahoma;font-size:8pt;" width="11%">
+			<div align="center">Ï°∞ÌöåÏàò</div>
+		</td> 
+	</tr>
+	
+	<%
+		for(int i=0;i<boardList.size();i++){
+			C_BrdDTO bl=(C_BrdDTO)boardList.get(i);
+	%>
+	<tr align="center" valign="middle" bordercolor="#333333"
+		onmouseover="this.style.backgroundColor='F8F8F8'"
+		onmouseout="this.style.backgroundColor=''">
+		<td height="23" style="font-family:Tahoma;font-size:10pt;">
+			<%=bl.getNum()%>
+		</td>
+		
+		<td style="font-family:Tahoma;font-size:10pt;">
+			<div align="left">
+			<%if(bl.getDpth()!=0){ %>
+				<%for(int a=0;a<=bl.getDpth()*2;a++){ %>
+				&nbsp;
+				<%} %>
+				‚ñ∂
+			<%}else{ %>
+				‚ñ∂
+			<%} %>
+			<a href="CompBoardDetailAction.cp?num=<%=bl.getNum()%>">
+				<%=bl.getTitle()%>
+			</a>
+			</div>
+		</td>
+		
+		<td style="font-family:Tahoma;font-size:10pt;">
+			<div align="center"><%=bl.getEname() %></div>
+		</td>
+		<td style="font-family:Tahoma;font-size:10pt;">
+			<div align="center"><%=bl.getWrite_date() %></div>
+		</td>	
+		<td style="font-family:Tahoma;font-size:10pt;">
+			<div align="center"><%=bl.getCount() %></div>
+		</td>
+	</tr>
+	<%} %>
+	<tr align=center height=20>
+		<td colspan=7 style=font-family:Tahoma;font-size:10pt;>
+			<%if(nowpage<=1){ %>
+			<input type="button" value="Ïù¥Ï†Ñ" >&nbsp;
+			<%}else{ %>
+			<a href ="CompBoardList.cp?page=<%=nowpage-1 %>"><input type="button" value="Ïù¥Ï†Ñ "></a>&nbsp;
+			<%} %>
+			
+			<%for(int a=startpage;a<=endpage;a++){
+				if(a==nowpage){%>
+				<input type="button" value="<%=a %>" style="background-color: #B2EBF4">&nbsp;
+				<%}else{ %>
+					<a href="CompBoardList.cp?page=<%=a %>"><input type="button" value="<%=a %>"></a>&nbsp;
+				<%} %>
+			<%} %>
+			
+			<%if(nowpage>=maxpage){ %>
+			<input type="button" value="Îã§Ïùå">
+			<%}else{ %>
+			<a href="CompBoardList.cp?page=<%=nowpage+1 %>"><input type="button" value="Îã§Ïùå"></a>
+			<%} %>
+		</td>
+	</tr>
+	<%
+    }
+	else
+	{
+	%>
+	<tr align="center" valign="middle">
+		<td colspan="4">ÏÇ¨ÎÇ¥ ÏûêÎ£åÏã§</td>
+		<td align=right>
+			<font size=2>Îì±Î°ùÎêú Í∏ÄÏù¥ ÏóÜÏäµÎãàÎã§.</font>
+		</td>
+	</tr>
+	<%
+	} 
+	%>
+	<tr align="right">
+		<td colspan="5">
+	   		<a href="CompBoardWrite.cp"><input type="button" value="Í∏ÄÏì∞Í∏∞"></a>
+		</td>
+	</tr>
+</table>
 	</div>
 	</div>
 	</div>
-</div>
-<jsp:include page="../../Footer.jsp"></jsp:include>
+	</div>
+	<jsp:include page="../../Footer.jsp"></jsp:include>
 </body>
 </html>
