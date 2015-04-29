@@ -27,7 +27,7 @@
 <div id="main" align="center">
 <div id="title"><h4><b>사내자료실</b></h4></div>
 <div class="container">
-	<div class="row" style="width:700px">
+	<div class="row">
 		<div class="col-md-9">
     	 <table class="table table-list-search">
          <thead>
