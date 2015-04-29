@@ -135,7 +135,8 @@ if(listcount > 0){
 		</td>
 		
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=bl.getEname() %></div>
+			<div align="center" onclick="window.open('Member.info?empno=<%=bl.getEmpno()%>','상세정보', 'width=550 height=450')"><%=bl.getEname() %></div>
+			<!-- Member.info?empno= -->
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt;">
 			<div align="center"><%=bl.getWrite_date() %></div>

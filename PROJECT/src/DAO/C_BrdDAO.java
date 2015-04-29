@@ -328,28 +328,28 @@ public class C_BrdDAO {
 //	}
 //	
 //	// 글 수정
-//	public boolean Modify(C_BrdDTO modifyc_brd){
-//		
-//		String sql = "update c_brd set TITLE=?, CONTENT=? where NUM=?";
-//		
-//		try {
-//			conn = ds.getConnection();
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setString(1, modifyc_brd.getTitle());
-//			pstmt.setString(2, modifyc_brd.getContent());
-//			pstmt.setInt(3, modifyc_brd.getNum());
-//			pstmt.executeUpdate();
-//			return true;
-//		} catch (Exception ex) {
-//			System.out.println("boardModify 에러 : " + ex);
-//		} finally {
-//			if (rs != null) try { rs.close(); } catch (SQLException ex) {}
-//			if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}
-//			if (conn != null) try { conn.close(); } catch (SQLException ex) {}
-//		}
-//		return false;
-//	}
-//	
+	public boolean Modify(C_BrdDTO modifyc_brd){
+		
+		String sql = "update c_brd set TITLE=?, CONTENT=? where NUM=?";
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, modifyc_brd.getTitle());
+			pstmt.setString(2, modifyc_brd.getContent());
+			pstmt.setInt(3, modifyc_brd.getNum());
+			pstmt.executeUpdate();
+			return true;
+		} catch (Exception ex) {
+			System.out.println("boardModify 에러 : " + ex);
+		} finally {
+			if (rs != null) try { rs.close(); } catch (SQLException ex) {}
+			if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}
+			if (conn != null) try { conn.close(); } catch (SQLException ex) {}
+		}
+		return false;
+	}
+	
 	// 글 삭제
 		// delete.jsp
 		public boolean Delete(int num) {

@@ -26,7 +26,7 @@ public class CompBoardAddAction implements Action {
 		ActionForward forward=new ActionForward();
 
 		request.setCharacterEncoding("UTF-8");		   	
-
+		response.setCharacterEncoding("UTF-8");
 		boolean result=false;
 		String notice = "";
 		PrintWriter out = response.getWriter();
@@ -64,7 +64,7 @@ public class CompBoardAddAction implements Action {
 			out.println("</script>");
 
 			System.out.println("게시판 등록 완료");
-
+//			response.setCharacterEncoding("UTF-8");
 			forward.setRedirect(false);
 			forward.setPath("./CompBoardList.cp");
 			return forward;

@@ -16,6 +16,7 @@ public class CompBoardRealModifyAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		
 		HttpSession session = request.getSession();
 		C_BrdDAO boarddao=new C_BrdDAO();
 		C_BrdDTO boarddto=new C_BrdDTO();
