@@ -16,6 +16,8 @@
 	String teamname = (String) infoList.get(1);
 	String getSign = (String) infoList.get(2);
 	int getSignNum = Integer.parseInt((String) infoList.get(3));
+	
+	sign.getEmpname(empno);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -80,57 +82,54 @@ table, td, tr {
 </SCRIPT>
 </head>
 <body>
-<jsp:include page="../Main.jsp"></jsp:include>
-   <div id="main" align="center">
-	<form action="SignAddAction.hong" method="post"
-		enctype="multipart/form-data">
-		<center>
-			<table>
-				<tr>
-					<td>문서종류</td>
-					<td>&nbsp;<select><option>선택하세요</option></select></td>
-				</tr>
-				<tr>
-					<td>부서</td>
-					<td><%=deptname%></td>
-				</tr>
-				<tr>
-					<td>팀</td>
-					<td><%=teamname%></td>
-				</tr>
-				<tr>
-				</tr>
-				<tr>
-					<td>제목</td>
-					<td><input id="TITLE" name="TITLE" type="text"
-						style="width: 500px"></td>
-				</tr>
-				<tr>
-					<td>파일첨부</td>
-					<td>&nbsp;<input id="File_sign" name="File_sign" type="file"></td>
-				</tr>
-				<tr class="content">
-					<td>내용</td>
-					<td><textarea rows="10" cols="60" name="CONTENT" id="CONTENT"></textarea>
-						<script type="text/javascript">
-							CKEDITOR.replace('CONTENT');
-						</script></td>
-				</tr>
-				<tr>
-					<td>결재자</td>
-					<td><%=getSign%></td>
-				</tr>
-			</table>
-			<input id="STARTER" name="STARTER" type="hidden" value="<%=empno%>">
-			<input id="EMPNO" name="EMPNO" type="hidden" value="<%=empno%>">
-			<input id="GETSIGN" name="GETSIGN" type="hidden"value="<%=getSignNum%>"> 
-			<input id="STEP" name="STEP" type="hidden" value="1">
-			<button>미리보기</button>
-			&nbsp;
-			<button>임시저장</button>
-			&nbsp;<input type="submit" value="작성완료">
-		</center>
-	</form>
+	<jsp:include page="../Main.jsp"></jsp:include>
+	<div id="main" align="center">
+		<form action="SignAddAction.hong" method="post"
+			enctype="multipart/form-data">
+			<center>
+				<table>
+					<tr>
+						<td>부서</td>
+						<td><%=deptname%></td>
+					</tr>
+					<tr>
+						<td>팀</td>
+						<td><%=teamname%></td>
+					</tr>
+					<tr>
+					</tr>
+					<tr>
+						<td>제목</td>
+						<td><input id="TITLE" name="TITLE" type="text"
+							style="width: 500px"></td>
+					</tr>
+					<tr>
+						<td>파일첨부</td>
+						<td>&nbsp;<input id="File_sign" name="File_sign" type="file"></td>
+					</tr>
+					<tr class="content">
+						<td>내용</td>
+						<td><textarea rows="10" cols="60" name="CONTENT" id="CONTENT"></textarea>
+							<script type="text/javascript">
+								CKEDITOR.replace('CONTENT');
+							</script></td>
+					</tr>
+					<tr>
+						<td>결재자</td>
+						<td><%=getSign%></td>
+					</tr>
+				</table>
+				<input id="STARTER" name="STARTER" type="hidden" value="<%=empno%>">
+				<input id="EMPNO" name="EMPNO" type="hidden" value="<%=empno%>">
+				<input id="GETSIGN" name="GETSIGN" type="hidden"
+					value="<%=getSignNum%>"> <input id="STEP" name="STEP"
+					type="hidden" value="1">
+				<button>미리보기</button>
+				&nbsp;
+				<button>임시저장</button>
+				&nbsp;<input type="submit" value="작성완료">
+			</center>
+		</form>
 	</div>
 	<jsp:include page="../Footer.jsp"></jsp:include>
 </body>
