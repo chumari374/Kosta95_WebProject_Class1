@@ -88,7 +88,7 @@ if(listcount > 0){
 		
 		<td style="font-family:Tahoma;font-size:10pt;">
 			<div align="left">
-			<a href="CompBoardDetailAction.cp?num=<%=bl.getNum()%>">
+			<a href="CompBoardDetailAction.cp?num=<%=bl.getNum()%>&page=<%=nowpage%>">
 				<%=bl.getTitle()%>
 			</a>
 			</div>
@@ -128,7 +128,7 @@ if(listcount > 0){
 			<%}else{ %>
 				▶
 			<%} %>
-			<a href="CompBoardDetailAction.cp?num=<%=bl.getNum()%>">
+			<a href="CompBoardDetailAction.cp?num=<%=bl.getNum()%>&page=<%=nowpage%>">
 				<%=bl.getTitle()%>
 			</a>
 			</div>

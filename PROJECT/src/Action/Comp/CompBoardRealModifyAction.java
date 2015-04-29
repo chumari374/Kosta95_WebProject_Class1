@@ -11,15 +11,11 @@ import Action.ActionForward;
 import DAO.C_BrdDAO;
 import DTO.C_BrdDTO;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
-public class CompBoardAddAction implements Action {
+public class CompBoardRealModifyAction implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 
-			throws Exception{
-
+	public ActionForward execute(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 		C_BrdDAO boarddao=new C_BrdDAO();
 		C_BrdDTO boarddto=new C_BrdDTO();
@@ -73,6 +69,6 @@ public class CompBoardAddAction implements Action {
 			ex.printStackTrace();
 		}
 		return null;
-	}  	
+	}
 
 }

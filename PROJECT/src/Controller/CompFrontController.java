@@ -12,8 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import Action.Action;
 import Action.ActionForward;
 import Action.Comp.CompBoardAddAction;
+import Action.Comp.CompBoardDeleteAction;
 import Action.Comp.CompBoardDetailAction;
 import Action.Comp.CompBoardListAction;
+import Action.Comp.CompBoardModifyAction;
+import Action.Comp.CompBoardModifyView;
+import Action.Comp.CompBoardRealModifyAction;
 
 @WebServlet("*.cp")
 public class CompFrontController extends HttpServlet {
@@ -52,6 +56,34 @@ public class CompFrontController extends HttpServlet {
 		   }
 	   }else if(command.equals("/CompBoardDetailAction.cp")){
 		   	action = new CompBoardDetailAction();
+		   try{
+			   forward=action.execute(request, response);
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
+	   }else if(command.equals("/CompBoardDeleteAction.cp")){
+		   	action = new CompBoardDeleteAction();
+		   try{
+			   forward=action.execute(request, response);
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
+	   }else if(command.equals("/CompBoardModify.cp")){
+		   	action = new CompBoardModifyAction();
+		   try{
+			   forward=action.execute(request, response);
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
+	   }else if(command.equals("/CompBoardModifyView.cp")){
+		   	action = new CompBoardModifyView();
+		   try{
+			   forward=action.execute(request, response);
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
+	   }else if(command.equals("/CompBoardRealModifyAction.cp")){
+		   	action = new CompBoardRealModifyAction();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){

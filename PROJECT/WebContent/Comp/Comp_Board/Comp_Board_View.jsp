@@ -30,7 +30,7 @@
 	</tr>
 		<tr>
 			<td style="font-family:돋음; font-size:12" height="16">
-			<div align="center">작성일&nbsp;&nbsp;</div>
+			<div a 	lign="center">작성일&nbsp;&nbsp;</div>
 		</td>
 		
 		<td style="font-family:돋음; font-size:12">
@@ -98,7 +98,7 @@
 			>
 			[삭제]
 			</a>&nbsp;&nbsp;
-			<a href="./CompBoardList.cp">[목록]</a>&nbsp;&nbsp;
+			<a href="./CompBoardList.cp?page=<%=Integer.parseInt(request.getParameter("page"))%>">[목록]</a>&nbsp;&nbsp;
 			</font>
 		</td>
 	</tr>
