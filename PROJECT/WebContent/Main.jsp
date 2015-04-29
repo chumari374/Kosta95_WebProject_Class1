@@ -77,7 +77,7 @@
         </li> 
      
          <li>       
-         <a href="http://www.google.com"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;사원검색</a>       
+         <a href="MemberList.info"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;사원검색</a>       
          </li> 
       
      <li>      
