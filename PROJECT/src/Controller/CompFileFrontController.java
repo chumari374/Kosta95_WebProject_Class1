@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Action.Action;
 import Action.ActionForward;
+import Action.CompFile.CompDataBoardListAction;
 
 
 @WebServlet("/CompFileFrontController")
@@ -38,6 +39,15 @@ public class CompFileFrontController extends HttpServlet {
 		//일괄처리를 위해서
 		ActionForward forward = null;
 		Action action = null;
+		
+		if(command.equals("/CompDataBoardList.cp")){
+			action = new CompDataBoardListAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
 		
 		if(forward != null){
 			if(forward.isRedirect()){
