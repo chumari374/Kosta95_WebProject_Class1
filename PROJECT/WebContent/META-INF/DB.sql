@@ -742,15 +742,30 @@ commit;
 
 --쪽지... 결제 확인... 어떻게 할것인가 현재 not null 이라 무조건 넣어 줘야함...
 insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150129,'홍순호','대표이사','true','true','true',100,1000,1);
----------------------------------------------------------------------------------------------(  사번  ,  이름    ,  팀이름 , 사인체크, 메세지체크,어드민 ,부서코드,팀코드,직급)   
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150130,'윤조영','개발부','true','true','true',200,2000,2);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150131,'이상문','개발부','true','true','true',200,2001,3);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150201,'추가영','개발부','true','true','true',200,2001,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150214,'정자연','영업부','true','true','true',400,4001,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150301,'이준하','영업부','true','true','true',400,4000,2);
+---------------------------------------------------------------------------------------------(  사번 , 이름  , 팀이름 ,사인체크,메세지, 어드민,부서,팀코드,직급)   
 commit;
       
-insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150129,'02-2286-0321',sysdate,sysdate,'남자',sysdate,'true');
--------------------------------------------------------------------------------( 사번    ,     사내전화번호    ,  입사일    , 퇴사일    , 성별   , 생년월일 , 재직여부)
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150129,'02-2286-0321','2014-01-13',null,'남자','1990-10-13','true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150130,'02-2286-0322','2014-02-13',null,'남자','1992-10-13','true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150131,'02-2286-0521','2014-03-13',null,'남자','1991-10-13','true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150201,'02-2286-2321','2014-04-13',null,'여자','1991-10-13','true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150214,'02-2286-4321','2014-05-13',null,'여자','1992-10-13','true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150301,'02-2286-2531','2014-06-13',null,'남자','1989-10-13','true');
+-------------------------------------------------------------------------------( 사번  ,  사내전화번호 ,    입사일   ,퇴사일,성별 ,   생년월일  ,재직여부)
 commit;
 
 
---회원가입
+--회원가입은 페이지에서 합시다.
 --insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150129,1004,'0113784358@naver.com','서울시 성동구 행당동 317-130','010-5378-4358','사진경호','프로필내용'); 
 --commit;
+
+select * from emp;
+select * from domain_set;
+select * from accounts;
+select * from memberinfo;
 
