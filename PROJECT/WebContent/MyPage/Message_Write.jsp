@@ -20,20 +20,20 @@
 </style>
 
 	<script language="javascript">
-	function addboard(){
-		boardform.submit();
+	function addMSGboard(){
+		messageboardform.submit();
 	}
 	
 </script>
 </head>
 <body>
 	<div id="message_write_div">
-		<form id="message_write_form">
+		<form action="MessageWriteOk.mb" method="post" name="messageboardform">
 			<table id="message_write_table">
 				<tr>
-					<th>받는사람</th>
+					<th></th>
 					<td>
-						<input type="text" name="sendempno">
+						받는사원번호<input type="text" name="sendempno">
 					</td>
 				</tr>
 				<tr>
@@ -49,13 +49,6 @@
 					</td>
 				</tr>
 				<tr>
-					<th>이메일</th>
-					<td>
-						<input type="text" name="email">
-						<input type="button" value="중복확인" onclick="">
-					</td>
-				</tr>
-				<tr>
 					<th>첨부파일</th>
 					<td>
 						<input type="file" name="filepath">
@@ -64,7 +57,7 @@
 					<tr align="center" valign="middle">
 		<td colspan="2">
 		
-				<a href="javascript:addboard()">
+				<a href="javascript:addMSGboard()">
 				<input type="submit" value="등록" class="btn btn-primary btn-inline-block btn-lg">
 				</a>
 				

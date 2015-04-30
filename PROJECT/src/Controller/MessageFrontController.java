@@ -25,6 +25,7 @@ public class MessageFrontController extends HttpServlet {
     }
     
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	System.out.println("6");
    	 
      request.setCharacterEncoding("UTF-8");
      String RequestURI=request.getRequestURI();
@@ -35,23 +36,27 @@ public class MessageFrontController extends HttpServlet {
 	   
 	   if(command.equals("/MessageList.mb")){
 		   action = new MessageListAction();
+		   System.out.println("3");
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }
-	   }else if(command.equals("/MessageWrite.cp")){
+	   }else if(command.equals("/MessageWrite.mb")){
 		   forward=new ActionForward();
 		   forward.setRedirect(false);
 		   forward.setPath("./MyPage/Message_Write.jsp");
-	   }else if(command.equals("/MessageWriteOk.cp")){
+		   System.out.println("4");
+	   }else if(command.equals("/MessageWriteOk.mb")){
+		   System.out.println("messageAddAction");
 		   	action = new MessageAddAction();
+		   	System.out.println("5");
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }
-	   }else if(command.equals("/MessageDetailAction.cp")){
+	   }else if(command.equals("/MessageDetailAction.mb")){
 		   	action = new MessageDetailAction();
 		   try{
 			   forward=action.execute(request, response);
@@ -59,7 +64,7 @@ public class MessageFrontController extends HttpServlet {
 			   e.printStackTrace();
 		   }
 	   
-	   }else if(command.equals("/MessageDeleteAction.cp")){
+	   }else if(command.equals("/MessageDeleteAction.mb")){
 		   	action = new MessageDeleteAction();
 		   try{
 			   forward=action.execute(request, response);

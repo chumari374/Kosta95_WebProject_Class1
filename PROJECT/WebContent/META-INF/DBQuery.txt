@@ -80,7 +80,7 @@ ALTER TABLE Grade
 			GRADE
 		);
 
-/* ÆÀ */
+/* ÆÀ */ 
 CREATE TABLE Team (
 	TEAMNAME VARCHAR2(20) NOT NULL, /* ÆÀ¸í */
 	DEPTCODE NUMBER NOT NULL, /* ºÎ¼­ÄÚµå */
