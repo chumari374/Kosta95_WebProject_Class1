@@ -52,7 +52,7 @@ public class LoginAction implements Action{
 		String host = System.getProperty("host");
 		System.out.println(host);
 		forward.setRedirect(false);
-		forward.setPath("Main.jsp");
+		forward.setPath("SubMain.jsp");
 		return forward;
 	}
 
