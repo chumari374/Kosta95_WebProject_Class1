@@ -62,7 +62,7 @@ function Sent(id) {
 		<hr>
 		  <a href="#" onclick="Recieved('message_list');"><input type="button" value="받은 쪽지함"></a>
   <a href="#" onclick="Sent('message_list');"><input type="button" value="보낸 쪽지함"></a>
-  <input type="button" value="쪽지보내기">
+  <a href="../MessageWrite.mb" target="_blank"><input type="button" value="쪽지보내기"></a>
 
 	</div>
 </html>
