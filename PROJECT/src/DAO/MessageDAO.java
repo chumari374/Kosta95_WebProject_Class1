@@ -45,11 +45,11 @@ public class MessageDAO {
 			while (rs.next()) {
 				MessageDTO MessageBoard = new MessageDTO();
 				MessageBoard.setMsgnum(rs.getInt("MSGNUM"));
-				MessageBoard.setEmpno(rs.getInt("EMPNO"));
+				MessageBoard.setEmpno(rs.getInt("EMPNO")); //보낸사람
 				MessageBoard.setTitle(rs.getString("TITLE"));
 				MessageBoard.setContent(rs.getString("CONTENT"));
 				MessageBoard.setFilepath(rs.getString("FILEPATH"));
-				MessageBoard.setSendempno(rs.getInt("SENDEMPNO"));
+				MessageBoard.setSendempno(rs.getInt("SENDEMPNO")); //받는사람
 				list.add(MessageBoard); // key point (여러건의 데이터 collection사용)
 			}
 

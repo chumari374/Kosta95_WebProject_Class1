@@ -84,7 +84,7 @@
              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;마이페이지                    
               <ul class="submenu">         
                  <li><a href="Account_Edit.mp">개인정보 수정</a></li>          
-                 <li><a href="MessageList.mb">메세지함</a></li>       
+                 <li><a href="">메세지함</a></li>       
                  <li><a href="#">일정관리</a></li>    
               </ul>    
         </li>

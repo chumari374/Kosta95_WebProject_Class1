@@ -37,7 +37,6 @@ int endpage=(Integer)request.getAttribute("endpage");
 
 </head>
 <body>
-<jsp:include page="../Main.jsp"></jsp:include>
    <div id="main" align="center">
    <div id="title"><h3><b>쪽지함</b></h3></div>
 	<div id="message_list">
@@ -74,6 +73,5 @@ int endpage=(Integer)request.getAttribute("endpage");
 		<input type="button" value="쪽지보내기">
 	</div>
 	</div>
-	<jsp:include page="../Footer.jsp"></jsp:include>
-</body>
+	<jsp:include page="../Footer.jsp"></jsp:include></body>
 </html>
