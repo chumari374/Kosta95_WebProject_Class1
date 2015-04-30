@@ -28,7 +28,7 @@ table, tr, td  {
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="background-color: #EFEFEF">
 	<center>
 <%-- 	<table width="500px" height="300px">
 		<tr>
@@ -141,7 +141,9 @@ table, tr, td  {
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2" align="center"><input type="button" class="btn btn-primary" value="닫기" onclick="window.close()"></td>
+			<td colspan="2" align="center">
+			<input type="button" class="btn btn-primary" value="쪽지 보내기" onclick="">&nbsp;
+			<input type="button" class="btn btn-default" value="닫기" onclick="window.close()"></td>
 		</tr>
 	</table>
 </center>
