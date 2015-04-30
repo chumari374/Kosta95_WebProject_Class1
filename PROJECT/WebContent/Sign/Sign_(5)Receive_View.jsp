@@ -77,6 +77,13 @@ table, td, tr {
 						<td><%=status%></td>
 					</tr>
 				</table>
+				<button>승인</button>
+				&nbsp;
+				<button>취소</button>
+				&nbsp;
+				<button>반려</button>
+				&nbsp;
+				<button>상부보고</button>
 			</center>
 		</form>
 	</div>

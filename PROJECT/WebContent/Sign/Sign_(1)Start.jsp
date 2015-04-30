@@ -50,32 +50,20 @@ table, td, tr {
 <SCRIPT type="text/javascript">
 	function check() {
 
-		if (!bbs.subject.value) {
+		if (!write.TITLE.value) {
 			alert("제목을 입력하세요");
 			bbs.subject.focus();
 			return false;
 		}
 
-		if (!bbs.writer.value) {
-
-			alert("이름을 입력하세요");
-			bbs.writer.focus();
-			return false;
-		}
-
-		var ckeditor = CKEDITOR.instances['content']; //객체가져오기
+		var ckeditor = CKEDITOR.instances['CONTENT']; //객체가져오기
 		if (ckeditor.getData() == "") {//null값은 안옴 = 빈문자열
 			alert("글 내용을 입력하세요");
 			ckeditor.focus();
 			return false;
 		}
-
-		if (!bbs.pwd.value) {
-			alert("비밀번호를 입력하세요");
-			bbs.pwd.focus();
-			return false;
-		}
-		document.bbs.submit();
+		
+		document.write.submit();
 	}
 </SCRIPT>
 </head>
@@ -83,7 +71,7 @@ table, td, tr {
 	<jsp:include page="../Main.jsp"></jsp:include>
 	<div id="main" align="center">
 		<form action="SignAddAction.hong" method="post"
-			enctype="multipart/form-data">
+			enctype="multipart/form-data" id="write" name="write">
 			<center>
 				<table>
 					<tr>
@@ -122,10 +110,7 @@ table, td, tr {
 				<input id="GETSIGN" name="GETSIGN" type="hidden"
 					value="<%=getSignNum%>"> <input id="STEP" name="STEP"
 					type="hidden" value="1">
-				<button>미리보기</button>
-				&nbsp;
-				<button>임시저장</button>
-				&nbsp;<input type="submit" value="작성완료">
+				<input type="button" value="작성완료" onclick="check()">
 			</center>
 		</form>
 	</div>
