@@ -237,7 +237,6 @@ public class C_BrdDAO {
 			
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
-		
 			pstmt.setInt(1, c_brd.getEmpno());
 			pstmt.setString(2, c_brd.getTitle());
 			pstmt.setString(3, c_brd.getContent());
