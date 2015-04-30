@@ -11,12 +11,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-<script type="text/javascript">
-	$(function() {
-	    $("#emp > td:first-child").css("background-color", "#EFEFEF");
-	 });
-</script>
 <style type="text/css">
 
 table, tr, td  {
@@ -34,7 +28,7 @@ table, tr, td  {
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
-<body style="background-color: #F6F6F6">
+<body>
 	<center>
 <%-- 	<table width="500px" height="300px">
 		<tr>
@@ -103,39 +97,39 @@ table, tr, td  {
 			</td>
 			<td>
 				<table height="300px" width="300px" id="emp">
-					<tr>
+					<tr style="border-bottom: 1px solid #A2A2A2">
 						<td>사원번호</td>
 						<td>${member.empno}</td>
 					</tr>
-					<tr>
+					<tr style="border-bottom: 1px solid #A2A2A2">
 						<td>이름</td>
 						<td>${member.ename}</td>
 					</tr>
-					<tr>
+					<tr style="border-bottom: 1px solid #A2A2A2">
 						<td>생년월일</td>
 						<td>${member.birth}</td>
 					</tr>
-					<tr>
+					<tr style="border-bottom: 1px solid #A2A2A2">
 						<td>성별</td>
 						<td>${member.sex}</td>
 					</tr>
-					<tr>
+					<tr style="border-bottom: 1px solid #A2A2A2">
 						<td>핸드폰</td>
 						<td>${member.celphone}</td>
 					</tr>
-					<tr>
+					<tr style="border-bottom: 1px solid #A2A2A2">
 						<td>이메일</td>
 						<td>${member.email}</td>
 					</tr>
-					<tr>
+					<tr style="border-bottom: 1px solid #A2A2A2">
 						<td>소속부서</td>
 						<td>${member.deptname}</td>
 					</tr>
-					<tr>
+					<tr style="border-bottom: 1px solid #A2A2A2">
 						<td>소속팀</td>
 						<td>${member.teamname}</td>
 					</tr>
-					<tr>
+					<tr style="border-bottom: 1px solid #A2A2A2">
 						<td>직급</td>
 						<td>${member.gradename}</td>
 					</tr>
@@ -147,7 +141,7 @@ table, tr, td  {
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2" align="center"><input type="button" value="닫기" onclick="window.close()"></td>
+			<td colspan="2" align="center"><input type="button" class="btn btn-primary" value="닫기" onclick="window.close()"></td>
 		</tr>
 	</table>
 </center>
