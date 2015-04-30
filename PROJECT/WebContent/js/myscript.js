@@ -23,3 +23,7 @@ function chatting_window(){
 function info(empno){
 	window.open('Member.info?empno='+empno,'상세정보', 'width=550 height=350')
 }
+function logout(path){
+	
+	location.href=path;
+}
