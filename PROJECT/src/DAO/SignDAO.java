@@ -594,14 +594,21 @@ public class SignDAO {
 		System.out.println("사인 스테이터스 인");
 		String signStatus_sql = "";
 		System.out.println("DAO status" + status);
+	
 
-		if (status == "반려") {
+		if (status == "a") {
 			signStatus_sql = "update sign set status = '반려' where ref = ? and step = ?";
-		} else if (status == "승인") {
+		} 
+		
+		if (status == "b") {
 			signStatus_sql = "update sign set status = '승인' where ref = ?";
-		} else if (status == "취소") {
+		} 
+		
+		if (status == "c") {
 			signStatus_sql = "update sign set status = '취소' where ref = ?";
 		}
+		
+		System.out.println("DAO sql " + signStatus_sql);
 
 		try {
 			conn = ds.getConnection();
