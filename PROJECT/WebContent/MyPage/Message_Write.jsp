@@ -28,7 +28,7 @@
 </head>
 <body>
 	<div id="message_write_div">
-		<form action="MessageWriteOk.mb" method="post" name="messageboardform">
+		<form action="../MessageWriteOk.mb" method="post" name="messageboardform">
 			<table id="message_write_table">
 				<tr>
 					<th></th>

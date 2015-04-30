@@ -25,7 +25,7 @@ public class MessageFrontController extends HttpServlet {
     }
     
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	System.out.println("6");
+    	System.out.println("doProcessOk");
    	 
      request.setCharacterEncoding("UTF-8");
      String RequestURI=request.getRequestURI();
@@ -33,10 +33,11 @@ public class MessageFrontController extends HttpServlet {
 	 String command=RequestURI.substring(contextPath.length());
 	 ActionForward forward=null;
 	 Action action=null;
-	   
+	 System.out.println (command);
+	 
 	   if(command.equals("/MessageList.mb")){
 		   action = new MessageListAction();
-		   System.out.println("3");
+		   System.out.println("MessageListOk");
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
@@ -44,13 +45,14 @@ public class MessageFrontController extends HttpServlet {
 		   }
 	   }else if(command.equals("/MessageWrite.mb")){
 		   forward=new ActionForward();
-		   forward.setRedirect(false);
+		   forward.setRedirect(true);
 		   forward.setPath("./MyPage/Message_Write.jsp");
-		   System.out.println("4");
+		   System.out.println("MessageWrite");
+		   
 	   }else if(command.equals("/MessageWriteOk.mb")){
-		   System.out.println("messageAddAction");
+		   System.out.println("messageAddActionOk");
 		   	action = new MessageAddAction();
-		   	System.out.println("5");
+		   	System.out.println("MessageAddOk");
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
@@ -72,9 +74,11 @@ public class MessageFrontController extends HttpServlet {
 			   e.printStackTrace();
 		   }
 	  
+	   }
 	   
 	   if(forward != null){
 		   if(forward.isRedirect()){
+			   System.out.println(forward.getPath());
 			   response.sendRedirect(forward.getPath());
 		   }else{
 			   RequestDispatcher dispatcher=
@@ -83,7 +87,7 @@ public class MessageFrontController extends HttpServlet {
 		   }
 	     }
 	   }
-	}
+
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
