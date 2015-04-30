@@ -1,3 +1,6 @@
+<%@page import="javax.naming.InitialContext"%>
+<%@page import="javax.naming.Context"%>
+<%@page import="javax.sql.DataSource"%>
 <%@page import="net.sf.json.JSONObject"%>
 <%@page import="net.sf.json.JSONArray"%>
 <%@page import="java.sql.ResultSet"%>
@@ -11,13 +14,20 @@
 <%  
 	String ename = request.getParameter("ename");
 
-	Class.forName("oracle.jdbc.OracleDriver");
-	Connection con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.7.192:1521:XE", "PROJECT", "1004");
+	DataSource ds;
+	Connection conn;
+	PreparedStatement pstmt;
+	ResultSet rs;
+
+	Context context = new InitialContext();
+	ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
+
+	conn = ds.getConnection();
 	
 	String sql = "select empno, deptname, teamname, ename, gradename, emptel, celphone from memberinfo where ename like '%"+ename+"%'order by grade";
-	PreparedStatement ps = con.prepareStatement(sql);
+	pstmt = conn.prepareStatement(sql);
 
-	ResultSet rs = ps.executeQuery();
+	rs = pstmt.executeQuery();
 	
 	JSONArray emplist = new JSONArray();
 	
@@ -34,8 +44,8 @@
 	}
 		
 	rs.close();
-	ps.close();
-	con.close();
+	pstmt.close();
+	conn.close();
 %> 
 <%-- <%
 	JSONArray rows = (JSONArray)request.getAttribute("JSONList");

@@ -1,3 +1,6 @@
+<%@page import="javax.naming.InitialContext"%>
+<%@page import="javax.naming.Context"%>
+<%@page import="javax.sql.DataSource"%>
 <%@page import="net.sf.json.JSONObject"%>
 <%@page import="net.sf.json.JSONArray"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -5,11 +8,18 @@
 <%@ page import="java.sql.*"%>
 <%@page import="java.util.*"%>
 <%  
-	Class.forName("oracle.jdbc.OracleDriver");
-	Connection con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.7.192:1521:XE", "PROJECT", "1004");
+	DataSource ds;
+	Connection conn;
+	PreparedStatement pstmt;
+	ResultSet rs;
+	
+	Context context = new InitialContext();
+	ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
+
+	conn = ds.getConnection();
 	String sql = "select deptname, deptcode from dept";
-	PreparedStatement ps = con.prepareStatement(sql);
-	ResultSet rs = ps.executeQuery();
+	pstmt = conn.prepareStatement(sql);
+	rs = pstmt.executeQuery();
 	
 	JSONArray rows = new JSONArray();
 	while(rs.next()){
@@ -20,7 +30,7 @@
 	}
 		
 	rs.close();
-	ps.close();
-	con.close();
+	pstmt.close();
+	conn.close();
 %>
 <%=rows%>
