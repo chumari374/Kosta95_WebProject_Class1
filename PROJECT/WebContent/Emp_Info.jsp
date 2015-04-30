@@ -1,3 +1,4 @@
+<!-- 새창 크기 600 x 424 정도 ? -->
 <%@page import="DTO.MemberInfoDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -8,35 +9,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
 
-
-
-table {
-   border: 2px solid grey;
+table, tr, td  {
    border-radius: 5px;
+   padding: 10px;
    margin: 10px;
 }
-
-		
-    th {
-    
-    background-color: #D5D5D5;
-    
-    }
-
-	tr, td {
-		border-bottom: 1px solid grey;
- 		border-collapse: collapse;
- 		background-color: #F6F6F6;
- 
- 		
- 		
-	}
 </style>
-
    <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
 
@@ -48,7 +30,7 @@ table {
 </head>
 <body>
 	<center>
-	<table width="500px" height="300px">
+<%-- 	<table width="500px" height="300px">
 		<tr>
 			<th colspan="3" align="center">${member.ename}님의 사원정보</th>
 		</tr>
@@ -78,7 +60,7 @@ table {
 			<td>${member.email}</td>
 		</tr>
 		<tr>
-			<td rowspan="4" align="center">${member.p_content}<!-- 프로필메세지 --></td>
+			<td rowspan="4" align="center">" ${member.p_content} "<!-- 프로필메세지 --></td>
 			<td>소속부서</td>
 			<td>${member.deptname}</td>
 		</tr>
@@ -96,6 +78,70 @@ table {
 		</tr>
 		<tr>
 			<td colspan="3" align="center"><input type="button" value="닫기" onclick="window.close()"></td>
+		</tr>
+	</table> --%>
+	<table height="400px" width="500px">
+		<tr>
+			<td colspan="2" style="border-bottom: 1px solid #605951"><h4>${member.ename}님의 사원정보</h4></td>
+		</tr>
+		<tr>
+			<td>
+				<table height="300px" width="200px">
+					<tr>
+						<td align="center"><img src="http://192.168.7.235:8090/PROJECT/Upload/${member.p_picture}" width="200px" height="200px"></td>
+					</tr>
+					<tr>
+						<td align="center">" ${member.p_content} "</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table height="300px" width="300px">
+					<tr>
+						<td>사원번호</td>
+						<td>${member.empno}</td>
+					</tr>
+					<tr>
+						<td>이름</td>
+						<td>${member.ename}</td>
+					</tr>
+					<tr>
+						<td>생년월일</td>
+						<td>${member.birth}</td>
+					</tr>
+					<tr>
+						<td>성별</td>
+						<td>${member.sex}</td>
+					</tr>
+					<tr>
+						<td>핸드폰</td>
+						<td>${member.celphone}</td>
+					</tr>
+					<tr>
+						<td>이메일</td>
+						<td>${member.email}</td>
+					</tr>
+					<tr>
+						<td>소속부서</td>
+						<td>${member.deptname}</td>
+					</tr>
+					<tr>
+						<td>소속팀</td>
+						<td>${member.teamname}</td>
+					</tr>
+					<tr>
+						<td>직급</td>
+						<td>${member.gradename}</td>
+					</tr>
+					<tr>
+						<td>사내전화번호</td>
+						<td>${member.emptel}</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="button" value="닫기" onclick="window.close()"></td>
 		</tr>
 	</table>
 </center>
