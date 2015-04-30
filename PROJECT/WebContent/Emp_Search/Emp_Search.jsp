@@ -11,17 +11,21 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 	<style type="text/css">
-		body {font-size: 82.5%;}
-		table, tr, td{
-			border: 1px solid gray;
-			border-collapse: collapse;
-			padding: 5px;
-			padding-left: 10px; 
-			padding-right: 10px;
+		body {
+			font-size: 72.5%;
+		}
+		
+		.btn-back {
+			background-color: #5B5847;
+			color: white;
 		}
 	</style>
 	<script type="text/javascript">
@@ -50,13 +54,13 @@
 	        	  success : function(data){
 	        		  $('#emplist').append(
 								"<tr>"
-							+	"<td>부서</td>"
-							+	"<td>팀</td>"
-							+	"<td>이름</td>"
-							+	"<td>직급</td>"
-							+	"<td>사내전화번호</td>"
-							+	"<td>핸드폰</td>"
-							+	"<td></td>"
+							+	"<th>부서</th>"
+							+	"<th>팀</th>"
+							+	"<th>이름</th>"
+							+	"<th>직급</th>"
+							+	"<th>사내전화번호</th>"
+							+	"<th>핸드폰</th>"
+							+	"<th></th>"
 							+	"</tr>"		
 						);
 						$.each(data,function(index,entry){
@@ -67,7 +71,7 @@
 								"</td><td>" + entry.gradename + 
 								"</td><td>" + entry.emptel + 
 								"</td><td>" + entry.celphone  + 
-								"</td><td><button onclick='info("+entry.empno+")'>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
+								"</td><td><button onclick='info("+entry.empno+")' class='btn btn-back btn-xs'>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
 								+ "</td></tr>"		
 							);
 						});
@@ -86,14 +90,14 @@
 						success : function(data){
 							$('#emplist').append(
 									"<tr>"
-								+	"<td>부서</td>"
-								+	"<td>팀</td>"
-								+	"<td>이름</td>"
-								+	"<td>직급</td>"
-								+	"<td>사내전화번호</td>"
-								+	"<td>핸드폰</td>"
-								+	"<td></td>"
-								+	"</tr>"		
+								+	"<th>부서</th>"
+								+	"<th>팀</th>"
+								+	"<th>이름</th>"
+								+	"<th>직급</th>"
+								+	"<th>사내전화번호</th>"
+								+	"<th>핸드폰</th>"
+								+	"<th></th>"
+								+	"</tr>"			
 							);
 							$.each(data,function(index,entry){
 								$('#emplist').append(
@@ -103,7 +107,7 @@
 									"</td><td>" + entry.gradename + 
 									"</td><td>" + entry.emptel + 
 									"</td><td>" + entry.celphone  + 
-									"</td><td><button onclick='info("+entry.empno+")'>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
+									"</td><td><button onclick='info("+entry.empno+") class='btn btn-back btn-xs''>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
 									+ "</td></tr>"		
 								);
 							});
@@ -140,14 +144,14 @@
 						success : function(data){
 							$('#emplist').append(
 									"<tr>"
-								+	"<td>부서</td>"
-								+	"<td>팀</td>"
-								+	"<td>이름</td>"
-								+	"<td>직급</td>"
-								+	"<td>사내전화번호</td>"
-								+	"<td>핸드폰</td>"
-								+	"<td></td>"
-								+	"</tr>"		
+								+	"<th>부서</th>"
+								+	"<th>팀</th>"
+								+	"<th>이름</th>"
+								+	"<th>직급</th>"
+								+	"<th>사내전화번호</th>"
+								+	"<th>핸드폰</th>"
+								+	"<th></th>"
+								+	"</tr>"			
 							);
 							$.each(data,function(index,entry){
 								$('#emplist').append(
@@ -157,7 +161,7 @@
 									"</td><td>" + entry.gradename + 
 									"</td><td>" + entry.emptel + 
 									"</td><td>" + entry.celphone  + 
-									"</td><td><button onclick='info("+entry.empno+")'>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
+									"</td><td><button onclick='info("+entry.empno+") class='btn btn-back btn-xs''>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
 									+ "</td></tr>"		
 								);
 							});
@@ -176,13 +180,13 @@
 							success : function(data){
 								$('#emplist').append(
 										"<tr>"
-									+	"<td>부서</td>"
-									+	"<td>팀</td>"
-									+	"<td>이름</td>"
-									+	"<td>직급</td>"
-									+	"<td>사내전화번호</td>"
-									+	"<td>핸드폰</td>"
-									+	"<td></td>"
+									+	"<th>부서</th>"
+									+	"<th>팀</th>"
+									+	"<th>이름</th>"
+									+	"<th>직급</th>"
+									+	"<th>사내전화번호</th>"
+									+	"<th>핸드폰</th>"
+									+	"<th></th>"
 									+	"</tr>"		
 								);
 								$.each(data,function(index,entry){
@@ -193,7 +197,7 @@
 										"</td><td>" + entry.gradename + 
 										"</td><td>" + entry.emptel + 
 										"</td><td>" + entry.celphone  + 
-										"</td><td><button onclick='info("+entry.empno+")'>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
+										"</td><td><button onclick='info("+entry.empno+") class='btn btn-back btn-xs''>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
 										+ "</td></tr>"		
 									);
 								});
@@ -208,23 +212,19 @@
 <body>
 <jsp:include page="../Main.jsp"></jsp:include>
    <div id="main" align="center">
-	<table width="60%">
-		<tr>
-			<td>
-				<select id="deptlist"></select>
-			</td>
-			<td>
-				<select id="teamlist">
-					<option>부서를 선택하세요</option>
-				</select>
-			</td>
-			<td colspan="5">
-				<input type="text" placeholder="이름으로 검색" id="Ename">&nbsp;<input type="button" value="검색" id="btn">
-			</td>
-		</tr>
+   <div id="wrapper" style="width: 90%;">
+   		<div align="left" style="height: 50px;"><h2>사원검색</h2></div>
+		<div align="center" style="margin-bottom: 0px; float: left;">
+			<select id="deptlist" class="form-control" style="width:150px; float: left; margin-left: 50px; margin-right: 20px; margin-bottom: 10px;"></select>
+			<select id="teamlist" class="form-control" style="width:250px; float: left; margin-right: 150px;">
+				<option>부서를 선택하세요</option>
+			</select>
+			<input type="text" class="form-control" style="width:150px; float: left; margin-right: 20px;" placeholder="이름으로 검색" id="Ename">
+			<input type="button" value="검색" id="btn" class="btn btn-primary btn-sm" style="float: left;">
+			</div>
+			<table width="60%" id="emplist" class="table" style="float: none;">
 		</table>
-		<table width="60%" id="emplist">
-	</table>
+	</div>
 	</div>
 	<jsp:include page="../Footer.jsp"></jsp:include>
 </body>
