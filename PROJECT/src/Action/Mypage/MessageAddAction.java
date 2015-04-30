@@ -30,12 +30,12 @@ public class MessageAddAction implements Action {
 		try{
 			
 			
-			messagedto.setMsgnum((int)session.getAttribute("msgnum"));
-			messagedto.setEmpno((int)session.getAttribute("empno"));
+//			messagedto.setMsgnum((int)session.getAttribute("msgnum"));
+			messagedto.setSendempno((int)request.getAttribute("sendempno"));
 			messagedto.setTitle(request.getParameter("title"));
 			messagedto.setContent(request.getParameter("content"));
 			messagedto.setFilepath(request.getParameter("filepath"));
-			messagedto.setSendempno((int)session.getAttribute("sendempno"));
+			//messagedto.setSendempno((int)session.getAttribute("sendempno"));
 
 			result=messagedao.MessageWrite(messagedto);
 			System.out.println("2");

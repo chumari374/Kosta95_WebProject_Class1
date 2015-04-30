@@ -114,17 +114,17 @@ public class MessageDAO {
 			else
 				num = 1;
 
-			sql = "insert into MessageBoard (MSGNUM,EMPNO,TITLE,CONTENT,";
-			sql += "FILEPATH, SENDEMPNO)"
-					+ " values(?,?,?,?,?,?)";
+			sql = "insert into MessageBoard (SENDEMPNO,TITLE,CONTENT,";
+			sql += "FILEPATH)"
+					+ " values(?,?,?,?)";
 
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, num);
-			pstmt.setInt(2, MessageBoard.getEmpno());
-			pstmt.setString(3,MessageBoard.getTitle());
-			pstmt.setString(4, MessageBoard.getContent());
-			pstmt.setString(5, MessageBoard.getFilepath());
-			pstmt.setInt(6, MessageBoard.getSendempno());
+//			pstmt.setInt(1, num);
+			pstmt.setInt(1, MessageBoard.getSendempno());
+			pstmt.setString(2,MessageBoard.getTitle());
+			pstmt.setString(3, MessageBoard.getContent());
+			pstmt.setString(4, MessageBoard.getFilepath());
+//			pstmt.setInt(6, MessageBoard.getSendempno());
 			
 			result = pstmt.executeUpdate();
 			if (result == 0)

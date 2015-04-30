@@ -1,10 +1,10 @@
 <%
-    String msgnum = (String.valueOf(session.getAttribute("msgnum"))); 
-	String empno = (String.valueOf(session.getAttribute("empno"))); 
-	String title = (String)session.getAttribute("title");
-	String content = (String)session.getAttribute("content");
-	String filepath = (String)session.getAttribute("filepath");
-	String sendempno = (String.valueOf(session.getAttribute("sendempno")));
+    /* String msgnum = (String.valueOf(session.getAttribute("msgnum")));  */
+	String sendempno = (String.valueOf(request.getAttribute("sendempno"))); 
+	String title = (String)request.getAttribute("title");
+	String content = (String)request.getAttribute("content");
+	String filepath = (String)request.getAttribute("filepath");
+/* 	String sendempno = (String.valueOf(session.getAttribute("sendempno"))); */
 	
 %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
