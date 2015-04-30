@@ -29,6 +29,7 @@ public class CompDataBoardDetailAction implements Action{
 	   	System.out.println("상세보기 성공");
 	   	
 	   	request.setAttribute("boarddata", boarddata);
+	   	//System.out.println(boarddata);
 	   	ActionForward forward = new ActionForward();
 	   	
 	   	forward.setRedirect(false);

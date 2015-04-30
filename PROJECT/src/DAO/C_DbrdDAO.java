@@ -50,7 +50,7 @@ public class C_DbrdDAO {
 		return rowcount;
 	}
 	
-	public List getDataBoardList(int page, int limit){//limit 페이지사이즈
+	public List<C_DbrdDTO> getDataBoardList(int page, int limit){//limit 페이지사이즈
 		// 글 목록 보기
 		/*
 		 * 18건 
@@ -171,6 +171,7 @@ public class C_DbrdDAO {
 				C_Dbrd.setTitle(rs.getString("TITLE"));
 				C_Dbrd.setContent(rs.getString("CONTENT"));
 				C_Dbrd.setWrite_date(rs.getDate("WRITE_DATE"));
+				C_Dbrd.setData(rs.getString("DATA"));
 				C_Dbrd.setCount(rs.getInt("COUNT"));
 			}
 			
@@ -182,5 +183,56 @@ public class C_DbrdDAO {
 			if (conn != null) try { conn.close(); } catch (SQLException ex) {}
 		}
 		return C_Dbrd;
+	}
+	
+	public boolean isboardWriter(int num, int empno){
+		String board_sql = "select * from c_dbrd where NUM=?";
+		
+		try{
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(board_sql);
+			pstmt.setInt(1, num);
+			rs=pstmt.executeQuery();
+			rs.next();
+			System.out.println(empno+"/"+rs.getInt("empno"));
+			if(empno == rs.getInt("EMPNO")){
+				return true;
+			}
+		}catch(SQLException ex){
+			System.out.println("isBoardWriter 에러 : "+ex);
+		}
+		finally{
+			try{
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			}
+			catch(Exception ex) {}
+		}
+		return false;
+	}
+	
+	public int Delete(int num){
+		String c_brd_delete_sql = "delete from c_dbrd where num=?";
+
+		int result = 0;
+
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(c_brd_delete_sql);
+			pstmt.setInt(1, num);
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception ex) {
+			System.out.println("boardDelete 에러 : " + ex);
+		} finally {
+			try {
+				if (pstmt != null) pstmt.close();
+				if (conn != null) conn.close();
+			} catch (Exception ex) {
+				
+			}
+		}
+
+		return result;
 	}
 }

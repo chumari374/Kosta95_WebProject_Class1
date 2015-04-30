@@ -13,7 +13,8 @@
 	String sender = signdao.getEmpname(signdata.getEmpno());
 	String getsign = signdao.getEmpname(signdata.getGetsign());
 	String content = signdata.getContent();
-	String filepath = signdata.getFile_sign();	
+	String filepath = signdata.getFile_sign();
+	String status = signdata.getStatus();
 
 	/* if(signdata.getFile_sign() == "null"){
 		filepath = "없음";
@@ -73,6 +74,10 @@ table, td, tr {
 					<tr>
 						<td>결재자</td>
 						<td><%=getsign %></td>
+					</tr>
+						<tr>
+						<td>상태</td>
+						<td><%=status %></td>
 					</tr>
 				</table>
 			</center>

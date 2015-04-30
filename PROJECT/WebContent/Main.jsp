@@ -26,7 +26,7 @@
 
 <BODY>
    <header>
-   ${sessionScope.empno},${sessionScope.ename},${sessionScope.teamname},${sessionScope.grade}
+   ${sessionScope.empno},${sessionScope.ename},${sessionScope.teamname},${sessionScope.grade},${sessionScope.admin}
    </header>
 
    <nav>
@@ -71,7 +71,7 @@
                  <li><a href="#">결재 현황</a></li>          
                  <li><a href="SignWrite.hong">결재 기안</a></li>       
                  <li><a href="sendSignList.hong">보낸 결재</a></li>    
-                 <li><a href="#">받은 결재</a></li>    
+                 <li><a href="getSignList.hong">받은 결재</a></li>    
                  <li><a href="#">완료 결재함</a></li>    
               </ul>    
         </li> 

@@ -23,7 +23,7 @@ public class CompDataBoardAddAction implements Action{
 		MultipartRequest multi =  new MultipartRequest(
 	      	      request, //jsp가지는 request(요청객체) 얻어오기 
 	      	      path , // 저장경로 (물리적 경로)
-	      	      10*1024*1024 , //파일크기(한번에 업로드 할수 있는 파일의 크기)10M 
+	      	      20*1024*1024 , //파일크기(한번에 업로드 할수 있는 파일의 크기)20M 
 	      	      "utf-8", //인코딩 처리 (한글)
 	      	      new DefaultFileRenamePolicy() //파일명 중복처리 객체 사용
 	      	      );

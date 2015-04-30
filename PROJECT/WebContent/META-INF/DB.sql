@@ -683,7 +683,7 @@ ALTER TABLE SIGN
 create or replace view memberinfo
 as 
   (select e.empno as empno, e.ename as ename, ds.birth as birth, ds.sex as sex, a.celphone as celphone, a.email as email, 
-  e.deptcode as deptcode, d.deptname as deptname, e.teamcode as teamcode, e.teamname as teamname, e.grade as grade, g.gradename as gradename, 
+  e.deptcode as deptcode, d.deptname as deptname, e.teamcode as teamcode, t.teamname as teamname, e.grade as grade, g.gradename as gradename, 
   ds.emptel as emptel, a.p_picture as p_picture, a.p_content as p_content
   from emp e
   join domain_set ds
@@ -693,8 +693,11 @@ as
   join dept d
   on e.deptcode = d.deptcode
   join grade g
-  on e.grade = g.grade);
-  
+  on e.grade = g.grade
+  join team t
+  on e.teamcode = t.teamcode
+  );
+ 
 commit;
       
 create sequence Comp_board_num --사내게시판 num 시퀀스
@@ -742,11 +745,11 @@ commit;
 
 --쪽지... 결제 확인... 어떻게 할것인가 현재 not null 이라 무조건 넣어 줘야함...
 insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150129,'홍순호','대표이사','true','true','true',100,1000,1);
-insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150130,'윤조영','개발부','true','true','true',200,2000,2);
-insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150131,'이상문','개발부','true','true','true',200,2001,3);
-insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150201,'추가영','개발부','true','true','true',200,2001,4);
-insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150214,'정자연','영업부','true','true','true',400,4001,4);
-insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150301,'이준하','영업부','true','true','true',400,4000,2);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150130,'윤조영','개발부장','true','true','true',200,2000,2);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150131,'이상문','솔루션팀','true','true','true',200,2001,3);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150201,'추가영','솔루션팀','true','true','true',200,2001,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150214,'정자연','기술경영팀','true','true','true',400,4001,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150301,'이준하','영업부장','true','true','true',400,4000,2);
 ---------------------------------------------------------------------------------------------(  사번 , 이름  , 팀이름 ,사인체크,메세지, 어드민,부서,팀코드,직급)   
 commit;
       
@@ -759,13 +762,24 @@ insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (
 -------------------------------------------------------------------------------( 사번  ,  사내전화번호 ,    입사일   ,퇴사일,성별 ,   생년월일  ,재직여부)
 commit;
 
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150129,1004,'0asdfasd8@naver.com','서울시 성동구 행당동 317-130','010-5378-4358','사진경로','프로필내용');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150130,1004,'01hthsh358@naver.com','동울시 동구 당동 317-130','010-5422-0028','사진경로','프로필내용'); 
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150131,1004,'01strh8@naver.com','남울시 구 당동 317-130','010-5958-1258','사진경로','프로필내용'); 
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150201,1004,'0srth358@naver.com','북울시 동구 동 317-130','010-5348-8638','사진경로','프로필내용'); 
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150214,1004,'01srth358@naver.com','굴울시 동 동 317-130','010-0743-4333','사진경로','프로필내용'); 
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150301,1004,'0123ya58@naver.com','박울시 성동 당동 317-130','010-5338-4348','사진경로','프로필내용'); 
 
 --회원가입은 페이지에서 합시다.
 --insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150129,1004,'0113784358@naver.com','서울시 성동구 행당동 317-130','010-5378-4358','사진경호','프로필내용'); 
 --commit;
 
+
 select * from emp;
 select * from domain_set;
 select * from accounts;
 select * from memberinfo;
+commit;
 
+desc accounts;
+
+select *  from c_brd;

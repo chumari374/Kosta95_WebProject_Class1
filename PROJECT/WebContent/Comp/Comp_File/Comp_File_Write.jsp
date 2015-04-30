@@ -8,27 +8,7 @@
 	String grade = (String.valueOf(session.getAttribute("grade")));
 	String admin = (String)session.getAttribute("admin");
 
-	/*
-		boardform
-		BOARD_ID 작성자 empno
-		BOARD_TITLE 제목 title
-		BOARD_CONTENT 내용
-		BOARD_FILE 파일첨부
-		BOARD_NOTICE 공지사항여부
-		
-		글번호(PK)	NUM(PK)	N/A	NUMBER	NOT NULL
-		작성자번호(FK)	EMPNO(FK)	N/A	NUMBER	NOT NULL
-		제목	TITLE	N/A	VARCHAR2(20)	NOT NULL
-		내용	CONTENT	N/A	VARCHAR2(4000)	NOT NULL
-		공지사항	NOTICE	N/A	VARCHAR2(10)	NOT NULL
-		
-		작성일자	WRITE_DATE	N/A	DATE	NOT NULL
-		
-		답글	REF	N/A	NUMBER	NULL
-		들여쓰기	DPTH	N/A	NUMBER	NULL
-		답글계층	STEP	N/A	NUMBER	NULL
-
-	*/
+	
 	
 %>
 <!DOCTYPE HTML>
@@ -45,10 +25,16 @@
 	);
 	</script>
 	
-	<script language="javascript">
-	function addboard(){
-		boardform.submit();
-	}
+	<script type="text/javascript">
+		function addboard(){
+			boardform.submit();
+		}
+		
+		var admin = ${admin};
+		//console.log(admin);
+		if(admin==false){
+			history.go(-1);
+		}
 	</script>
 	
 	<style>

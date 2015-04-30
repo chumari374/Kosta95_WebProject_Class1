@@ -7,19 +7,31 @@
 <html>
 <head>
 	<title>사내 자료실</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$('#download').click(function(){
+			
+			document.downloadForm.action='Comp/Comp_File/Comp_File_Download.jsp';
+			document.downloadForm.submit();
+		});
+	});
+		
+	</script>
 </head>
 
 <body>
 <jsp:include page="../../Main.jsp"></jsp:include>
    <div id="main" align="center">
-<!-- 게시판 수정 -->
-<table cellpadding="0" cellspacing="0">
+
+<form action="#" method="post" name="downloadForm">
+<table cellpadding="0" cellspacing="0" >
 	<tr align="center" valign="middle">
 		<td colspan="6">사내 자료실</td>
 	</tr>
 	
 	<tr>
-		<td style="font-family:돋음; font-size:12" height="16">
+		<td style="font-family:돋음; font-size:12" height="17">
 			<div align="center">제&nbsp; 목&nbsp;&nbsp;</div>
 		</td>
 		
@@ -29,8 +41,8 @@
 	
 	</tr>
 		<tr>
-			<td style="font-family:돋음; font-size:12" height="16">
-			<div a 	lign="center">작성일&nbsp;&nbsp;</div>
+			<td style="font-family:돋음; font-size:12" height="17">
+			<div align="center">작성일&nbsp;&nbsp;</div>
 		</td>
 		
 		<td style="font-family:돋음; font-size:12">
@@ -39,7 +51,7 @@
 		</tr>
 		
 		<tr>
-			<td style="font-family:돋음; font-size:12" height="16">
+			<td style="font-family:돋음; font-size:12" height="17">
 			<div align="center">작성자&nbsp;&nbsp;</div>
 		</td>
 		
@@ -49,7 +61,7 @@
 		</tr>
 		
 		<tr>
-			<td style="font-family:돋음; font-size:12" height="16">
+			<td style="font-family:돋음; font-size:12" height="17">
 			<div align="center">조회수&nbsp;&nbsp;</div>
 		</td>
 		
@@ -61,7 +73,7 @@
 		
 		
 	<tr bgcolor="cccccc">
-		<td colspan="2" style="height:1px;">
+		<td colspan="3" style="height:1px;">
 		</td>
 	</tr>
 	
@@ -80,7 +92,20 @@
 		</td>
 	</tr>
 	<tr bgcolor="cccccc">
-		<td colspan="2" style="height:1px;"></td>
+		<td colspan="3" style="height:1px;">
+		</td>
+	</tr>
+	
+	<tr>
+		<td style="font-family:돋음; font-size:12" height="17">
+			<div align="center">첨부파일&nbsp;&nbsp;</div>
+		</td>
+		<td style="font-family:돋음; font-size:12" >
+			<%=board.getData() %><input type="hidden" name="filename" value="<%=board.getData() %>">
+		</td>
+		<td style="font-family:돋음; font-size:12">
+			<input type="button" value="받기" id="download">
+		</td>
 	</tr>
 	<tr><td colspan="2">&nbsp;</td></tr>
 	<tr>
@@ -88,18 +113,19 @@
 	<tr align="center" valign="middle">
 		<td colspan="5">
 			<font size=2>
-			<a href="./CompBoardModify.cf?num=<%=board.getNum() %>">
+			<a href="./CompDataBoardModify.cf?num=<%=board.getNum() %>">
 			[수정]
 			</a>&nbsp;&nbsp;
-			<a href="./CompBoardDeleteAction.cf?num=<%=board.getNum() %>"
+			<a href="./CompDataBoardDeleteAction.cf?num=<%=board.getNum() %>"
 			>
 			[삭제]
 			</a>&nbsp;&nbsp;
-			<a href="./CompBoardList.cf?page=<%=Integer.parseInt(request.getParameter("page"))%>">[목록]</a>&nbsp;&nbsp;
+			<a href="./CompDataBoardList.cf?page=<%=Integer.parseInt(request.getParameter("page"))%>">[목록]</a>&nbsp;&nbsp;
 			</font>
 		</td>
 	</tr>
 </table>
+</form>
 </div>
 <jsp:include page="../../Footer.jsp"></jsp:include>
 <!-- 게시판 수정 -->

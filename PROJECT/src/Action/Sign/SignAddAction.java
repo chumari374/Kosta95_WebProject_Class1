@@ -66,7 +66,7 @@ public class SignAddAction implements Action {
 			
 			ActionForward forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("getSignList.hong");
+			forward.setPath("sendSignList.hong");
 			return forward;
 		}
 		
