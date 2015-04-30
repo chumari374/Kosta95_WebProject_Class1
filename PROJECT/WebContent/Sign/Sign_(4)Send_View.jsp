@@ -7,7 +7,8 @@
 	SignDTO signdata = (SignDTO) request.getAttribute("signdata");
 	SignDAO signdao = new SignDAO();
 	
-	
+	int signnum = signdata.getSignnum();
+
 	String title = signdata.getTitle();
 	String starter = signdao.getEmpname(signdata.getStarter());
 	String sender = signdao.getEmpname(signdata.getEmpno());

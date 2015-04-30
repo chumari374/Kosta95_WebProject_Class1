@@ -121,28 +121,51 @@ public class SignDAO {
 	}
 
 	// ========== 사원 이름, 직급 표시===
-	public String getEmpname(int empno) throws SQLException {
+	public String getEmpname(int empno) {
 
 		System.out.println(empno);
 		String empname = "";
-		conn = ds.getConnection();
-		String sql = "select *" + " from emp e join grade g"
-				+ " on e.grade = g.grade" + " where empno = ?";
-		pstmt = conn.prepareStatement(sql);
+		try {
+			conn = ds.getConnection();
 
-		System.out.println(sql);
-		pstmt.setInt(1, empno);
+			String sql = "select *" + " from emp e join grade g"
+					+ " on e.grade = g.grade" + " where empno = ?";
+			pstmt = conn.prepareStatement(sql);
 
-		rs = pstmt.executeQuery();
+			System.out.println(sql);
+			pstmt.setInt(1, empno);
 
-		System.out.println("1");
+			rs = pstmt.executeQuery();
 
-		while (rs.next()) {
-			empname = rs.getString("ename") + " " + rs.getString("gradename");
-			System.out.println("2");
+			System.out.println("1");
+
+			while (rs.next()) {
+				empname = rs.getString("ename") + " "
+						+ rs.getString("gradename");
+				System.out.println("2");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+				}
 		}
-
 		return empname;
+
 	}
 
 	// ========== 결재문서 작성(기안, 상부 보고)========
@@ -415,9 +438,9 @@ public class SignDAO {
 	public int getSignListCount(int empno) {
 		int rowcount = 0;
 		try {
-			
+
 			System.out.println("DAOin");
-			
+
 			conn = ds.getConnection();
 			pstmt = conn
 					.prepareStatement("select count(*) from sign where getsign = ?");
@@ -542,17 +565,18 @@ public class SignDAO {
 		SignDTO SignBoard = null;
 		try {
 			conn = ds.getConnection();
-
+			System.out.println("받은 결재 : " + conn.isClosed());
+			System.out.println("num : " + num);
 			String getDetailSendSign_sql = "select SIGNNUM,STARTER,EMPNO,GETSIGN,TITLE,CONTENT,WRITE_DATE,STATUS,FILE_SIGN from sign"
 					+ " where signnum = ?";
 
 			pstmt = conn.prepareStatement(getDetailSendSign_sql);
 
-			System.out.println(num);
+			// System.out.println(num);
 
 			pstmt.setInt(1, num);
 
-			System.out.println(getDetailSendSign_sql);
+			// System.out.println(getDetailSendSign_sql);
 
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
@@ -570,6 +594,7 @@ public class SignDAO {
 			return SignBoard;
 		} catch (Exception ex) {
 			System.out.println("Detail 에러 : " + ex);
+			return null;
 		} finally {
 			if (rs != null)
 				try {
@@ -587,7 +612,7 @@ public class SignDAO {
 				} catch (SQLException ex) {
 				}
 		}
-		return null;
+
 	}
 
 	// ====== 문서 상태 함수===============================

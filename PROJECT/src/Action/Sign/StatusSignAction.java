@@ -15,5 +15,4 @@ public class StatusSignAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 	}
-
 }

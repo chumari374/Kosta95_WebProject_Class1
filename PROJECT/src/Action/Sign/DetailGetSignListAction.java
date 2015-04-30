@@ -17,7 +17,7 @@ public class DetailGetSignListAction implements Action {
 		SignDTO signdata = new SignDTO();
 		
 		System.out.println("액션도달");
-		
+		System.out.println("Action : " + num);
 		signdata = signdao.DetailgetSign(num);
 		
 		if(signdata == null) {
