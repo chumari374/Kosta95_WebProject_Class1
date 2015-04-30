@@ -53,7 +53,7 @@ table {
 			<th colspan="3" align="center">${member.ename}님의 사원정보</th>
 		</tr>
 		<tr>
-			<td rowspan="6"><img src="http://192.168.7.235:8090/PROJECT/Upload/${member.p_picture}" width="80px" height="80px"><br>프로필사진</td>
+			<td rowspan="6" align="center"><img src="http://192.168.7.235:8090/PROJECT/Upload/${member.p_picture}" width="80px" height="80px"><br>프로필사진</td>
 			<td>사원번호</td>
 			<td>${member.empno}</td>
 		</tr>
@@ -78,7 +78,7 @@ table {
 			<td>${member.email}</td>
 		</tr>
 		<tr>
-			<td rowspan="4">${member.p_content}<!-- 프로필메세지 --></td>
+			<td rowspan="4" align="center">${member.p_content}<!-- 프로필메세지 --></td>
 			<td>소속부서</td>
 			<td>${member.deptname}</td>
 		</tr>
