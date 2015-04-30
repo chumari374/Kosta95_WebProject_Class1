@@ -40,8 +40,33 @@ body {
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#login').click(function(){
+			var empno = $('#empno').val();
+			var pwd = $('#pwd').val();
+			console.log(empno+"/"+pwd);
+			if(empno.length==0||empno==null){
+				alert('사원번호를 입력하세요');
+				return false;
+			}
+			if(pwd.length==0||pwd==null){
+				alert('비밀번호를 입력하세요');
+				return false;
+			}
+			document.loginForm.action="login_Ok.ad";
+			document.loginForm.submit();
+		});
+		
+	});
+	function onlyNum(){
+		//event 객체 (mouse 제어, 키보드 입력값 제어)
+		if((event.keyCode<48)||(event.keyCode>57)){
+			event.returnValue = false;
+		}
+	}
+</script>
 </head>
 <body>
 	<div id="mainpagetitle">
@@ -56,22 +81,22 @@ body {
 					<div class="panel-heading">
 						<h3 class="panel-title">로그인하세요</h3>
 					</div>
-					<div class="panel-body">
-						<form role="form" action="login_Ok.ad" method="post">
+					<div class="panel-body"><!-- action="login_Ok.ad" -->
+						<form role="form"  method="post" name="loginForm">
 							<fieldset>
 								<div class="form-group">
-									<input class="form-control" placeholder="사원번호" name="empno"
-										type="text">
+									<input class="form-control" placeholder="사원번호" name="empno" id="empno"
+										type="text" onkeypress="onlyNum()">
 								</div>
 								<div class="form-group">
-									<input class="form-control" placeholder="비밀번호" name="pwd"
+									<input class="form-control" placeholder="비밀번호" name="pwd" id="pwd"
 										type="password" value="">
 								</div>
 								<div>
 									<a href="Pwd_Search.jsp">비밀번호 찾기</a>
 								</div>
-								<input class="btn btn-lg btn-success btn-block" type="submit"
-									value="로그인">
+								<input class="btn btn-lg btn-success btn-block" type="button"
+									value="로그인" id="login">
 							</fieldset>
 						</form>
 						<hr />
@@ -79,7 +104,7 @@ body {
 							<h4>OR</h4>
 						</center>
 						<a href="Register.jsp"><input
-							class="btn btn-lg btn-primary btn-block" type="submit"
+							class="btn btn-lg btn-primary btn-block" type="button"
 							value="회원가입"></a>
 					</div>
 				</div>
