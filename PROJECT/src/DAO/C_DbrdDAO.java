@@ -194,7 +194,7 @@ public class C_DbrdDAO {
 			pstmt.setInt(1, num);
 			rs=pstmt.executeQuery();
 			rs.next();
-			
+			System.out.println(empno+"/"+rs.getInt("empno"));
 			if(empno == rs.getInt("EMPNO")){
 				return true;
 			}
@@ -212,7 +212,7 @@ public class C_DbrdDAO {
 	}
 	
 	public int Delete(int num){
-		String c_brd_delete_sql = "delete from c_brd where num=?";
+		String c_brd_delete_sql = "delete from c_dbrd where num=?";
 
 		int result = 0;
 
