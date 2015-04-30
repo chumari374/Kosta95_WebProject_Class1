@@ -17,6 +17,7 @@ import Action.Sign.GetSignListAction;
 import Action.Sign.SendSignListAction;
 import Action.Sign.SignAddAction;
 import Action.Sign.SignAddAction;
+import Action.Sign.StatusSignAction;
 
 @WebServlet("*.hong")
 public class SignFrontController extends HttpServlet {
@@ -54,14 +55,14 @@ public class SignFrontController extends HttpServlet {
 		 */
 
 		System.out.println(command);
-		
+
 		// 일괄처리를 위해서
 		ActionForward forward = null;
 		Action action = null;
 
 		// 받은결재함
 		if (command.equals("/getSignList.hong")) {
-			 System.out.println("getsignlist Display");
+			System.out.println("getsignlist Display");
 			action = new GetSignListAction(); // action에 어떤 함수를 쓸껀지 쓰는것 마다 만들어
 												// 준다
 			// action 객체 변수 ....
@@ -97,7 +98,7 @@ public class SignFrontController extends HttpServlet {
 			System.out.println("redirect : " + forward.getPath());
 		} else if (command.equals("/SignAddAction.hong")) {
 			System.out.println("SignWriteBefore");
-	
+
 			action = new SignAddAction();
 
 			try {
@@ -107,30 +108,32 @@ public class SignFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		
+
 		// 보낸결재에서 문서 상세보기 ================================
 		else if (command.equals("/DetailSendSignList.hong")) {
 			// System.out.println("BoardDetailBefore");
 			// System.out.println("board num : " + request.getParameter("num"));
-			
-			action = new DetailSendSignListAction(); // action 객체 변수의 request 가지고 간다
-			
+
+			action = new DetailSendSignListAction(); // action 객체 변수의 request
+														// 가지고 간다
+
 			try {
 				request.setAttribute("signsign", "sign");
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+
 		}
-		
+
 		// 받은결재에서 문서 상세보기
 		else if (command.equals("/DetailGetSignList.hong")) {
 			// System.out.println("BoardDetailBefore");
 			// System.out.println("board num : " + request.getParameter("num"));
 			System.out.println("getsigncontroll");
-			action = new DetailGetSignListAction(); // action 객체 변수의 request 가지고 간다
-					
+			action = new DetailGetSignListAction(); // action 객체 변수의 request 가지고
+													// 간다
+
 			try {
 				request.setAttribute("signsign", "sign");
 				forward = action.execute(request, response);
@@ -138,10 +141,24 @@ public class SignFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		
-		
+
 		// ====================================================================
 
+		// 결재 처리
+		else if (command.equals("/StatusSign.hong")) {
+			System.out.println("StatusSignAction");
+			action = new StatusSignAction(); // action 객체 변수의 request 가지고
+												// 간다
+
+			try {
+				request.setAttribute("signsign", "sign");
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		// ========================================================================
 		if (forward != null) {
 			if (forward.isRedirect()) { // view 단 바로....재접속 하시겠습니까? true
 				System.out.println("forward.isRedirect() : "

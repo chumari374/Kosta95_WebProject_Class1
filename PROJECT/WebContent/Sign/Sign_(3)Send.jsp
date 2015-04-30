@@ -130,9 +130,9 @@ if(listcount > 0){
 	{
 	%>
 	<tr align="center" valign="middle">
-		<td colspan="4">MVC 게시판</td>
+		<td colspan="4">보낸 결제함</td>
 		<td align=right>
-			<font size=2>등록된 글이 없습니다.</font>
+			<font size=2>보낸 결재가 없습니다</font>
 		</td>
 	</tr>
 	<%

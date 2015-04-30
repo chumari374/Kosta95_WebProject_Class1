@@ -43,9 +43,8 @@ table, td, tr {
 </head>
 <body>
 	<jsp:include page="../Main.jsp"></jsp:include>
-	<div id="main" align="center">
-		<form action="SignAddAction.hong" method="post"
-			enctype="multipart/form-data">
+	<form action="StatusSign.hong" method="post">
+		<div id="main" align="center">
 			<center>
 				<table>
 					<tr>
@@ -77,16 +76,18 @@ table, td, tr {
 						<td><%=status%></td>
 					</tr>
 				</table>
-				<button>승인</button>
-				&nbsp;
-				<button>취소</button>
-				&nbsp;
-				<button>반려</button>
-				&nbsp;
+
+				<input type="hidden" id="ref" name="ref"
+					value="<%=signdata.getRef()%>"> <input type="hidden"
+					id="step" name="step" value="<%=signdata.getStep()%>"> <input
+					type="submit" id="status" name="status" value="승인"> <input
+					type="submit" id="status" name="status" value="취소"> <input
+					type="submit" id="status" name="status" value="반려">
 				<button>상부보고</button>
+
 			</center>
-		</form>
-	</div>
+		</div>
+	</form>
 	<jsp:include page="../Footer.jsp"></jsp:include>
 </body>
 </html>

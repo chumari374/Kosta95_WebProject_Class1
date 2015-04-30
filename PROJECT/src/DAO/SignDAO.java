@@ -11,10 +11,12 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import org.apache.catalina.connector.Request;
+
 import DTO.SignDTO;
 
 public class SignDAO {
-
+	
 	DataSource ds;
 	Connection conn;
 	PreparedStatement pstmt;
@@ -259,10 +261,10 @@ public class SignDAO {
 	// ========== 받은 결재 함=============================
 	public List getGetSignList(int empno, int page, int limit, String status) {
 		String getGetSignList_sql = "select * from "
-			      + " (select rownum as rnum, signnum, starter, empno, getsign, title, content, write_date, ref, step, status, file_sign from "
-			      + " (select * from sign "
-			      + " where getsign = ? and status = ? order by signnum desc)) where rnum>=? and rnum<=? ";
-		
+				+ " (select rownum as rnum, signnum, starter, empno, getsign, title, content, write_date, ref, step, status, file_sign from "
+				+ " (select * from sign "
+				+ " where getsign = ? and status = ? order by signnum desc)) where rnum>=? and rnum<=? ";
+
 		System.out.println(getGetSignList_sql);
 		System.out.println("DAO앵커1");
 
@@ -294,7 +296,6 @@ public class SignDAO {
 			while (rs.next()) {
 				System.out.println("점검1");
 				SignDTO SignBoard = new SignDTO(); // 한 건의
-				SignBoard = new SignDTO();
 				SignBoard.setSignnum(rs.getInt("signnum"));
 				SignBoard.setStarter(rs.getInt("starter"));
 				SignBoard.setEmpno(rs.getInt("empno"));
@@ -333,9 +334,9 @@ public class SignDAO {
 	// ========== 보낸 결재 함========================
 	public List getSendSignList(int empno, int page, int limit, String status) {
 		String getSendSignList_sql = "select * from "
-      + " (select rownum as rnum, signnum, starter, empno, getsign, title, content, write_date, ref, step, status, file_sign from "
-      + " (select * from sign "
-      + " where empno = ? and status = ? order by signnum desc)) where rnum>=? and rnum<=? ";
+				+ " (select rownum as rnum, signnum, starter, empno, getsign, title, content, write_date, ref, step, status, file_sign from "
+				+ " (select * from sign "
+				+ " where empno = ? and status = ? order by signnum desc)) where rnum>=? and rnum<=? ";
 
 		System.out.println(getSendSignList_sql);
 		System.out.println("DAO앵커1");
@@ -368,17 +369,17 @@ public class SignDAO {
 			while (rs.next()) {
 				System.out.println("점검1");
 				SignDTO SignBoard = new SignDTO(); // 한 건의
-				
-				SignBoard.setSignnum(rs.getInt(2));
-				SignBoard.setStarter(rs.getInt(3));
-				SignBoard.setEmpno(rs.getInt(4));
-				SignBoard.setGetsign(rs.getInt(5));
-				SignBoard.setTitle(rs.getString(6));
-				SignBoard.setContent(rs.getString(7));
-				SignBoard.setWrite_date(rs.getDate(8));
-				SignBoard.setStatus(rs.getString(9));
-				SignBoard.setFile_sign(rs.getString(10));
-				
+
+				SignBoard.setSignnum(rs.getInt("signnum"));
+				SignBoard.setStarter(rs.getInt("starter"));
+				SignBoard.setEmpno(rs.getInt("empno"));
+				SignBoard.setGetsign(rs.getInt("getsign"));
+				SignBoard.setTitle(rs.getString("title"));
+				SignBoard.setContent(rs.getString("content"));
+				SignBoard.setWrite_date(rs.getDate("write_date"));
+				SignBoard.setStatus(rs.getString("status"));
+				SignBoard.setFile_sign(rs.getString("file_sign"));
+
 				list.add(SignBoard); // key point (여러건의 데이터 collection사용)
 			}
 			return list;
@@ -537,7 +538,7 @@ public class SignDAO {
 			conn = ds.getConnection();
 			System.out.println("받은 결재 : " + conn.isClosed());
 			System.out.println("num : " + num);
-			String getDetailSendSign_sql = "select SIGNNUM,STARTER,EMPNO,GETSIGN,TITLE,CONTENT,WRITE_DATE,STATUS,FILE_SIGN from sign"
+			String getDetailSendSign_sql = "select SIGNNUM,STARTER,EMPNO,GETSIGN,TITLE,CONTENT,WRITE_DATE,STATUS,FILE_SIGN, REF, STEP from sign"
 					+ " where signnum = ?";
 
 			pstmt = conn.prepareStatement(getDetailSendSign_sql);
@@ -558,6 +559,8 @@ public class SignDAO {
 				SignBoard.setTitle(rs.getString("title"));
 				SignBoard.setContent(rs.getString("content"));
 				SignBoard.setWrite_date(rs.getDate("write_date"));
+				SignBoard.setRef(rs.getInt("ref"));
+				SignBoard.setStep(rs.getInt("step"));
 				SignBoard.setStatus(rs.getString("status"));
 				SignBoard.setFile_sign(rs.getString("file_sign"));
 			}
@@ -587,18 +590,29 @@ public class SignDAO {
 
 	// ====== 문서 상태 함수===============================
 	public void SignStatus(String status, int ref, int step) {
-
+		
+		System.out.println("사인 스테이터스 인");
 		String signStatus_sql = "";
+		System.out.println("DAO status" + status);
 
 		if (status == "반려") {
-			signStatus_sql = "update sign set status = '반려' where step = ?";
-		} else {
-			signStatus_sql = "update sign set status = '?' where ref = ?";
+			signStatus_sql = "update sign set status = '반려' where ref = ? and step = ?";
+		} else if (status == "승인") {
+			signStatus_sql = "update sign set status = '승인' where ref = ?";
+		} else if (status == "취소") {
+			signStatus_sql = "update sign set status = '취소' where ref = ?";
 		}
 
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(signStatus_sql);
+			if (status == "반려") {
+				pstmt.setInt(1, ref);
+				pstmt.setInt(2, step);
+			} else {
+				pstmt.setInt(1, ref);
+			}
+			
 			rs = pstmt.executeQuery();
 		} catch (Exception e) {
 			System.out.println(e);

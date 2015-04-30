@@ -19,7 +19,6 @@ public class GetSignListAction implements Action {
 
 		SignDAO signdao = new SignDAO();
 		List getsignlist = new ArrayList();
-
 		System.out.println("¾ÞÄ¿1");
 
 		HttpSession session = request.getSession();
