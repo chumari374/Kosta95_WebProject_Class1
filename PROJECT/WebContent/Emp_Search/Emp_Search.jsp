@@ -215,12 +215,12 @@
    <div id="wrapper" style="width: 90%;">
    		<div align="left" style="height: 50px;"><h2>사원검색</h2></div>
 		<div align="center" style="margin-bottom: 0px; float: left;">
-			<select id="deptlist" class="form-control" style="width:150px; float: left; margin-left: 50px; margin-right: 20px; margin-bottom: 10px;"></select>
+			<select id="deptlist" class="form-control" style="width:150px; float: left; margin-left: 30px; margin-right: 20px; margin-bottom: 10px;"></select>
 			<select id="teamlist" class="form-control" style="width:250px; float: left; margin-right: 150px;">
 				<option>부서를 선택하세요</option>
 			</select>
-			<input type="text" class="form-control" style="width:150px; float: left; margin-right: 20px;" placeholder="이름으로 검색" id="Ename">
-			<input type="button" value="검색" id="btn" class="btn btn-primary btn-sm" style="float: left;">
+			<input type="text" class="form-control" style="width:200px; float: left; margin-right: 10px;" placeholder="이름으로 검색" id="Ename">
+			<input type="button" value="검색" id="btn" class="btn btn-primary btn-md" style="float: left;">
 			</div>
 			<table width="60%" id="emplist" class="table" style="float: none;">
 		</table>
