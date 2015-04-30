@@ -11,6 +11,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+	    $("#emp > td:first-child").css("background-color", "#EFEFEF");
+	 });
+</script>
 <style type="text/css">
 
 table, tr, td  {
@@ -28,7 +34,7 @@ table, tr, td  {
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="background-color: #F6F6F6">
 	<center>
 <%-- 	<table width="500px" height="300px">
 		<tr>
@@ -82,7 +88,7 @@ table, tr, td  {
 	</table> --%>
 	<table height="400px" width="500px">
 		<tr>
-			<td colspan="2" style="border-bottom: 1px solid #605951"><h4>${member.ename}님의 사원정보</h4></td>
+			<td colspan="2" style="border-bottom: 2px solid #0469AF"><h4>${member.ename}님의 사원정보</h4></td>
 		</tr>
 		<tr>
 			<td>
@@ -96,7 +102,7 @@ table, tr, td  {
 				</table>
 			</td>
 			<td>
-				<table height="300px" width="300px">
+				<table height="300px" width="300px" id="emp">
 					<tr>
 						<td>사원번호</td>
 						<td>${member.empno}</td>
