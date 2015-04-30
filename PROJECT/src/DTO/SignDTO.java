@@ -16,9 +16,16 @@ public class SignDTO {
 	private String status; // 결재 상태
 	private String file_sign; // 파일 업로드 경로
 
+	private String send_name;
 	private String starter_name;
 	private String getsign_name;
-	
+		
+	public String getSend_name() {
+		return send_name;
+	}
+	public void setSend_name(String send_name) {
+		this.send_name = send_name;
+	}
 	public String getStarter_name() {
 		return starter_name;
 	}

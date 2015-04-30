@@ -16,7 +16,7 @@
 	String teamname = (String) infoList.get(1);
 	String getSign = (String) infoList.get(2);
 	int getSignNum = Integer.parseInt((String) infoList.get(3));
-	
+
 	sign.getEmpname(empno);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -75,9 +75,7 @@ table, td, tr {
 			bbs.pwd.focus();
 			return false;
 		}
-
 		document.bbs.submit();
-
 	}
 </SCRIPT>
 </head>

@@ -1,3 +1,4 @@
+<%@page import="DAO.SignDAO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
@@ -6,7 +7,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="DTO.SignDTO" %>
 <%
-	List sendSignList=(List)request.getAttribute("getsignlist");
+	List getSignList=(List)request.getAttribute("getsignlist");
 	int listcount=(Integer)request.getAttribute("getsignlistcount");
 	int nowpage=(Integer)request.getAttribute("page");
 	int maxpage=(Integer)request.getAttribute("maxpage");
@@ -15,6 +16,9 @@
 	
 	System.out.println(listcount + "/ " + nowpage + " / " + maxpage + " / ");
 	System.out.println(startpage + " / " + endpage);
+	
+	SignDAO signdao = new SignDAO();
+	
 %>
 
 <html>
@@ -59,8 +63,8 @@ if(listcount > 0){
 	</tr>
 	
 	<%
-		for(int i=0;i<sendSignList.size();i++){
-			SignDTO signdto = (SignDTO)sendSignList.get(i);
+		for(int i=0;i<getSignList.size();i++){
+			SignDTO signdto = (SignDTO)getSignList.get(i);
 	%>
 	<tr align="center" valign="middle" bordercolor="#333333"
 		onmouseover="this.style.backgroundColor='F8F8F8'"
@@ -69,13 +73,13 @@ if(listcount > 0){
 			<%=signdto.getSignnum()%>
 		</td>	
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=signdto.getTitle() %></div>
+			<a href="DetailGetSignList.hong?num=<%=signdto.getSignnum() %>"><div align="center"><%=signdto.getTitle() %></div></a>
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt;">
 			<div align="center"><%=signdto.getStarter_name() %></div>
 		</td>	
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=signdto.getGetsign_name() %></div>
+			<div align="center"><%=signdto.getSend_name() %></div>
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt;">
 			<div align="center"><%=signdto.getWrite_date() %></div>
@@ -90,21 +94,21 @@ if(listcount > 0){
 			<%if(nowpage<=1){ %>
 			[이전]&nbsp;
 			<%}else{ %>
-			<a href="sendSignList.hong?page=<%=nowpage-1 %>">[이전]</a>&nbsp;
+			<a href="getSignList.hong?page=<%=nowpage-1 %>">[이전]</a>&nbsp;
 			<%} %>
 			
 			<%for(int a=startpage;a<=endpage;a++){
 				if(a==nowpage){%>
 				[<%=a %>]
 				<%}else{ %>
-				<a href="sendSignList.hong?page=<%=a %>">[<%=a %>]</a>&nbsp;
+				<a href="getSignList.hong?page=<%=a %>">[<%=a %>]</a>&nbsp;
 				<%} %>
 			<%} %>
 			
 			<%if(nowpage>=maxpage){ %>
 			[다음]
 			<%}else{ %>
-			<a href="sendSignList.hong?page=<%=nowpage+1 %>">[다음]</a>
+			<a href="getSignList.hong?page=<%=nowpage+1 %>">[다음]</a>
 			<%} %>
 		</td>
 	</tr>
@@ -114,9 +118,9 @@ if(listcount > 0){
 	{
 	%>
 	<tr align="center" valign="middle">
-		<td colspan="4">MVC 게시판</td>
+		<td colspan="4">받은 결재함</td>
 		<td align=right>
-			<font size=2>등록된 글이 없습니다.</font>
+			<font size=2>받은 결재가 없습니다</font>
 		</td>
 	</tr>
 	<%

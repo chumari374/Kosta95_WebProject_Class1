@@ -61,7 +61,7 @@ public class SignFrontController extends HttpServlet {
 
 		// 받은결재함
 		if (command.equals("/getSignList.hong")) {
-			// System.out.println("getsignlist Display");
+			 System.out.println("getsignlist Display");
 			action = new GetSignListAction(); // action에 어떤 함수를 쓸껀지 쓰는것 마다 만들어
 												// 준다
 			// action 객체 변수 ....
@@ -128,7 +128,7 @@ public class SignFrontController extends HttpServlet {
 		else if (command.equals("/DetailGetSignList.hong")) {
 			// System.out.println("BoardDetailBefore");
 			// System.out.println("board num : " + request.getParameter("num"));
-					
+			System.out.println("getsigncontroll");
 			action = new DetailGetSignListAction(); // action 객체 변수의 request 가지고 간다
 					
 			try {
