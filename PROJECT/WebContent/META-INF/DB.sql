@@ -683,7 +683,7 @@ ALTER TABLE SIGN
 create or replace view memberinfo
 as 
   (select e.empno as empno, e.ename as ename, ds.birth as birth, ds.sex as sex, a.celphone as celphone, a.email as email, 
-  e.deptcode as deptcode, d.deptname as deptname, e.teamcode as teamcode, e.teamname as teamname, e.grade as grade, g.gradename as gradename, 
+  e.deptcode as deptcode, d.deptname as deptname, e.teamcode as teamcode, t.teamname as teamname, e.grade as grade, g.gradename as gradename, 
   ds.emptel as emptel, a.p_picture as p_picture, a.p_content as p_content
   from emp e
   join domain_set ds
@@ -693,8 +693,11 @@ as
   join dept d
   on e.deptcode = d.deptcode
   join grade g
-  on e.grade = g.grade);
-  
+  on e.grade = g.grade
+  join team t
+  on e.teamcode = t.teamcode
+  );
+ 
 commit;
       
 create sequence Comp_board_num --사내게시판 num 시퀀스
