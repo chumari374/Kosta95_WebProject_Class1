@@ -15,7 +15,7 @@
    String sDownLoadPath = "\\\\192.168.7.235\\Upload";
    String sFilePath = sDownLoadPath + "\\" + filename;
    //file명  + 실 저장경로 TEST
-   //out.println("sDownLoadPath : " + sDownLoadPath + "<br>");
+   System.out.println("sFilePath : " + sFilePath);
    System.out.println("filename : " + filename);
    //out.println("sFilePath : " + sFilePath + "<br>");
    
