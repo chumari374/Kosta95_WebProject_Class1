@@ -65,6 +65,7 @@ table, td, tr {
 		
 		document.write.submit();
 	}
+	
 </SCRIPT>
 </head>
 <body>

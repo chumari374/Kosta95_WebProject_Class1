@@ -20,9 +20,23 @@
 <html>
 <head>
 	<title>보낸 결제함</title>
+
+	<script language='javascript'>
+		function noEvent() {
+			if (event.keyCode == 116) {
+				event.keyCode = 2;
+				return false;
+			} else if (event.ctrlKey
+					&& (event.keyCode == 78 || event.keyCode == 82)) {
+				return false;
+			}
+		}
+		document.onkeydown = noEvent;
+	</script>
+
 </head>
 
-<body>
+<body oncontextmenu="return false">
 <jsp:include page="../Main.jsp"></jsp:include>
  <div id="main" align="center">
 <!-- 게시판 리스트 -->
