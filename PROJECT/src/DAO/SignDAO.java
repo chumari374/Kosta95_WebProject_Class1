@@ -408,7 +408,7 @@ public class SignDAO {
 				} catch (SQLException ex) {
 				}
 		}
-		return list;
+		return null;
 	}
 
 	// ======== 받은 결재 글의 갯수 구하는 함수 ======
