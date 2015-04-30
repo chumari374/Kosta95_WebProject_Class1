@@ -1,3 +1,4 @@
+<%@page import="DAO.SignDAO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
@@ -6,6 +7,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="DTO.SignDTO" %>
 <%
+	SignDAO signdao = new SignDAO();
 	List sendSignList=(List)request.getAttribute("sendsignlist");
 	int listcount=(Integer)request.getAttribute("sendsignlistcount");
 	int nowpage=(Integer)request.getAttribute("page");
@@ -83,13 +85,13 @@ if(listcount > 0){
 			<%=signdto.getSignnum()%>
 		</td>	
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<a href="DetailSendSignList.hong?num=<%=signdto.getSignnum()%>"><div align="center"><%=signdto.getTitle() %></div></a>
+			<a href="DetailSendSignList.hong?num=<%=signdto.getSignnum() %>"><div align="center"><%=signdto.getTitle() %></div></a>
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=signdto.getStarter_name() %></div>
+			<div align="center"><%=signdao.getEmpname(signdto.getStarter()) %></div>
 		</td>	
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=signdto.getGetsign_name() %></div>
+			<div align="center"><%=signdao.getEmpname(signdto.getGetsign()) %></div>
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt;">
 			<div align="center"><%=signdto.getWrite_date() %></div>

@@ -76,10 +76,10 @@ if(listcount > 0){
 			<a href="DetailGetSignList.hong?num=<%=signdto.getSignnum() %>"><div align="center"><%=signdto.getTitle() %></div></a>
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=signdto.getStarter_name() %></div>
+			<div align="center"><%=signdao.getEmpname(signdto.getStarter()) %></div>
 		</td>	
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=signdto.getSend_name() %></div>
+			<div align="center"><%=signdao.getEmpname(signdto.getEmpno()) %></div>
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt;">
 			<div align="center"><%=signdto.getWrite_date() %></div>
