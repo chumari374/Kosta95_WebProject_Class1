@@ -109,11 +109,11 @@ public class MessageDAO {
 			pstmt = conn.prepareStatement("select max(msgnum) from message");
 			rs = pstmt.executeQuery();
 
-			if (rs.next())
+/*			if (rs.next())
 				msgnum = rs.getInt(1) + 1;
 			else
 				msgnum = 1;
-
+*/
 			sql = "insert into Message (MSGNUM,SENDEMPNO,TITLE,CONTENT,FILEPATH,EMPNO,ENAME)"
 					+ " values(MSGNUM.NEXTVAL,?,?,?,?,?)";
 
