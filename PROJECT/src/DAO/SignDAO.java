@@ -206,6 +206,7 @@ public class SignDAO {
 
 			System.out.println(10);
 			rs = pstmt.executeQuery();
+			return true;
 		} catch (SQLException e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -247,7 +248,7 @@ public class SignDAO {
 				+ " on g.grade = e.grade"
 				+ " join grade r"
 				+ " on r.grade = m.grade"
-				+ " where s.getsign = ? and s.status = ? order by s.signnum)) where rnum>=? and rnum<=?";
+				+ " where s.getsign = ? and s.status = ? order by s.signnum desc)) where rnum>=? and rnum<=?";
 
 		System.out.println(getGetSignList_sql);
 		System.out.println("DAO¾ŞÄ¿1");
@@ -336,7 +337,7 @@ public class SignDAO {
 				+ " on g.grade = e.grade"
 				+ " join grade r"
 				+ " on r.grade = m.grade"
-				+ " where s.empno = ? and s.status = ? order by s.signnum)) where rnum>=? and rnum<=?";
+				+ " where s.empno = ? and s.status = ? order by s.signnum desc)) where rnum>=? and rnum<=?";
 
 		System.out.println(getSendSignList_sql);
 		System.out.println("DAO¾ŞÄ¿1");
