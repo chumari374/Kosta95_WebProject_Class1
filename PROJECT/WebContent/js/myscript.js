@@ -16,7 +16,8 @@ function ppurija(ad) {
 }
 
 function chatting_window(){
-	window.open("chatting/client.html", "chattingroom", "height=500 width=350")
+	var ip = $('#ip').val();
+	window.open("http://"+ip+":8090/PROJECT/chatting/client.html", "chattingroom", "height=500 width=350")
 }
 
 function info(empno){
