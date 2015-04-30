@@ -43,7 +43,8 @@
 
 </head>
 <body style="background-color: #aaaaaa;">
-	
+<jsp:include page="../Main.jsp"></jsp:include>
+	<div id="main" align="left">
 	<!-- Some CSS for our example. (Not required for calendar plugin. Used for example.)-->
 	<style type="text/css" media="screen">
 	body { font-size: 62.5%; }
@@ -803,7 +804,8 @@
 
 	</div><!-- end example tab -->
 </div>
-
+</div>
+<jsp:include page="../Footer.jsp"></jsp:include>
 </body>
 
 </html>

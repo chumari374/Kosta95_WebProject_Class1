@@ -95,7 +95,7 @@ body {
 								<div>
 									<a href="Pwd_Search.jsp">비밀번호 찾기</a>
 								</div>
-								<input class="btn btn-lg btn-success btn-block" type="button"
+								<input class="btn btn-lg btn-success btn-block" type="submit"
 									value="로그인" id="login">
 							</fieldset>
 						</form>
