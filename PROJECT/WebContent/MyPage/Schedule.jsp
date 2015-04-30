@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="EUC-KR"%>
-<!-- ³»ÀÏÁ¤°ü¸® ÆäÀÌÁö -->
+    pageEncoding="UTF-8"%>
+<!-- ë‚´ì¼ì •ê´€ë¦¬ í˜ì´ì§€ -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>ÀÏÁ¤°ü¸®</title>
+	<title>ì¼ì •ê´€ë¦¬</title>
 	
 	<!-- Include CSS for JQuery Frontier Calendar plugin (Required for calendar plugin) -->
 	<link rel="stylesheet" type="text/css" href="calendar/css/frontierCalendar/jquery-frontier-cal-1.3.2.css" />
@@ -309,7 +309,7 @@
 			width: 400,
 			modal: true,
 			buttons: {
-				'ÀÏÁ¤ Ãß°¡': function() {
+				'ì¼ì • ì¶”ê°€': function() {
 	
 					var what = jQuery.trim($("#what").val());
 				
@@ -370,7 +370,7 @@
 					}
 					
 				},
-				'Ãë¼Ò': function() {
+				'ì·¨ì†Œ': function() {
 					$(this).dialog('close');
 				}
 			},
@@ -457,10 +457,10 @@
 		      height: 400,
 		      width: 400,
 		      buttons: {
-		         'Ãë¼Ò': function() {
+		         'ì·¨ì†Œ': function() {
 		            $(this).dialog('close');
 		         },
-		         'È®ÀÎ': function(){
+		         'í™•ì¸': function(){
 		        	if(clickAgendaItem != null){
 						jfcalplugin.deleteAgendaItemById("#mycal",clickAgendaItem.agendaId);
 						//jfcalplugin.deleteAgendaItemByDataAttr("#mycal","myNum",42);
@@ -600,16 +600,16 @@
 			width: 400,
 			modal: true,
 			buttons: {		
-				'Ãë¼Ò': function() {
+				'ì·¨ì†Œ': function() {
 					$(this).dialog('close');
 				},
-				'¼öÁ¤': function() {
+				'ìˆ˜ì •': function() {
 					//alert("Make your own edit screen or dialog!");
 					
 					$("#edit-event-form").dialog('open');
 					$(this).dialog('close');
 				},
-				'»èÁ¦': function() {
+				'ì‚­ì œ': function() {
 					if(confirm("Are you sure you want to delete this agenda item?")){
 						if(clickAgendaItem != null){
 							jfcalplugin.deleteAgendaItemById("#mycal",clickAgendaItem.agendaId);
@@ -681,12 +681,12 @@
 		<br><br>
 
 		<div id="toolbar" class="ui-widget-header ui-corner-all" style="padding:3px; vertical-align: middle; white-space:nowrap; overflow: hidden;">
-			<button id="BtnPreviousMonth">ÀÌÀü ´Ş</button>
-			<button id="BtnNextMonth">´ÙÀ½ ´Ş</button>
+			<button id="BtnPreviousMonth">ì´ì „ ë‹¬</button>
+			<button id="BtnNextMonth">ë‹¤ìŒ ë‹¬</button>
 			&nbsp;&nbsp;&nbsp;
 			Date: <input type="text" id="dateSelect" size="20"/>
 			&nbsp;&nbsp;&nbsp;
-			<button id="BtnDeleteAll">ÀüÃ¼ »èÁ¦</button>
+			<button id="BtnDeleteAll">ì „ì²´ ì‚­ì œ</button>
 		</div>
 
 		<br>
@@ -711,22 +711,22 @@
 			.validateTips { border: 1px solid transparent; padding: 0.3em; }
 		</style>
 		<div id="add-event-form" title="Add New Event">
-			<p class="validateTips">¸ğµÎ Ã¤¿öÁÖ¼¼¿ä</p>
+			<p class="validateTips">ëª¨ë‘ ì±„ì›Œì£¼ì„¸ìš”</p>
 			<form>
 			<fieldset>
-				<label for="name">¹«¾ùÀ»?</label>
+				<label for="name">ë¬´ì—‡ì„?</label>
 				<input type="text" name="what" id="what" class="text ui-widget-content ui-corner-all" style="margin-bottom:12px; width:95%; padding: .4em;"/>
 				<table style="width:100%; padding:5px;">
 					<tr>
 						<td colspan="2">
-							<label>½ÃÀÛÀÏ</label>
+							<label>ì‹œì‘ì¼</label>
 							<input type="text" name="startDate" id="startDate" value="" class="text ui-widget-content ui-corner-all" style="margin-bottom:12px; width:95%; padding: .4em;"/>				
 						</td>
 						
 					</tr>
 					<tr>
 						<td colspan="2">
-							<label>Á¾·áÀÏ</label>
+							<label>ì¢…ë£Œì¼</label>
 							<input type="text" name="endDate" id="endDate" value="" class="text ui-widget-content ui-corner-all" style="margin-bottom:12px; width:95%; padding: .4em;"/>				
 						</td>
 						<td>&nbsp;</td>				
@@ -755,21 +755,21 @@
 			</form>
 		</div>
 		<div id="edit-event-form">
-      	<p class="validateTips">¸ğµÎ Ã¤¿öÁÖ¼¼¿ä</p>
+      	<p class="validateTips">ëª¨ë‘ ì±„ì›Œì£¼ì„¸ìš”</p>
          <form>
             <fieldset>
-               <label>¹«¾ùÀ»?</label>
+               <label>ë¬´ì—‡ì„?</label>
                <input type="text" name="edit_what" id="edit_what" class="text ui-widget-content ui-corner-all" style="margin-bottom:12px; width:95%; padding: .4em;"/>
                <table style="width:100%; padding:5px;">
                <tr>
                   <td>
-                     <label colspan="2">½ÃÀÛÀÏ</label>
+                     <label colspan="2">ì‹œì‘ì¼</label>
                      <input type="text" name="edit_startDate" id="edit_startDate" value="" class="text ui-widget-content ui-corner-all" style="margin-bottom:12px; width:95%; padding: .4em;"/>            
                   </td>
                </tr>
                <tr>
                   <td>
-                     <label colspan="2">Á¾·áÀÏ</label>
+                     <label colspan="2">ì¢…ë£Œì¼</label>
                      <input type="text" name="edit_endDate" id="edit_endDate" value="" class="text ui-widget-content ui-corner-all" style="margin-bottom:12px; width:95%; padding: .4em;"/>            
                   </td>            
                </tr>         
