@@ -50,7 +50,7 @@ public class C_DbrdDAO {
 		return rowcount;
 	}
 	
-	public List getDataBoardList(int page, int limit){//limit 페이지사이즈
+	public List<C_DbrdDTO> getDataBoardList(int page, int limit){//limit 페이지사이즈
 		// 글 목록 보기
 		/*
 		 * 18건 
@@ -171,6 +171,7 @@ public class C_DbrdDAO {
 				C_Dbrd.setTitle(rs.getString("TITLE"));
 				C_Dbrd.setContent(rs.getString("CONTENT"));
 				C_Dbrd.setWrite_date(rs.getDate("WRITE_DATE"));
+				C_Dbrd.setData(rs.getString("DATA"));
 				C_Dbrd.setCount(rs.getInt("COUNT"));
 			}
 			

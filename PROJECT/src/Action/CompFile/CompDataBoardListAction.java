@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import Action.Action;
 import Action.ActionForward;
 import DAO.C_DbrdDAO;
+import DTO.C_DbrdDTO;
 
 public class CompDataBoardListAction implements Action {
 
@@ -16,7 +17,7 @@ public class CompDataBoardListAction implements Action {
 			HttpServletResponse response) throws Exception {
 		C_DbrdDAO boarddao = new C_DbrdDAO();
 		// DB연결 ,,,, select 가지고 있는 객체
-		List boardlist;
+		List<C_DbrdDTO> boardlist;
 		// 여러건의 데이터를 처리하기 위하여 배열
 
 		int page = 1;
