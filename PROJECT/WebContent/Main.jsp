@@ -37,7 +37,7 @@
       <h4><b>KOSTA 인트라넷</b></h4>
       <div id="leftdiv1">
                   <p>회원 Login 정보 표시</p>
-                  <p><img src="Upload/${sessionScope.p_picture}" width="80px" height="80px"></p>
+                  <p><img src="http://192.168.7.235:8090/PROJECT/Upload/${sessionScope.p_picture}" width="80px" height="80px"></p>
                   <p>${sessionScope.ename }님 로그인 하셨습니다.</p>
                   <p><input type="button" value="로그아웃"></p>
       

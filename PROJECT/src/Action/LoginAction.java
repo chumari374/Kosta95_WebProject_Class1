@@ -49,6 +49,8 @@ public class LoginAction implements Action{
 		session.setAttribute("admin", emp.getAdmin());
 		session.setAttribute("p_picture", dto.getP_picture());
 		
+		String host = System.getProperty("host");
+		System.out.println(host);
 		forward.setRedirect(false);
 		forward.setPath("Main.jsp");
 		return forward;

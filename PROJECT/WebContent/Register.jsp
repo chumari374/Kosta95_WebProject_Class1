@@ -62,7 +62,7 @@
 
 <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-		<form role="form" method="post" name="registerForm">
+		<form role="form" method="post" name="registerForm" enctype="multipart/form-data">
 			<h2>회원가입 <small>환영합니다</small></h2>
 			<hr class="colorgraph">
 			<div class="row">
