@@ -107,7 +107,7 @@
 									"</td><td>" + entry.gradename + 
 									"</td><td>" + entry.emptel + 
 									"</td><td>" + entry.celphone  + 
-									"</td><td><button onclick='info("+entry.empno+") class='btn btn-back btn-xs''>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
+									"</td><td><button onclick='info("+entry.empno+")' class='btn btn-back btn-xs'>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
 									+ "</td></tr>"		
 								);
 							});
@@ -161,7 +161,7 @@
 									"</td><td>" + entry.gradename + 
 									"</td><td>" + entry.emptel + 
 									"</td><td>" + entry.celphone  + 
-									"</td><td><button onclick='info("+entry.empno+") class='btn btn-back btn-xs''>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
+									"</td><td><button onclick='info("+entry.empno+")' class='btn btn-back btn-xs'>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
 									+ "</td></tr>"		
 								);
 							});
@@ -197,7 +197,7 @@
 										"</td><td>" + entry.gradename + 
 										"</td><td>" + entry.emptel + 
 										"</td><td>" + entry.celphone  + 
-										"</td><td><button onclick='info("+entry.empno+") class='btn btn-back btn-xs''>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
+										"</td><td><button onclick='info("+entry.empno+")' class='btn btn-back btn-xs'>상세정보</button>&nbsp;<button>쪽지(미구현)</button>"
 										+ "</td></tr>"		
 									);
 								});
