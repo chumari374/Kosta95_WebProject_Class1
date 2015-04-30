@@ -4,16 +4,31 @@
     pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-	List boardList=(List)request.getAttribute("boardlist");
-	List noticeList=(List)request.getAttribute("noticelist");
-	int listcount=(Integer)request.getAttribute("listcount");
-	int nowpage=(Integer)request.getAttribute("page");
-	int maxpage=(Integer)request.getAttribute("maxpage");
-	int startpage=(Integer)request.getAttribute("startpage");
-	int endpage=(Integer)request.getAttribute("endpage");
+	List boardList=(List)request.getAttribute("boardlist");//현재페이지 보드리스트 
+	List noticeList=(List)request.getAttribute("noticelist");//공지사항 리스트
+	int listcount=(Integer)request.getAttribute("listcount");//총 게시글 수
+	int nowpage=(Integer)request.getAttribute("page");//현재 페이지
+	int maxpage=(Integer)request.getAttribute("maxpage");//최대 페이지수
+	int startpage=(Integer)request.getAttribute("startpage");// 
+	int endpage=(Integer)request.getAttribute("endpage");//페이지에 띄울 게시글 start~end
 	
-// 	System.out.println(listcount + "/ " + nowpage + " / " + maxpage + " / ");
-// 	System.out.println(startpage + " / " + endpage);
+	int ing = (nowpage/5)+1;
+	int level = ing;
+ 	int end = level*5;
+	
+
+	if(nowpage%5==0){
+		level = ing-1;
+		end = level*5;
+		
+	}
+	
+// 	if(nowpage%5!=0){
+// 		if(((nowpage/5)*5)+1 <=nowpage && nowpage <=maxpage){
+// 			end=maxpage;
+// 		}
+// 	}
+
 %>
 <!-- 사내게시판 페이지 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -147,29 +162,55 @@ if(listcount > 0){
 		</td>
 	</tr>
 	<%} %>
+	
+	<!--  -->
+<!-- 	<tr align=center height=20> -->
+<!-- 		<td colspan=7 style=font-family:Tahoma;font-size:10pt;> -->
+<%-- 			<%if(nowpage<=1){ %> --%>
+<!-- 			<input type="button" value="이전" >&nbsp; -->
+<%-- 			<%}else{ %> --%>
+<%-- 			<a href ="CompBoardList.cp?page=<%=nowpage-1 %>"><input type="button" value="이전 "></a>&nbsp; --%>
+<%-- 			<%} %> --%>
+			
+<%-- 			<%for(int a=startpage;a<=endpage;a++){ --%>
+<%-- 				if(a==nowpage){%> --%>
+<%-- 				<input type="button" value="<%=a %>" style="background-color: #B2EBF4">&nbsp; --%>
+<%-- 				<%}else{ %> --%>
+<%-- 					<a href="CompBoardList.cp?page=<%=a %>"><input type="button" value="<%=a %>"></a>&nbsp; --%>
+<%-- 				<%} %> --%>
+<%-- 			<%} %> --%>
+			
+<%-- 			<%if(nowpage>=maxpage){ %> --%>
+<!-- 			<input type="button" value="다음"> -->
+<%-- 			<%}else{ %> --%>
+<%-- 			<a href="CompBoardList.cp?page=<%=nowpage+1 %>"><input type="button" value="다음"></a> --%>
+<%-- 			<%} %> --%>
+<!-- 		</td> -->
+<!-- 	</tr> -->
 	<tr align=center height=20>
 		<td colspan=7 style=font-family:Tahoma;font-size:10pt;>
-			<%if(nowpage<=1){ %>
+			<%if(level<=1){ %>
 			<input type="button" value="이전" >&nbsp;
 			<%}else{ %>
-			<a href ="CompBoardList.cp?page=<%=nowpage-1 %>"><input type="button" value="이전 "></a>&nbsp;
+			<a href ="CompBoardList.cp?page=<%=level*5-5 %>"><input type="button" value="이전 "></a>&nbsp;
 			<%} %>
 			
-			<%for(int a=startpage;a<=endpage;a++){
-				if(a==nowpage){%>
-				<input type="button" value="<%=a %>" style="background-color: #B2EBF4">&nbsp;
+			<%for(int i=level*5-4;i<= end ;i++){
+				if(i==nowpage){%>
+				<input type="button" value="<%=i %>" style="background-color: #B2EBF4">&nbsp;
 				<%}else{ %>
-					<a href="CompBoardList.cp?page=<%=a %>"><input type="button" value="<%=a %>"></a>&nbsp;
+					<a href="CompBoardList.cp?page=<%=i %>"><input type="button" value="<%=i %>"></a>&nbsp;
 				<%} %>
 			<%} %>
 			
-			<%if(nowpage>=maxpage){ %>
+			<%if(level>=(maxpage/5)+1){ %>
 			<input type="button" value="다음">
 			<%}else{ %>
-			<a href="CompBoardList.cp?page=<%=nowpage+1 %>"><input type="button" value="다음"></a>
+			<a href="CompBoardList.cp?page=<%=level*5+1 %>"><input type="button" value="다음"></a>
 			<%} %>
 		</td>
 	</tr>
+	<!--  -->
 	<%
     }
 	else
