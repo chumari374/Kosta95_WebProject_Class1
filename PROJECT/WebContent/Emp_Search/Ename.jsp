@@ -23,8 +23,9 @@
 	ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
 
 	conn = ds.getConnection();
-	
+	System.out.println("ename : " + ename);
 	String sql = "select empno, deptname, teamname, ename, gradename, emptel, celphone from memberinfo where ename like '%"+ename+"%'order by grade";
+	System.out.println(sql);
 	pstmt = conn.prepareStatement(sql);
 
 	rs = pstmt.executeQuery();
