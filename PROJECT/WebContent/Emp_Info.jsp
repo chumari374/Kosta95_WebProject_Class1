@@ -87,11 +87,11 @@ table, tr, td  {
 		<tr>
 			<td>
 				<table height="300px" width="200px">
-					<tr>
+					<tr height="220px">
 						<td align="center"><img src="http://192.168.7.235:8090/PROJECT/Upload/${member.p_picture}" width="200px" height="200px"></td>
 					</tr>
 					<tr>
-						<td align="center">" ${member.p_content} "</td>
+						<td align="center" style="background-image: url('img/배경2.png');">" ${member.p_content} "</td>
 					</tr>
 				</table>
 			</td>
