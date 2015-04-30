@@ -43,7 +43,7 @@ public class LoginAction implements Action{
 		session.setAttribute("empno", emp.getEmpno());
 		session.setAttribute("ename", emp.getEname());
 		session.setAttribute("teamcode", emp.getTeamcode());
-		session.setAttribute("teamname", emp.getTeamname());
+		session.setAttribute("teamname", dto.getTeamname());
 		session.setAttribute("deptcode", emp.getDeptcode());
 		session.setAttribute("grade", emp.getGrade());
 		session.setAttribute("admin", emp.getAdmin());

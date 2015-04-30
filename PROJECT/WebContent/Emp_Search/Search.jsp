@@ -1,3 +1,6 @@
+<%@page import="javax.naming.InitialContext"%>
+<%@page import="javax.naming.Context"%>
+<%@page import="javax.sql.DataSource"%>
 <%@page import="net.sf.json.JSONObject"%>
 <%@page import="net.sf.json.JSONArray"%>
 <%@page import="java.sql.ResultSet"%>
@@ -11,14 +14,20 @@
 <%  
 	String deptcode = request.getParameter("deptcode");
 	String teamcode = request.getParameter("teamcode");
-
-	Class.forName("oracle.jdbc.OracleDriver");
-	Connection con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.7.192:1521:XE", "PROJECT", "1004");
 	
-	String sql = "select empno, deptname, teamname, ename, gradename, emptel, celphone from memberinfo where deptcode like '%"+deptcode+"%' and teamcode like '%"+teamcode+"%' order by grade";
-	PreparedStatement ps = con.prepareStatement(sql);
+	DataSource ds;
+	Connection conn;
+	PreparedStatement pstmt;
+	ResultSet rs;
+	
+	Context context = new InitialContext();
+	ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
 
-	ResultSet rs = ps.executeQuery();
+	conn = ds.getConnection();
+	String sql = "select empno, deptname, teamname, ename, gradename, emptel, celphone from memberinfo where deptcode like '%"+deptcode+"%' and teamcode like '%"+teamcode+"%' order by grade";
+	pstmt = conn.prepareStatement(sql);
+
+	rs = pstmt.executeQuery();
 	
 	JSONArray emplist = new JSONArray();
 	
@@ -35,8 +44,8 @@
 	}
 		
 	rs.close();
-	ps.close();
-	con.close();
+	pstmt.close();
+	conn.close();
 %> 
 <%-- <%
 	JSONArray rows = (JSONArray)request.getAttribute("JSONList");

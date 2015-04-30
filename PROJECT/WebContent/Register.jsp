@@ -88,7 +88,7 @@
 			</div>
 				</div>
 				<div class="col-xs-4 col-sm-3 col-md-4">
-					<input class="btn btn-lg btn-warning btn-block" type="submit" value="중복확인" id="checkEmail">
+					<input class="btn btn-lg btn-warning btn-block" type="button" value="중복확인" id="checkEmail">
 				</div>
 			</div>
 			<div class="form-group">

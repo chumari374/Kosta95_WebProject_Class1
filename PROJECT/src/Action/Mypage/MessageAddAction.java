@@ -25,6 +25,7 @@ public class MessageAddAction implements Action {
 
 		boolean result=false;
 		PrintWriter out = response.getWriter();
+		System.out.println("1");
 
 		try{
 			
@@ -37,6 +38,7 @@ public class MessageAddAction implements Action {
 			messagedto.setSendempno((int)session.getAttribute("sendempno"));
 
 			result=messagedao.MessageWrite(messagedto);
+			System.out.println("2");
 
 			if(result==false){
 

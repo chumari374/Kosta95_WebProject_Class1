@@ -21,7 +21,9 @@
 </script>
 </head>
 <body>
-	<form action="Account_Update.mp" method="post">
+<jsp:include page="../Main.jsp"></jsp:include>
+   <div id="main" align="center">
+	<form action="Account_Update.mp" method="post" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>사원번호  </td>
@@ -76,5 +78,8 @@
 			</tr>
 		</table>
 	</form>
+	</div>
+   
+<jsp:include page="../Footer.jsp"></jsp:include>
 </body>
 </html>

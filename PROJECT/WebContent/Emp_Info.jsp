@@ -53,7 +53,7 @@ table {
 			<th colspan="3" align="center">${member.ename}님의 사원정보</th>
 		</tr>
 		<tr>
-			<td rowspan="6">${member.p_picture}<br>프로필사진</td>
+			<td rowspan="6"><img src="Upload/${member.p_picture}" width="80px" height="80px"><br>프로필사진</td>
 			<td>사원번호</td>
 			<td>${member.empno}</td>
 		</tr>

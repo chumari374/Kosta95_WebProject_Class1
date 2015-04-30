@@ -85,7 +85,7 @@ if(listcount > 0){
 		<td style="font-family:Tahoma;font-size:10pt;">
 			<div align="left">
 			&nbsp;&nbsp;&nbsp;
-			<a href="CompDataBoardDetailAction.cf?num=<%=bl.getNum()%>">
+			<a href="CompDataBoardDetailAction.cf?num=<%=bl.getNum()%>&page=<%=nowpage%>">
 				<%=bl.getTitle()%>
 			</a>
 			</div>

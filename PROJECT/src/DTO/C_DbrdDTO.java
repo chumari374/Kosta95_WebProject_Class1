@@ -80,5 +80,13 @@ public class C_DbrdDTO {
 	public void setCount(int count) {
 		this.count = count;
 	}
+
+	@Override
+	public String toString() {
+		return "C_DbrdDTO [num=" + num + ", empno=" + empno + ", title="
+				+ title + ", content=" + content + ", write_date=" + write_date
+				+ ", data=" + data + ", count=" + count + "]";
+	}
+	
 	
 }

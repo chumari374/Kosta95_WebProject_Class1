@@ -32,6 +32,7 @@ public class RegisterAction implements Action{
 		account.setP_content(p_content);
 		
 		int result = dao.AccountsInsert(account);
+		System.out.println(result);
 		
 		forward.setRedirect(true);
 		forward.setPath("Login.jsp");

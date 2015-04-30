@@ -95,7 +95,7 @@ if(listcount > 0){
 		</td>
 		
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=bl.getEname() %></div>
+			<a href="#" onclick="info(<%=bl.getEmpno()%>)"><%=bl.getEname() %></a>
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt;">
 			<div align="center"><%=bl.getWrite_date() %></div>
@@ -135,8 +135,8 @@ if(listcount > 0){
 		</td>
 		
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center" onclick="info(<%=bl.getEmpno()%>)"><%=bl.getEname() %></div>
-			
+<%-- 			<div align="center" onclick="info(<%=bl.getEmpno()%>)"><%=bl.getEname() %></div> --%>
+			<a href="#" onclick="info(<%=bl.getEmpno()%>)"><%=bl.getEname() %></a>
 			<!-- Member.info?empno= -->
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt;">

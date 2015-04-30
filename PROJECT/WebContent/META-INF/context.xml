@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+                                               
 <Context>
 	<!-- maxActive : 최대 동시 대여 가능 커넥션수 
 	     maxIdle : 최소 보유 커넥션수 
@@ -21,6 +21,21 @@
 			  type="javax.sql.DataSource"
 		      auth="Container" 
 		      name="jdbc/oracle" />
+		      
+		      
+	<!-- 밑에는 각자 집에서 사용할 주소! -->	  
+	    
+<!-- 	<Resource maxWait="-1"  -->
+<!-- 	          maxIdle="20"  -->
+<!-- 	          maxActive="10"  -->
+<!-- 	          password="1004" -->
+<!-- 		      username="PROJECT"  -->
+<!-- 		      url="jdbc:oracle:thin:@localhost:1521:XE" -->
+<!-- 			  driverClassName="oracle.jdbc.OracleDriver"  -->
+<!-- 			  type="javax.sql.DataSource" -->
+<!-- 		      auth="Container"  -->
+<!-- 		      name="jdbc/oracle" />	       -->
+		      
 		      
     <Resource maxWait="-1" 
 	          maxIdle="20" 
