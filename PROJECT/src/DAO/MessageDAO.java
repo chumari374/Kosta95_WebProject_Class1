@@ -105,18 +105,17 @@ public class MessageDAO {
 		int result = 0;
 		
 		try {
-			conn = ds.getConnection();
-			pstmt = conn.prepareStatement("select max(msgnum) from message");
-			rs = pstmt.executeQuery();
 
 /*			if (rs.next())
 				msgnum = rs.getInt(1) + 1;
 			else
 				msgnum = 1;
 */
-			sql = "insert into Message (MSGNUM,SENDEMPNO,TITLE,CONTENT,FILEPATH,EMPNO,ENAME)"
+			sql = "insert into Message (MSGNUM,EMPNO,TITLE,CONTENT,FILEPATH,SENDEMPNO)"
 					+ " values(MSGNUM.NEXTVAL,?,?,?,?,?)";
-
+			
+			/*rs = pstmt.executeQuery();*/
+			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
 //			pstmt.setInt(1, msgnum);
 			pstmt.setInt(1, MessageBoard.getEmpno());

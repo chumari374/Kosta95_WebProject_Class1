@@ -16,12 +16,14 @@ public class MessageAddAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		
 		HttpSession session = request.getSession();
 		MessageDAO messagedao=new MessageDAO();
 		MessageDTO messagedto=new MessageDTO();
 		ActionForward forward=new ActionForward();
 
-		request.setCharacterEncoding("UTF-8");		   	
+		request.setCharacterEncoding("UTF-8");	
+		response.setCharacterEncoding("UTF-8");
 
 		boolean result=false;
 		PrintWriter out = response.getWriter();
@@ -31,11 +33,11 @@ public class MessageAddAction implements Action {
 			
 			
 //			messagedto.setMsgnum((int)session.getAttribute("msgnum"));
-			messagedto.setEmpno((int)request.getAttribute("empno"));
+			messagedto.setEmpno(Integer.parseInt(request.getParameter("empno")));
 			messagedto.setTitle(request.getParameter("title"));
 			messagedto.setContent(request.getParameter("content"));
 			messagedto.setFilepath(request.getParameter("filepath"));
-			messagedto.setSendempno((int)request.getAttribute("sendempno"));
+			messagedto.setSendempno(Integer.parseInt(request.getParameter("sendempno")));
 
 			result=messagedao.MessageWrite(messagedto);
 			System.out.println("2");
@@ -47,9 +49,9 @@ public class MessageAddAction implements Action {
 				out.println("</script>");
 
 				System.out.println("발송 실패");
-				forward.setRedirect(true);
+/*				forward.setRedirect(true);
 				forward.setPath("./MessageList.mb");
-				return forward;
+				return forward;*/
 			}
 
 			out.println("<script>");
@@ -57,10 +59,10 @@ public class MessageAddAction implements Action {
 			out.println("</script>");
 
 			System.out.println("발송 완료");
-
+/*
 			forward.setRedirect(false);
 			forward.setPath("./MessageList.mb");
-			return forward;
+			return forward;*/
 
 		}catch(Exception ex){
 			ex.printStackTrace();
