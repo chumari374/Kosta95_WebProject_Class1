@@ -99,7 +99,7 @@
 			<div align="center">글쓴이</div>
 		</td>
 		<td>
-			<%=ename %>
+			Admin
 		</td>
 	</tr>
 	<tr>

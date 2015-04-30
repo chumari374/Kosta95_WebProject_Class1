@@ -43,6 +43,9 @@
 			<div align="center">작성자&nbsp;&nbsp;</div>
 		</td>
 		
+		<td style="font-family:돋음; font-size:12">
+			Admin
+		</td>
 		</tr>
 		
 		<tr>
@@ -85,17 +88,14 @@
 	<tr align="center" valign="middle">
 		<td colspan="5">
 			<font size=2>
-			<a href="./CompDataBoardReplyAction.cp?num=<%=board.getNum() %>">
-			[답변]
-			</a>&nbsp;&nbsp;
-			<a href="./CompDataBoardModify.cp?num=<%=board.getNum() %>">
+			<a href="./CompBoardModify.cf?num=<%=board.getNum() %>">
 			[수정]
 			</a>&nbsp;&nbsp;
-			<a href="./CompDataBoardDeleteAction.cp?num=<%=board.getNum() %>"
+			<a href="./CompBoardDeleteAction.cf?num=<%=board.getNum() %>"
 			>
 			[삭제]
 			</a>&nbsp;&nbsp;
-			<a href="./CompDataBoardList.cp?page=<%=Integer.parseInt(request.getParameter("page"))%>">[목록]</a>&nbsp;&nbsp;
+			<a href="./CompBoardList.cf?page=<%=Integer.parseInt(request.getParameter("page"))%>">[목록]</a>&nbsp;&nbsp;
 			</font>
 		</td>
 	</tr>

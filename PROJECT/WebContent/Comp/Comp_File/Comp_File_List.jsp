@@ -60,6 +60,9 @@ if(listcount > 0){
 		<td style="font-family:Tahoma;font-size:8pt;" width="50%">
 			<div align="center">제목</div>
 		</td>
+		<td style="font-family:Tahoma;font-size:8pt;" width="14%">
+			<div align="center">작성자</div>
+		</td>
 		<td style="font-family:Tahoma;font-size:8pt;" width="17%">
 			<div align="center">날짜</div>
 		</td>
