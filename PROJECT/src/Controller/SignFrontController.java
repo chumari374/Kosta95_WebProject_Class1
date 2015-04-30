@@ -89,7 +89,7 @@ public class SignFrontController extends HttpServlet {
 			}
 		}
 
-		// 결재문서 작성
+		// 결재문서 작성 ======================================
 		else if (command.equals("/SignWrite.hong")) {
 			forward = new ActionForward();
 			forward.setRedirect(false);
@@ -108,7 +108,7 @@ public class SignFrontController extends HttpServlet {
 			}
 		}
 		
-		// 보낸결재에서 문서 상세보기
+		// 보낸결재에서 문서 상세보기 ================================
 		else if (command.equals("/DetailSendSignList.hong")) {
 			// System.out.println("BoardDetailBefore");
 			// System.out.println("board num : " + request.getParameter("num"));
@@ -137,7 +137,6 @@ public class SignFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-					
 		}
 		
 		
