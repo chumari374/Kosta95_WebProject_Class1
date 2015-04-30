@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+                                               
 <Context>
 	<!-- maxActive : 최대 동시 대여 가능 커넥션수 
 	     maxIdle : 최소 보유 커넥션수 
