@@ -26,7 +26,7 @@
 
 <BODY>
    <header>
-   ${sessionScope.empno},${sessionScope.ename},${sessionScope.teamname},${sessionScope.grade}
+   ${sessionScope.empno},${sessionScope.ename},${sessionScope.teamname},${sessionScope.grade},${sessionScope.admin}
    </header>
 
    <nav>
