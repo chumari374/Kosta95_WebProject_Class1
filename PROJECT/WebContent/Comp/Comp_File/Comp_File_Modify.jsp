@@ -9,30 +9,7 @@
 	String teamname = (String)session.getAttribute("teamname");
 	String deptcode = (String.valueOf(session.getAttribute("deptcode")));
 	String grade = (String.valueOf(session.getAttribute("grade")));
-	
 
-	/*
-		boardform
-		BOARD_ID 작성자 empno
-		BOARD_TITLE 제목 title
-		BOARD_CONTENT 내용
-		BOARD_FILE 파일첨부
-		BOARD_NOTICE 공지사항여부
-		
-		글번호(PK)	NUM(PK)	N/A	NUMBER	NOT NULL
-		작성자번호(FK)	EMPNO(FK)	N/A	NUMBER	NOT NULL
-		제목	TITLE	N/A	VARCHAR2(20)	NOT NULL
-		내용	CONTENT	N/A	VARCHAR2(4000)	NOT NULL
-		공지사항	NOTICE	N/A	VARCHAR2(10)	NOT NULL
-		
-		작성일자	WRITE_DATE	N/A	DATE	NOT NULL
-		
-		답글	REF	N/A	NUMBER	NULL
-		들여쓰기	DPTH	N/A	NUMBER	NULL
-		답글계층	STEP	N/A	NUMBER	NULL
-
-	*/
-	
 %>
 
 <html>
@@ -91,19 +68,19 @@
 <!-- 게시판 등록 -->
 <jsp:include page="../../Main.jsp"></jsp:include>
    <div id="main" align="center">
-<form action="CompDataBoardRealModifyAction.cf" method="post" name="boardform">
+<form action="CompDataBoardRealModifyAction.cf" method="post" method="post" name="boardform" enctype="multipart/form-data">
 <input type="hidden" name="BOARD_ID" value="<%=empno %>">
 <input type="hidden" name="BOARD_NUM" value="<%=boarddata.getNum()%>">
 <table width="700px" height="600px" cellpadding="0" cellspacing="0" width="100%">
 	<tr align="center" valign="middle">
-		<td colspan="5"><h3><b>사내 게시판</b></h3></td>
+		<td colspan="5"><h3><b>사내 자료실</b></h3></td>
 	</tr>
 	<tr>
 		<td style="font-family:돋음; font-size:12" height="16">
 			<div align="center">글쓴이</div>
 		</td>
 		<td>
-			<%=ename %>
+			Admin
 		</td>
 	</tr>
 	<tr>
@@ -113,8 +90,6 @@
 		<td style="font-family:돋음; font-size:12" height="16">
 			<input name="BOARD_TITLE" type="text" size="50" maxlength="100" 
 				value="<%=boarddata.getTitle()%>"/>
-		
-			 공지사항 <input type="checkbox" name = "BOARD_NOTICE"/>
 		
 		</td>
 	</tr>
@@ -132,6 +107,7 @@
 	</tr>
 	<tr bgcolor="cccccc">
 		<td colspan="2" style="height:1px;">
+			<input type="file" id="data" name="data" size="50">
 		</td>
 	</tr>
 	<tr><td colspan="2"></td>

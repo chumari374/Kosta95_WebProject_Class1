@@ -65,7 +65,7 @@ public class C_DbrdDAO {
 		// page =2 , limit =10(pagesize)
 		//글번호	제목	작성자	작성일	조회수
 		//int limit = 10;
-		String getC_DbrdList_sql = "select * from (select rownum rnum, NUM,EMPNO,TITLE,CONTENT,WRITE_DATE,DATA from C_DBRD) where rnum>=? and rnum<=?";
+		String getC_DbrdList_sql = "select * from (select rownum rnum, NUM,EMPNO,TITLE,CONTENT,WRITE_DATE,DATA,COUNT from C_DBRD) where rnum>=? and rnum<=?";
 		
 		List<C_DbrdDTO> list = new ArrayList<C_DbrdDTO>();
 		
@@ -93,6 +93,7 @@ public class C_DbrdDAO {
 				c_dbrd.setContent(rs.getString("CONTENT"));
 				c_dbrd.setWrite_date(rs.getDate("WRITE_DATE"));
 				c_dbrd.setData(rs.getString("DATA"));
+				c_dbrd.setCount(rs.getInt("COUNT"));
 				list.add(c_dbrd);
 			}
 
@@ -238,7 +239,7 @@ public class C_DbrdDAO {
 	}
 	
 	public int Modify(C_DbrdDTO modifyc_dbrd){
-		String sql = "update c_dbrd set TITLE=?, CONTENT=? where NUM=?";
+		String sql = "update c_dbrd set TITLE=?, CONTENT=?, DATA=? where NUM=?";
 		
 		int result = 0;
 		try {
@@ -246,7 +247,9 @@ public class C_DbrdDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, modifyc_dbrd.getTitle());
 			pstmt.setString(2, modifyc_dbrd.getContent());
-			pstmt.setInt(3, modifyc_dbrd.getNum());
+			pstmt.setString(3, modifyc_dbrd.getData());
+			pstmt.setInt(4, modifyc_dbrd.getNum());
+			
 			result = pstmt.executeUpdate();
 		} catch (Exception ex) {
 			System.out.println("boardModify 에러 : " + ex);
