@@ -11,14 +11,7 @@
 	<script type="text/javascript">
 	$(function(){
 		$('#download').click(function(){
-			/* $.ajax({
-				type : "post",
-				url : "Comp_File_Download.jsp",
-				data : {filename : $('#filename').val()},
-				success : function(data){
-					
-				}
-			}); */
+			
 			document.downloadForm.action='Comp/Comp_File/Comp_File_Download.jsp';
 			document.downloadForm.submit();
 		});
@@ -120,14 +113,14 @@
 	<tr align="center" valign="middle">
 		<td colspan="5">
 			<font size=2>
-			<a href="./CompBoardModify.cf?num=<%=board.getNum() %>">
+			<a href="./CompDataBoardModify.cf?num=<%=board.getNum() %>">
 			[수정]
 			</a>&nbsp;&nbsp;
-			<a href="./CompBoardDeleteAction.cf?num=<%=board.getNum() %>"
+			<a href="./CompDataBoardDeleteAction.cf?num=<%=board.getNum() %>"
 			>
 			[삭제]
 			</a>&nbsp;&nbsp;
-			<a href="./CompBoardList.cf?page=<%=Integer.parseInt(request.getParameter("page"))%>">[목록]</a>&nbsp;&nbsp;
+			<a href="./CompDataBoardList.cf?page=<%=Integer.parseInt(request.getParameter("page"))%>">[목록]</a>&nbsp;&nbsp;
 			</font>
 		</td>
 	</tr>

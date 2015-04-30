@@ -2,6 +2,7 @@
 <%@page import="DTO.C_DbrdDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	request.setCharacterEncoding("UTF-8");
 	List boardList=(List)request.getAttribute("boardlist");
@@ -92,7 +93,7 @@ if(listcount > 0){
 		</td>
 		
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center">${sessionScope.ename}</div>
+			<div align="center">Admin</div>
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt;">
 			<div align="center"><%=bl.getWrite_date() %></div>
@@ -141,7 +142,9 @@ if(listcount > 0){
 	%>
 	<tr align="right">
 		<td colspan="5">
+		<c:if test="${sessionScope.admin == true}">
 	   		<a href="CompDataBoardWrite.cf"><input type="button" value="글쓰기"></a>
+	   	</c:if>
 		</td>
 	</tr>
 </table>

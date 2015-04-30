@@ -184,4 +184,55 @@ public class C_DbrdDAO {
 		}
 		return C_Dbrd;
 	}
+	
+	public boolean isboardWriter(int num, int empno){
+		String board_sql = "select * from c_dbrd where NUM=?";
+		
+		try{
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(board_sql);
+			pstmt.setInt(1, num);
+			rs=pstmt.executeQuery();
+			rs.next();
+			
+			if(empno == rs.getInt("EMPNO")){
+				return true;
+			}
+		}catch(SQLException ex){
+			System.out.println("isBoardWriter 에러 : "+ex);
+		}
+		finally{
+			try{
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			}
+			catch(Exception ex) {}
+		}
+		return false;
+	}
+	
+	public int Delete(int num){
+		String c_brd_delete_sql = "delete from c_brd where num=?";
+
+		int result = 0;
+
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(c_brd_delete_sql);
+			pstmt.setInt(1, num);
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception ex) {
+			System.out.println("boardDelete 에러 : " + ex);
+		} finally {
+			try {
+				if (pstmt != null) pstmt.close();
+				if (conn != null) conn.close();
+			} catch (Exception ex) {
+				
+			}
+		}
+
+		return result;
+	}
 }

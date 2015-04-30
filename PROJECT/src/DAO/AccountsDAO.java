@@ -209,7 +209,7 @@ public class AccountsDAO {
 		EmpDTO emp = new EmpDTO();
 		try{
 			conn = ds.getConnection();
-			String sql = "select empno,ename,teamcode,teamname,deptcode,grade from emp where empno=?";
+			String sql = "select empno,ename,teamcode,teamname,deptcode,grade,admin from emp where empno=?";
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, empno);
 			
@@ -221,6 +221,7 @@ public class AccountsDAO {
 				emp.setTeamname(rs.getString("teamname"));
 				emp.setDeptcode(rs.getInt("deptcode"));
 				emp.setGrade(rs.getInt("grade"));
+				emp.setAdmin(rs.getString("admin"));
 			}
 		}catch(Exception e){
 			e.getStackTrace();
