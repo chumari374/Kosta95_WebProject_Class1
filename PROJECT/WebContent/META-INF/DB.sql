@@ -764,6 +764,13 @@ commit;
 --insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150129,1004,'0113784358@naver.com','서울시 성동구 행당동 317-130','010-5378-4358','사진경호','프로필내용'); 
 --commit;
 
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150129,1004,'0asdfasd8@naver.com','서울시 성동구 행당동 317-130','010-5378-4358','사진경로','프로필내용');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150130,1004,'01hthsh358@naver.com','동울시 동구 당동 317-130','010-5422-0028','사진경로','프로필내용'); 
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150131,1004,'01strh8@naver.com','남울시 구 당동 317-130','010-5958-1258','사진경로','프로필내용'); 
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150201,1004,'0srth358@naver.com','북울시 동구 동 317-130','010-5348-8638','사진경로','프로필내용'); 
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150214,1004,'01srth358@naver.com','굴울시 동 동 317-130','010-0743-4333','사진경로','프로필내용'); 
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150301,1004,'0123ya58@naver.com','박울시 성동 당동 317-130','010-5338-4348','사진경로','프로필내용'); 
+
 select * from emp;
 select * from domain_set;
 select * from accounts;
