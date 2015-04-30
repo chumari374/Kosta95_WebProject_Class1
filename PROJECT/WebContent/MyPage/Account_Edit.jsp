@@ -13,13 +13,13 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <style type="text/css">
- table, tr, td{
+/*  tr, td{
  	border: 1px solid gray;
  	border-collapse: collapse;
  	padding: 5px;
  	padding-left: 10px; 
  	padding-right: 10px;
- } 
+ }  */
 </style>
 <script type="text/javascript">
 
@@ -27,9 +27,11 @@
 </head>
 <body>
 <jsp:include page="../Main.jsp"></jsp:include>
-   <div id="main" align="center">
+   <div id="main" align="left">
+   <div id="wrapper" style="width: 60%; margin-left: 50px;">
+   <h2>개인정보 수정</h2>
 	<form action="Account_Update.mp" method="post" enctype="multipart/form-data">
-		<table class="table">
+		<table class="table table-bordered">
 			<tr>
 				<td>사원번호  </td>
 				<td>${requestScope.account.empno}</td>
@@ -84,7 +86,7 @@
 		</table>
 	</form>
 	</div>
-   
+   </div>
 <jsp:include page="../Footer.jsp"></jsp:include>
 </body>
 </html>
