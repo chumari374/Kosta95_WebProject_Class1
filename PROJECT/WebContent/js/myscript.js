@@ -23,6 +23,16 @@ function chatting_window(){
 function info(empno){
 	window.open('Member.info?empno='+empno,'상세정보', 'width=600 height=424')
 }
+
+function msgsend(empno){
+	
+	if(empno==""){
+		window.open('MessageWrite.mb','쪽지보내기', 'width=600 height=424')
+	}else{
+		window.open('MessageWrite.mb?empno='+empno,'쪽지보내기', 'width=600 height=424')
+	}	
+}
+
 function logout(path){
 	
 	location.href=path;

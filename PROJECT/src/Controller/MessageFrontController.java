@@ -53,6 +53,7 @@ public class MessageFrontController extends HttpServlet {
 		   System.out.println("messageAddActionOk");
 		   	action = new MessageAddAction();
 		   	System.out.println("MessageAddOk");
+		   	
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
