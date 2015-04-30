@@ -18,60 +18,51 @@ int endpage=(Integer)request.getAttribute("endpage");
 <!-- 메세지함 페이지 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<script src="http://code.jquery.com/jquery-latest.js"></script> 
+<script> 
+function Recieved(id) { 
+   $.ajax({ 
+      type : 'post', 
+      url : 'Recieved.jsp', 
+      async : false, 
+         data : {}, 
+         error : function(xhr, status) {alert('Unknown error ' + status); }, 
+         success : function(data) { 
+             $("#"+ id).html(data); 
+         } 
+   }); 
+} 
+
+function Sent(id) { 
+	   $.ajax({ 
+	      type : 'post', 
+	      url : 'Sent.jsp', 
+	      async : false, 
+	         data : {}, 
+	         error : function(xhr, status) {alert('Unknown error ' + status); }, 
+	         success : function(data) { 
+	             $("#"+ id).html(data); 
+	         } 
+	   }); 
+	} 
+</script> 
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>쪽지함</title>
-	<style>
-		#message_list_table {border:1px solid black;border-collapse: collapse}
-		#message_list_table th {border:1px solid black; text-align:center;}
-	</style>
-   <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-   <link type="text/css" rel="stylesheet" href="../css/mystyle.css">
 
 </head>
 <body>
    <div id="main" align="center">
-   <div id="title"><h3><b>쪽지함</b></h3></div>
+   <div id="title">
+   </div>
 	<div id="message_list">
-		<table id="message_list_table" width="60%" height="50%">
-			<tr>
-				<th width="15%">쪽지번호</th>
-				<th width="15%">받는사람</th>
-				<th width="15%">작성자</th>
-				<th>제목</th>
-			</tr>
-	<%
-		for(int i=0;i<messageList.size();i++){
-			MessageDTO ml=(MessageDTO)messageList.get(i);
-	%>
-	<tr>
-		<td>
-			<%=ml.getMsgnum()%>
-		</td>
-		<td>
-			<%=ml.getSendempno() %>
-		</td>
-		<td>
-		   <%=ml.getEmpno() %>
-		</td>
-		<td>
-			<a href="MessageDetailAction.mb?msgnum=<%=ml.getMsgnum()%>">
-				<%=ml.getTitle()%>
-			</a>
-		</td>
-	</tr>
-	<%} %>
-		</table>
+	
+	</div>
 		<hr>
-		<input type="button" value="쪽지보내기">
+		  <a href="#" onclick="Recieved('message_list');"><input type="button" value="받은 쪽지함"></a>
+  <a href="#" onclick="Sent('message_list');"><input type="button" value="보낸 쪽지함"></a>
+  <input type="button" value="쪽지보내기">
+
 	</div>
-	</div>
-	<jsp:include page="../Footer.jsp"></jsp:include></body>
 </html>
