@@ -11,10 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import Action.Action;
 import Action.ActionForward;
+import Action.Comp.CompBoardModifyView;
+import Action.Comp.CompBoardRealModifyAction;
 import Action.CompFile.CompDataBoardAddAction;
 import Action.CompFile.CompDataBoardDeleteAction;
 import Action.CompFile.CompDataBoardDetailAction;
 import Action.CompFile.CompDataBoardListAction;
+import Action.CompFile.CompDataBoardModifyAction;
 
 
 @WebServlet("*.cf")
@@ -71,6 +74,27 @@ public class CompFileFrontController extends HttpServlet {
 			}
 		}else if(command.equals("/CompDataBoardDeleteAction.cf")){
 		   	action = new CompDataBoardDeleteAction();
+		   try{
+			   forward=action.execute(request, response);
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
+	   }else if(command.equals("/CompDataBoardModify.cf")){
+		   	action = new CompDataBoardModifyAction();
+		   try{
+			   forward=action.execute(request, response);
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
+	   }else if(command.equals("/CompDataBoardModifyView.cf")){
+		   	action = new CompBoardModifyView();
+		   try{
+			   forward=action.execute(request, response);
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
+	   }else if(command.equals("/CompDataBoardRealModifyAction.cf")){
+		   	action = new CompBoardRealModifyAction();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){

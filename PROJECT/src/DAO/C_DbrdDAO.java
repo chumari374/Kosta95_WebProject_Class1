@@ -11,6 +11,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import DTO.C_BrdDTO;
 import DTO.C_DbrdDTO;
 import DTO.C_DbrdDTO;
 
@@ -233,6 +234,27 @@ public class C_DbrdDAO {
 			}
 		}
 
+		return result;
+	}
+	
+	public int Modify(C_DbrdDTO modifyc_dbrd){
+		String sql = "update c_dbrd set TITLE=?, CONTENT=? where NUM=?";
+		
+		int result = 0;
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, modifyc_dbrd.getTitle());
+			pstmt.setString(2, modifyc_dbrd.getContent());
+			pstmt.setInt(3, modifyc_dbrd.getNum());
+			result = pstmt.executeUpdate();
+		} catch (Exception ex) {
+			System.out.println("boardModify ¿¡·¯ : " + ex);
+		} finally {
+			if (rs != null) try { rs.close(); } catch (SQLException ex) {}
+			if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}
+			if (conn != null) try { conn.close(); } catch (SQLException ex) {}
+		}
 		return result;
 	}
 }
