@@ -1,11 +1,5 @@
 <%
-    /* String msgnum = (String.valueOf(session.getAttribute("msgnum")));  */
-	String sendempno = (String.valueOf(request.getAttribute("sendempno"))); 
-	String title = (String)request.getAttribute("title");
-	String content = (String)request.getAttribute("content");
-	String filepath = (String)request.getAttribute("filepath");
-/* 	String sendempno = (String.valueOf(session.getAttribute("sendempno"))); */
-	
+
 %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -30,12 +24,10 @@
 	<div id="message_write_div">
 		<form action="../MessageWriteOk.mb" method="post" name="messageboardform">
 			<table id="message_write_table">
-				<tr>
-					<th></th>
-					<td>
-						받는사원번호<input type="text" name="sendempno">
-					</td>
-				</tr>
+			    <tr>
+			       <th>보내는사원번호</th>
+			       <td><input type="text" name="empno"></td>
+			    </tr>
 				<tr>
 					<th>제목</th>
 					<td>
@@ -55,6 +47,12 @@
 					</td>
 				</tr>
 					<tr align="center" valign="middle">
+						<tr>
+					<th>받는사원번호</th>
+					<td>
+						<input type="text" name="sendempno">
+					</td>
+				</tr>
 		<td colspan="2">
 		
 				<a href="javascript:addMSGboard()">

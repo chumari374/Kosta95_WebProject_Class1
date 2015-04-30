@@ -99,7 +99,7 @@ public class MessageDAO {
 	// 메세지 작성
 	public boolean MessageWrite(MessageDTO MessageBoard){
 		
-		int num = 0;
+		int msgnum = 0;
 		String sql = "";
 
 		int result = 0;
@@ -110,21 +110,21 @@ public class MessageDAO {
 			rs = pstmt.executeQuery();
 
 			if (rs.next())
-				num = rs.getInt(1) + 1;
+				msgnum = rs.getInt(1) + 1;
 			else
-				num = 1;
+				msgnum = 1;
 
-			sql = "insert into MessageBoard (SENDEMPNO,TITLE,CONTENT,";
-			sql += "FILEPATH)"
-					+ " values(?,?,?,?)";
+			sql = "insert into Message (MSGNUM,SENDEMPNO,TITLE,CONTENT,FILEPATH,EMPNO,ENAME)"
+					+ " values(MSGNUM.NEXTVAL,?,?,?,?,?)";
 
 			pstmt = conn.prepareStatement(sql);
-//			pstmt.setInt(1, num);
-			pstmt.setInt(1, MessageBoard.getSendempno());
+//			pstmt.setInt(1, msgnum);
+			pstmt.setInt(1, MessageBoard.getEmpno());
 			pstmt.setString(2,MessageBoard.getTitle());
 			pstmt.setString(3, MessageBoard.getContent());
 			pstmt.setString(4, MessageBoard.getFilepath());
-//			pstmt.setInt(6, MessageBoard.getSendempno());
+			pstmt.setInt(5, MessageBoard.getSendempno());
+			
 			
 			result = pstmt.executeUpdate();
 			if (result == 0)

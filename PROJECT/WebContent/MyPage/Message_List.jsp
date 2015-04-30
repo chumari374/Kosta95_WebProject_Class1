@@ -63,7 +63,7 @@ int endpage=(Integer)request.getAttribute("endpage");
 		   <%=ml.getEmpno() %>
 		</td>
 		<td>
-			<a href="CompBoardDetailAction.cp?num=<%=ml.getMsgnum()%>">
+			<a href="MessageDetailAction.mb?msgnum=<%=ml.getMsgnum()%>">
 				<%=ml.getTitle()%>
 			</a>
 		</td>
