@@ -6,7 +6,9 @@ import javax.servlet.http.HttpSession;
 
 import Action.Action;
 import Action.ActionForward;
+import DAO.AccountsDAO;
 import DAO.MemberInfoDAO;
+import DTO.AccountsDTO;
 import DTO.MemberInfoDTO;
 
 public class Account_EditAction implements Action{
@@ -15,11 +17,14 @@ public class Account_EditAction implements Action{
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ActionForward forward = new ActionForward();
-		MemberInfoDAO dao = new MemberInfoDAO();
+		MemberInfoDAO infodao = new MemberInfoDAO();
+		AccountsDAO accountdao = new AccountsDAO();
 		HttpSession session = request.getSession();
-		MemberInfoDTO dto = dao.getMemberInfo((int)session.getAttribute("empno"));
+		MemberInfoDTO infodto = infodao.getMemberInfo((int)session.getAttribute("empno"));
+		AccountsDTO accountdto = accountdao.pwd_search((int)session.getAttribute("empno"));
 		
-		request.setAttribute("account", dto);
+		request.setAttribute("memberInfo", infodto);
+		request.setAttribute("account", accountdto);
 		forward.setRedirect(false);
 		forward.setPath("MyPage/Account_Edit.jsp");
 		return forward;
