@@ -26,7 +26,8 @@
 	</style>
 	<script type="text/javascript">
 		$(function(){
-
+			
+				// 처음에 부서목록 출력해주기
 	          $.ajax({
 	              url : './Emp_Search/Dept.jsp',
 	              dataType : "json",
@@ -41,7 +42,7 @@
 	             error: function (xhr,Options,thrownError) {
 	             }
 	          });
-	          
+	          	// 처음에 페이지 들어왔을때 전체사원의 목록이 나오게
 	          $.ajax({
 	        	  url : './Emp_Search/Ename.jsp',
 	        	  dataType : "json",
@@ -74,6 +75,7 @@
 	        	  error: function (xhr,Options,thrownError) {
 		          }
 	          });
+	          	// 팀을 선택하면 사원들 목록 출력
  			 $('#teamlist').on("change",function(){
 					$('#emplist').empty();
 					$.ajax({
@@ -109,8 +111,9 @@
 						error:function(data){alert("Error 발생");}
 					});
 			}); 
-			
+				// 부서가 바뀌면 
 	          $('#deptlist').on("change",function(){
+	        	  	// 팀 목록 출력
 	        	  	$('#teamlist').empty();
 	        	  	 $.ajax({
 	   	              url : './Emp_Search/Team.jsp',
@@ -127,7 +130,7 @@
 	   	             error: function (xhr,Options,thrownError) {
 	   	             }
 	        	  	});
-	        	  	 
+	        	  	// 사원 목록 출력
 					$('#emplist').empty();
 					$.ajax({
 						url : "./Emp_Search/Search.jsp",
@@ -163,7 +166,7 @@
 					});
 			}); 
 	          
-	          
+	        // 버튼이 눌리면 사원목록 출력  
 	 		$('#btn').on("click",function(){
 						$('#emplist').empty();
 						$.ajax({
