@@ -1,0 +1,138 @@
+대표이사 홍순호
+
+
+	개발부장 이상문
+
+		솔루션팀장 추가영 / 솔루션팀 강민선 문성현 김명재 박중록
+		외주팀장 정자연 / 외주팀 정다애 이종섭 강경태 송재환
+
+
+	총무부장 이준하
+
+		경리팀장 박슬민 / 경리팀 김정현 김지현 장혜정
+		인사팀장 성기희 / 인사팀 이태현 유재현 심주찬
+		경영팀장 김현수 / 경영팀 김수민 민경호 송민경
+
+
+
+	영업부장 윤조영
+
+		기술경영팀장 김덕경 / 기술경영팀 강현구 강효정 김상준 
+		A/S팀장 이충희 / A/S팀 김성익 박종호 장보영 전형민
+
+
+
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150101,'홍순호','대표이사','true','true','true',100,1000,1);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150102,'이상문','개발부장','true','true','true',200,2000,2);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150103,'이준하','총무부장','true','true','true',300,3000,2);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150104,'윤조영','영업부장','true','true','true',400,4000,2);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150105,'추가영','솔루션팀','true','true','true',200,2001,3);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150106,'정자연','외주팀','true','true','true',200,2002,3);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150107,'박슬민','경리팀','true','true','true',300,3001,3);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150108,'성기희','인사팀','true','true','true',300,3002,3);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150109,'김현수','경영팀','true','true','true',300,3003,3);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150110,'김덕경','기술경영팀','true','true','true',400,4001,3);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150111,'이충희','A/S팀','true','true','true',400,4002,3);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150201,'강민선','솔루션팀','true','true','false',200,2001,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150202,'문성현','솔루션팀','true','true','false',200,2001,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150203,'김명재','솔루션팀','true','true','false',200,2001,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150204,'박중록','솔루션팀','true','true','false',200,2001,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150205,'정다애','외주팀','true','true','false',200,2002,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150206,'이종섭','외주팀','true','true','false',200,2002,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150207,'강경태','외주팀','true','true','false',200,2002,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150208,'송재환','외주팀','true','true','false',200,2002,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150209,'김정현','경리팀','true','true','false',300,3001,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150210,'김지현','경리팀','true','true','false',300,3001,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150211,'장혜정','경리팀','true','true','false',300,3001,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150212,'이태현','인사팀','true','true','false',300,3002,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150213,'유재현','인사팀','true','true','false',300,3002,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150214,'심주찬','인사팀','true','true','false',300,3002,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150215,'김수민','경영팀','true','true','false',300,3003,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150216,'민경호','경영팀','true','true','false',300,3003,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150217,'송민경','경영팀','true','true','false',300,3003,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150218,'강현구','기술경영팀','true','true','false',400,4001,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150219,'강효정','기술경영팀','true','true','false',400,4001,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150220,'김상준','기술경영팀','true','true','false',400,4001,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150221,'김성익','A/S팀','true','true','false',400,4002,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150222,'박종호','A/S팀','true','true','false',400,4002,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150223,'장보영','A/S팀','true','true','false',400,4002,4);
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150224,'전형민','A/S팀','true','true','false',400,4002,4);
+---------------------------------------------------------------------------------------------(사번,   이름,  팀이름,사인체크,메세지체크,어드민,부서코드,팀코드,직급)   
+commit;
+      
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150101,'02-1234-0101',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150102,'02-1234-0102',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150103,'02-1234-0103',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150104,'02-1234-0104',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150105,'02-1234-0105',sysdate,sysdate,'여자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150106,'02-1234-0106',sysdate,sysdate,'여자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150107,'02-1234-0107',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150108,'02-1234-0108',sysdate,sysdate,'여자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150109,'02-1234-0109',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150110,'02-1234-0110',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150111,'02-1234-0111',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150201,'02-1234-02',sysdate,sysdate,'여자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150202,'02-1234-02',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150203,'02-1234-02',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150204,'02-1234-02',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150205,'02-1234-02',sysdate,sysdate,'여자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150206,'02-1234-02',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150207,'02-1234-02',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150208,'02-1234-02',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150209,'02-1234-02',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150210,'02-1234-02',sysdate,sysdate,'여자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150211,'02-1234-02',sysdate,sysdate,'여자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150212,'02-1234-02',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150213,'02-1234-02',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150214,'02-1234-02',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150215,'02-1234-02',sysdate,sysdate,'여자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150216,'02-1234-02',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150217,'02-1234-02',sysdate,sysdate,'여자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150218,'02-1234-02',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150219,'02-1234-02',sysdate,sysdate,'여자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150220,'02-1234-02',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150221,'02-1234-02',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150222,'02-1234-02',sysdate,sysdate,'남자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150223,'02-1234-02',sysdate,sysdate,'여자',sysdate,'true');
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150224,'02-1234-02',sysdate,sysdate,'남자',sysdate,'true');
+-------------------------------------------------------------------------------( 사번    ,     사내전화번호    ,  입사일    , 퇴사일    , 성별   , 생년월일 , 재직여부)
+commit;
+
+select * from accounts;
+--회원가입
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150101,1004,'0113784358@naver.com','판교 사원아파트 101호','010-1234-0101','tnsgh.jpg','좋은아침~'); 
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150102,1004,'tkdans100@naver.com','판교 사원아파트 102호','010-1234-0102','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150103,1004,'oil_bird@naver.com','판교 사원아파트 103호','010-1234-0103','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150104,1004,'chumari374@naver.com','판교 사원아파트 104호','010-1234-0104','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150105,1004,'qiutian8888@naver.com','판교 사원아파트 105호','010-1234-0105','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150106,1004,'natu_rej@naver.com','판교 사원아파트 106호','010-1234-0106','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150107,1004,'crazy6798@naver.com','판교 사원아파트 107호','010-1234-0107','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150108,1004,'tjdrlgml@naver.com','판교 사원아파트 108호','010-1234-0108','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150109,1004,'ekekejek@naver.com','판교 사원아파트 109호','010-1234-0109','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150110,1004,'kimkdk0@naver.com','판교 사원아파트 110호','010-1234-0110','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150111,1004,'lch5987@naver.com','판교 사원아파트 111호','010-1234-0111','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150201,1004,'kmsun9941@naver.com','판교 사원아파트 201호','010-1234-0201','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150202,1004,'gathering11@naver.com','판교 사원아파트 202호','010-1234-0202','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150203,1004,'namungge@naver.com','판교 사원아파트 203호','010-1234-0203','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150204,1004,'ulina25@naver.com','판교 사원아파트 204호','010-1234-0204','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150205,1004,'ekdo6226@naver.com','판교 사원아파트 205호','010-1234-0205','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150206,1004,'dlwhdtjqdl@naver.com','판교 사원아파트 206호','010-1234-0206','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150207,1004,'karamade@naver.com','판교 사원아파트 207호','010-1234-0207','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150208,1004,'millionsguy@naver.com','판교 사원아파트 208호','010-1234-0208','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150209,1004,'hyun5874@naver.com','판교 사원아파트 209호','010-1234-0209','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150210,1004,'kjh199311@naver.com','판교 사원아파트 210호','010-1234-0210','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150211,1004,'kscom444@naver.com','판교 사원아파트 211호','010-1234-0211','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150212,1004,'nayalth@naver.com','판교 사원아파트 212호','010-1234-0212','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150213,1004,'yjh95411@naver.com','판교 사원아파트 213호','010-1234-0213','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150214,1004,'juchansijm@naver.com','판교 사원아파트 214호','010-1234-0214','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150215,1004,'90_belle@naver.com','판교 사원아파트 215호','010-1234-0215','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150216,1004,'redskelt@naver.com','판교 사원아파트 216호','010-1234-0216','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150217,1004,'ynoon1@naver.com','판교 사원아파트 217호','010-1234-0217','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150218,1004,'gusrn45@naver.com','판교 사원아파트 218호','010-1234-0218','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150219,1004,'ebstn1@naver.com','판교 사원아파트 219호','010-1234-0219','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150220,1004,'skg44@naver.com','판교 사원아파트 220호','010-1234-0220','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150221,1004,'01064095735@naver.com','판교 사원아파트 221호','010-1234-0221','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150222,1004,'swampking@naver.com','판교 사원아파트 222호','010-1234-0222','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150223,1004,'jangboyeong@naver.com','판교 사원아파트 223호','010-1234-0223','프로필사진','프로필메세지');
+insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150224,1004,'jhm9595@naver.com','판교 사원아파트 224호','010-1234-0224','프로필사진','프로필메세지');
+commit;
