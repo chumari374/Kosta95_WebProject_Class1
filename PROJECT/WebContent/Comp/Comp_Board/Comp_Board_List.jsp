@@ -12,14 +12,13 @@
 	int startpage=(Integer)request.getAttribute("startpage");// 
 	int endpage=(Integer)request.getAttribute("endpage");//페이지에 띄울 게시글 start~end
 	
-	int ing = (nowpage/5)+1;
-	int level = ing;
- 	int end = level*5;
+	int ing = (nowpage/5)+1; // 계층을 계산함 1~5 1단계 6~10 2단계 ...
+	int level = ing;// 위와 같은 의미로 쓰임
+ 	int end = level*5;//단계에 5를 곱하면 현재 페이지의 끝페이지 알수 있음
 	
-	if(nowpage%5==0){
+	if(nowpage%5==0){//그러나 5의 배수일 경우는 1단계 떨어뜨려줌  그렇지않으면 다음단계로 계산됌
 		level = ing-1;
 		end = level*5;
-		
 	}
 	
 
