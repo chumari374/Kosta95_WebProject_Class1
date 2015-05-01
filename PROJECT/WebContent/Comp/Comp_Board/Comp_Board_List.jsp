@@ -16,18 +16,12 @@
 	int level = ing;
  	int end = level*5;
 	
-
 	if(nowpage%5==0){
 		level = ing-1;
 		end = level*5;
 		
 	}
 	
-// 	if(nowpage%5!=0){
-// 		if(((nowpage/5)*5)+1 <=nowpage && nowpage <=maxpage){
-// 			end=maxpage;
-// 		}
-// 	}
 
 %>
 <!-- 사내게시판 페이지 -->
@@ -162,31 +156,7 @@ if(listcount > 0){
 		</td>
 	</tr>
 	<%} %>
-	
-	<!--  -->
-<!-- 	<tr align=center height=20> -->
-<!-- 		<td colspan=7 style=font-family:Tahoma;font-size:10pt;> -->
-<%-- 			<%if(nowpage<=1){ %> --%>
-<!-- 			<input type="button" value="이전" >&nbsp; -->
-<%-- 			<%}else{ %> --%>
-<%-- 			<a href ="CompBoardList.cp?page=<%=nowpage-1 %>"><input type="button" value="이전 "></a>&nbsp; --%>
-<%-- 			<%} %> --%>
-			
-<%-- 			<%for(int a=startpage;a<=endpage;a++){ --%>
-<%-- 				if(a==nowpage){%> --%>
-<%-- 				<input type="button" value="<%=a %>" style="background-color: #B2EBF4">&nbsp; --%>
-<%-- 				<%}else{ %> --%>
-<%-- 					<a href="CompBoardList.cp?page=<%=a %>"><input type="button" value="<%=a %>"></a>&nbsp; --%>
-<%-- 				<%} %> --%>
-<%-- 			<%} %> --%>
-			
-<%-- 			<%if(nowpage>=maxpage){ %> --%>
-<!-- 			<input type="button" value="다음"> -->
-<%-- 			<%}else{ %> --%>
-<%-- 			<a href="CompBoardList.cp?page=<%=nowpage+1 %>"><input type="button" value="다음"></a> --%>
-<%-- 			<%} %> --%>
-<!-- 		</td> -->
-<!-- 	</tr> -->
+	<!-- 페이징처리 시작 -->
 	<tr align=center height=20>
 		<td colspan=7 style=font-family:Tahoma;font-size:10pt;>
 			<%if(level<=1){ %>
@@ -198,9 +168,14 @@ if(listcount > 0){
 			<%for(int i=level*5-4;i<= end ;i++){
 				if(i==nowpage){%>
 				<input type="button" value="<%=i %>" style="background-color: #B2EBF4">&nbsp;
-				<%}else{ %>
+				<%}else{ 
+					if(i<=maxpage){
+				%>
 					<a href="CompBoardList.cp?page=<%=i %>"><input type="button" value="<%=i %>"></a>&nbsp;
-				<%} %>
+				<%
+					}
+				 }
+				%>
 			<%} %>
 			
 			<%if(level>=(maxpage/5)+1){ %>
@@ -210,7 +185,7 @@ if(listcount > 0){
 			<%} %>
 		</td>
 	</tr>
-	<!--  -->
+	<!-- 페이징처리 끝 -->
 	<%
     }
 	else
