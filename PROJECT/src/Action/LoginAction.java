@@ -31,7 +31,7 @@ public class LoginAction implements Action{
 			response.setContentType("text/html;charset=utf-8");
 	   		PrintWriter out=response.getWriter();
 	   		out.println("<script>");
-	   		out.println("alert('»ç¿ø¹øÈ£¿Í ºñ¹Ð¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.');");
+	   		out.println("alert('ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.');");
 	   		out.println("location.href='Login.jsp';");
 	   		out.println("</script>");
 	   		out.close();
@@ -49,7 +49,7 @@ public class LoginAction implements Action{
 		session.setAttribute("admin", emp.getAdmin());
 		session.setAttribute("p_picture", dto.getP_picture());
 		
-		String host = System.getProperty("host");
+		String host = request.getRemoteHost();
 		System.out.println(host);
 		forward.setRedirect(false);
 		forward.setPath("SubMain.jsp");

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="UTF-8"%>
+<jsp:include page="../Main.jsp"></jsp:include>
+	<div id="main" align="left">
 <!-- 내일정관리 페이지 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -39,12 +41,11 @@
 	<script type="text/javascript" src="calendar/js/lib/jshashtable-2.1.js"></script>
 	
 	<!-- Include JQuery Frontier Calendar plugin -->
-	<script type="text/javascript" src="calendar/js/frontierCalendar/jquery-frontier-cal-1.3.2.min.js"></script>
+	<script type="text/javascript" src="calendar/js/frontierCalendar/jquery-frontier-cal-1.3.2.js"></script>
 
 </head>
 <body style="background-color: #aaaaaa;">
-<jsp:include page="../Main.jsp"></jsp:include>
-	<div id="main" align="left">
+
 	<!-- Some CSS for our example. (Not required for calendar plugin. Used for example.)-->
 	<style type="text/css" media="screen">
 	body { font-size: 62.5%; }
@@ -667,12 +668,7 @@
 		
 	});
 	</script>
-<div id="tabs">
-<!-- 	<ul>
-		<li><a href="#tabs-2">Example</a></li>
-	</ul>
- -->		
-	<div id="tabs-2">
+
 
 		<div id="example" style="margin: auto; width:80%;">
 		
@@ -802,10 +798,9 @@
 
 		<p>&nbsp;</p>
 
-	</div><!-- end example tab -->
-</div>
-</div>
-<jsp:include page="../Footer.jsp"></jsp:include>
+
 </body>
 
 </html>
+	</div>
+<jsp:include page="../Footer.jsp"></jsp:include>

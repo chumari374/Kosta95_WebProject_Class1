@@ -35,7 +35,7 @@ public class MyPageFrontController extends HttpServlet {
 		System.out.println("ContextPath : " + ContextPath);
 		System.out.println("command : " + command);
 		
-		//ÀÏ°ýÃ³¸®¸¦ À§ÇØ¼­
+		//ï¿½Ï°ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½
 		ActionForward forward = null;
 		Action action = null;
 		if(command.equals("/Account_Edit.mp")){
@@ -52,6 +52,10 @@ public class MyPageFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/SchedulePage.mp")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("MyPage/Schedule.jsp");
 		}
 		
 		if(forward != null){
