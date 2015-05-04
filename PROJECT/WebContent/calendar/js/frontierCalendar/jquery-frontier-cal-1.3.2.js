@@ -2483,6 +2483,8 @@
 		 * @param item - (CalendarAgendaItem) - A new CalendarAgendaItem object.
 		 */
 		this.addAgendaItem = function(item){
+
+			console.log(this);
 			if(item.getAgendaId() == 0){
 				// no internal agend ID, we need to give it one
 				item.setAgendaId(this.agendaId);	
@@ -3744,6 +3746,7 @@
 					}
 				}
 				var agi = new CalendarAgendaItem(title,startDate,endDate,allDay,hashData);
+				console.log(agi);
 				if(displayProp != null){
 					if(displayProp.backgroundColor != null){
 						agi.setBackgroundColor(displayProp.backgroundColor);
@@ -3753,7 +3756,8 @@
 					}
 				}
 				var calObj = myCalendars.get(calId);
-				calObj.addAgendaItem(agi);		
+				calObj.addAgendaItem(agi);
+				console.log(calObj);
 			}
 		};
 		
