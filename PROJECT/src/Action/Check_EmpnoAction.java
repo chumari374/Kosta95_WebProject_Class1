@@ -17,33 +17,22 @@ public class Check_EmpnoAction implements Action{
 		ActionForward forward = new ActionForward();
 		int empno = Integer.parseInt(request.getParameter("empno"));
 		boolean isExistEmpno = dao.isExistEmpno(empno);
-		if(isExistEmpno){
+		if(isExistEmpno){ //ì¡´ìž¬í•˜ë©´ ""
 			response.setContentType("text/html;charset=utf-8");
 	   		PrintWriter out;
 			try {
 				out = response.getWriter();
-				/*out.println("<script>");
-		   		out.println("alert('Á¸ÀçÇÏ´Â »ç¿ø¹øÈ£ÀÔ´Ï´Ù.');");
-		   		out.println("history.go(-1);");
-		   		out.println("</script>");*/
-		   		
-		   		
 		   		out.close();
 		   		return null;
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 	   		
-		}else{
+		}else{ //ì¡´ìž¬í•˜ì§€ì•Šìœ¼ë©´ "empno"ì¶œë ¥
 			response.setContentType("text/html;charset=utf-8");
 	   		PrintWriter out;
 			try {
 				out = response.getWriter();
-				/*out.println("<script>");
-		   		out.println("alert('»ç¿ë °¡´ÉÇÑ »ç¿ø¹øÈ£ÀÔ´Ï´Ù.');");
-		   		out.println("history.go(-1);");
-		   		out.println("</script>");*/
-
 		   		out.println(empno);
 		   		
 		   		out.close();

@@ -22,28 +22,19 @@
 	<script type="text/javascript">
 		$(function(){
 			$('#checkEmpno').click(function(){
+				//사번 중복 확인 버튼을 누르면
+				//'Popup_Empno.jsp' 팝업창 오픈
 				open('Popup_Empno.jsp', 'checkEmpno', 'width=500 height=200');
-				/* var length = $('#empno').val().length;
-				if(length==0){
-					alert('입력하세요');
-					return false;
-				}
-				document.registerForm.action='empnoCheck.ad';
-				document.registerForm.submit(); */
 			});
 			
 			$('#checkEmail').click(function(){
+				//이메일 중복 확인 버튼을 누르면
+				//'Popup_Email.jsp' 팝업창 오픈
 				open('Popup_Email.jsp', 'checkEmail', 'width=500 height=200');
-				/* var length = $('#email').val().length;
-				if(length==0){
-					alert('입력하세요');
-					return false;
-				}
-				document.registerForm.action='emailCheck.ad';
-				document.registerForm.submit(); */
 			});
 			
 			$('#registerOk').click(function(){
+				//pwd와 pwd2 일치확인
 				var pwd = $('#pwd').val();
 				var pwd2 = $('#pwd2').val();
 				
@@ -72,6 +63,7 @@
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-4">
+				<!-- 사번 중복 확인 버튼 -->
 				<input class="btn btn-lg btn-danger btn-block" type="button" value="중복확인" id="checkEmpno">
 				</div>
 			</div>
@@ -88,6 +80,7 @@
 			</div>
 				</div>
 				<div class="col-xs-4 col-sm-3 col-md-4">
+					<!-- 이메일 중복 확인 버튼 -->
 					<input class="btn btn-lg btn-warning btn-block" type="button" value="중복확인" id="checkEmail">
 				</div>
 			</div>

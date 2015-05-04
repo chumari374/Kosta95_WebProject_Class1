@@ -42,24 +42,29 @@ body {
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+	//유효성체크
 	$(function(){
 		$('#login').click(function(){
 			var empno = $('#empno').val();
 			var pwd = $('#pwd').val();
 			console.log(empno+"/"+pwd);
+			//사번의 길이가 0이거나 null일때
 			if(empno.length==0||empno==null){
 				alert('사원번호를 입력하세요');
 				return false;
 			}
+			//암호의 길이가 0이거나 null일때
 			if(pwd.length==0||pwd==null){
 				alert('비밀번호를 입력하세요');
 				return false;
 			}
+			//성공하면 AdminFrontController로 넘김
 			document.loginForm.action="login_Ok.ad";
 			document.loginForm.submit();
 		});
 		
 	});
+	//사번 숫자 체크
 	function onlyNum(){
 		//event 객체 (mouse 제어, 키보드 입력값 제어)
 		if((event.keyCode<48)||(event.keyCode>57)){

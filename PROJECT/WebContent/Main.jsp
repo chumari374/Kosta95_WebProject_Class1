@@ -85,7 +85,7 @@
               <ul class="submenu">         
                  <li><a href="Account_Edit.mp">개인정보 수정</a></li>          
                  <li><a href="">메세지함</a></li>       
-                 <li><a href="#">일정관리</a></li>    
+                 <li><a href="SchedulePage.mp">일정관리</a></li>    
               </ul>    
         </li>
         

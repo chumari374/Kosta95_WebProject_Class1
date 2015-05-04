@@ -21,27 +21,19 @@ public class Check_EmailAction implements Action{
 		if(isExistEmail){
 			response.setContentType("text/html;charset=utf-8");
 	   		PrintWriter out;
-			try {
+			try { //ì¡´ìž¬í•˜ë©´ ""
 				out = response.getWriter();
-				/*out.println("<script>");
-		   		out.println("alert('Á¸ÀçÇÏ´Â ÀÌ¸ÞÀÏÀÔ´Ï´Ù.');");
-		   		out.println("history.go(-1);");
-		   		out.println("</script>");*/
 		   		out.close();
 		   		return null;
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 	   		
-		}else{
+		}else{ //ì¡´ìž¬í•˜ì§€ì•Šìœ¼ë©´ "email"ì¶œë ¥
 			response.setContentType("text/html;charset=utf-8");
 	   		PrintWriter out;
 			try {
 				out = response.getWriter();
-				/*out.println("<script>");
-		   		out.println("alert('»ç¿ë °¡´ÉÇÑ ÀÌ¸ÞÀÏÀÔ´Ï´Ù.');");
-		   		out.println("history.go(-1);");
-		   		out.println("</script>");*/
 				
 				out.println(email);
 				

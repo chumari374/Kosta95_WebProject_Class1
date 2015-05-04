@@ -15,6 +15,7 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import DTO.MemberInfoDTO;
 
+//Memberinfo view ì—ê´€í•œ í´ë˜ìŠ¤
 public class MemberInfoDAO {
 	
 	DataSource ds;
@@ -27,18 +28,19 @@ public class MemberInfoDAO {
 			Context context = new InitialContext();
 			ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
 		} catch (Exception e) {
-			System.out.println("DB¿¬°á ½ÇÆĞ:" + e);
+			System.out.println("DBï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½:" + e);
 			return;
 		}
 	}
 	
-	// ¸É¹öÁ¤º¸Ãâ·Â
+	// ë§´ë²„ì •ë³´ì¶”ì¶œ(ì‚¬ë²ˆ)
 	public MemberInfoDTO getMemberInfo(int num){
 		
 		MemberInfoDTO memberinfo = new MemberInfoDTO();
 		
 		try{
 			conn = ds.getConnection();
+			//ì‚¬ë²ˆì— ëŒ€í•œ ëª¨ë“  ì •ë³´ì¶”ì¶œ
 			pstmt = conn.prepareStatement("select * from memberinfo where empno = ?");
 			pstmt.setInt(1, num);
 			
@@ -59,10 +61,9 @@ public class MemberInfoDAO {
 				memberinfo.setGradename(rs.getString("GRADENAME"));
 				memberinfo.setEmptel(rs.getString("EMPTEL"));
 			}
-			//return memberinfo;
 			
 		}catch(Exception ex){
-			System.out.println("getMemberInfo ¿¡·¯ : " + ex);
+			System.out.println("getMemberInfo ï¿½ï¿½ï¿½ï¿½ : " + ex);
 		}finally{
 			if(rs!=null)try{rs.close();}catch(SQLException ex){}
 			if(pstmt !=null)try{pstmt.close();}catch(SQLException ex){}
@@ -71,7 +72,7 @@ public class MemberInfoDAO {
 		return memberinfo;
 	}
 	
-	// »ç¿ø¸®½ºÆ® Ãâ·Â(»ç¿øÃ£±â¿¡¼­)
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Ã£ï¿½â¿¡ï¿½ï¿½)
 	public List MemberList(){
 		
 		List list = new ArrayList();
@@ -94,7 +95,7 @@ public class MemberInfoDAO {
 			}
 			
 		}catch(Exception ex){
-			System.out.println("getMemberInfo ¿¡·¯ : " + ex);
+			System.out.println("getMemberInfo ï¿½ï¿½ï¿½ï¿½ : " + ex);
 		}finally{
 			if(rs!=null)try{rs.close();}catch(SQLException ex){}
 			if(pstmt !=null)try{pstmt.close();}catch(SQLException ex){}
@@ -104,7 +105,7 @@ public class MemberInfoDAO {
 		
 	}
 	
-	// ¸â¹ö ¸®½ºÆ® JSON °´Ã¼·Î... 
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® JSON ï¿½ï¿½Ã¼ï¿½ï¿½... 
 	public JSONArray MemberListJSON(){
 		
 		JSONArray rows = new JSONArray();
@@ -127,7 +128,7 @@ public class MemberInfoDAO {
 			}
 			
 		}catch(Exception ex){
-			System.out.println("getMemberInfo ¿¡·¯ : " + ex);
+			System.out.println("getMemberInfo ï¿½ï¿½ï¿½ï¿½ : " + ex);
 		}finally{
 			if(rs!=null)try{rs.close();}catch(SQLException ex){}
 			if(pstmt !=null)try{pstmt.close();}catch(SQLException ex){}
