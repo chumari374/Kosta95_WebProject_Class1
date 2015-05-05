@@ -29,7 +29,6 @@ public class StatusSignAction implements Action {
 		System.out.println(step);
 		System.out.println(status);
 		
-		
 		signdao.SignStatus(status, ref, step);
 		
 		ActionForward forward = new ActionForward();
