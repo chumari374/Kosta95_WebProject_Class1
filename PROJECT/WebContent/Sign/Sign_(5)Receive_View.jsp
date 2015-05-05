@@ -84,7 +84,6 @@ table, td, tr {
 				<%if(status.equals("대기")) {%> 
 				<input type="submit" id="status" name="status" value="승인"> 
 				<input type="submit" id="status" name="status" value="취소"> 
-				<input type="submit" id="status" name="status" value="반려">
 				<input type="submit" id="status" name="status" value="상부보고">
 				<%} %>
 			</center>
