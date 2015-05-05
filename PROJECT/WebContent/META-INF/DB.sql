@@ -715,6 +715,11 @@ create sequence Comp_Databoard_Num -- 사내자료실 num 시퀀스
      start with 1        
      nocache;
      
+create sequence Comp_Notice_Num -- 사내공지사항 num 시퀀스
+     increment by 1 
+     start with 1        
+     nocache;
+     
      
 --직급 추가     
 insert into grade (grade,gradename) values(1,'대표이사');
