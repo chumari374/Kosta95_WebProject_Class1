@@ -406,7 +406,7 @@ public class SignDAO {
 	}
 
 	// ======== 받은 결재 글의 갯수 구하는 함수 ======
-	public int getSignListCount(int empno) {
+	public int getSignListCount(int empno, String status) {
 		int rowcount = 0;
 		try {
 
@@ -414,16 +414,17 @@ public class SignDAO {
 
 			conn = ds.getConnection();
 			pstmt = conn
-					.prepareStatement("select count(*) from sign where getsign = ?");
+					.prepareStatement("select count(*) from sign where getsign = ? and status = ?");
 
 			pstmt.setInt(1, empno);
+			pstmt.setString(2, status);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				rowcount = rs.getInt(1);
 				System.out.println(rowcount);
 			}
 		} catch (Exception e) {
-
+			
 		} finally {
 			try {
 				rs.close();
