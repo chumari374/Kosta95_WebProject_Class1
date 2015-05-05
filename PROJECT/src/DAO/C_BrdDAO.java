@@ -24,12 +24,12 @@ public class C_BrdDAO {
 			Context context = new InitialContext();
 			ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
 		} catch (Exception e) {
-			System.out.println("DB¿¬°á ½ÇÆÐ:" + e);
+			System.out.println("DBì—°ê²° ì‹¤íŒ¨:" + e);
 			return;
 		}
 	}
 	
-	//Á¶È¸¼ö ¾÷µ¥ÀÌÆ®.
+	//ì¡°íšŒìˆ˜ ì—…ë°ì´íŠ¸.
 	public void setReadCountUpdate(int num) throws Exception{
 		String sql="update C_BRD set COUNT = COUNT+1 where NUM = "+num;
 		
@@ -38,7 +38,7 @@ public class C_BrdDAO {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.executeUpdate();
 		}catch(SQLException ex){
-			System.out.println("setReadCountUpdate ¿¡·¯ : "+ex);
+			System.out.println("setReadCountUpdate ì—ëŸ¬ : "+ex);
 		}
 		finally{
 			try{
@@ -79,7 +79,7 @@ public class C_BrdDAO {
 
 					return list;
 				} catch (Exception ex) {
-					System.out.println("getNoticeList ¿¡·¯ : " + ex);
+					System.out.println("getNoticeList ì—ëŸ¬ : " + ex);
 				} finally {
 					if (rs != null) try { rs.close(); } catch (SQLException ex) {}
 					if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}
@@ -121,35 +121,35 @@ public class C_BrdDAO {
 		return rowcount;
 	}
 	
-//	 °Ô½ÃÆÇ ¸®½ºÆ® Ãâ·Â
-//	public List getList(int page, int limit){//limit ÆäÀÌÁö»çÀÌÁî
-	public List getBoardList(int page, int limit){//limit ÆäÀÌÁö»çÀÌÁî
-		// ±Û ¸ñ·Ï º¸±â
+//	 ê²Œì‹œíŒ ë¦¬ìŠ¤íŠ¸ ì¶œë ¥
+//	public List getList(int page, int limit){//limit íŽ˜ì´ì§€ì‚¬ì´ì¦ˆ
+	public List getBoardList(int page, int limit){//limit íŽ˜ì´ì§€ì‚¬ì´ì¦ˆ
+		// ê¸€ ëª©ë¡ ë³´ê¸°
 				/*
-				 * 18°Ç 
+				 * 18ê±´ 
 				 * pagesize = 5 
-				 * pagelist = 4°³        1~5 , 5~10 , 11~15 , 16~18 
-				 * pageindex = 3        11~15°³ÀÇ µ¥ÀÌÅÍ
+				 * pagelist = 4ê°œ        1~5 , 5~10 , 11~15 , 16~18 
+				 * pageindex = 3        11~15ê°œì˜ ë°ì´í„°
 				 * 
-				 * BoardBean page = new BoardBean(); =>Table Row ÇÑ°Ç ¿©·¯°ÇÀÇ µ¥ÀÌÅÍ ¹è¿­
+				 * BoardBean page = new BoardBean(); =>Table Row í•œê±´ ì—¬ëŸ¬ê±´ì˜ ë°ì´í„° ë°°ì—´
 				 */
 				// List.jsp
 				// page =2 , limit =10(pagesize)
-		//±Û¹øÈ£	Á¦¸ñ	ÀÛ¼ºÀÚ	ÀÛ¼ºÀÏ	Á¶È¸¼ö
+		//ê¸€ë²ˆí˜¸	ì œëª©	ìž‘ì„±ìž	ìž‘ì„±ì¼	ì¡°íšŒìˆ˜
 	//	int limit = 10;
 		String getC_BrdList_sql = "select * from (select rownum rnum, NUM,EMPNO,TITLE,CONTENT,REF,DPTH,STEP,COUNT,WRITE_DATE,ENAME,NOTICE from (select * from C_BRD order by REF desc,STEP asc)) where rnum>=? and rnum<=?";
 		
 		List<C_BrdDTO> list = new ArrayList<C_BrdDTO>();
 		
 		// List<Article> articleList = new ArrayList<Article>();
-				// ±ÇÀå¹æ½Ä generic »ç¿ë
+				// ê¶Œìž¥ë°©ì‹ generic ì‚¬ìš©
 				int startrow = (page - 1) * 10 + 1;
-				// Code //ÀÐ±â ½ÃÀÛÇÒ row ¹øÈ£.
+				// Code //ì½ê¸° ì‹œìž‘í•  row ë²ˆí˜¸.
 				// (2-1)*10+1 (1)*10+1 10 +1 11
-				// page ¾ø¾î : 1
-				int endrow = startrow + limit - 1; // ÀÐÀ» ¸¶Áö¸· row ¹øÈ£.
+				// page ì—†ì–´ : 1
+				int endrow = startrow + limit - 1; // ì½ì„ ë§ˆì§€ë§‰ row ë²ˆí˜¸.
 				// 11 +10 => 21-1 => 20
-				// page ¾ø¾î : 10
+				// page ì—†ì–´ : 10
 				try {
 					conn = ds.getConnection();
 					pstmt = conn.prepareStatement(getC_BrdList_sql);
@@ -175,7 +175,7 @@ public class C_BrdDAO {
 
 					return list;
 				} catch (Exception ex) {
-					System.out.println("getBoardList ¿¡·¯ : " + ex);
+					System.out.println("getBoardList ì—ëŸ¬ : " + ex);
 				} finally {
 					if (rs != null) try { rs.close(); } catch (SQLException ex) {}
 					if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}
@@ -184,7 +184,7 @@ public class C_BrdDAO {
 				return null;
 		}
 	
-	// ±Û ³»¿ë º¸±â
+	// ê¸€ ë‚´ìš© ë³´ê¸°
 	
 	public C_BrdDTO getDetail(int num){
 		
@@ -214,7 +214,7 @@ public class C_BrdDAO {
 			}
 			return c_brd;
 		} catch (Exception ex) {
-			System.out.println("getDetail ¿¡·¯ : " + ex);
+			System.out.println("getDetail ì—ëŸ¬ : " + ex);
 		} finally {
 			if (rs != null) try { rs.close(); } catch (SQLException ex) {}
 			if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}
@@ -223,7 +223,7 @@ public class C_BrdDAO {
 		return null;
 	}
 	
-	// ±Û µî·Ï
+	// ê¸€ ë“±ë¡
 	public boolean Insert(C_BrdDTO c_brd){
 		
 		int num = 0;
@@ -251,7 +251,7 @@ public class C_BrdDAO {
 
 			return true;
 		} catch (Exception ex) {
-			System.out.println("boardInsert ¿¡·¯ : " + ex);
+			System.out.println("boardInsert ì—ëŸ¬ : " + ex);
 		} finally {
 			if (rs != null) try { rs.close(); } catch (SQLException ex) {}
 			if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}
@@ -260,19 +260,19 @@ public class C_BrdDAO {
 		return false;
 	}
 	
-	// ±Û ´äº¯ (key point)
-	// ±ÛÀ» ÀÐ°í ±× ±Û¿¡ ´ëÇÑ ´äº¯(°Ô½Ã±Û)
+	// ê¸€ ë‹µë³€ (key point)
+	// ê¸€ì„ ì½ê³  ê·¸ ê¸€ì— ëŒ€í•œ ë‹µë³€(ê²Œì‹œê¸€)
 //	public int Reply(C_BrdDTO c_brd){
-//		// ´äº¯ 2°³ÀÇ Äõ¸®
-//		// 1, update ... ³»°¡ ÀÚ¸®ÀâÀ» À§Ä¡ board_re_seq
-//		// 2, insert ... ½Ç µ¥ÀÌÅÍ Ã³¸®
-//		// ÄÚµå ±¸Çö
+//		// ë‹µë³€ 2ê°œì˜ ì¿¼ë¦¬
+//		// 1, update ... ë‚´ê°€ ìžë¦¬ìž¡ì„ ìœ„ì¹˜ board_re_seq
+//		// 2, insert ... ì‹¤ ë°ì´í„° ì²˜ë¦¬
+//		// ì½”ë“œ êµ¬í˜„
 //		String c_brd_max_sql = "select max(num) from c_brd";
 //		String sql = "";
 //		int num = 0;
 //		int result = 0;
 //		
-//		// ÇöÀç ³»°¡ ÀÐ°í ´äº¯À» ÇÏ·Á´Â ¿øº»±ÛÀÇ Á¤º¸
+//		// í˜„ìž¬ ë‚´ê°€ ì½ê³  ë‹µë³€ì„ í•˜ë ¤ëŠ” ì›ë³¸ê¸€ì˜ ì •ë³´
 //		int ref = c_brd.getRef();
 //		int dpth = c_brd.getDpth();
 //		int step = c_brd.getStep();
@@ -286,7 +286,7 @@ public class C_BrdDAO {
 //			} else {
 //				num = 1;
 //			}
-//			// update ¹® (À§Ä¡ È®º¸)
+//			// update ë¬¸ (ìœ„ì¹˜ í™•ë³´)
 //			sql = " UPDATE c_brd SET STEP = STEP +1 "
 //					+ " WHERE REF = ? AND STEP > ?";
 //			pstmt = conn.prepareStatement(sql);
@@ -296,8 +296,8 @@ public class C_BrdDAO {
 //			result = pstmt.executeUpdate();
 //
 //			// insert board :(key point)
-//			step = step + 1; // ÇöÀç ÀÐÀº ±Û + 1
-//			dpth = dpth + 1; // ÇöÀç ÀÐÀº ±Û + 1
+//			step = step + 1; // í˜„ìž¬ ì½ì€ ê¸€ + 1
+//			dpth = dpth + 1; // í˜„ìž¬ ì½ì€ ê¸€ + 1
 //
 //			sql = "insert into c_brd (NUM, EMPNO, TITLE,";
 //			sql += "CONTENT, NOTICE, WRITE_DATE, REF, DPTH, STEP)"
@@ -326,7 +326,7 @@ public class C_BrdDAO {
 //		return 0;
 //	}
 //	
-//	// ±Û ¼öÁ¤
+//	// ê¸€ ìˆ˜ì •
 	public boolean Modify(C_BrdDTO modifyc_brd){
 		
 		String sql = "update c_brd set TITLE=?, CONTENT=? where NUM=?";
@@ -340,7 +340,7 @@ public class C_BrdDAO {
 			pstmt.executeUpdate();
 			return true;
 		} catch (Exception ex) {
-			System.out.println("boardModify ¿¡·¯ : " + ex);
+			System.out.println("boardModify ì—ëŸ¬ : " + ex);
 		} finally {
 			if (rs != null) try { rs.close(); } catch (SQLException ex) {}
 			if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}
@@ -349,24 +349,24 @@ public class C_BrdDAO {
 		return false;
 	}
 	
-	// ±Û »èÁ¦
+	// ê¸€ ì‚­ì œ
 		// delete.jsp
 		public boolean Delete(int num) {
-			// ÁÖÀÇÁ¡
-			// ±ÔÄ¢ : ¿øº»±ÛÀÌ »èÁ¦µÇ¸é ´Ù Áö¿ö (ref = 1 ) .....
+			// ì£¼ì˜ì 
+			// ê·œì¹™ : ì›ë³¸ê¸€ì´ ì‚­ì œë˜ë©´ ë‹¤ ì§€ì›Œ (ref = 1 ) .....
 
-			// ±ÔÄ¢ : state ÄÃ·³ : T , F ±ÛÀÌ »èÁ¦ÇÏ´Â °ÍÀÌ ¾Æ´Ï¶ó »óÅÂ
+			// ê·œì¹™ : state ì»¬ëŸ¼ : T , F ê¸€ì´ ì‚­ì œí•˜ëŠ” ê²ƒì´ ì•„ë‹ˆë¼ ìƒíƒœ
 			// : update set state = F where num=1
-			// : F (»èÁ¦µÈ ±Û) ¹®ÀÚ¸¸
+			// : F (ì‚­ì œëœ ê¸€) ë¬¸ìžë§Œ
 
-			// ±ÔÄ¢ : ¿øº»±Û ´äº¯ Áö¿öÁöÁö ¾Ê°í ´äº¯ ÀÌ ÀÖÀ¸¸é »èÁ¦ ±ÝÁö
-			// : ´äº¯ 1°³¶óµµ ÀÖÀ¸¸é ¿øº»±Û(»èÁ¦)
-			// : ´äº¯¿¡ ´äº¯ÀÌ 1°³¶óµµ ÀÖ´Ù¸é »èÁ¦±ÝÁö
+			// ê·œì¹™ : ì›ë³¸ê¸€ ë‹µë³€ ì§€ì›Œì§€ì§€ ì•Šê³  ë‹µë³€ ì´ ìžˆìœ¼ë©´ ì‚­ì œ ê¸ˆì§€
+			// : ë‹µë³€ 1ê°œë¼ë„ ìžˆìœ¼ë©´ ì›ë³¸ê¸€(ì‚­ì œ)
+			// : ë‹µë³€ì— ë‹µë³€ì´ 1ê°œë¼ë„ ìžˆë‹¤ë©´ ì‚­ì œê¸ˆì§€
 
 			// Table column : state : t , f
-			// ¿øº»±Û
-			// ->´äº¯ »èÁ¦ (x) ´äº¯
-			// ->´äº¯_1
+			// ì›ë³¸ê¸€
+			// ->ë‹µë³€ ì‚­ì œ (x) ë‹µë³€
+			// ->ë‹µë³€_1
 			String c_brd_delete_sql = "delete from c_brd where num=?";
 
 			int result = 0;
@@ -381,7 +381,7 @@ public class C_BrdDAO {
 
 				return true;
 			} catch (Exception ex) {
-				System.out.println("boardDelete ¿¡·¯ : " + ex);
+				System.out.println("boardDelete ì—ëŸ¬ : " + ex);
 			} finally {
 				try {
 					if (pstmt != null) pstmt.close();
@@ -394,13 +394,13 @@ public class C_BrdDAO {
 			return false;
 		}
 		
-		// Á¶È¸¼ö ¾÷µ¥ÀÌÆ®
-		// Å×ÀÌºí¿¡ Á¶È¸¼ö°¡ ¾ø´Ù..!!
+		// ì¡°íšŒìˆ˜ ì—…ë°ì´íŠ¸
+		// í…Œì´ë¸”ì— ì¡°íšŒìˆ˜ê°€ ì—†ë‹¤..!!
 		
 		
 		
-		// ±Û¾´ÀÌÀÎÁö È®ÀÎ
-		// ¸Â´ÂÁö È®½ÇÇÏÁö ¾ÊÀ½...
+		// ê¸€ì“´ì´ì¸ì§€ í™•ì¸
+		// ë§žëŠ”ì§€ í™•ì‹¤í•˜ì§€ ì•ŠìŒ...
 		public boolean isboardWriter(int num, int empno){
 			
 			String board_sql = "select * from c_brd where NUM=?";
@@ -416,7 +416,7 @@ public class C_BrdDAO {
 					return true;
 				}
 			}catch(SQLException ex){
-				System.out.println("isBoardWriter ¿¡·¯ : "+ex);
+				System.out.println("isBoardWriter ì—ëŸ¬ : "+ex);
 			}
 			finally{
 				try{
@@ -426,6 +426,77 @@ public class C_BrdDAO {
 				catch(Exception ex) {}
 			}
 			return false;
+		}
+		
+		public int boardReply(C_BrdDTO board){
+			String board_max_sql="select max(num) from c_brd";
+			String sql="";
+			int num=0;
+			int result=0;
+			
+			int re_ref=board.getRef();
+			int re_lev=board.getStep();
+			int re_seq=board.getDpth();
+			
+			try{
+				conn = ds.getConnection();
+				pstmt=conn.prepareStatement(board_max_sql);
+				rs = pstmt.executeQuery();
+				if(rs.next())num =rs.getInt(1)+1;
+				else num=1;
+				
+				sql="update c_brd set step=step+1 ";
+				sql+="where ref=? and step>?";
+				
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1,re_ref);
+				pstmt.setInt(2,re_seq);
+				result=pstmt.executeUpdate();
+				
+				re_seq = re_seq + 1;
+				re_lev = re_lev+1;
+				
+//				sql="insert into memberboard (BOARD_NUM,BOARD_ID,BOARD_SUBJECT,";
+//				sql+="BOARD_CONTENT,BOARD_FILE,BOARD_RE_REF,BOARD_RE_LEV,";
+//				sql+="BOARD_RE_SEQ,BOARD_READCOUNT,BOARD_DATE) ";
+//				sql+="values(?,?,?,?,?,?,?,?,?,sysdate)";
+				
+				
+				sql = "insert into c_brd (NUM, EMPNO, TITLE, CONTENT, NOTICE, WRITE_DATE, REF, DPTH, STEP , ENAME , COUNT)"
+						+ "values(Comp_board_num.nextval,?,?,?,?,sysdate,?,?,?,?,0)";
+				
+				conn = ds.getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, board.getEmpno());
+				pstmt.setString(2, board.getTitle());
+				pstmt.setString(3, board.getContent());
+				pstmt.setString(4, "false");
+				pstmt.setInt(5, re_ref);
+				pstmt.setInt(6, re_lev);
+				pstmt.setInt(7, re_seq);
+				pstmt.setString(8, board.getEname());
+				
+				
+//				pstmt = conn.prepareStatement(sql);
+//				pstmt.setInt(1, num);
+//				pstmt.setString(2, board.getBOARD_ID());
+//				pstmt.setString(3, board.getBOARD_SUBJECT());
+//				pstmt.setString(4, board.getBOARD_CONTENT());
+//				pstmt.setString(5, ""); //ï¿½ë–Ÿï¿½ì˜£ï¿½ë¿‰ï¿½ë’— ï¿½ë™†ï¿½ì”ªï¿½ì“£ ï¿½ë¾½æ¿¡ì’•ë±¶ï¿½ë¸¯ï§žï¿½ ï¿½ë¸¡ï¿½ì“¬.
+//				pstmt.setInt(6, re_ref);
+//				pstmt.setInt(7, re_lev);
+//				pstmt.setInt(8, re_seq);
+//				pstmt.setInt(9, 0);
+				pstmt.executeUpdate();
+				return num;
+			}catch(SQLException ex){
+				System.out.println("boardReply ì˜¤ë¥˜ : "+ex);
+			}finally{
+				if(rs!=null)try{rs.close();}catch(SQLException ex){}
+				if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
+				if(conn!=null)try{conn.close();}catch(SQLException ex){}
+			}
+			return 0;
 		}
 		
 }

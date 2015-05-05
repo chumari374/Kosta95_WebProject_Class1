@@ -18,6 +18,8 @@ import Action.Comp.CompBoardListAction;
 import Action.Comp.CompBoardModifyAction;
 import Action.Comp.CompBoardModifyView;
 import Action.Comp.CompBoardRealModifyAction;
+import Action.Comp.CompBoardReplyAction;
+import Action.Comp.CompBoardReplyView;
 
 @WebServlet("*.cp")
 public class CompFrontController extends HttpServlet {
@@ -84,6 +86,20 @@ public class CompFrontController extends HttpServlet {
 		   }
 	   }else if(command.equals("/CompBoardRealModifyAction.cp")){
 		   	action = new CompBoardRealModifyAction();
+		   try{
+			   forward=action.execute(request, response);
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
+	   }else if(command.equals("/CompBoardReplyView.cp")){
+		   	action = new CompBoardReplyView();
+		   try{
+			   forward=action.execute(request, response);
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
+	   }else if(command.equals("/CompBoardReplyAction.cp")){
+		   	action = new CompBoardReplyAction();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
