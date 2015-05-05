@@ -42,7 +42,7 @@ public class SendSignListAction implements Action {
 
 		System.out.println(empno);
 
-		int sendsignlistcount = signdao.sendSignListCount(empno); // ÃÑ ¸®½ºÆ® ¼ö ¹Þ¾Æ¿È
+		int sendsignlistcount = signdao.sendSignListCount(empno, status); // ÃÑ ¸®½ºÆ® ¼ö ¹Þ¾Æ¿È
 		sendsignlist = signdao.getSendSignList(empno, page, limit, status);
 
 		System.out.println("¾ÞÄ¿4");
