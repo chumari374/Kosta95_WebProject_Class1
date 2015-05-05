@@ -596,15 +596,15 @@ public class SignDAO {
 		System.out.println("DAO status" + status);
 	
 
-		if (status == "a") {
+		if (status.equals("반려")) {
 			signStatus_sql = "update sign set status = '반려' where ref = ? and step = ?";
 		} 
 		
-		if (status == "b") {
+		if (status.equals("승인")) {
 			signStatus_sql = "update sign set status = '승인' where ref = ?";
 		} 
 		
-		if (status == "c") {
+		if (status.equals("취소")) {
 			signStatus_sql = "update sign set status = '취소' where ref = ?";
 		}
 		
@@ -613,7 +613,7 @@ public class SignDAO {
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(signStatus_sql);
-			if (status == "반려") {
+			if (status.equals("반려")) {
 				pstmt.setInt(1, ref);
 				pstmt.setInt(2, step);
 			} else {
@@ -622,7 +622,7 @@ public class SignDAO {
 			
 			rs = pstmt.executeQuery();
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("Sign 스테이터스  에러 : " + e);
 		}
 	}
 }
