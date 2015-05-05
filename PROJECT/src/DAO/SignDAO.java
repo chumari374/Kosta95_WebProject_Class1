@@ -446,13 +446,14 @@ public class SignDAO {
 	}
 
 	// ====== 보낸결재 갯수 구하는 함수=======================
-	public int sendSignListCount(int empno) {
+	public int sendSignListCount(int empno, String status) {
 		int rowcount = 0;
 		try {
 			conn = ds.getConnection();
 			pstmt = conn
-					.prepareStatement("select count(*) from sign where empno = ?");
+					.prepareStatement("select count(*) from sign where empno = ? where status = ?");
 			pstmt.setInt(1, empno);
+			pstmt.setString(2, status);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				rowcount = rs.getInt(1);
