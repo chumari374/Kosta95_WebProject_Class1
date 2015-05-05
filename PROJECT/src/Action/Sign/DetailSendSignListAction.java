@@ -42,7 +42,7 @@ public class DetailSendSignListAction implements Action {
 
 		System.out.println(empno);
 
-		int getsignlistcount = signdao.getSignListCount(empno); // ÃÑ ¸®½ºÆ® ¼ö ¹Þ¾Æ¿È
+		int getsignlistcount = signdao.getSignListCount(empno, status); // ÃÑ ¸®½ºÆ® ¼ö ¹Þ¾Æ¿È
 		getsignlist = signdao.getGetSignList(empno, page, limit, status);
 		System.out.println("¾ÞÄ¿4");
 
