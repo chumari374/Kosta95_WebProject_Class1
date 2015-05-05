@@ -29,8 +29,12 @@ public class StatusSignAction implements Action {
 		System.out.println(step);
 		System.out.println(status);
 
-		signdao.SignStatus(status, ref, step);
-		
+		if (status.equals("상부보고")) {
+			signdao.signStepUp(ref, step);
+		} else {
+			signdao.SignStatus(status, ref, step);
+		}
+
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("/getSignList.hong");
