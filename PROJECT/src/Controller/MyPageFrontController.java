@@ -12,6 +12,7 @@ import Action.Action;
 import Action.ActionForward;
 import Action.Mypage.Account_EditAction;
 import Action.Mypage.Account_UpdateAction;
+import Action.Mypage.ScheduleAddAction;
 
 //@WebServlet("/MyPageFrontController")
 public class MyPageFrontController extends HttpServlet {
@@ -56,6 +57,13 @@ public class MyPageFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("MyPage/Schedule.jsp");
+		}else if(command.equals("/ScheduleAdd.mp")){
+			action = new ScheduleAddAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(forward != null){

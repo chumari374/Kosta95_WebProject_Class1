@@ -62,7 +62,7 @@
 	
 	<script type="text/javascript">
 	$(document).ready(function(){	
-	
+		i=1;
 		var clickDate = "";
 		var clickAgendaItem = "";
 		
@@ -344,8 +344,7 @@
 						// Dates use integers
 						var startDateObj = new Date(parseInt(startYear),parseInt(startMonth)-1,parseInt(startDay),0,0);
 						var endDateObj = new Date(parseInt(endYear),parseInt(endMonth)-1,parseInt(endDay),0,0);
-						
-						//console.log(startDateObj+" / "+endDateObj);
+						alert('도착1');
 						// add new event to the calendar
 						jfcalplugin.addAgendaItem(
 							"#mycal",
@@ -365,9 +364,29 @@
 								foregroundColor: $("#colorForeground").val()
 							}
 						);
-	
+						var agi = jfcalplugin.getAgendaItemById("#mycal",i++);
+						var startDate = agi.startDate.toLocaleString().substring(0,10)
+										.replace(".","-").replace(".","-").replace(".","-")
+										.replace(" ","0").replace(" ","0");
+						var endDate = agi.endDate.toLocaleString().substring(0,10)
+									.replace(".","-").replace(".","-").replace(".","-")
+									.replace(" ","0").replace(" ","0");
+						console.log(startDate);
+						$.ajax({
+							url : "ScheduleAdd.mp",
+							data : {
+								sd : startDate,
+								ed : endDate,
+								cal : agi
+							},
+							success : function(data){
+								console.log(data);
+							},
+							error : function(xhr, status){
+								alert(xhr + '/' + status); 
+							}
+						});
 						$(this).dialog('close');
-	
 					}
 					
 				},
