@@ -8,13 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 import Action.Action;
 import Action.ActionForward;
 import DAO.C_BrdDAO;
+import DAO.C_N_BrdDAO;
 
-public class CompBoardListAction implements Action {
+public class CompNoticeListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		C_BrdDAO boarddao = new C_BrdDAO();
+		C_N_BrdDAO boarddao = new C_N_BrdDAO();
 		// DB연결 ,,,, select 가지고 있는 객체
 		List boardlist;
 		List noticelist;

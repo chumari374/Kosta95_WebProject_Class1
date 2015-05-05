@@ -14,7 +14,7 @@ import DTO.C_BrdDTO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class CompBoardAddAction implements Action {
+public class CompNoticeAddAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 

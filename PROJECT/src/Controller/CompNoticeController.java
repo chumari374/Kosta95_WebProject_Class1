@@ -20,6 +20,7 @@ import Action.Comp.CompBoardModifyView;
 import Action.Comp.CompBoardRealModifyAction;
 import Action.Comp.CompBoardReplyAction;
 import Action.Comp.CompBoardReplyView;
+import Action.Notice.CompNoticeListAction;
 
 @WebServlet("*.cn")
 public class CompNoticeController extends HttpServlet {
@@ -38,8 +39,8 @@ public class CompNoticeController extends HttpServlet {
 	 ActionForward forward=null;
 	 Action action=null;
 	   
-	   if(command.equals("/CompBoardList.cp")){
-		   action = new CompBoardListAction();
+	   if(command.equals("/CompNoticeList.cn")){
+		   action = new CompNoticeListAction();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
