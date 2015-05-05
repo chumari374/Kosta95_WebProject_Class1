@@ -86,29 +86,47 @@
 		<td colspan="2" style="height:1px;"></td>
 	</tr>
 	<tr><td colspan="2">&nbsp;</td></tr>
-	<tr style="font-family:돋음; font-size:12" height="16">
-	
-	<td><div style="float: left"><%=ename %></div><td><div style="float: left"><input type="text" style="width: 600px" placeholder="댓글을 입력하세요"></div>
-	<div  style="float: left"><input type="button" value ="확인"></div></td>
-	</tr>
 	<tr>
 	<tr align="center" valign="middle">
 		<td colspan="5">
 			<font size=2>
 			<a href="./CompBoardReplyAction.cp?num=<%=board.getNum() %>">
-			[답변]
+			<input type="button" value="답변">
 			</a>&nbsp;&nbsp;
 			<a href="./CompBoardModify.cp?num=<%=board.getNum() %>">
-			[수정]
+			<input type="button" value="수정">
 			</a>&nbsp;&nbsp;
 			<a href="./CompBoardDeleteAction.cp?num=<%=board.getNum() %>"
 			>
-			[삭제]
+			<input type="button" value="삭제">
 			</a>&nbsp;&nbsp;
-			<a href="./CompBoardList.cp?page=<%=Integer.parseInt(request.getParameter("page"))%>">[목록]</a>&nbsp;&nbsp;
+			<a href="./CompBoardList.cp?page=<%=Integer.parseInt(request.getParameter("page"))%>">
+			<input type="button" value="목록">
+			</a>&nbsp;&nbsp;
 			</font>
 		</td>
 	</tr>
+	<tr><td colspan="2">&nbsp;</td></tr>
+
+	<tr bgcolor="cccccc">
+		<td colspan="2" style="height:1px;"></td>
+	</tr>
+	<!-- 댓글입력 -->
+	<tr><td colspan="2">&nbsp;</td></tr>
+	<tr style="font-family:돋음; font-size:12" height="16">
+	<td><div style="float: left"><%=ename %></div>
+
+	<td>
+	<div style="float: left"><input type="text" style="width: 600px" placeholder="댓글을 입력하세요"></div>
+	<div  style="float: left"><input type="button" value ="확인"></div>
+	</td>
+	</tr>
+	<!-- 댓글입력 종료 -->
+	<tr><td colspan="2">&nbsp;</td></tr>
+<!-- 	<tr><td>이름<br>작성일</td><td>내용 삭제</td></tr> -->
+	<tr><td>이름<br>작성일</td><td>내용 삭제</td></tr>
+<!-- <tr><td>이름</td><td>내용</td><td>작성일</td><td>삭제</td></tr> -->
+
 </table>
 </div>
 <jsp:include page="../../Footer.jsp"></jsp:include>
