@@ -597,11 +597,6 @@ public class SignDAO {
 		String signStatus_sql = "";
 		System.out.println("DAO status" + status);
 	
-
-		if (status.equals("반려")) {
-			signStatus_sql = "update sign set status = '반려' where ref = ? and step = ?";
-		} 
-		
 		if (status.equals("승인")) {
 			signStatus_sql = "update sign set status = '승인' where ref = ?";
 		} 
@@ -626,5 +621,9 @@ public class SignDAO {
 		} catch (Exception e) {
 			System.out.println("Sign 스테이터스  에러 : " + e);
 		}
+	}
+	
+	public void signStepUp(int ref, int step) {
+		
 	}
 }
