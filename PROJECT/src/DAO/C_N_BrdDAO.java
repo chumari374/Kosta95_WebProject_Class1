@@ -12,14 +12,15 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import DTO.C_BrdDTO;
+import DTO.C_N_BrdDTO;
 
-public class C_BrdDAO {
+public class C_N_BrdDAO {
 	DataSource ds;
 	Connection conn;
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
-	public C_BrdDAO() {
+	public C_N_BrdDAO() {
 		try {
 			Context context = new InitialContext();
 			ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
@@ -31,7 +32,7 @@ public class C_BrdDAO {
 	
 	//조회수 업데이트.
 	public void setReadCountUpdate(int num) throws Exception{
-		String sql="update C_BRD set COUNT = COUNT+1 where NUM = "+num;
+		String sql="update C_N_BRD set COUNT = COUNT+1 where NUM = "+num;
 		
 		try{
 			conn=ds.getConnection();
@@ -48,53 +49,53 @@ public class C_BrdDAO {
 		}
 	}
 	
-	public List getNoticeList(){
-		
-		String getC_BrdList_sql = "select * from (select rownum rnum,NUM,EMPNO,TITLE,CONTENT,REF,DPTH,STEP,COUNT,WRITE_DATE,ENAME,NOTICE from (select * from c_brd where notice = 'true' order by num desc)) where rnum>=1 and rnum<=3";
-		
-		List<C_BrdDTO> list = new ArrayList<C_BrdDTO>();
-		
-
-				try {
-					conn = ds.getConnection();
-					pstmt = conn.prepareStatement(getC_BrdList_sql);
-
-					rs = pstmt.executeQuery();
-
-					while (rs.next()) {
-						C_BrdDTO c_brd = new C_BrdDTO();
-						c_brd.setNum(rs.getInt("NUM"));
-						c_brd.setEmpno(rs.getInt("EMPNO"));
-						c_brd.setTitle(rs.getString("TITLE"));
-						c_brd.setContent(rs.getString("CONTENT"));
-						c_brd.setNotice(rs.getString("NOTICE"));
-						c_brd.setWrite_date(rs.getDate("WRITE_DATE"));
-						c_brd.setRef(rs.getInt("REF"));
-						c_brd.setDpth(rs.getInt("DPTH"));
-						c_brd.setStep(rs.getInt("STEP"));
-						c_brd.setCount(rs.getInt("COUNT"));
-						c_brd.setEname(rs.getString("ENAME"));
-						list.add(c_brd);
-					}
-
-					return list;
-				} catch (Exception ex) {
-					System.out.println("getNoticeList 에러 : " + ex);
-				} finally {
-					if (rs != null) try { rs.close(); } catch (SQLException ex) {}
-					if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}
-					if (conn != null) try { conn.close(); } catch (SQLException ex) {}
-				}
-				return null;
-		
-	}
+//	public List getNoticeList(){
+//		
+//		String getC_BrdList_sql = "select * from (select rownum rnum,NUM,EMPNO,TITLE,CONTENT,REF,DPTH,STEP,COUNT,WRITE_DATE,ENAME,NOTICE from (select * from c_brd where notice = 'true' order by num desc)) where rnum>=1 and rnum<=3";
+//		
+//		List<C_BrdDTO> list = new ArrayList<C_BrdDTO>();
+//		
+//
+//				try {
+//					conn = ds.getConnection();
+//					pstmt = conn.prepareStatement(getC_BrdList_sql);
+//
+//					rs = pstmt.executeQuery();
+//
+//					while (rs.next()) {
+//						C_BrdDTO c_brd = new C_BrdDTO();
+//						c_brd.setNum(rs.getInt("NUM"));
+//						c_brd.setEmpno(rs.getInt("EMPNO"));
+//						c_brd.setTitle(rs.getString("TITLE"));
+//						c_brd.setContent(rs.getString("CONTENT"));
+//						c_brd.setNotice(rs.getString("NOTICE"));
+//						c_brd.setWrite_date(rs.getDate("WRITE_DATE"));
+//						c_brd.setRef(rs.getInt("REF"));
+//						c_brd.setDpth(rs.getInt("DPTH"));
+//						c_brd.setStep(rs.getInt("STEP"));
+//						c_brd.setCount(rs.getInt("COUNT"));
+//						c_brd.setEname(rs.getString("ENAME"));
+//						list.add(c_brd);
+//					}
+//
+//					return list;
+//				} catch (Exception ex) {
+//					System.out.println("getNoticeList 에러 : " + ex);
+//				} finally {
+//					if (rs != null) try { rs.close(); } catch (SQLException ex) {}
+//					if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}
+//					if (conn != null) try { conn.close(); } catch (SQLException ex) {}
+//				}
+//				return null;
+//		
+//	}
 	
 	public int getListCount() {
 		// select count(*) from board
 		int rowcount = 0;
 		try {
 			conn = ds.getConnection();
-			pstmt = conn.prepareStatement("select count(*) from C_BRD");
+			pstmt = conn.prepareStatement("select count(*) from C_N_BRD");
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				rowcount = rs.getInt(1);
@@ -137,9 +138,9 @@ public class C_BrdDAO {
 				// page =2 , limit =10(pagesize)
 		//글번호	제목	작성자	작성일	조회수
 	//	int limit = 10;
-		String getC_BrdList_sql = "select * from (select rownum rnum, NUM,EMPNO,TITLE,CONTENT,REF,DPTH,STEP,COUNT,WRITE_DATE,ENAME,NOTICE from (select * from C_BRD order by REF desc,STEP asc)) where rnum>=? and rnum<=?";
-		
-		List<C_BrdDTO> list = new ArrayList<C_BrdDTO>();
+//		String getC_BrdList_sql = "select * from (select rownum rnum, NUM,EMPNO,TITLE,CONTENT,REF,DPTH,STEP,COUNT,WRITE_DATE,ENAME,NOTICE from (select * from C_BRD order by REF desc,STEP asc)) where rnum>=? and rnum<=?";
+		String getC_BrdList_sql = "select * from (select rownum rnum,NUM,EMPNO,TITLE,CONTENT,WRITE_DATE,COUNT,ENAME from (select * from c_n_brd order by num desc)) where rnum>=? and rnum<=?";
+		List<C_N_BrdDTO> list = new ArrayList<C_N_BrdDTO>();
 		
 		// List<Article> articleList = new ArrayList<Article>();
 				// 권장방식 generic 사용
@@ -158,16 +159,12 @@ public class C_BrdDAO {
 					rs = pstmt.executeQuery();
 
 					while (rs.next()) {
-						C_BrdDTO c_brd = new C_BrdDTO();
+						C_N_BrdDTO c_brd = new C_N_BrdDTO();
 						c_brd.setNum(rs.getInt("NUM"));
 						c_brd.setEmpno(rs.getInt("EMPNO"));
 						c_brd.setTitle(rs.getString("TITLE"));
 						c_brd.setContent(rs.getString("CONTENT"));
-						c_brd.setNotice(rs.getString("NOTICE"));
 						c_brd.setWrite_date(rs.getDate("WRITE_DATE"));
-						c_brd.setRef(rs.getInt("REF"));
-						c_brd.setDpth(rs.getInt("DPTH"));
-						c_brd.setStep(rs.getInt("STEP"));
 						c_brd.setCount(rs.getInt("COUNT"));
 						c_brd.setEname(rs.getString("ENAME"));
 						list.add(c_brd);
@@ -186,33 +183,29 @@ public class C_BrdDAO {
 	
 	// 글 내용 보기
 	
-	public C_BrdDTO getDetail(int num){
+	public C_N_BrdDTO getDetail(int num){
 		
-		C_BrdDTO c_brd = null;
+		C_N_BrdDTO c_n_brd = null;
 		
 		try {
 			conn = ds.getConnection();
-			String sql = "select * from c_brd where num = ?";
+			String sql = "select * from c_n_brd where num = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
 
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				c_brd = new C_BrdDTO();
-				c_brd.setNum(rs.getInt("NUM"));
-				c_brd.setEmpno(rs.getInt("EMPNO"));
-				c_brd.setTitle(rs.getString("TITLE"));
-				c_brd.setContent(rs.getString("CONTENT"));
-				c_brd.setNotice(rs.getString("NOTICE"));
-				c_brd.setWrite_date(rs.getDate("WRITE_DATE"));
-				c_brd.setRef(rs.getInt("REF"));
-				c_brd.setDpth(rs.getInt("DPTH"));
-				c_brd.setStep(rs.getInt("STEP"));
-				c_brd.setEname(rs.getString("ENAME"));
-				c_brd.setCount(rs.getInt("COUNT"));
+				c_n_brd = new C_N_BrdDTO();
+				c_n_brd.setNum(rs.getInt("NUM"));
+				c_n_brd.setEmpno(rs.getInt("EMPNO"));
+				c_n_brd.setTitle(rs.getString("TITLE"));
+				c_n_brd.setContent(rs.getString("CONTENT"));
+				c_n_brd.setWrite_date(rs.getDate("WRITE_DATE"));
+				c_n_brd.setEname(rs.getString("ENAME"));
+				c_n_brd.setCount(rs.getInt("COUNT"));
 			}
-			return c_brd;
+			return c_n_brd;
 		} catch (Exception ex) {
 			System.out.println("getDetail 에러 : " + ex);
 		} finally {

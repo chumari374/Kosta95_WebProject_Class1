@@ -21,11 +21,11 @@ import Action.Comp.CompBoardRealModifyAction;
 import Action.Comp.CompBoardReplyAction;
 import Action.Comp.CompBoardReplyView;
 
-@WebServlet("*.cp")
-public class CompFrontController extends HttpServlet {
+@WebServlet("*.cn")
+public class CompNoticeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public CompFrontController() {
+    public CompNoticeController() {
         
     }
     

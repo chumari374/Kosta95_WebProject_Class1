@@ -132,9 +132,10 @@ if(listcount > 0){
 				<%for(int a=0;a<=bl.getDpth()*2;a++){ %>
 				&nbsp;
 				<%} %>
-				▶
+<!-- 				▶ -->
+				<img src="./img/ioc-reply.gif" width="8" height="7" alt="">
 			<%}else{ %>
-				▶
+<!-- 				▶ -->
 			<%} %>
 			<a href="CompBoardDetailAction.cp?num=<%=bl.getNum()%>&page=<%=nowpage%>">
 				<%=bl.getTitle()%>
