@@ -12,7 +12,7 @@ import java.sql.Date;
 //		   ENAME VARCHAR2(20) /* ¿Ã∏ß */
 //		);
 
-public class C_N_BRD {
+public class C_N_BrdDTO {
 
 	int num;
 	int empno;
@@ -22,7 +22,11 @@ public class C_N_BRD {
 	int count;
 	String ename;
 	
-	public C_N_BRD(int num, int empno, String title, String content,
+	public C_N_BrdDTO() {
+	
+	}
+	
+	public C_N_BrdDTO(int num, int empno, String title, String content,
 			Date write_date, int count, String ename) {
 		super();
 		this.num = num;
