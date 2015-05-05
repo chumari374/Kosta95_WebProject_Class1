@@ -22,7 +22,7 @@ public class GetSignListAction implements Action {
 		System.out.println("¾ÞÄ¿1");
 
 		HttpSession session = request.getSession();
-		int empno = (Integer) session.getAttribute("empno");
+		int empno = 150802;/*(Integer) session.getAttribute("empno");*/
 		int page = 1;
 		int limit = 10;
 		String status = "´ë±â";
@@ -41,7 +41,7 @@ public class GetSignListAction implements Action {
 
 		System.out.println(empno);
 
-		int getsignlistcount = signdao.getSignListCount(empno); // ÃÑ ¸®½ºÆ® ¼ö ¹Þ¾Æ¿È
+		int getsignlistcount = signdao.getSignListCount(empno, status); // ÃÑ ¸®½ºÆ® ¼ö ¹Þ¾Æ¿È
 		getsignlist = signdao.getGetSignList(empno, page, limit, status);
 		System.out.println("¾ÞÄ¿4");
 
