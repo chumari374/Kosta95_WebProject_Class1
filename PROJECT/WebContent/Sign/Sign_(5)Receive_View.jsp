@@ -78,13 +78,15 @@ table, td, tr {
 				</table>
 
 				<input type="hidden" id="ref" name="ref"
-					value="<%=signdata.getRef()%>"> <input type="hidden"
-					id="step" name="step" value="<%=signdata.getStep()%>"> <input
-					type="submit" id="status" name="status" value="승인"> <input
-					type="submit" id="status" name="status" value="취소"> <input
-					type="submit" id="status" name="status" value="반려">
-				<button>상부보고</button>
-
+					value="<%=signdata.getRef()%>"> 
+				<input type="hidden" id="step" name="step" 
+					value="<%=signdata.getStep()%>"> 
+				<%if(status.equals("대기")) {%> 
+				<input type="submit" id="status" name="status" value="승인"> 
+				<input type="submit" id="status" name="status" value="취소"> 
+				<input type="submit" id="status" name="status" value="반려">
+				<input type="submit" id="status" name="status" value="상부보고">
+				<%} %>
 			</center>
 		</div>
 	</form>
