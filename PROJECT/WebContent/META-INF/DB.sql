@@ -788,3 +788,8 @@ commit;
 desc accounts;
 
 select *  from c_brd;
+
+create sequence Schedule_num -- ½ºÄÉÁì num ½ÃÄö½º
+     increment by 1 
+     start with 1        
+     nocache;
