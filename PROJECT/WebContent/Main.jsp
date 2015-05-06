@@ -95,7 +95,7 @@
          <li>      
               <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp; 관리자페이지                
               <ul class="submenu">         
-                 <li><a href="#">사원정보 수정</a></li>            
+                 <li><a href="MemberList.admin">사원정보 수정</a></li>            
               </ul>    
           </li>
         </ul> 

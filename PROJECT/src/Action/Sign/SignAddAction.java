@@ -33,7 +33,7 @@ public class SignAddAction implements Action {
 			
 			System.out.println(request.getParameter("STARTER"));
 			
-			
+			System.out.println(realFolder);
 			MultipartRequest multi = null;
 			multi = new MultipartRequest(request, realFolder, filesize, "utf-8", new DefaultFileRenamePolicy());
 			
