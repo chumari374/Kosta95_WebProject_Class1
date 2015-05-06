@@ -63,7 +63,7 @@
               <ul class="submenu">         
                  <li><a href="DeptBoardList.dp">부서 게시판</a></li>          
                  <li><a href="#" onclick="chatting_window()">팀 게시판</a></li>       
-                 <li><a href="#">자료실</a></li>    
+                 <li><a href="#">자료실(공사중)</a></li>    
               </ul>    
            </li>
         
@@ -95,6 +95,7 @@
          <li>      
               <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp; 관리자페이지                
               <ul class="submenu">         
+                 <li><a href="MemberAdd.admin">신입사원 추가</a></li>
                  <li><a href="MemberList.admin">사원정보 수정</a></li>            
               </ul>    
           </li>

@@ -61,26 +61,26 @@
 							if (listcount > 0) {
 						%>
 						<tr align="center" valign="middle">
-							<td colspan="4">부서 게시판</td>
-							<td align=right><font size=2>글 개수 : ${listcount }</font></td>
+							<td colspan="4"></td>
+							<td align=right><b><font size=2>글 개수 : ${listcount}</font></b></td>
 						</tr>
 
 						<tr align="center" valign="middle" bordercolor="#333333">
-							<td style="font-family: Tahoma; font-size: 8pt;" width="8%"
+							<td style="font-family: Tahoma; font-size: 10pt;" width="8%"
 								height="26">
-								<div align="center">번호</div>
+								<div align="center"><b>번호</b></div>
 							</td>
-							<td style="font-family: Tahoma; font-size: 8pt;" width="50%">
-								<div align="center">제목</div>
+							<td style="font-family: Tahoma; font-size: 10pt;" width="50%">
+								<div align="center"><b>제목</b></div>
 							</td>
-							<td style="font-family: Tahoma; font-size: 8pt;" width="14%">
-								<div align="center">작성자</div>
+							<td style="font-family: Tahoma; font-size: 10pt;" width="14%">
+								<div align="center"><b>작성자</b></div>
 							</td>
-							<td style="font-family: Tahoma; font-size: 8pt;" width="17%">
-								<div align="center">날짜</div>
+							<td style="font-family: Tahoma; font-size: 10pt;" width="17%">
+								<div align="center"><b>날짜</b></div>
 							</td>
-							<td style="font-family: Tahoma; font-size: 8pt;" width="11%">
-								<div align="center">조회수</div>
+							<td style="font-family: Tahoma; font-size: 10pt;" width="11%">
+								<div align="center"><b>조회수</b></div>
 							</td>
 						</tr>
 

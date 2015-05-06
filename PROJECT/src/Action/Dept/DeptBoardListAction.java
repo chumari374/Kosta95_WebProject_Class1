@@ -31,7 +31,7 @@ public class DeptBoardListAction implements Action {
 		// 기본 1번 : View
 		// 그렇지 않다면 : 요청한 페이지 번호
 
-		int listcount = boarddao.getListCount(); // 총 리스트 수를 받아옴
+		int listcount = boarddao.getListCount(deptcode); // 총 리스트 수를 받아옴
 		boardlist = boarddao.getBoardList(page,limit,deptcode); // 리스트를 받아옴
 		noticelist = boarddao.getNoticeList(deptcode);
 		// page =2 , limit =10 (페이지당 개수)

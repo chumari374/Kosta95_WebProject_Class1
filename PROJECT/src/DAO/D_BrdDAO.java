@@ -91,12 +91,13 @@ public class D_BrdDAO {
 		
 	}
 	
-	public int getListCount() {
+	public int getListCount(int deptcode) {
 		// select count(*) from board
 		int rowcount = 0;
 		try {
 			conn = ds.getConnection();
-			pstmt = conn.prepareStatement("select count(*) from D_BRD");
+			pstmt = conn.prepareStatement("select count(*) from D_BRD where deptcode = ?");
+			pstmt.setInt(1, deptcode);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				rowcount = rs.getInt(1);

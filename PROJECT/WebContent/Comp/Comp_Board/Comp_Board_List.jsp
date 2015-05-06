@@ -57,9 +57,9 @@
 if(listcount > 0){
 %>
 	<tr align="center" valign="middle">
-		<td colspan="4">사내 게시판</td>
+		<td colspan="4"></td>
 		<td align=right>
-			<font size=2>글 개수 : ${listcount }</font>
+			<b><font size=2>글 개수 : ${listcount }</font></b>
 		</td>
 	</tr>
 	
