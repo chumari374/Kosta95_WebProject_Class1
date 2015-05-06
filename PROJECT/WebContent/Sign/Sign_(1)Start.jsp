@@ -23,9 +23,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>기안서 작성</title>
 <script src="http://icode.jquery.com/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 <script>
-   $(function() {
-      $("td:first-child").css("background-color", "#EFEFEF");
+   $(function(){
+      /* $("td:first-child").css("background-color", "#EFEFEF"); */
       $("td:first-child").css("width","150px");
    });
 </script>
