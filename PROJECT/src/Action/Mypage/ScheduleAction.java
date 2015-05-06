@@ -19,7 +19,7 @@ public class ScheduleAction implements Action{
 		ActionForward forward = new ActionForward();
 		ScheduleDAO dao = new ScheduleDAO();
 		HttpSession session = request.getSession();
-		List<ScheduleDTO> list = dao.scheduleList();
+		List<ScheduleDTO> list = dao.scheduleList((int)session.getAttribute("empno"));
 		System.out.println(list);
 		
 		session.setAttribute("list", list);

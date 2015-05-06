@@ -62,12 +62,13 @@ public class ScheduleDAO {
 		return result;
 	}
 	
-	public List<ScheduleDTO> scheduleList(){
+	public List<ScheduleDTO> scheduleList(int empno){
 		List<ScheduleDTO> list = new ArrayList<ScheduleDTO>();
-		String sql = "select * from schedule order by scnum";
+		String sql = "select * from schedule where empno=? order by scnum";
 		try{
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, empno);
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				ScheduleDTO schedule = new ScheduleDTO();
