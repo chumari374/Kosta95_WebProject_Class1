@@ -11,8 +11,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import org.apache.catalina.connector.Request;
-
 import DTO.SignDTO;
 
 public class SignDAO {
