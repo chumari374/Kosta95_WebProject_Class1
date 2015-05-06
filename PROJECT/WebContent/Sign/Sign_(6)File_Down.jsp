@@ -5,8 +5,8 @@
 
 <%
 
-	String filename = request.getParameter("file_name");
-	String savePath ="signUpload";
+	String filename = request.getParameter("File_sign");
+	String savePath ="SignUpload";
 	
 	ServletContext context = getServletContext();
 	String SignDownLoadPath = context.getRealPath(savePath);
