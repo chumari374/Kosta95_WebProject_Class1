@@ -69,6 +69,7 @@
 	<script type="text/javascript">
 	$(document).ready(function(){	
 		i=1;
+		list = <%=list%>;
 		var clickDate = "";
 		var clickAgendaItem = "";
 		
@@ -370,7 +371,8 @@
 								foregroundColor: $("#colorForeground").val()
 							}
 						);
-						var agi = jfcalplugin.getAgendaItemById("#mycal",i++);
+						console.log(list.length);
+						var agi = jfcalplugin.getAgendaItemById("#mycal",++list.length);
 						var startDate = agi.startDate.toLocaleString().substring(0,10)
 										.replace(".","-").replace(".","-").replace(".","-")
 										.replace(" ","0").replace(" ","0");
@@ -690,7 +692,7 @@
 				}
 			}	
 		});
-		var list = <%=list%>;
+		
 		console.log(list);
 		$.each(list,function(index,obj){
 			var startDate = obj.startdate;

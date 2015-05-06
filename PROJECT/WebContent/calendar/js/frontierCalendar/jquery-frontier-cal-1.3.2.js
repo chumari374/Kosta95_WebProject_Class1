@@ -3745,7 +3745,6 @@
 				}
 				var agi = new CalendarAgendaItem(title,startDate,endDate,allDay,hashData);
 				console.log(agi);
-				alert('도착2');
 				
 				if(displayProp != null){
 					if(displayProp.backgroundColor != null){
