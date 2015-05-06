@@ -49,6 +49,15 @@
 
 	}
 </script>
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/myscript.js"></script>
 <title>받은 결재함</title>
 </head>
 
@@ -57,12 +66,12 @@
 	<div id="main" align="center">
 		<!-- 게시판 리스트 -->
 
-		<table width=80% border="0" cellpadding="0" cellspacing="0">
+		<table class="table" style="width: 80%; margin-top: 50px;">
 			<%
 				if (listcount > 0) {
 			%>
 			<tr align="center" valign="middle">
-				<td colspan="4">받은 결재함</td>
+				<td colspan="5">받은 결재함</td>
 				<td align=right><select
 					onchange="goUrl(this.options[this.selectedIndex].value)">
 						<option value="getSignList.hong">선택</option>
@@ -75,11 +84,11 @@
 			</tr>
 
 			<tr align="center" valign="middle" bordercolor="#333333">
-				<td style="font-family: Tahoma; font-size: 8pt;" width="7%"
+				<td style="font-family: Tahoma; font-size: 8pt;" width="10%"
 					height="26">
 					<div align="center">결재 번호</div>
 				</td>
-				<td style="font-family: Tahoma; font-size: 8pt;" width="40%">
+				<td style="font-family: Tahoma; font-size: 8pt;" width="37%">
 					<div align="center">제목</div>
 				</td>
 				<td style="font-family: Tahoma; font-size: 8pt;" width="14%">

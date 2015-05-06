@@ -28,59 +28,51 @@ table, tr, td  {
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/myscript.js"></script>
+<script type="text/javascript">
+$(function(){
+	$.ajax({
+        url : './Emp_Search/Dept.jsp',
+        dataType : "json",
+        success : function(data){
+      	  var options="";
+            $.each(data, function(index,dlist){
+            	if(dlist.deptname==member.deptname){
+            	   options += "<option value="+dlist.deptcode+">"+dlist.deptname+"</option>";
+            	}else{
+                   options += "<option value="+dlist.deptcode+">"+dlist.deptname+"</option>";
+            	}
+//             	 options += "<option value="+dlist.deptcode+">"+dlist.deptname+"</option>";
+            });
+            $('#deptlist').append(options);
+            
+        },
+       error: function (xhr,Options,thrownError) {
+       }
+    });
+	
+	 $('#deptlist').on("change",function(){
+ 	  	// 팀 목록 출력
+ 	  	$('#teamlist').empty();
+ 	  	 $.ajax({
+              url : './Emp_Search/Team.jsp',
+              data:{deptcode:$('#deptlist').val()},
+              dataType : "json",
+              success : function(data){
+            	  var options="";
+                  $.each(data, function(index,tlist){
+                         options += "<option value="+tlist.teamcode+">"+tlist.teamname+"</option>";
+                  });
+                  $('#teamlist').append(options);
+              },
+             error: function (xhr,Options,thrownError) {
+             }
+ 	  	});
+ 	 });
+});
+</script>
 </head>
 <body style="background-color: #EFEFEF">
 	<center>
-<%-- 	<table width="500px" height="300px">
-		<tr>
-			<th colspan="3" align="center">${member.ename}님의 사원정보</th>
-		</tr>
-		<tr>
-			<td rowspan="6" align="center"><img src="http://192.168.7.235:8090/PROJECT/Upload/${member.p_picture}" width="80px" height="80px"><br>프로필사진</td>
-			<td>사원번호</td>
-			<td>${member.empno}</td>
-		</tr>
-		<tr>
-			<td>이름</td>
-			<td>${member.ename}</td>
-		</tr>
-		<tr>
-			<td>생년월일</td>
-			<td>${member.birth}</td>
-		</tr>
-		<tr>
-			<td>성별</td>
-			<td>${member.sex}</td>
-		</tr>
-		<tr>
-			<td>핸드폰</td>
-			<td>${member.celphone}</td>
-		</tr>
-		<tr>
-			<td>이메일</td>
-			<td>${member.email}</td>
-		</tr>
-		<tr>
-			<td rowspan="4" align="center">" ${member.p_content} "<!-- 프로필메세지 --></td>
-			<td>소속부서</td>
-			<td>${member.deptname}</td>
-		</tr>
-		<tr>
-			<td>소속팀</td>
-			<td>${member.teamname}</td>
-		</tr>
-		<tr>
-			<td>직급</td>
-			<td>${member.gradename}</td>
-		</tr>
-			<tr>
-			<td>사내전화번호</td>
-			<td>${member.emptel}</td>
-		</tr>
-		<tr>
-			<td colspan="3" align="center"><input type="button" value="닫기" onclick="window.close()"></td>
-		</tr>
-	</table> --%>
 	<table height="400px" width="500px">
 		<tr>
 			<td colspan="2" style="border-bottom: 2px solid #0469AF"><h4>${member.ename}님의 사원정보</h4></td>
@@ -125,25 +117,34 @@ table, tr, td  {
 					<tr style="border-bottom: 1px solid #A2A2A2">
 						<td>소속부서</td>
 						<td>
-							<select>
-								<option value="200">개발부</option>
-								<option value="300">총무부</option>
-								<option value="400">영업부</option>
+							<select id="deptlist">
 							</select>
 							<%-- ${member.deptname} --%>
 						</td>
 					</tr>
 					<tr style="border-bottom: 1px solid #A2A2A2">
 						<td>소속팀</td>
-						<td>${member.teamname}</td>
+						<td>
+							<select id="teamlist">
+							</select>
+							<%-- ${member.teamname} --%>
+						</td>
 					</tr>
 					<tr style="border-bottom: 1px solid #A2A2A2">
 						<td>직급</td>
-						<td>${member.gradename}</td>
+						<td>
+							<select id="gradelist">
+								<option value="1">대표이사</option>
+								<option value="2">부장</option>
+								<option value="3">팀장</option>
+								<option value="4" selected>사원</option>
+							</select>
+							<%-- ${member.gradename} --%>
+						</td>
 					</tr>
 					<tr>
 						<td>사내전화번호</td>
-						<td>${member.emptel}</td>
+						<td><input type="text" value="${member.emptel}"><%-- ${member.emptel} --%></td>
 					</tr>
 				</table>
 			</td>
@@ -151,7 +152,7 @@ table, tr, td  {
 		<tr>
 			<td colspan="2" align="center">
 			<input type="button" class="btn btn-primary" value="수정하기" onclick="editAdmin(${member.empno})">&nbsp;
-			<input type="button" class="btn btn-default" value="닫기" onclick="window.close()"></td>
+			<input type="button" class="btn btn-default" value="취소" onclick="window.close()"></td>
 		</tr>
 	</table>
 </center>

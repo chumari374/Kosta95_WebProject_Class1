@@ -63,12 +63,12 @@
 	<div id="main" align="center">
 		<!-- 게시판 리스트 -->
 
-		<table width=80% border="0" cellpadding="0" cellspacing="0">
+		<table class="table" style="width: 80%">
 			<%
 				if (listcount > 0) {
 			%>
 			<tr align="center" valign="middle">
-				<td colspan="4">보낸 결재함</td>
+				<td colspan="5">보낸 결재함</td>
 				<td align=right><select
 					onchange="goUrl(this.options[this.selectedIndex].value)">
 						<option value="sendSignList.hong">선택</option>
@@ -81,11 +81,11 @@
 			</tr>
 
 			<tr align="center" valign="middle" bordercolor="#333333">
-				<td style="font-family: Tahoma; font-size: 8pt;" width="7%"
+				<td style="font-family: Tahoma; font-size: 8pt;" width="10%"
 					height="26">
 					<div align="center">결재 번호</div>
 				</td>
-				<td style="font-family: Tahoma; font-size: 8pt;" width="40%">
+				<td style="font-family: Tahoma; font-size: 8pt;" width="37%">
 					<div align="center">제목</div>
 				</td>
 				<td style="font-family: Tahoma; font-size: 8pt;" width="14%">
@@ -133,7 +133,7 @@
 			%>
 			<!-- 페이징처리 시작 -->
 			<tr align=center height=20>
-				<td colspan="4" style="font-family: Tahoma; font-size: 10pt;">
+				<td colspan="5" style="font-family: Tahoma; font-size: 10pt;">
 					<%
 						if (level <= 1) {
 					%> <input type="button" value="이전">&nbsp; <%
@@ -173,7 +173,7 @@
 				} else {
 			%>
 			<tr align="center" valign="middle">
-				<td colspan="4">보낸 결재함</td>
+				<td colspan="6">보낸 결재함</td>
 				<td align=right><select
 					onchange="goUrl(this.options[this.selectedIndex].value)">
 						<option value="sendSignList.hong">선택</option>
