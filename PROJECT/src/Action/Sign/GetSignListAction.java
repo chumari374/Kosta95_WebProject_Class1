@@ -25,7 +25,7 @@ public class GetSignListAction implements Action {
 		int empno = (Integer) session.getAttribute("empno");
 		int page = 1;
 		int limit = 10;
-		String status = "대기";
+		String status = "전체";
 
 		System.out.println("앵커2");
 

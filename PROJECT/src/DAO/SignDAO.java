@@ -66,15 +66,16 @@ public class SignDAO {
 			}
 
 			for (int i = 0;; i++) {
-				
+
 				System.out.println(grade + " " + teamcode + " " + deptcode);
-				
+
 				getGetSign_sql = getGetSign_sql + searchGS[i];
 
 				System.out.println(getGetSign_sql);
 
-				pstmt = conn.prepareStatement(getGetSign_sql, ResultSet.TYPE_SCROLL_INSENSITIVE, 
-			             ResultSet.CONCUR_UPDATABLE);
+				pstmt = conn.prepareStatement(getGetSign_sql,
+						ResultSet.TYPE_SCROLL_INSENSITIVE,
+						ResultSet.CONCUR_UPDATABLE);
 
 				switch (i) {
 				case 2:
@@ -85,12 +86,12 @@ public class SignDAO {
 					pstmt.setInt(1, grade - 1); // 내 직급등급의 - 1
 					break;
 				}
-				
+
 				rs = pstmt.executeQuery();
 				System.out.println("도착2");
 				rs.last();
 				System.out.println(rs.getRow());
-				
+
 				if (rs.getRow() == 1) {
 					while (rs.first()) {
 						infoList.add((rs.getString("ENAME") + " " + rs
@@ -266,10 +267,18 @@ public class SignDAO {
 
 	// ========== 받은 결재 함=============================
 	public List getGetSignList(int empno, int page, int limit, String status) {
-		String getGetSignList_sql = "select * from "
-				+ " (select rownum as rnum, signnum, starter, empno, getsign, title, content, write_date, ref, step, status, file_sign from "
-				+ " (select * from sign "
-				+ " where getsign = ? and status = ? order by signnum desc)) where rnum>=? and rnum<=? ";
+		String getGetSignList_sql = "";
+		if (status.equals("전체")) {
+			getGetSignList_sql = "select * from "
+					+ " (select rownum as rnum, signnum, starter, empno, getsign, title, content, write_date, ref, step, status, file_sign from "
+					+ " (select * from sign "
+					+ " where getsign = ? order by signnum desc)) where rnum>=? and rnum<=? ";
+		} else {
+			getGetSignList_sql = "select * from "
+					+ " (select rownum as rnum, signnum, starter, empno, getsign, title, content, write_date, ref, step, status, file_sign from "
+					+ " (select * from sign "
+					+ " where getsign = ? and status = ? order by signnum desc)) where rnum>=? and rnum<=? ";
+		}
 
 		System.out.println(getGetSignList_sql);
 		System.out.println("DAO앵커1");
@@ -285,19 +294,18 @@ public class SignDAO {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(getGetSignList_sql);
 
-			System.out.println("DAO앵커2");
-
-			System.out.println(empno);
-			System.out.println(startrow);
-			System.out.println(endrow);
-
-			System.out.println("갯수끝");
-
-			pstmt.setInt(1, empno);
-			pstmt.setString(2, status);
-			pstmt.setInt(3, startrow); // 11 21 code
-			pstmt.setInt(4, endrow); // 20 30 code
-			rs = pstmt.executeQuery();
+			if (status.equals("전체")) {
+				pstmt.setInt(1, empno);
+				pstmt.setInt(2, startrow); // 11 21 code
+				pstmt.setInt(3, endrow); // 20 30 code
+				rs = pstmt.executeQuery();
+			} else {
+				pstmt.setInt(1, empno);
+				pstmt.setString(2, status);
+				pstmt.setInt(3, startrow); // 11 21 code
+				pstmt.setInt(4, endrow); // 20 30 code
+				rs = pstmt.executeQuery();
+			}
 
 			while (rs.next()) {
 				System.out.println("점검1");
@@ -414,17 +422,28 @@ public class SignDAO {
 	// ======== 받은 결재 글의 갯수 구하는 함수 ======
 	public int getSignListCount(int empno, String status) {
 		int rowcount = 0;
+		String getSignListcount_sql = "";
+
+		if (status.equals("전체")) {
+			getSignListcount_sql = "select count(*) from sign where getsign = ?";
+		} else {
+			getSignListcount_sql = "select count(*) from sign where getsign = ? and status = ?";
+		}
+
 		try {
 
-			System.out.println("DAOin");
-
 			conn = ds.getConnection();
-			pstmt = conn
-					.prepareStatement("select count(*) from sign where getsign = ? and status = ?");
+			pstmt = conn.prepareStatement(getSignListcount_sql);
 
-			pstmt.setInt(1, empno);
-			pstmt.setString(2, status);
-			rs = pstmt.executeQuery();
+			if (status.equals("전체")) {
+				pstmt.setInt(1, empno);
+				rs = pstmt.executeQuery();
+			} else {
+				pstmt.setInt(1, empno);
+				pstmt.setString(2, status);
+				rs = pstmt.executeQuery();
+			}
+
 			if (rs.next()) {
 				rowcount = rs.getInt(1);
 				System.out.println(rowcount);
@@ -652,19 +671,18 @@ public class SignDAO {
 		int grade = (int) session.getAttribute("grade");
 		int deptcode = (int) session.getAttribute("deptcode");
 		int teamcode = (int) session.getAttribute("teamcode");
-		
-		
-		System.out.println(grade + " " + deptcode + " "+ teamcode);
-		
+
+		System.out.println(grade + " " + deptcode + " " + teamcode);
+
 		String stepUp_sql = "select SIGNNUM,STARTER,EMPNO,GETSIGN,TITLE,"
 				+ " CONTENT,WRITE_DATE,STATUS,FILE_SIGN, REF, STEP "
 				+ " from sign " + " where ref = ? and step = ?";
-		
+
 		SignDAO signdao = new SignDAO();
 		List info = new ArrayList();
 		info = signdao.getInfoList(grade, deptcode, teamcode);
 		System.out.println(info.get(3));
-		
+
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(stepUp_sql);
@@ -686,7 +704,7 @@ public class SignDAO {
 				SignBoard.setStatus("대기");
 				SignBoard.setFile_sign(rs.getString("file_sign"));
 			}
-			
+
 			signdao.SignStart(SignBoard);
 		} catch (Exception ex) {
 			System.out.println("stepUp error : " + ex);
