@@ -129,11 +129,7 @@
 			var allDay = agendaItem.allDay;
 			var data = agendaItem.data;
 			displayData += "<br><b>" + title+ "</b><br><br>";
-			if(allDay){
-				displayData += "(All day event)<br><br>";
-			}else{
-				displayData += "<b>Starts:</b> " + startDate + "<br>" + "<b>Ends:</b> " + endDate + "<br><br>";
-			}
+			
 			for (var propertyName in data) {
 				displayData += "<b>" + propertyName + ":</b> " + data[propertyName] + "<br>"
 			}
@@ -360,26 +356,24 @@
 							endDateObj,
 							false,
 							{
-								fname: "Santa",
-								lname: "Claus",
-								leadReindeer: "Rudolph",
-								myDate: new Date(),
-								myNum: 42
+								
 							},
 							{
 								backgroundColor: $("#colorBackground").val(),
 								foregroundColor: $("#colorForeground").val()
 							}
 						);
+						
+						//DB 등록 작업
 						console.log(list.length);
 						var agi = jfcalplugin.getAgendaItemById("#mycal",++list.length);
-						var startDate = agi.startDate.toLocaleString().substring(0,10)
+						var startDate = agi.startDate.toLocaleString().substring(0,12)
 										.replace(".","-").replace(".","-").replace(".","-")
 										.replace(" ","0").replace(" ","0");
-						var endDate = agi.endDate.toLocaleString().substring(0,10)
+						var endDate = agi.endDate.toLocaleString().substring(0,12)
 									.replace(".","-").replace(".","-").replace(".","-")
 									.replace(" ","0").replace(" ","0");
-						console.log(startDate);
+						
 						$.ajax({
 							url : "ScheduleAdd.mp",
 							data : {
@@ -480,6 +474,7 @@
 			}
 		});
 		
+		// 수정 
 		$("#edit-event-form").dialog({
 		      autoOpen: false,
 		      height: 400,
@@ -489,10 +484,7 @@
 		            $(this).dialog('close');
 		         },
 		         '확인': function(){
-		        	if(clickAgendaItem != null){
-						jfcalplugin.deleteAgendaItemById("#mycal",clickAgendaItem.agendaId);
-						//jfcalplugin.deleteAgendaItemByDataAttr("#mycal","myNum",42);
-					}
+		        	
 		        	var what = jQuery.trim($("#edit_what").val());
 					
 					if(what == ""){
@@ -546,7 +538,36 @@
 								foregroundColor: $("#edit_colorForeground").val()
 							}
 						);
-	
+						
+						//DB 등록 작업
+						var agi = jfcalplugin.getAgendaItemById("#mycal",clickAgendaItem.agendaId);
+		        		var scnum = agi.data.scnum;
+						var startDate = agi.startDate.toLocaleString().substring(0,12)
+										.replace(".","-").replace(".","-").replace(".","-")
+										.replace(" ","0").replace(" ","0");
+						var endDate = agi.endDate.toLocaleString().substring(0,12)
+									.replace(".","-").replace(".","-").replace(".","-")
+									.replace(" ","0").replace(" ","0");
+						
+						$.ajax({
+							url : "ScheduleEdit.mp",
+							data : {
+								sd : startDate,
+								ed : endDate,
+								title : what,
+								scnum : scnum
+							},
+							success : function(data){
+								if(data.length>0){
+									location.href='SchedulePage.mp';
+								}else{
+									alert('fail');
+								}
+							},
+							error : function(xhr, status){
+								alert(xhr + '/' + status); 
+							}
+						});
 						$(this).dialog('close');
 	
 					}
@@ -693,6 +714,7 @@
 			}	
 		});
 		
+		//스케쥴에 등록
 		console.log(list);
 		$.each(list,function(index,obj){
 			var startDate = obj.startdate;
@@ -726,7 +748,10 @@
 				startDateObj,
 				endDateObj,
 				false,
-				{empno:obj.empno},
+				{
+					empno:obj.empno,
+					scnum:obj.scnum
+				},
 				{
 					backgroundColor: $("#colorBackground").val(),
 					foregroundColor: $("#colorForeground").val()

@@ -14,6 +14,7 @@ import Action.Mypage.Account_EditAction;
 import Action.Mypage.Account_UpdateAction;
 import Action.Mypage.ScheduleAction;
 import Action.Mypage.ScheduleAddAction;
+import Action.Mypage.ScheduleEditAction;
 
 //@WebServlet("/MyPageFrontController")
 public class MyPageFrontController extends HttpServlet {
@@ -63,6 +64,13 @@ public class MyPageFrontController extends HttpServlet {
 			}
 		}else if(command.equals("/ScheduleAdd.mp")){
 			action = new ScheduleAddAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/ScheduleEdit.mp")){
+			action = new ScheduleEditAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

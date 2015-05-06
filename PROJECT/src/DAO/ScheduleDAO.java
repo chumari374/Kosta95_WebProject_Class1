@@ -90,4 +90,34 @@ public class ScheduleDAO {
 		}
 		return list;
 	}
+	
+	public int ScheduleEdit(ScheduleDTO schedule,int scnum){
+		String sql="update schedule set STARTDATE=?,ENDDATE=?,TITLE=? where scnum=?";
+		int result = 0;
+		/*	
+		SCNUM     NOT NULL NUMBER        
+		EMPNO     NOT NULL NUMBER        
+		STARTDATE NOT NULL DATE          
+		ENDDATE   NOT NULL DATE          
+		TITLE     NOT NULL VARCHAR2(200)  
+		*/
+		try{
+			conn=ds.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setDate(1, schedule.getStartdate());
+			pstmt.setDate(2, schedule.getEnddate());
+			pstmt.setString(3, schedule.getTitle());
+			pstmt.setInt(4, scnum);
+			result = pstmt.executeUpdate();
+		}catch(SQLException ex){
+			ex.printStackTrace();
+		}
+		finally{
+			try{
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			}catch(Exception ex) {}
+		}
+		return result;
+	}
 }
