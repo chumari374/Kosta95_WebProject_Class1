@@ -16,7 +16,7 @@
    <div id="main" align="center">
 <!-- 게시판 수정 -->
 <input type="hidden" value="<%=empno%>"/>
-<table cellpadding="0" cellspacing="0">
+<table cellpadding="0" cellspacing="0" class="table" style="width: 70%; margin-top: 50px;">
 	<tr align="center" valign="middle">
 		<td colspan="6">사내 게시판</td>
 	</tr>
@@ -63,10 +63,10 @@
 		
 		
 		
-	<tr bgcolor="cccccc">
-		<td colspan="2" style="height:1px;">
+<!-- 	<tr bgcolor="cccccc">
+		<td colspan="2">
 		</td>
-	</tr>
+	</tr> -->
 	
 	<tr>
 		<td style="font-family:돋음; font-size:12">
@@ -82,9 +82,9 @@
 			</table>
 		</td>
 	</tr>
-	<tr bgcolor="cccccc">
+	<!-- <tr bgcolor="cccccc">
 		<td colspan="2" style="height:1px;"></td>
-	</tr>
+	</tr> -->
 	<tr><td colspan="2">&nbsp;</td></tr>
 	<tr>
 	<tr align="center" valign="middle">
