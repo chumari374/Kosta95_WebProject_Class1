@@ -56,7 +56,7 @@ public class CompNoticeRealModifyAction implements Action {
 
 				System.out.println("게시판 수정 실패");
 				forward.setRedirect(true);
-				forward.setPath("./CompNoticeList.cp");
+				forward.setPath("./CompNoticeList.cn");
 				return forward;
 			}
 
@@ -69,7 +69,7 @@ public class CompNoticeRealModifyAction implements Action {
 			forward.setRedirect(false);
 //			forward.setPath("./CompBoardDetailAction.cp?num="+boarddto.getNum());
 //			forward.setPath("./CompBoardDetailAction.cp?num="+Integer.parseInt(request.getParameter("BOARD_NUM")));
-			forward.setPath("./CompBoardList.cp");
+			forward.setPath("./CompNoticeList.cn");
 			
 			return forward;
 
