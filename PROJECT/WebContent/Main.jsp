@@ -69,7 +69,7 @@
               <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;부서     
               <ul class="submenu">         
                  <li><a href="DeptBoardList.dp">부서 게시판</a></li>          
-                 <li><a href="#" onclick="chatting_window()">팀 게시판</a></li>       
+                 <li><a href="#" onclick="chatting_window('${sessionScope.teamname}')">팀 게시판</a></li>       
                  <li><a href="#">자료실(공사중)</a></li>    
               </ul>    
            </li>

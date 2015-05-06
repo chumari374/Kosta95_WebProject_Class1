@@ -37,9 +37,9 @@ window.onload = function() {
 		var msg = $('#msg').val();
 		var ename = $('#ename').val();
 		var ip = $('#ip').val();
-		/*var to = $('#to').val();*/
+		var teamname = $('#teamname').val();
 		
-		ws.send(ename+","+msg+","+ip);
+		ws.send(ename+","+msg+","+ip+","+teamname);
 		document.getElementById("msg").value = "";
 	}
 	
