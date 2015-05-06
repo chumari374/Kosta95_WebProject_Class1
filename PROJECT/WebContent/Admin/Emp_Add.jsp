@@ -36,7 +36,7 @@
 			<td>팀</td>
 			<td><select name="team">
 					<option>팀1</option>
-					<option>팀2ㄴ</option>
+					<option>팀2</option>
 			</select></td>
 		</tr>
 		<tr>
