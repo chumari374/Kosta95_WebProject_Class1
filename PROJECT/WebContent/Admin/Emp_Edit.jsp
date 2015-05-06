@@ -7,71 +7,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
- table, tr, td{
- 	border: 1px solid gray;
- 	border-collapse: collapse;
- 	padding: 5px;
- 	padding-left: 10px; 
- 	padding-right: 10px;
- } 
-</style>
+ 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 </head>
 <body>
-	<form>
-		<table>
-			<tr>
-				<td>사원번호  </td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>이름 </td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>생년월일  </td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>성별  </td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>소속부서 </td>
-				<td><input type="text"></td>
-			</tr>
-			<tr>
-				<td>소속팀 </td>
-				<td><input type="text"></td>
-			</tr>
-			<tr>
-				<td>패스워드  </td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>이메일 주소 </td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>주소  </td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>핸드폰 번호  </td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>프로필 사진  </td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>프로필 메세지 </td>
-				<td><textarea rows="5" cols="60" readonly="readonly"></textarea></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="submit" value="수정">&nbsp;<input type="button" value="취소"></td>
-			</tr>
-		</table>
-	</form>
+		<jsp:include page="../Emp_Search/Emp_Search.jsp"></jsp:include>
 </body>
 </html>
