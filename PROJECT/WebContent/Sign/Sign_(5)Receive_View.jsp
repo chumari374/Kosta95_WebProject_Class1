@@ -7,6 +7,9 @@
 	SignDTO signdata = (SignDTO) request.getAttribute("signdata");
 	SignDAO signdao = new SignDAO();
 
+	ServletContext context = getServletContext();
+	String SignDownLoadPath = context.getRealPath("SignUpload");
+	
 	String title = signdata.getTitle();
 	String starter = signdao.getEmpname(signdata.getStarter());
 	String sender = signdao.getEmpname(signdata.getEmpno());
@@ -61,7 +64,14 @@ table, td, tr {
 					</tr>
 					<tr>
 						<td>파일</td>
-						<td><%=filepath%></td>
+						<td>
+							<%if(!(signdata.getFile_sign()==null)) { %>
+							
+							<a href="Sign/Sign_(6)File_Down.jsp?File_sign=<%=signdata.getFile_sign() %>">
+							<%=signdata.getFile_sign() %>
+							</a>
+							<%} %>
+						</td>
 					</tr>
 					<tr class="content">
 						<td>내용</td>
