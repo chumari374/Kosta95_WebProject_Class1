@@ -9,7 +9,7 @@
 	String savePath ="SignUpload";
 	
 	ServletContext context = getServletContext();
-	String SignDownLoadPath = context.getRealPath(savePath);
+	String SignDownLoadPath =  "\\\\192.168.7.235\\Upload";
 	
 	String SignFilePath = SignDownLoadPath + "\\" + filename.trim();
 	

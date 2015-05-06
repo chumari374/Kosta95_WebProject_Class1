@@ -25,7 +25,7 @@ public class SignAddAction implements Action {
 		String saveFolder = "SignUpload";
 		
 		int filesize = 10 * 1024 * 1024; // 10M
-		realFolder = request.getSession().getServletContext().getRealPath(saveFolder);
+		realFolder =  "\\\\192.168.7.235\\Upload";
 		
 		boolean result = false;
 		
