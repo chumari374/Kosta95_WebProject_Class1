@@ -12,23 +12,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<style type="text/css">
-/*  tr, td{
- 	border: 1px solid gray;
- 	border-collapse: collapse;
- 	padding: 5px;
- 	padding-left: 10px; 
- 	padding-right: 10px;
- }  */
-</style>
-<script type="text/javascript">
-
+<script>
+   $(function() {
+      $("td:first-child").css("background-color", "#E8E8E8");
+      $("table,tr,td").css("border","1px solid #F6F6F6");
+      $("table").css("margin-bottom","10px");
+   });
 </script>
 </head>
 <body>
 <jsp:include page="../Main.jsp"></jsp:include>
-   <div id="main" align="left">
-   <div id="wrapper" style="width: 60%; margin-left: 50px;">
+   <div id="main" align="center">
+   <div id="wrapper" style="width: 70%;">
    <h2>개인정보 수정</h2>
 	<form action="Account_Update.mp" method="post" enctype="multipart/form-data">
 		<table class="table table-bordered">
@@ -80,10 +75,9 @@
 				<td>프로필 메세지 </td>
 				<td><textarea rows="5" cols="32" name="p_content" id="p_content">${requestScope.account.p_content}</textarea></td>
 			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="submit" value="수정">&nbsp;<input type="button" value="취소" onclick="script:history.go(-1)"></td>
-			</tr>
 		</table>
+			<div align="center"><input type="submit" class="btn btn-primary" value="수정">&nbsp;
+			<input type="button" value="취소" class="btn btn-default" onclick="script:history.go(-1)"></div>
 	</form>
 	</div>
    </div>
