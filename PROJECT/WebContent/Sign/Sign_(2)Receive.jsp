@@ -30,6 +30,11 @@
 	}
  	
  	String status =  request.getParameter("status");
+ 	if (request.getParameter("status") == null) {
+ 		status = "전체";
+ 	}
+ 	
+ 	
  	System.out.println("status : " + request.getParameter("status"));
 %>
 
