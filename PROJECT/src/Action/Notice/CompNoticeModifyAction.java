@@ -36,7 +36,8 @@ public class CompNoticeModifyAction implements Action {
 		   		PrintWriter out=response.getWriter();
 		   		out.println("<script>");
 		   		out.println("alert('수정할 권한이 없습니다.');");
-		   		out.println("location.href='./CompNoticeList.cn';");
+//		   		out.println("location.href='./CompNoticeList.cn';");
+		   		out.println("history.go(-1);");
 		   		out.println("</script>");
 		   		out.close();
 		   		return null;

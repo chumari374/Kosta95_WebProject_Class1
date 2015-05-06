@@ -8,11 +8,8 @@ import javax.servlet.http.HttpSession;
 
 import Action.Action;
 import Action.ActionForward;
-import DAO.C_BrdDAO;
-import DTO.C_BrdDTO;
-
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import DAO.D_BrdDAO;
+import DTO.D_BrdDTO;
 
 public class DeptBoardAddAction implements Action {
 
@@ -21,8 +18,8 @@ public class DeptBoardAddAction implements Action {
 			throws Exception{
 
 		HttpSession session = request.getSession();
-		C_BrdDAO boarddao=new C_BrdDAO();
-		C_BrdDTO boarddto=new C_BrdDTO();
+		D_BrdDAO boarddao=new D_BrdDAO();
+		D_BrdDTO boarddto=new D_BrdDTO();
 		ActionForward forward=new ActionForward();
 
 		request.setCharacterEncoding("UTF-8");		   	
@@ -30,6 +27,7 @@ public class DeptBoardAddAction implements Action {
 		boolean result=false;
 		String notice = "";
 		PrintWriter out = response.getWriter();
+		int deptcode = (Integer)request.getSession().getAttribute("deptcode");
 
 		try{
 
@@ -45,7 +43,7 @@ public class DeptBoardAddAction implements Action {
 			boarddto.setContent(request.getParameter("BOARD_CONTENT"));
 			boarddto.setNotice(notice);
 
-			result=boarddao.Insert(boarddto);
+			result=boarddao.Insert(boarddto,deptcode);
 
 			if(result==false){
 
@@ -55,7 +53,7 @@ public class DeptBoardAddAction implements Action {
 
 				System.out.println("게시판 등록 실패");
 				forward.setRedirect(true);
-				forward.setPath("./CompBoardList.cp");
+				forward.setPath("./DeptBoardList.dp");
 				return forward;
 			}
 
@@ -66,7 +64,7 @@ public class DeptBoardAddAction implements Action {
 			System.out.println("게시판 등록 완료");
 //			response.setCharacterEncoding("UTF-8");
 			forward.setRedirect(true);
-			forward.setPath("./CompBoardList.cp");
+			forward.setPath("./DeptBoardList.dp");
 			return forward;
 
 		}catch(Exception ex){

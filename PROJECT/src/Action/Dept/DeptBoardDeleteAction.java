@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import Action.Action;
 import Action.ActionForward;
 import DAO.C_BrdDAO;
+import DAO.D_BrdDAO;
 
 public class DeptBoardDeleteAction implements Action {
 
@@ -26,7 +27,7 @@ public class DeptBoardDeleteAction implements Action {
 		   	boolean usercheck=false;
 		   	int num=Integer.parseInt(request.getParameter("num"));
 		   	
-		   	C_BrdDAO boarddao=new C_BrdDAO();
+		   	D_BrdDAO boarddao=new D_BrdDAO();
 		   	usercheck=boarddao.isboardWriter(num, empno);
 		   	
 		   	if(usercheck==false){
@@ -34,7 +35,7 @@ public class DeptBoardDeleteAction implements Action {
 		   		PrintWriter out=response.getWriter();
 		   		out.println("<script>");
 		   		out.println("alert('삭제할 권한이 없습니다.');");
-		   		out.println("location.href='./CompBoardList.cp';");
+		   		out.println("location.href='./DeptBoardList.dp';");
 		   		out.println("</script>");
 		   		out.close();
 		   		return null;
@@ -48,7 +49,7 @@ public class DeptBoardDeleteAction implements Action {
 		   	
 		   	System.out.println("게시판 삭제 성공");
 		   	forward.setRedirect(true);
-	   		forward.setPath("./CompBoardList.cp");
+	   		forward.setPath("./DeptBoardList.dp");
 	   		return forward;
 	}
 

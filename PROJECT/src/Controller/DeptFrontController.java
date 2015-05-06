@@ -20,7 +20,11 @@ import Action.Comp.CompBoardModifyView;
 import Action.Comp.CompBoardRealModifyAction;
 import Action.Comp.CompBoardReplyAction;
 import Action.Comp.CompBoardReplyView;
+import Action.Dept.DeptBoardAddAction;
+import Action.Dept.DeptBoardDeleteAction;
+import Action.Dept.DeptBoardDetailAction;
 import Action.Dept.DeptBoardListAction;
+import Action.Dept.DeptBoardModifyAction;
 
 @WebServlet("*.dp")
 public class DeptFrontController extends HttpServlet {
@@ -46,33 +50,33 @@ public class DeptFrontController extends HttpServlet {
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }
-	   }else if(command.equals("/CompBoardWrite.cp")){
+	   }else if(command.equals("/DeptBoardWrite.dp")){
 		   forward=new ActionForward();
 		   forward.setRedirect(false);
-		   forward.setPath("./Comp/Comp_Board/Comp_Board_Write.jsp");
-	   }else if(command.equals("/CompBoardWriteOk.cp")){
-		   	action = new CompBoardAddAction();
+		   forward.setPath("./Dept/Dept_Board/Dept_Board_Write.jsp");
+	   }else if(command.equals("/DeptBoardWriteOk.dp")){
+		   	action = new DeptBoardAddAction();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }
-	   }else if(command.equals("/CompBoardDetailAction.cp")){
-		   	action = new CompBoardDetailAction();
+	   }else if(command.equals("/DeptBoardDetailAction.dp")){
+		   	action = new DeptBoardDetailAction();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }
-	   }else if(command.equals("/CompBoardDeleteAction.cp")){
-		   	action = new CompBoardDeleteAction();
+	   }else if(command.equals("/DeptBoardDeleteAction.dp")){
+		   	action = new DeptBoardDeleteAction();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }
-	   }else if(command.equals("/CompBoardModify.cp")){
-		   	action = new CompBoardModifyAction();
+	   }else if(command.equals("/DeptBoardModify.dp")){
+		   	action = new DeptBoardModifyAction();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){

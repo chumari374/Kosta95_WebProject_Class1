@@ -100,7 +100,7 @@
 							<td style="font-family: Tahoma; font-size: 10pt;">
 								<div align="left">
 									<a
-										href="CompBoardDetailAction.cp?num=<%=bl.getNum()%>&page=<%=nowpage%>">
+										href="DeptBoardDetailAction.dp?num=<%=bl.getNum()%>&page=<%=nowpage%>">
 										<%=bl.getTitle()%>
 									</a>
 								</div>
@@ -154,7 +154,7 @@
 										}
 									%>
 									<a
-										href="CompBoardDetailAction.cp?num=<%=bl.getNum()%>&page=<%=nowpage%>">
+										href="DeptBoardDetailAction.dp?num=<%=bl.getNum()%>&page=<%=nowpage%>">
 										<%=bl.getTitle()%>
 									</a>
 								</div>
@@ -183,7 +183,7 @@
 								%> <input type="button" value="이전">&nbsp;
 								<%
 									} else {
-								%> <a href="CompBoardList.cp?page=<%=level * 5 - 5%>"><input
+								%> <a href="DeptBoardList.dp?page=<%=level * 5 - 5%>"><input
 									type="button" value="이전 "></a>&nbsp; <%
  	}
  %> <%
@@ -193,7 +193,7 @@
 								style="background-color: #B2EBF4">&nbsp; <%
  	} else {
  				if (i <= maxpage) {
- %> <a href="CompBoardList.cp?page=<%=i%>"><input type="button"
+ %> <a href="DeptBoardList.dp?page=<%=i%>"><input type="button"
 									value="<%=i%>"></a>&nbsp; <%
  	}
  			}
@@ -204,7 +204,7 @@
  %> <input type="button" value="다음">
 								<%
 									} else {
-								%> <a href="CompBoardList.cp?page=<%=level * 5 + 1%>"><input
+								%> <a href="DeptBoardList.dp?page=<%=level * 5 + 1%>"><input
 									type="button" value="다음"></a> <%
  	}
  %>
@@ -217,7 +217,7 @@
 							} else {
 						%>
 						<tr align="center" valign="middle">
-							<td colspan="4">사내 게시판</td>
+							<td colspan="4">부서 게시판</td>
 							<td align=right><font size=2>등록된 글이 없습니다.</font></td>
 						</tr>
 						<%

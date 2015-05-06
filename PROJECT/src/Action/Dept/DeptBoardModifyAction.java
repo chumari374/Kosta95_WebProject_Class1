@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import Action.Action;
 import Action.ActionForward;
 import DAO.C_BrdDAO;
+import DAO.D_BrdDAO;
 import DTO.C_BrdDTO;
 
 public class DeptBoardModifyAction implements Action {
@@ -26,7 +27,7 @@ public class DeptBoardModifyAction implements Action {
 		 
 		 int num=Integer.parseInt(request.getParameter("num"));
 		 
-		 C_BrdDAO boarddao=new C_BrdDAO();
+		 D_BrdDAO boarddao=new D_BrdDAO();
 	//	 C_BrdDTO boarddata=new C_BrdDTO();
 		 
 		 boolean usercheck=boarddao.isboardWriter(num, empno);
@@ -35,14 +36,15 @@ public class DeptBoardModifyAction implements Action {
 		   		PrintWriter out=response.getWriter();
 		   		out.println("<script>");
 		   		out.println("alert('수정할 권한이 없습니다.');");
-		   		out.println("location.href='./CompBoardList.cp';");
+		   		//out.println("location.href='./DeptBoardList.dp';");
+		   		out.println("history.go(-1);");
 		   		out.println("</script>");
 		   		out.close();
 		   		return null;
 		 }
 		 
 		forward.setRedirect(false);
-	   	forward.setPath("./CompBoardModifyView.cp");
+	   	forward.setPath("./DeptBoardModifyView.dp");
 		return forward;
 	}
 

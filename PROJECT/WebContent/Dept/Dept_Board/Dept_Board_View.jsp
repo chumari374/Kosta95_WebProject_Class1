@@ -1,7 +1,8 @@
+<%@page import="DTO.D_BrdDTO"%>
 <%@page import="DTO.C_BrdDTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%
-	C_BrdDTO board = (C_BrdDTO)request.getAttribute("boarddata");
+	D_BrdDTO board = (D_BrdDTO)request.getAttribute("boarddata");
 	String ename = (String)session.getAttribute("ename");
 	int empno = (Integer)session.getAttribute("empno");
 %>
@@ -47,7 +48,7 @@
 		</td>
 		
 		<td style="font-family:돋음; font-size:12">
-		<%=board.getEname() %>
+		<a href="#" onclick="info(<%=board.getEmpno()%>)"><%=board.getEname()%></a>
 		</td>
 		</tr>
 		
@@ -90,17 +91,17 @@
 	<tr align="center" valign="middle">
 		<td colspan="5">
 			<font size=2>
-			<a href="./CompBoardReplyView.cp?num=<%=board.getNum() %>">
+			<a href="./DeptBoardReplyView.dp?num=<%=board.getNum() %>">
 			<input type="button" value="답변">
 			</a>&nbsp;&nbsp;
-			<a href="./CompBoardModify.cp?num=<%=board.getNum() %>">
+			<a href="./DeptBoardModify.dp?num=<%=board.getNum() %>">
 			<input type="button" value="수정">
 			</a>&nbsp;&nbsp;
-			<a href="./CompBoardDeleteAction.cp?num=<%=board.getNum() %>"
+			<a href="./DeptBoardDeleteAction.dp?num=<%=board.getNum() %>"
 			>
 			<input type="button" value="삭제">
 			</a>&nbsp;&nbsp;
-			<a href="./CompBoardList.cp?page=<%=Integer.parseInt(request.getParameter("page"))%>">
+			<a href="./DeptBoardList.dp?page=<%=Integer.parseInt(request.getParameter("page"))%>">
 			<input type="button" value="목록">
 			</a>&nbsp;&nbsp;
 			</font>
