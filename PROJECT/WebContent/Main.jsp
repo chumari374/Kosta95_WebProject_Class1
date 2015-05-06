@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<% 
+
+	int ceo = (Integer)(session.getAttribute("grade"));
+
+%>
 <!-- 메인페이지 -->
 <!DOCTYPE HTML>
 <HTML>
@@ -70,11 +76,20 @@
            <li>      
               <span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;결재   
               <ul class="submenu">         
-                 <li><a href="#">결재 현황</a></li>          
+<!--                  <li><a href="#">결재 현황</a></li>           -->
+                 
+                 <%
+                 	if(ceo != 1){
+                 %>
                  <li><a href="SignWrite.hong">결재 기안</a></li>       
                  <li><a href="sendSignList.hong">보낸 결재</a></li>    
+                 <%
+                 	}
+                 %>
+                 
+                 
                  <li><a href="getSignList.hong">받은 결재</a></li>    
-                 <li><a href="#">완료 결재함</a></li>    
+<!--                  <li><a href="#">완료 결재함</a></li>     -->
               </ul>    
         </li> 
      
