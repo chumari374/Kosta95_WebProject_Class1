@@ -26,15 +26,16 @@
 <script>
    $(function() {
       $("td:first-child").css("background-color", "#EFEFEF");
+      $("td:first-child").css("width","150px");
    });
 </script>
 <style type="text/css">
-table, td, tr {
+/* table, td, tr {
    border: 1px solid gray;
    border-collapse: collapse;
    width: 800px;
 }
-
+ */
 .content {
    height: 250px;
 }
@@ -69,10 +70,11 @@ table, td, tr {
 <body>
    <jsp:include page="../Main.jsp"></jsp:include>
    <div id="main" align="center">
+   <div align="center" style="margin-left: 20px;"><h3>기안서 작성</h3></div>
       <form action="SignAddAction.hong" method="post"
          enctype="multipart/form-data" id="write" name="write">
          <center>
-            <table>
+            <table class="table" style="width: 70%">
                <tr>
                   <td>부서</td>
                   <td><%=deptname%></td>
