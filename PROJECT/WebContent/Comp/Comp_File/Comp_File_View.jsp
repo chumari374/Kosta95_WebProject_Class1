@@ -56,7 +56,7 @@
 		</td>
 		
 		<td style="font-family:돋음; font-size:12">
-			<%=board.getEname() %>
+		<a href="#" onclick="info(<%=board.getEmpno()%>)"><%=board.getEname()%></a>
 		</td>
 		</tr>
 		
