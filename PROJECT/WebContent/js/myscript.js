@@ -37,3 +37,8 @@ function logout(path){
 	
 	location.href=path;
 }
+
+
+function infoAdmin(empno){
+	window.open('Member.admin?empno='+empno,'상세정보', 'width=600 height=424')
+}
