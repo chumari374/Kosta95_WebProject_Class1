@@ -6,7 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 import Action.Action;
 import Action.ActionForward;
 import DAO.C_BrdDAO;
+import DAO.D_BrdDAO;
 import DTO.C_BrdDTO;
+import DTO.D_BrdDTO;
 
 public class DeptBoardReplyAction implements Action{
 
@@ -16,9 +18,10 @@ public class DeptBoardReplyAction implements Action{
 	 	request.setCharacterEncoding("utf-8");
 	 	ActionForward forward = new ActionForward();
 	 	
-		C_BrdDAO boarddao=new C_BrdDAO();
-   		C_BrdDTO boarddata=new C_BrdDTO();
+		D_BrdDAO boarddao=new D_BrdDAO();
+   		D_BrdDTO boarddata=new D_BrdDTO();
    		int result=0;
+   		int deptcode = (Integer)request.getSession().getAttribute("deptcode");
    		
    		boarddata.setNum(Integer.parseInt(request.getParameter("BOARD_NUM")));
    		boarddata.setEmpno(Integer.parseInt(request.getParameter("BOARD_ID")));
@@ -29,7 +32,7 @@ public class DeptBoardReplyAction implements Action{
    		boarddata.setDpth(Integer.parseInt(request.getParameter("BOARD_RE_SEQ")));
    		boarddata.setEname((String)(request.getSession().getAttribute("ename")));
    		
-   		result=boarddao.boardReply(boarddata);
+   		result=boarddao.boardReply(boarddata , deptcode);
    		if(result==0){
    			System.out.println("답장 실패");
    			return null;
@@ -37,7 +40,7 @@ public class DeptBoardReplyAction implements Action{
    		System.out.println("답장 완료");
    		
    		forward.setRedirect(false);
-   		forward.setPath("./CompBoardList.cp");
+   		forward.setPath("./DeptBoardList.dp");
    		return forward;
 	}
 

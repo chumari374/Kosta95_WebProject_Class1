@@ -25,6 +25,10 @@ import Action.Dept.DeptBoardDeleteAction;
 import Action.Dept.DeptBoardDetailAction;
 import Action.Dept.DeptBoardListAction;
 import Action.Dept.DeptBoardModifyAction;
+import Action.Dept.DeptBoardModifyView;
+import Action.Dept.DeptBoardRealModifyAction;
+import Action.Dept.DeptBoardReplyAction;
+import Action.Dept.DeptBoardReplyView;
 
 @WebServlet("*.dp")
 public class DeptFrontController extends HttpServlet {
@@ -82,29 +86,29 @@ public class DeptFrontController extends HttpServlet {
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }
-	   }else if(command.equals("/CompBoardModifyView.cp")){
-		   	action = new CompBoardModifyView();
+	   }else if(command.equals("/DeptBoardModifyView.dp")){
+		   	action = new DeptBoardModifyView();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }
-	   }else if(command.equals("/CompBoardRealModifyAction.cp")){
-		   	action = new CompBoardRealModifyAction();
+	   }else if(command.equals("/DeptBoardRealModifyAction.dp")){
+		   	action = new DeptBoardRealModifyAction();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }
-	   }else if(command.equals("/CompBoardReplyView.cp")){
-		   	action = new CompBoardReplyView();
+	   }else if(command.equals("/DeptBoardReplyView.dp")){
+		   	action = new DeptBoardReplyView();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }
-	   }else if(command.equals("/CompBoardReplyAction.cp")){
-		   	action = new CompBoardReplyAction();
+	   }else if(command.equals("/DeptBoardReplyAction.dp")){
+		   	action = new DeptBoardReplyAction();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){

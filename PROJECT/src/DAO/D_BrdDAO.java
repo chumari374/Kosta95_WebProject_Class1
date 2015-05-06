@@ -402,7 +402,7 @@ public class D_BrdDAO {
 				
 				
 				sql = "insert into d_brd (NUM, EMPNO, TITLE, CONTENT, NOTICE, WRITE_DATE, REF, DPTH, STEP , ENAME , COUNT, DEPTCODE)"
-						+ "values(Comp_board_num.nextval,?,?,?,?,sysdate,?,?,?,?,0,?)";
+						+ "values(Dept_board_num.nextval,?,?,?,?,sysdate,?,?,?,?,0,?)";
 				
 				conn = ds.getConnection();
 				pstmt = conn.prepareStatement(sql);

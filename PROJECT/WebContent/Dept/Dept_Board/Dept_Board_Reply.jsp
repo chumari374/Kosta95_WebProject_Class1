@@ -1,4 +1,5 @@
 
+<%@page import="DTO.D_BrdDTO"%>
 <%@page import="DTO.C_BrdDTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%
@@ -9,7 +10,7 @@
 	String deptcode = (String.valueOf(session.getAttribute("deptcode")));
 	String grade = (String.valueOf(session.getAttribute("grade")));
 	
-	C_BrdDTO board = (C_BrdDTO)request.getAttribute("boarddata");
+	D_BrdDTO board = (D_BrdDTO)request.getAttribute("boarddata");
 	
 
 	/*
@@ -92,7 +93,7 @@
 <!-- 게시판 등록 -->
 <jsp:include page="../../Main.jsp"></jsp:include>
    <div id="main" align="center">
-<form action="CompBoardReplyAction.cp" method="post" name="boardform">
+<form action="DeptBoardReplyAction.dp" method="post" name="boardform">
 <input type="hidden" name="BOARD_NUM" value="<%=board.getNum() %>">
 <input type="hidden" name="BOARD_RE_REF" value="<%=board.getRef() %>">
 <input type="hidden" name="BOARD_RE_LEV" value="<%=board.getDpth() %>">
