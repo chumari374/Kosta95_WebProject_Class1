@@ -72,9 +72,9 @@ table, td, tr {
 						<td>
 							<%if(!(signdata.getFile_sign()==null)) { %>
 							
-							<a href="Sign_(6)File_Down.jsp?File_sign=<%=signdata.getFile_sign() %>">
+							<a href="Sign/Sign_(6)File_Down.jsp?File_sign=<%=signdata.getFile_sign() %>">
 							<%=signdata.getFile_sign() %>
-							
+							</a>
 							<%} %>
 						</td>
 					</tr>

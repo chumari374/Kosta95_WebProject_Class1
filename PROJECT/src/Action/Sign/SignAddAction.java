@@ -22,7 +22,7 @@ public class SignAddAction implements Action {
 		
 		// 파일 업로드
 		String realFolder = "";
-		String saveFolder = "\\\\192.168.7.235\\Upload";
+		String saveFolder = "SignUpload";
 		
 		int filesize = 10 * 1024 * 1024; // 10M
 		realFolder = request.getSession().getServletContext().getRealPath(saveFolder);
@@ -33,7 +33,7 @@ public class SignAddAction implements Action {
 			
 			System.out.println(request.getParameter("STARTER"));
 			
-			
+			System.out.println(realFolder);
 			MultipartRequest multi = null;
 			multi = new MultipartRequest(request, realFolder, filesize, "utf-8", new DefaultFileRenamePolicy());
 			
