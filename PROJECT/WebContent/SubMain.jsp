@@ -8,7 +8,7 @@
 </head>
 <body>
 <jsp:include page="Main.jsp"></jsp:include>
-	<div id="main" align="center">
+	<div id="main" align="center" style="padding: 0px;">
 	<img alt="" src="./img/9.jpg" >
 	</div>
 <jsp:include page="Footer.jsp"></jsp:include>
