@@ -49,7 +49,7 @@ public class D_BrdDAO {
 		}
 	}
 	
-	public List getNoticeList(){
+	public List getNoticeList(int deptcode){
 		
 		String getD_BrdList_sql = "select * from (select rownum rnum,NUM,EMPNO,TITLE,CONTENT,REF,DPTH,STEP,COUNT,WRITE_DATE,ENAME,NOTICE,DEPTCODE from (select * from d_brd where deptcode = ? and notice = 'true' order by num desc)) where rnum>=1 and rnum<=3";
 		
@@ -59,7 +59,7 @@ public class D_BrdDAO {
 				try {
 					conn = ds.getConnection();
 					pstmt = conn.prepareStatement(getD_BrdList_sql);
-
+					pstmt.setInt(1, deptcode);
 					rs = pstmt.executeQuery();
 
 					while (rs.next()) {
@@ -265,83 +265,17 @@ public class D_BrdDAO {
 		return false;
 	}
 	
-	// 글 답변 (key point)
-	// 글을 읽고 그 글에 대한 답변(게시글)
-//	public int Reply(C_BrdDTO c_brd){
-//		// 답변 2개의 쿼리
-//		// 1, update ... 내가 자리잡을 위치 board_re_seq
-//		// 2, insert ... 실 데이터 처리
-//		// 코드 구현
-//		String c_brd_max_sql = "select max(num) from c_brd";
-//		String sql = "";
-//		int num = 0;
-//		int result = 0;
-//		
-//		// 현재 내가 읽고 답변을 하려는 원본글의 정보
-//		int ref = c_brd.getRef();
-//		int dpth = c_brd.getDpth();
-//		int step = c_brd.getStep();
-//		
-//		try {
-//			conn = ds.getConnection();
-//			pstmt = conn.prepareStatement(c_brd_max_sql);
-//			rs = pstmt.executeQuery();
-//			if (rs.next()) {
-//				num = rs.getInt(1) + 1;
-//			} else {
-//				num = 1;
-//			}
-//			// update 문 (위치 확보)
-//			sql = " UPDATE c_brd SET STEP = STEP +1 "
-//					+ " WHERE REF = ? AND STEP > ?";
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setInt(1, ref);
-//			pstmt.setInt(2, dpth);
-//
-//			result = pstmt.executeUpdate();
-//
-//			// insert board :(key point)
-//			step = step + 1; // 현재 읽은 글 + 1
-//			dpth = dpth + 1; // 현재 읽은 글 + 1
-//
-//			sql = "insert into c_brd (NUM, EMPNO, TITLE,";
-//			sql += "CONTENT, NOTICE, WRITE_DATE, REF, DPTH, STEP)"
-//					+ "values(?,?,?,?,?,?,?,?,?,?,sysdate)";
-//			
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setInt(1, num);
-//			pstmt.setInt(2, c_brd.getEmpno());
-//			pstmt.setString(3, c_brd.getTitle());
-//			pstmt.setString(4, c_brd.getContent());
-//			pstmt.setString(5, c_brd.getNotice());
-//			pstmt.setDate(6, c_brd.getWrite_date());
-//			pstmt.setInt(7, ref);
-//			pstmt.setInt(8, dpth);
-//			pstmt.setInt(9, step);
-//			pstmt.executeUpdate();
-//			
-//			return num;
-//		} catch (SQLException e) {
-//			System.out.println("Reply Error : " + e.getMessage());
-//		} finally {
-//			if (rs != null) try { rs.close(); } catch (SQLException ex) {}
-//			if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}
-//			if (conn != null) try { conn.close(); } catch (SQLException ex) {}
-//		}
-//		return 0;
-//	}
-//	
 //	// 글 수정
-	public boolean Modify(C_BrdDTO modifyc_brd){
+	public boolean Modify(D_BrdDTO modifyd_brd){
 		
-		String sql = "update c_brd set TITLE=?, CONTENT=? where NUM=?";
+		String sql = "update d_brd set TITLE=?, CONTENT=? where NUM=?";
 		
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, modifyc_brd.getTitle());
-			pstmt.setString(2, modifyc_brd.getContent());
-			pstmt.setInt(3, modifyc_brd.getNum());
+			pstmt.setString(1, modifyd_brd.getTitle());
+			pstmt.setString(2, modifyd_brd.getContent());
+			pstmt.setInt(3, modifyd_brd.getNum());
 			pstmt.executeUpdate();
 			return true;
 		} catch (Exception ex) {
@@ -372,13 +306,13 @@ public class D_BrdDAO {
 			// 원본글
 			// ->답변 삭제 (x) 답변
 			// ->답변_1
-			String c_brd_delete_sql = "delete from c_brd where num=?";
+			String d_brd_delete_sql = "delete from d_brd where num=?";
 
 			int result = 0;
 
 			try {
 				conn = ds.getConnection();
-				pstmt = conn.prepareStatement(c_brd_delete_sql);
+				pstmt = conn.prepareStatement(d_brd_delete_sql);
 				pstmt.setInt(1, num);
 				result = pstmt.executeUpdate();
 				if (result == 0)
@@ -408,7 +342,7 @@ public class D_BrdDAO {
 		// 맞는지 확실하지 않음...
 		public boolean isboardWriter(int num, int empno){
 			
-			String board_sql = "select * from c_brd where NUM=?";
+			String board_sql = "select * from d_brd where NUM=?";
 			
 			try{
 				conn = ds.getConnection();
@@ -433,8 +367,8 @@ public class D_BrdDAO {
 			return false;
 		}
 		
-		public int boardReply(C_BrdDTO board){
-			String board_max_sql="select max(num) from c_brd";
+		public int boardReply(D_BrdDTO board , int deptcode){
+			String board_max_sql="select max(num) from d_brd";
 			String sql="";
 			int num=0;
 			int result=0;
@@ -450,7 +384,7 @@ public class D_BrdDAO {
 				if(rs.next())num =rs.getInt(1)+1;
 				else num=1;
 				
-				sql="update c_brd set step=step+1 ";
+				sql="update d_brd set step=step+1 ";
 				sql+="where ref=? and step>?";
 				
 				pstmt = conn.prepareStatement(sql);
@@ -467,8 +401,8 @@ public class D_BrdDAO {
 //				sql+="values(?,?,?,?,?,?,?,?,?,sysdate)";
 				
 				
-				sql = "insert into c_brd (NUM, EMPNO, TITLE, CONTENT, NOTICE, WRITE_DATE, REF, DPTH, STEP , ENAME , COUNT)"
-						+ "values(Comp_board_num.nextval,?,?,?,?,sysdate,?,?,?,?,0)";
+				sql = "insert into d_brd (NUM, EMPNO, TITLE, CONTENT, NOTICE, WRITE_DATE, REF, DPTH, STEP , ENAME , COUNT, DEPTCODE)"
+						+ "values(Comp_board_num.nextval,?,?,?,?,sysdate,?,?,?,?,0,?)";
 				
 				conn = ds.getConnection();
 				pstmt = conn.prepareStatement(sql);
@@ -480,7 +414,7 @@ public class D_BrdDAO {
 				pstmt.setInt(6, re_lev);
 				pstmt.setInt(7, re_seq);
 				pstmt.setString(8, board.getEname());
-				
+				pstmt.setInt(9, deptcode);
 				
 //				pstmt = conn.prepareStatement(sql);
 //				pstmt.setInt(1, num);
