@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -23,12 +25,12 @@ public class ScheduleDAO {
 			Context context = new InitialContext();
 			ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
 		} catch (Exception e) {
-			System.out.println("DBÏó∞Í≤∞ Ïã§Ìå®:" + e);
+			System.out.println("DBø¨∞· Ω«∆–:" + e);
 			return;
 		}
 	}
 	
-	//Ïä§ÏºÄÏ•¥ ÏûÖÎ†•Ìï®Ïàò(Ïä§ÏºÄÏ•¥Í∞ùÏ≤¥)
+	//Ω∫ƒ…¡Ï ¿‘∑¬«‘ºˆ(Ω∫ƒ…¡Ï∞¥√º)
 	public int ScheduleAdd(ScheduleDTO schedule){
 		String sql="insert into schedule(scnum,empno,startdate,enddate,title) "
 				+ "values(schedule_num.nextval,?,?,?,?)";
@@ -58,5 +60,34 @@ public class ScheduleDAO {
 			}catch(Exception ex) {}
 		}
 		return result;
+	}
+	
+	public List<ScheduleDTO> scheduleList(){
+		List<ScheduleDTO> list = new ArrayList<ScheduleDTO>();
+		ScheduleDTO schedule = new ScheduleDTO();
+		String sql = "select * from schedule";
+		try{
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				schedule.setScnum(rs.getInt("SCNUM"));
+				schedule.setEmpno(rs.getInt("EMPNO"));
+				schedule.setStartdate(rs.getDate("STARTDATE"));
+				schedule.setEnddate(rs.getDate("ENDDATE"));
+				schedule.setTitle(rs.getString("TITLE"));
+				list.add(schedule);
+			}
+			
+		}catch(SQLException ex){
+			ex.printStackTrace();
+		}
+		finally{
+			try{
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			}catch(Exception ex) {}
+		}
+		return list;
 	}
 }

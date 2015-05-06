@@ -70,4 +70,13 @@ public class ScheduleDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
+
+	@Override
+	public String toString() {
+		return "{scnum=" + scnum + ", empno=" + empno
+				+ ", startdate=" + startdate + ", enddate=" + enddate
+				+ ", title=" + title + ", content=" + content + "}";
+	}
+
+	
 }
