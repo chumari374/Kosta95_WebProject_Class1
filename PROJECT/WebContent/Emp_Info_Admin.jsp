@@ -27,6 +27,7 @@ table, tr, td  {
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/myscript.js"></script>
 </head>
 <body style="background-color: #EFEFEF">
 	<center>
@@ -142,7 +143,7 @@ table, tr, td  {
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-			<input type="button" class="btn btn-primary" value="수정하기" onclick="">&nbsp;
+			<input type="button" class="btn btn-primary" value="수정하기" onclick="editAdmin(${member.empno})">&nbsp;
 			<input type="button" class="btn btn-default" value="닫기" onclick="window.close()"></td>
 		</tr>
 	</table>

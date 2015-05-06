@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Action.Action;
 import Action.ActionForward;
+import Action.Emp_EditAdminAction;
 import Action.Emp_SearchAction;
 import Action.Emp_SearchAdminAction;
 import Action.MemberInfoAction;
@@ -83,8 +84,17 @@ public class MemberInfoController extends HttpServlet {
 			}catch(Exception e) {
 					e.printStackTrace();
 			}
+		} if(command.equals("/MemberEdit.admin")){
+			forward=new ActionForward();
+			forward.setRedirect(true);
+			action = new Emp_EditAdminAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+					e.printStackTrace();
+			}
 		}
-		
 		if(forward != null){
 			if(forward.isRedirect()){ //view ´Ü ¹Ù·Î....
 				System.out.println("forward.isRedirect() : " + forward.isRedirect());

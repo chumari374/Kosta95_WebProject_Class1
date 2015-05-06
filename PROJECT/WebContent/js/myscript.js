@@ -42,3 +42,8 @@ function logout(path){
 function infoAdmin(empno){
 	window.open('Member.admin?empno='+empno,'상세정보', 'width=600 height=424')
 }
+
+function editAdmin(empno){
+	window.close()
+	window.open('MemberEdit.admin?empno='+empno,'정보수정','width=600 height=424')
+}
