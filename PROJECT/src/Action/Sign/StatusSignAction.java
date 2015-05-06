@@ -6,6 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.connector.Request;
+
 import Action.Action;
 import Action.ActionForward;
 import DAO.SignDAO;
@@ -30,7 +32,7 @@ public class StatusSignAction implements Action {
 		System.out.println(status);
 
 		if (status.equals("상부보고")) {
-			signdao.signStepUp(ref, step);
+			signdao.signStepUp(ref, step, request);
 		} else {
 			signdao.SignStatus(status, ref, step);
 		}
