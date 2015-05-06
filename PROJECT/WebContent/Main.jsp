@@ -49,7 +49,7 @@
         <li>    
              <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;사내     
               <ul class="submenu">         
-                 <li><a href="#" >공지사항</a></li>          
+                 <li><a href="CompNoticeList.cn" >공지사항</a></li>          
                  <li><a href="CompDataBoardList.cf" >자료실</a></li>       
                  <li><a href="CompBoardList.cp" >게시판</a></li>    
               </ul>    

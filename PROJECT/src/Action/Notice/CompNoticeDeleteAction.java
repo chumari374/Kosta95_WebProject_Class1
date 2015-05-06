@@ -9,8 +9,9 @@ import javax.servlet.http.HttpSession;
 import Action.Action;
 import Action.ActionForward;
 import DAO.C_BrdDAO;
+import DAO.C_N_BrdDAO;
 
-public class CompBoardDeleteAction implements Action {
+public class CompNoticeDeleteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request,
@@ -26,7 +27,7 @@ public class CompBoardDeleteAction implements Action {
 		   	boolean usercheck=false;
 		   	int num=Integer.parseInt(request.getParameter("num"));
 		   	
-		   	C_BrdDAO boarddao=new C_BrdDAO();
+		   	C_N_BrdDAO boarddao=new C_N_BrdDAO();
 		   	usercheck=boarddao.isboardWriter(num, empno);
 		   	
 		   	if(usercheck==false){
@@ -34,7 +35,7 @@ public class CompBoardDeleteAction implements Action {
 		   		PrintWriter out=response.getWriter();
 		   		out.println("<script>");
 		   		out.println("alert('삭제할 권한이 없습니다.');");
-		   		out.println("location.href='./CompBoardList.cp';");
+		   		out.println("location.href='./CompNoticeList.cn';");
 		   		out.println("</script>");
 		   		out.close();
 		   		return null;
@@ -48,7 +49,7 @@ public class CompBoardDeleteAction implements Action {
 		   	
 		   	System.out.println("게시판 삭제 성공");
 		   	forward.setRedirect(true);
-	   		forward.setPath("./CompBoardList.cp");
+	   		forward.setPath("./CompNoticeList.cn");
 	   		return forward;
 	}
 
