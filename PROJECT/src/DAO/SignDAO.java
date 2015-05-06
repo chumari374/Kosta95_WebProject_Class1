@@ -9,6 +9,8 @@ import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import org.apache.catalina.connector.Request;
@@ -16,7 +18,7 @@ import org.apache.catalina.connector.Request;
 import DTO.SignDTO;
 
 public class SignDAO {
-	
+
 	DataSource ds;
 	Connection conn;
 	PreparedStatement pstmt;
@@ -66,11 +68,15 @@ public class SignDAO {
 			}
 
 			for (int i = 0;; i++) {
+				
+				System.out.println(grade + " " + teamcode + " " + deptcode);
+				
 				getGetSign_sql = getGetSign_sql + searchGS[i];
 
 				System.out.println(getGetSign_sql);
 
-				pstmt = conn.prepareStatement(getGetSign_sql);
+				pstmt = conn.prepareStatement(getGetSign_sql, ResultSet.TYPE_SCROLL_INSENSITIVE, 
+			             ResultSet.CONCUR_UPDATABLE);
 
 				switch (i) {
 				case 2:
@@ -81,12 +87,14 @@ public class SignDAO {
 					pstmt.setInt(1, grade - 1); // 내 직급등급의 - 1
 					break;
 				}
-
+				
 				rs = pstmt.executeQuery();
 				System.out.println("도착2");
-
-				if (rs.getRow() == 0) {
-					while (rs.next()) {
+				rs.last();
+				System.out.println(rs.getRow());
+				
+				if (rs.getRow() == 1) {
+					while (rs.first()) {
 						infoList.add((rs.getString("ENAME") + " " + rs
 								.getString("GRADENAME")));
 						infoList.add(rs.getString("empno"));
@@ -424,7 +432,7 @@ public class SignDAO {
 				System.out.println(rowcount);
 			}
 		} catch (Exception e) {
-			
+
 		} finally {
 			try {
 				rs.close();
@@ -451,7 +459,7 @@ public class SignDAO {
 		try {
 			conn = ds.getConnection();
 			pstmt = conn
-					.prepareStatement("select count(*) from sign where empno = ? where status = ?");
+					.prepareStatement("select count(*) from sign where empno = ? and status = ?");
 			pstmt.setInt(1, empno);
 			pstmt.setString(2, status);
 			rs = pstmt.executeQuery();
@@ -592,19 +600,19 @@ public class SignDAO {
 
 	// ====== 문서 상태 함수===============================
 	public void SignStatus(String status, int ref, int step) {
-		
+
 		System.out.println("사인 스테이터스 인");
 		String signStatus_sql = "";
 		System.out.println("DAO status" + status);
-	
+
 		if (status.equals("승인")) {
 			signStatus_sql = "update sign set status = '승인' where ref = ?";
-		} 
-		
+		}
+
 		if (status.equals("취소")) {
 			signStatus_sql = "update sign set status = '취소' where ref = ?";
 		}
-		
+
 		System.out.println("DAO sql " + signStatus_sql);
 
 		try {
@@ -616,14 +624,91 @@ public class SignDAO {
 			} else {
 				pstmt.setInt(1, ref);
 			}
-			
+
 			rs = pstmt.executeQuery();
 		} catch (Exception e) {
 			System.out.println("Sign 스테이터스  에러 : " + e);
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+				}
 		}
 	}
-	
-	public void signStepUp(int ref, int step) {
+
+	public void signStepUp(int ref, int step, HttpServletRequest request) {
+		SignDTO SignBoard = null;
+		HttpSession session = request.getSession();
+		int empno = (int) session.getAttribute("empno");
+		int grade = (int) session.getAttribute("grade");
+		int deptcode = (int) session.getAttribute("deptcode");
+		int teamcode = (int) session.getAttribute("teamcode");
 		
+		
+		System.out.println(grade + " " + deptcode + " "+ teamcode);
+		
+		String stepUp_sql = "select SIGNNUM,STARTER,EMPNO,GETSIGN,TITLE,"
+				+ " CONTENT,WRITE_DATE,STATUS,FILE_SIGN, REF, STEP "
+				+ " from sign " + " where ref = ? and step = ?";
+		
+		SignDAO signdao = new SignDAO();
+		List info = new ArrayList();
+		info = signdao.getInfoList(grade, deptcode, teamcode);
+		System.out.println(info.get(3));
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(stepUp_sql);
+			pstmt.setInt(1, ref);
+			pstmt.setInt(2, step);
+
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				SignBoard = new SignDTO();
+				SignBoard.setSignnum(rs.getInt("signnum"));
+				SignBoard.setStarter(rs.getInt("starter"));
+				SignBoard.setEmpno(empno);
+				SignBoard.setGetsign(Integer.parseInt((String) info.get(3)));
+				SignBoard.setTitle(rs.getString("title"));
+				SignBoard.setContent(rs.getString("content"));
+				SignBoard.setWrite_date(rs.getDate("write_date"));
+				SignBoard.setRef(rs.getInt("ref"));
+				SignBoard.setStep(rs.getInt("step") + 1);
+				SignBoard.setStatus("대기");
+				SignBoard.setFile_sign(rs.getString("file_sign"));
+			}
+			
+			signdao.SignStart(SignBoard);
+		} catch (Exception ex) {
+			System.out.println("stepUp error : " + ex);
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+				}
+		}
+
 	}
 }
