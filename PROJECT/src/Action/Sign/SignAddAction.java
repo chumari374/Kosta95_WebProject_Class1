@@ -22,7 +22,7 @@ public class SignAddAction implements Action {
 		
 		// 파일 업로드
 		String realFolder = "";
-		String saveFolder = "SignUpload";
+		String saveFolder = "\\\\192.168.7.235\\Upload";
 		
 		int filesize = 10 * 1024 * 1024; // 10M
 		realFolder = request.getSession().getServletContext().getRealPath(saveFolder);
