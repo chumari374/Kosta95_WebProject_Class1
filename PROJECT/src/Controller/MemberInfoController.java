@@ -12,9 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import Action.Action;
 import Action.ActionForward;
 import Action.Emp_SearchAction;
+import Action.Emp_SearchAdminAction;
 import Action.MemberInfoAction;
+import Action.MemberInfoAdminAction;
 
-@WebServlet("*.info")
+@WebServlet({"*.info","*.admin"})
 public class MemberInfoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -55,6 +57,26 @@ public class MemberInfoController extends HttpServlet {
 			forward=new ActionForward();
 			forward.setRedirect(true);
 			action = new Emp_SearchAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+					e.printStackTrace();
+			}
+		}if(command.equals("/Member.admin")){
+			forward=new ActionForward();
+			forward.setRedirect(true);
+			action = new MemberInfoAdminAction();
+			
+			try {
+					forward = action.execute(request, response);
+			}catch(Exception e) {
+					e.printStackTrace();
+			}
+		} if(command.equals("/MemberList.admin")){
+			forward=new ActionForward();
+			forward.setRedirect(true);
+			action = new Emp_SearchAdminAction();
 			
 			try {
 				forward = action.execute(request, response);
