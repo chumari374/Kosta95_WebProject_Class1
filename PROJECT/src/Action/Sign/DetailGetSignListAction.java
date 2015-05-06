@@ -15,7 +15,6 @@ public class DetailGetSignListAction implements Action {
 		int num = Integer.parseInt(request.getParameter("num"));
 		SignDAO signdao = new SignDAO();
 		SignDTO signdata = new SignDTO();
-		ㅁ
 		System.out.println("액션도달");
 		System.out.println("Action : " + num);
 		signdata = signdao.DetailgetSign(num);
