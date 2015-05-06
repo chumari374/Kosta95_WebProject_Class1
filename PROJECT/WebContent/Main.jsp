@@ -4,7 +4,8 @@
 <% 
 
 	int ceo = (Integer)(session.getAttribute("grade"));
-
+	String ad = (String)session.getAttribute("admin");
+	
 %>
 <!-- 메인페이지 -->
 <!DOCTYPE HTML>
@@ -106,7 +107,9 @@
               </ul>    
         </li>
         
-              
+         <%
+         	if(ad.equals("true")){
+         %>     
          <li>      
               <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp; 관리자페이지                
               <ul class="submenu">         
@@ -114,6 +117,9 @@
                  <li><a href="MemberList.admin">사원정보 수정</a></li>            
               </ul>    
           </li>
+         <% 
+         	}
+         %>
         </ul> 
        
       </div>
