@@ -15,7 +15,6 @@ public class SendSignListAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) {
-		System.out.println("액션에 온걸 환영한다 젊은이");
 
 		SignDAO signdao = new SignDAO();
 		List sendsignlist = new ArrayList();

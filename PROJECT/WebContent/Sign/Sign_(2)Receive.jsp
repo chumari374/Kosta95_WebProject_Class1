@@ -57,7 +57,7 @@
 	<div id="main" align="center">
 		<!-- 게시판 리스트 -->
 
-		<table width=50% border="0" cellpadding="0" cellspacing="0">
+		<table width=80% border="0" cellpadding="0" cellspacing="0">
 			<%
 				if (listcount > 0) {
 			%>
@@ -67,6 +67,7 @@
 					onchange="goUrl(this.options[this.selectedIndex].value)">
 						<option value="getSignList.hong">선택</option>
 						<option value="getSignList.hong?status=전체">전체</option>
+						<option value="getSignList.hong?status=상부 보고중">상부 보고중</option>
 						<option value="getSignList.hong?status=대기">대기</option>
 						<option value="getSignList.hong?status=승인">승인</option>
 						<option value="getSignList.hong?status=취소">취소</option>
@@ -74,11 +75,11 @@
 			</tr>
 
 			<tr align="center" valign="middle" bordercolor="#333333">
-				<td style="font-family: Tahoma; font-size: 8pt;" width="8%"
+				<td style="font-family: Tahoma; font-size: 8pt;" width="7%"
 					height="26">
 					<div align="center">결재 번호</div>
 				</td>
-				<td style="font-family: Tahoma; font-size: 8pt;" width="50%">
+				<td style="font-family: Tahoma; font-size: 8pt;" width="40%">
 					<div align="center">제목</div>
 				</td>
 				<td style="font-family: Tahoma; font-size: 8pt;" width="14%">
@@ -161,6 +162,7 @@
 						onchange="goUrl(this.options[this.selectedIndex].value)">
 							<option value="getSignList.hong">선택</option>
 							<option value="getSignList.hong?status=전체">전체</option>
+							<option value="getSignList.hong?status=상부 보고중">상부 보고중</option>
 							<option value="getSignList.hong?status=대기">대기</option>
 							<option value="getSignList.hong?status=승인">승인</option>
 							<option value="getSignList.hong?status=취소">취소</option>

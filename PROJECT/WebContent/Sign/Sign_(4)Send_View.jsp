@@ -19,13 +19,10 @@
 	String content = signdata.getContent();
 	String filepath = signdata.getFile_sign();
 	String status = signdata.getStatus();
-
-	/* if(signdata.getFile_sign() == "null"){
-		filepath = "없음";
-	} else {
-		filepath = signdata.getFile_sign();
-	} */
 	
+	if(filepath.equals("null")){
+		filepath = "";
+	}
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -72,8 +69,8 @@ table, td, tr {
 						<td>
 							<%if(!(signdata.getFile_sign()==null)) { %>
 							
-							<a href="Sign/Sign_(6)File_Down.jsp?File_sign=<%=signdata.getFile_sign() %>">
-							<%=signdata.getFile_sign() %>
+							<a href="Sign/Sign_(6)File_Down.jsp?File_sign=<%=filepath %>">
+							<%=filepath %>
 							</a>
 							<%} %>
 						</td>

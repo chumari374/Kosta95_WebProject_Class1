@@ -37,8 +37,6 @@ public class SignAddAction implements Action {
 			MultipartRequest multi = null;
 			multi = new MultipartRequest(request, realFolder, filesize, "utf-8", new DefaultFileRenamePolicy());
 			
-			System.out.println("try까지 왔군, 칭찬 해 주지");
-			
 			System.out.println(Integer.parseInt(multi.getParameter("STARTER")));
 			System.out.println(Integer.parseInt(multi.getParameter("EMPNO")));
 			System.out.println(Integer.parseInt(multi.getParameter("GETSIGN")));

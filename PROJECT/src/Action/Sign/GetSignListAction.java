@@ -15,7 +15,6 @@ public class GetSignListAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) {
-		System.out.println("액션에 온걸 환영한다 젊은이");
 
 		SignDAO signdao = new SignDAO();
 		List getsignlist = new ArrayList();
@@ -36,9 +35,15 @@ public class GetSignListAction implements Action {
 		if (request.getParameter("status") != null) {
 			status = request.getParameter("status");
 		}
+		
+		if (request.getParameter("status") != null) {
+			if (request.getParameter("status").equals("상부보고")){
+			status = "상부 보고중";
+			}
+		}
 
 		System.out.println("앵커3");
-
+		System.out.println("status parameter : " + status);
 		System.out.println(empno);
 
 		int getsignlistcount = signdao.getSignListCount(empno, status); // 총 리스트 수 받아옴

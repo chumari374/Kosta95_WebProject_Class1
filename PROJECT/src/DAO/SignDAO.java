@@ -658,12 +658,8 @@ public class SignDAO {
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(signStatus_sql);
-			if (status.equals("반려")) {
-				pstmt.setInt(1, ref);
-				pstmt.setInt(2, step);
-			} else {
-				pstmt.setInt(1, ref);
-			}
+
+			pstmt.setInt(1, ref);
 
 			rs = pstmt.executeQuery();
 		} catch (Exception e) {
@@ -687,6 +683,7 @@ public class SignDAO {
 		}
 	}
 
+	// --상부보고 함수---------------------------------------------------
 	public void signStepUp(int ref, int step, HttpServletRequest request) {
 		SignDTO SignBoard = null;
 		HttpSession session = request.getSession();
@@ -729,6 +726,14 @@ public class SignDAO {
 			}
 
 			signdao.SignStart(SignBoard);
+
+			stepUp_sql = "update sign set status = '상부 보고중' where ref = ? and step = ?";
+
+			pstmt = conn.prepareStatement(stepUp_sql);
+			pstmt.setInt(1, ref);
+			pstmt.setInt(2, step);
+			rs = pstmt.executeQuery();
+
 		} catch (Exception ex) {
 			System.out.println("stepUp error : " + ex);
 		} finally {
@@ -748,6 +753,5 @@ public class SignDAO {
 				} catch (SQLException ex) {
 				}
 		}
-
 	}
 }
