@@ -19,7 +19,7 @@
 <input type="hidden" value="<%=empno%>"/>
 <table cellpadding="0" cellspacing="0" class="table" style="width: 70%; margin-top: 50px;">
 	<tr align="center" valign="middle">
-		<td colspan="6">사내 게시판</td>
+		<td colspan="6">부서 게시판</td>
 	</tr>
 	
 	<tr>

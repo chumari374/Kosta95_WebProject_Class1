@@ -9,7 +9,9 @@ import javax.servlet.http.HttpSession;
 import Action.Action;
 import Action.ActionForward;
 import DAO.C_BrdDAO;
+import DAO.D_BrdDAO;
 import DTO.C_BrdDTO;
+import DTO.D_BrdDTO;
 
 public class DeptBoardRealModifyAction implements Action {
 
@@ -18,8 +20,8 @@ public class DeptBoardRealModifyAction implements Action {
 			HttpServletResponse response) throws Exception {
 		
 		HttpSession session = request.getSession();
-		C_BrdDAO boarddao=new C_BrdDAO();
-		C_BrdDTO boarddto=new C_BrdDTO();
+		D_BrdDAO boarddao=new D_BrdDAO();
+		D_BrdDTO boarddto=new D_BrdDTO();
 		ActionForward forward=new ActionForward();
 
 		request.setCharacterEncoding("UTF-8");
@@ -54,7 +56,7 @@ public class DeptBoardRealModifyAction implements Action {
 
 				System.out.println("게시판 수정 실패");
 				forward.setRedirect(true);
-				forward.setPath("./CompBoardList.cp");
+				forward.setPath("./DeptBoardList.dp");
 				return forward;
 			}
 
@@ -67,7 +69,7 @@ public class DeptBoardRealModifyAction implements Action {
 			forward.setRedirect(false);
 //			forward.setPath("./CompBoardDetailAction.cp?num="+boarddto.getNum());
 //			forward.setPath("./CompBoardDetailAction.cp?num="+Integer.parseInt(request.getParameter("BOARD_NUM")));
-			forward.setPath("./CompBoardList.cp");
+			forward.setPath("./DeptBoardList.dp");
 			
 			return forward;
 
