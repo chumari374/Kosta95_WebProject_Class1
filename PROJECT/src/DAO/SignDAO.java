@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
-import org.apache.catalina.connector.Request;
-
 import DTO.SignDTO;
 
 public class SignDAO {

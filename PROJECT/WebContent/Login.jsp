@@ -11,7 +11,7 @@
 <title>로그인</title>
 <link type="text/css" rel="stylesheet" href="css/mystyle.css">
 <style>
-body {s
+body {
 	background-image: url("img/10.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
