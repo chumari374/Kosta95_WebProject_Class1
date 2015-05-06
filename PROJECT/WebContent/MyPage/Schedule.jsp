@@ -660,10 +660,26 @@
 				},
 				'삭제': function() {
 					if(confirm("Are you sure you want to delete this agenda item?")){
-						if(clickAgendaItem != null){
-							jfcalplugin.deleteAgendaItemById("#mycal",clickAgendaItem.agendaId);
-							//jfcalplugin.deleteAgendaItemByDataAttr("#mycal","myNum",42);
-						}
+						var agi = jfcalplugin.getAgendaItemById("#mycal",clickAgendaItem.agendaId);
+		        		var scnum = agi.data.scnum;
+		        		
+		        		$.ajax({
+							url : "ScheduleDelete.mp",
+							data : {
+								scnum : scnum
+							},
+							success : function(data){
+								if(data.length>0){
+									location.href='SchedulePage.mp';
+								}else{
+									alert('fail');
+								}
+							},
+							error : function(xhr, status){
+								alert(xhr + '/' + status); 
+							}
+						});
+		        		
 						$(this).dialog('close');
 					}
 				}			
