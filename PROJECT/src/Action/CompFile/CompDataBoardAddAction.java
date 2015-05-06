@@ -47,6 +47,7 @@ public class CompDataBoardAddAction implements Action{
 			boarddto.setTitle(multi.getParameter("BOARD_TITLE"));
 			boarddto.setContent(multi.getParameter("BOARD_CONTENT"));
 			boarddto.setData(data);
+			boarddto.setEname((String)session.getAttribute("ename"));
 
 			result=boarddao.C_dbrdInsert(boarddto);
 

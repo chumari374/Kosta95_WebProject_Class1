@@ -11,11 +11,12 @@ public class C_DbrdDTO {
 	
 	private String data;
 	private int count;
+	private String ename;
 	
 	public C_DbrdDTO(){}
 	
 	public C_DbrdDTO(int num, int empno, String title,
-			String content, Date write_date, String data,int count){
+			String content, Date write_date, String data,int count,String ename){
 		this.num = num;
 		this.empno = empno;
 		this.title = title;
@@ -23,6 +24,7 @@ public class C_DbrdDTO {
 		this.write_date = write_date;
 		this.data = data;
 		this.count = count;
+		this.ename = ename;
 	}
 
 	public int getNum() {
@@ -80,13 +82,21 @@ public class C_DbrdDTO {
 	public void setCount(int count) {
 		this.count = count;
 	}
+	
+	public String getEname() {
+		return ename;
+	}
+
+	public void setEname(String ename) {
+		this.ename = ename;
+	}
 
 	@Override
 	public String toString() {
 		return "C_DbrdDTO [num=" + num + ", empno=" + empno + ", title="
 				+ title + ", content=" + content + ", write_date=" + write_date
-				+ ", data=" + data + ", count=" + count + "]";
+				+ ", data=" + data + ", count=" + count + ", ename=" + ename
+				+ "]";
 	}
-	
 	
 }

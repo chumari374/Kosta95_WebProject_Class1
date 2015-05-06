@@ -56,7 +56,7 @@
 		</td>
 		
 		<td style="font-family:돋음; font-size:12">
-			Admin
+			<%=board.getEname() %>
 		</td>
 		</tr>
 		

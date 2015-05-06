@@ -65,7 +65,7 @@ public class C_DbrdDAO {
 		// page =2 , limit =10(pagesize)
 		//글번호	제목	작성자	작성일	조회수
 		//int limit = 10;
-		String getC_DbrdList_sql = "select * from (select rownum rnum, NUM,EMPNO,TITLE,CONTENT,WRITE_DATE,DATA,COUNT from C_DBRD) where rnum>=? and rnum<=?";
+		String getC_DbrdList_sql = "select * from (select rownum rnum, NUM,EMPNO,TITLE,CONTENT,WRITE_DATE,DATA,COUNT,ENAME from C_DBRD order by num desc) where rnum>=? and rnum<=?";
 		
 		List<C_DbrdDTO> list = new ArrayList<C_DbrdDTO>();
 		
@@ -94,6 +94,7 @@ public class C_DbrdDAO {
 				c_dbrd.setWrite_date(rs.getDate("WRITE_DATE"));
 				c_dbrd.setData(rs.getString("DATA"));
 				c_dbrd.setCount(rs.getInt("COUNT"));
+				c_dbrd.setEname(rs.getString("ENAME"));
 				list.add(c_dbrd);
 			}
 
@@ -114,8 +115,8 @@ public class C_DbrdDAO {
 		int result = 0;
 		
 		try {
-			String sql = "insert into c_dbrd(num,empno,title,content,write_date,data,count) "
-					+ "values(comp_databoard_num.nextval,?,?,?,sysdate,?,0)";
+			String sql = "insert into c_dbrd(num,empno,title,content,write_date,data,count,ename) "
+					+ "values(comp_databoard_num.nextval,?,?,?,sysdate,?,0,?)";
 			conn = ds.getConnection();
 			
 			pstmt = conn.prepareStatement(sql);
@@ -123,6 +124,7 @@ public class C_DbrdDAO {
 			pstmt.setString(2, C_Dbrd.getTitle());
 			pstmt.setString(3, C_Dbrd.getContent());
 			pstmt.setString(4, C_Dbrd.getData());
+			pstmt.setString(5, C_Dbrd.getEname());
 			result = pstmt.executeUpdate();
 			
 			System.out.println("result:"+result);
@@ -175,6 +177,7 @@ public class C_DbrdDAO {
 				C_Dbrd.setWrite_date(rs.getDate("WRITE_DATE"));
 				C_Dbrd.setData(rs.getString("DATA"));
 				C_Dbrd.setCount(rs.getInt("COUNT"));
+				C_Dbrd.setEname(rs.getString("ENAME"));
 			}
 			
 		} catch (Exception ex) {

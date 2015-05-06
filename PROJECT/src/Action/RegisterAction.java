@@ -15,25 +15,25 @@ public class RegisterAction implements Action{
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String path = request.getRealPath("upload");
-		String path2 = "\\\\192.168.7.235\\Upload"; // ì €ì¥ê²½ë¡œ ì„¤ì •
+		String path2 = "\\\\192.168.7.235\\Upload"; // ÀúÀå°æ·Î ¼³Á¤
 		System.out.println("--:"+path);
 		
-		//íŒŒì¼ì—…ë¡œë“œ ìœ„í•œ MultipartRequest ê°ì²´ ìƒì„±
+		//ÆÄÀÏ¾÷·Îµå À§ÇÑ MultipartRequest °´Ã¼ »ı¼º
 		MultipartRequest multi =  new MultipartRequest(
-	      	      request, //jspê°€ì§€ëŠ” request(ìš”ì²­ê°ì²´) ì–»ì–´ì˜¤ê¸° 
-	      	      path2 , // ì €ì¥ê²½ë¡œ (ë¬¼ë¦¬ì  ê²½ë¡œ)
-	      	      10*1024*1024 , //íŒŒì¼í¬ê¸°(í•œë²ˆì— ì—…ë¡œë“œ í• ìˆ˜ ìˆëŠ” íŒŒì¼ì˜ í¬ê¸°)10M 
-	      	      "utf-8", //ì¸ì½”ë”© ì²˜ë¦¬ (í•œê¸€)
-	      	      new DefaultFileRenamePolicy() //íŒŒì¼ëª… ì¤‘ë³µì²˜ë¦¬ ê°ì²´ ì‚¬ìš©
+	      	      request, //jsp°¡Áö´Â request(¿äÃ»°´Ã¼) ¾ò¾î¿À±â 
+	      	      path2 , // ÀúÀå°æ·Î (¹°¸®Àû °æ·Î)
+	      	      10*1024*1024 , //ÆÄÀÏÅ©±â(ÇÑ¹ø¿¡ ¾÷·Îµå ÇÒ¼ö ÀÖ´Â ÆÄÀÏÀÇ Å©±â)10M 
+	      	      "utf-8", //ÀÎÄÚµù Ã³¸® (ÇÑ±Û)
+	      	      new DefaultFileRenamePolicy() //ÆÄÀÏ¸í Áßº¹Ã³¸® °´Ã¼ »ç¿ë
 	      	      );
-		String file = (String)multi.getFileNames().nextElement();//íŒŒì¼ì´ë¦„ë“¤ì˜ ë‹¤ìŒ ì—˜ë¦¬ë©˜íŠ¸
-		String p_picture = multi.getFilesystemName(file);//íŒŒì¼ì˜ ì´ë¦„:ë”°ë¡œì¶”ì¶œ
+		String file = (String)multi.getFileNames().nextElement();//ÆÄÀÏÀÌ¸§µéÀÇ ´ÙÀ½ ¿¤¸®¸àÆ®
+		String p_picture = multi.getFilesystemName(file);//ÆÄÀÏÀÇ ÀÌ¸§:µû·ÎÃßÃâ
 		
 		AccountsDAO dao = new AccountsDAO();
 		AccountsDTO account = new AccountsDTO();
 		ActionForward forward = new ActionForward();
 		
-		//íŒŒë¼ë©”í„° ê°’ì„ ë³€ìˆ˜ì— ë‹´ìŒ
+		//ÆÄ¶ó¸ŞÅÍ °ªÀ» º¯¼ö¿¡ ´ãÀ½
 		int empno = Integer.parseInt(multi.getParameter("empno"));
 		String pwd = multi.getParameter("pwd");
 		String email = multi.getParameter("email");
@@ -41,7 +41,7 @@ public class RegisterAction implements Action{
 		String celphone = multi.getParameter("celphone");
 		String p_content = multi.getParameter("p_content");
 		
-		//account ê°ì²´ì— ì„¤ì •
+		//account °´Ã¼¿¡ ¼³Á¤
 		account.setEmpno(empno);
 		account.setPwd(pwd);
 		account.setEmail(email);
@@ -50,11 +50,11 @@ public class RegisterAction implements Action{
 		account.setP_picture(p_picture);
 		account.setP_content(p_content);
 		
-		int result = dao.AccountsInsert(account);//account ê°ì²´ë¥¼ í…Œì´ë¸”ì— ì‚½ì…
+		int result = dao.AccountsInsert(account);//account °´Ã¼¸¦ Å×ÀÌºí¿¡ »ğÀÔ
 		System.out.println(result);
 		
 		forward.setRedirect(true);
-		forward.setPath("Login.jsp"); //ë¡œê·¸ì¸í˜ì´ì§€ë¡œ ë¦¬ë‹¤ì´ë ‰íŠ¸
+		forward.setPath("Login.jsp"); //·Î±×ÀÎÆäÀÌÁö·Î ¸®´ÙÀÌ·ºÆ®
 		return forward;
 	}
 
