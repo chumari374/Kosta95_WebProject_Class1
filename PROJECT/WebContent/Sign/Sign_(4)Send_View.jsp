@@ -8,7 +8,7 @@
 	SignDAO signdao = new SignDAO();
 	
 	ServletContext context = getServletContext();
-	String SignDownLoadPath = context.getRealPath("signUpload");
+	String SignDownLoadPath = context.getRealPath("SignUpload");
 	
 	int signnum = signdata.getSignnum();
 
@@ -72,7 +72,7 @@ table, td, tr {
 						<td>
 							<%if(!(signdata.getFile_sign()==null)) { %>
 							
-							<a href="Sign_(6)File_Down.jsp?file_name=<%=signdata.getFile_sign() %>">
+							<a href="Sign_(6)File_Down.jsp?File_sign=<%=signdata.getFile_sign() %>">
 							<%=signdata.getFile_sign() %>
 							
 							<%} %>
