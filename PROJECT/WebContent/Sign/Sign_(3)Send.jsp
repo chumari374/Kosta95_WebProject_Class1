@@ -33,7 +33,7 @@
 
 <html>
 <head>
-<title>보낸 결제함</title>
+<title>보낸 결재함</title>
 
 <script language='javascript'>
 	function noEvent() {
@@ -65,7 +65,7 @@
 				if (listcount > 0) {
 			%>
 			<tr align="center" valign="middle">
-				<td colspan="4">보낸 결제함</td>
+				<td colspan="4">보낸 결재함</td>
 				<td align=right><select
 					onchange="goUrl(this.options[this.selectedIndex].value)">
 						<option value="sendSignList.hong">선택</option>
@@ -163,7 +163,7 @@
 				} else {
 			%>
 			<tr align="center" valign="middle">
-				<td colspan="4">보낸 결제함</td>
+				<td colspan="4">보낸 결재함</td>
 				<td align=right><select
 					onchange="goUrl(this.options[this.selectedIndex].value)">
 						<option value="sendSignList.hong">선택</option>
@@ -171,7 +171,7 @@
 						<option value="sendSignList.hong?status=승인">승인</option>
 						<option value="sendSignList.hong?status=취소">취소</option>
 				</select></td>
-				<td align="center">보낸 결제가 없습니다</td>
+				<td align="center">보낸 결재가 없습니다</td>
 			</tr>
 			<%
 				}

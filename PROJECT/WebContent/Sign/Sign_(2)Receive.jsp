@@ -44,7 +44,7 @@
 
 	}
 </script>
-<title>받은 결제함</title>
+<title>받은 결재함</title>
 </head>
 
 <body>
@@ -57,7 +57,7 @@
 				if (listcount > 0) {
 			%>
 			<tr align="center" valign="middle">
-				<td colspan="4">받은 결제함</td>
+				<td colspan="4">받은 결재함</td>
 				<td align=right><select
 					onchange="goUrl(this.options[this.selectedIndex].value)">
 						<option value="getSignList.hong">선택</option>
