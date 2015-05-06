@@ -102,7 +102,8 @@
              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;마이페이지                    
               <ul class="submenu">         
                  <li><a href="Account_Edit.mp">개인정보 수정</a></li>          
-                 <li><a href="">메세지함</a></li>       
+                 <li><a href="">받은메세지함</a></li>
+                 <li><a href="">보낸메세지함</a></li>         
                  <li><a href="SchedulePage.mp">일정관리</a></li>    
               </ul>    
         </li>
@@ -114,7 +115,8 @@
               <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp; 관리자페이지                
               <ul class="submenu">         
                  <li><a href="MemberAdd.admin">신입사원 추가</a></li>
-                 <li><a href="MemberList.admin">사원정보 수정</a></li>            
+                 <li><a href="MemberList.admin">사원정보 수정</a></li>
+                 <li><a href="MemberDelete.admin">퇴사처리</a></li>            
               </ul>    
           </li>
          <% 
