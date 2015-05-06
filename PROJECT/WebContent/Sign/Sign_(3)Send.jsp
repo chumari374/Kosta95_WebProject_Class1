@@ -124,7 +124,7 @@
 			<%if(level<=1){ %>
 			<input type="button" value="이전" >&nbsp;
 			<%}else{ %>
-			<a href ="CompBoardList.cp?page=<%=level*5-5 %>"><input type="button" value="이전 "></a>&nbsp;
+			<a href ="sendSignList.hong?page=<%=level*5-5 %>"><input type="button" value="이전 "></a>&nbsp;
 			<%} %>
 			
 			<%for(int i=level*5-4;i<= end ;i++){
@@ -133,7 +133,7 @@
 				<%}else{ 
 					if(i<=maxpage){
 				%>
-					<a href="CompBoardList.cp?page=<%=i %>"><input type="button" value="<%=i %>"></a>&nbsp;
+					<a href="sendSignList.hong?page=<%=i %>"><input type="button" value="<%=i %>"></a>&nbsp;
 				<%
 					}
 				 }
@@ -143,11 +143,11 @@
 			<%if(level>=(maxpage/5)+1){ %>
 			<input type="button" value="다음">
 			<%}else{ %>
-			<a href="CompBoardList.cp?page=<%=level*5+1 %>"><input type="button" value="다음"></a>
+			<a href="sendSignList.hong?page=<%=level*5+1 %>"><input type="button" value="다음"></a>
 			<%} %>
 		</td>
 		<td align="right">
-	   		<a href="CompBoardWrite.cp"><input type="button" value="글쓰기"></a>
+	   		<a href="SignWrite.hong"><input type="button" value="글쓰기"></a>
 		</td>
 	</tr>
 	<!-- 페이징처리 끝 -->
