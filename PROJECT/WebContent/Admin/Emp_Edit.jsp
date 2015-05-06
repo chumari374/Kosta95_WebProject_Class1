@@ -76,6 +76,7 @@ $(function(){
 </head>
 <body style="background-color: #EFEFEF">
 	<center>
+<form action="MemberUpdate.admin" method="post">
 	<table height="400px" width="500px">
 		<tr>
 			<td colspan="2" style="border-bottom: 2px solid #0469AF"><h4>${member.ename}님의 사원정보</h4></td>
@@ -120,7 +121,7 @@ $(function(){
 					<tr style="border-bottom: 1px solid #A2A2A2">
 						<td>소속부서</td>
 						<td>
-							<select id="deptlist">
+							<select id="deptlist" name="deptcode">
 							</select>
 							<%-- ${member.deptname} --%>
 						</td>
@@ -128,7 +129,7 @@ $(function(){
 					<tr style="border-bottom: 1px solid #A2A2A2">
 						<td>소속팀</td>
 						<td>
-							<select id="teamlist">
+							<select id="teamlist" name="teamcode">
 							</select>
 							<%-- ${member.teamname} --%>
 						</td>
@@ -136,7 +137,7 @@ $(function(){
 					<tr style="border-bottom: 1px solid #A2A2A2">
 						<td>직급</td>
 						<td>
-							<select id="gradelist">
+							<select id="gradelist" name="grade">
 								<option value="1">대표이사</option>
 								<option value="2">부장</option>
 								<option value="3">팀장</option>
@@ -147,17 +148,19 @@ $(function(){
 					</tr>
 					<tr>
 						<td>사내전화번호</td>
-						<td><input type="text" value="${member.emptel}"><%-- ${member.emptel} --%></td>
+						<td><input type="text" name="emptel" id="emptel" value="${member.emptel}"><%-- ${member.emptel} --%></td>
 					</tr>
 				</table>
+
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-			<input type="button" class="btn btn-primary" value="수정하기" onclick="editAdmin(${member.empno})">&nbsp;
+			<input type="submit" class="btn btn-primary" value="수정하기">&nbsp;
 			<input type="button" class="btn btn-default" value="취소" onclick="window.close()"></td>
 		</tr>
 	</table>
+	</form>
 </center>
 </body>
 </html>

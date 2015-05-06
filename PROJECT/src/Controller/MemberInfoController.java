@@ -14,6 +14,7 @@ import Action.ActionForward;
 import Action.Emp_EditAdminAction;
 import Action.Emp_SearchAction;
 import Action.Emp_SearchAdminAction;
+import Action.Emp_UpdateAdminAction;
 import Action.MemberInfoAction;
 import Action.MemberInfoAdminAction;
 
@@ -88,6 +89,16 @@ public class MemberInfoController extends HttpServlet {
 			forward=new ActionForward();
 			forward.setRedirect(true);
 			action = new Emp_EditAdminAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+					e.printStackTrace();
+			}
+		} if(command.equals("/MemberUpdate.admin")){
+			forward=new ActionForward();
+			forward.setRedirect(true);
+			action = new Emp_UpdateAdminAction();
 			
 			try {
 				forward = action.execute(request, response);

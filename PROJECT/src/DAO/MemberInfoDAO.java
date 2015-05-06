@@ -13,9 +13,10 @@ import javax.sql.DataSource;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import DTO.AccountsDTO;
 import DTO.MemberInfoDTO;
 
-//Memberinfo view 에관한 클래스
+//Memberinfo view �뿉愿��븳 �겢�옒�뒪
 public class MemberInfoDAO {
 	
 	DataSource ds;
@@ -28,19 +29,19 @@ public class MemberInfoDAO {
 			Context context = new InitialContext();
 			ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
 		} catch (Exception e) {
-			System.out.println("DB���� ����:" + e);
+			System.out.println("DB占쏙옙占쏙옙 占쏙옙占쏙옙:" + e);
 			return;
 		}
 	}
 	
-	// 맴버정보추출(사번)
+	// 留대쾭�젙蹂댁텛異�(�궗踰�)
 	public MemberInfoDTO getMemberInfo(int num){
 		
 		MemberInfoDTO memberinfo = new MemberInfoDTO();
 		
 		try{
 			conn = ds.getConnection();
-			//사번에 대한 모든 정보추출
+			//�궗踰덉뿉 ���븳 紐⑤뱺 �젙蹂댁텛異�
 			pstmt = conn.prepareStatement("select * from memberinfo where empno = ?");
 			pstmt.setInt(1, num);
 			
@@ -63,7 +64,7 @@ public class MemberInfoDAO {
 			}
 			
 		}catch(Exception ex){
-			System.out.println("getMemberInfo ���� : " + ex);
+			System.out.println("getMemberInfo 占쏙옙占쏙옙 : " + ex);
 		}finally{
 			if(rs!=null)try{rs.close();}catch(SQLException ex){}
 			if(pstmt !=null)try{pstmt.close();}catch(SQLException ex){}
@@ -72,7 +73,7 @@ public class MemberInfoDAO {
 		return memberinfo;
 	}
 	
-	// �������Ʈ ���(���ã�⿡��)
+	// 占쏙옙占쏙옙占쏙옙占싣� 占쏙옙占�(占쏙옙占시ｏ옙藪∽옙占�)
 	public List MemberList(){
 		
 		List list = new ArrayList();
@@ -95,7 +96,7 @@ public class MemberInfoDAO {
 			}
 			
 		}catch(Exception ex){
-			System.out.println("getMemberInfo ���� : " + ex);
+			System.out.println("getMemberInfo 占쏙옙占쏙옙 : " + ex);
 		}finally{
 			if(rs!=null)try{rs.close();}catch(SQLException ex){}
 			if(pstmt !=null)try{pstmt.close();}catch(SQLException ex){}
@@ -105,7 +106,7 @@ public class MemberInfoDAO {
 		
 	}
 	
-	// ��� ����Ʈ JSON ��ü��... 
+	// 占쏙옙占� 占쏙옙占쏙옙트 JSON 占쏙옙체占쏙옙... 
 	public JSONArray MemberListJSON(){
 		
 		JSONArray rows = new JSONArray();
@@ -128,12 +129,38 @@ public class MemberInfoDAO {
 			}
 			
 		}catch(Exception ex){
-			System.out.println("getMemberInfo ���� : " + ex);
+			System.out.println("getMemberInfo 占쏙옙占쏙옙 : " + ex);
 		}finally{
 			if(rs!=null)try{rs.close();}catch(SQLException ex){}
 			if(pstmt !=null)try{pstmt.close();}catch(SQLException ex){}
 			if(conn !=null)try{conn.close();}catch(SQLException ex){}
 		}
 		return rows;	
+	}
+	
+	public int MemberInfoUpdate(int empno, MemberInfoDTO member){
+		int result = 0;
+		try{
+			conn = ds.getConnection();
+			String sql = "update memberinfo set deptcode=?, teamcode=?, grade=? where empno=? " + ";"
+						+ "update memberinfo set emptel=? where empno=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, member.getDeptcode());
+			pstmt.setInt(2, member.getTeamcode());
+			pstmt.setInt(3, member.getGrade());
+			pstmt.setInt(4, member.getEmpno());
+			pstmt.setString(5, member.getEmptel());
+			pstmt.setInt(6, member.getEmpno());
+			
+			result = pstmt.executeUpdate();
+			
+		}catch(Exception e){
+			e.getStackTrace();
+		}finally{
+			if (rs != null)try {rs.close();} catch (Exception e) {}
+			if (pstmt != null)try {pstmt.close();} catch (Exception e) {}
+			if (conn != null)try {conn.close();} catch (Exception e) {}
+		}
+		return result;
 	}
 }

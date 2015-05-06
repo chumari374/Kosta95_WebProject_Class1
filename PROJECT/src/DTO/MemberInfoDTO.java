@@ -12,19 +12,19 @@ public class MemberInfoDTO {
 	private String celphone;
 	private String email;
 	private String deptname;
+	private int deptcode;
 	private String teamname;
+	private int teamcode;
 	private String gradename;
+	private int grade;
 	private String emptel;
 	
 	public MemberInfoDTO(){}
 
-
-
 	public MemberInfoDTO(String p_picture, String p_content, int empno,
 			String ename, Date birth, String sex, String celphone,
-			String email, String deptname, String teamname, String gradename,
-			String emptel) {
-		
+			String email, String deptname, int deptcode, String teamname,
+			int teamcode, String gradename, int grade, String emptel) {
 		this.p_picture = p_picture;
 		this.p_content = p_content;
 		this.empno = empno;
@@ -34,13 +34,14 @@ public class MemberInfoDTO {
 		this.celphone = celphone;
 		this.email = email;
 		this.deptname = deptname;
+		this.deptcode = deptcode;
 		this.teamname = teamname;
+		this.teamcode = teamcode;
 		this.gradename = gradename;
+		this.grade = grade;
 		this.emptel = emptel;
 	}
-
-
-
+	
 	public String getP_picture() {
 		return p_picture;
 	}
@@ -181,6 +182,30 @@ public class MemberInfoDTO {
 
 	public void setEmptel(String emptel) {
 		this.emptel = emptel;
+	}
+
+	public int getDeptcode() {
+		return deptcode;
+	}
+
+	public void setDeptcode(int deptcode) {
+		this.deptcode = deptcode;
+	}
+
+	public int getTeamcode() {
+		return teamcode;
+	}
+
+	public void setTeamcode(int teamcode) {
+		this.teamcode = teamcode;
+	}
+
+	public int getGrade() {
+		return grade;
+	}
+
+	public void setGrade(int grade) {
+		this.grade = grade;
 	}
 
 }
