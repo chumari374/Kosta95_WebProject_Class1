@@ -142,17 +142,38 @@ public class MemberInfoDAO {
 		int result = 0;
 		try{
 			conn = ds.getConnection();
-			String sql = "update memberinfo set deptcode=?, teamcode=?, grade=? where empno=? " + ";"
-						+ "update memberinfo set emptel=? where empno=?";
+			String sql = "update memberinfo set deptcode=?, teamcode=?, grade=? where empno=?";
+					//	+ "update memberinfo set emptel=? where empno=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, member.getDeptcode());
 			pstmt.setInt(2, member.getTeamcode());
 			pstmt.setInt(3, member.getGrade());
-			pstmt.setInt(4, member.getEmpno());
-			pstmt.setString(5, member.getEmptel());
-			pstmt.setInt(6, member.getEmpno());
+			pstmt.setInt(4, empno);
+			
+//			System.out.println(member.getDeptcode());
+//			System.out.println(member.getTeamcode());
+//			System.out.println(member.getGrade());
+//			System.out.println(empno);
+			
+			
+	//		pstmt.setString(5, member.getEmptel());
+	//		pstmt.setInt(6, member.getEmpno());
 			
 			result = pstmt.executeUpdate();
+//			
+//			System.out.println("result 1: "+result);
+			
+			sql = "update memberinfo set emptel=? where empno=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, member.getEmptel());
+			pstmt.setInt(2, empno);
+			
+			result += pstmt.executeUpdate();
+			
+//			System.out.println("result 2: "+result);
+			
+			return result;
 			
 		}catch(Exception e){
 			e.getStackTrace();

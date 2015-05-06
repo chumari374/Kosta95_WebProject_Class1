@@ -77,6 +77,7 @@ $(function(){
 <body style="background-color: #EFEFEF">
 	<center>
 <form action="MemberUpdate.admin" method="post">
+<input type="hidden" name="empno" value="<%=member.getEmpno()%>">
 	<table height="400px" width="500px">
 		<tr>
 			<td colspan="2" style="border-bottom: 2px solid #0469AF"><h4>${member.ename}님의 사원정보</h4></td>

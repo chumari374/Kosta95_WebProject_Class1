@@ -96,8 +96,8 @@ public class MemberInfoController extends HttpServlet {
 					e.printStackTrace();
 			}
 		} if(command.equals("/MemberUpdate.admin")){
-			forward=new ActionForward();
-			forward.setRedirect(true);
+//			forward=new ActionForward();
+//			forward.setRedirect(true);
 			action = new Emp_UpdateAdminAction();
 			
 			try {

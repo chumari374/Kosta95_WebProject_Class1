@@ -19,30 +19,37 @@ public class Emp_UpdateAdminAction implements Action {
 		ActionForward forward=new ActionForward();
 		MemberInfoDAO dao = new MemberInfoDAO ();
 		MemberInfoDTO dto = new MemberInfoDTO();
+		PrintWriter out=response.getWriter();
+		response.setContentType("text/html;charset=utf-8");
 		
 		dto.setDeptcode(Integer.parseInt(request.getParameter("deptcode")));
 		dto.setTeamcode(Integer.parseInt(request.getParameter("teamcode")));
 		dto.setGrade(Integer.parseInt(request.getParameter("grade")));
 		dto.setEmptel(request.getParameter("emptel"));
 		
-		System.out.println("deptcode" + request.getParameter("deptcode"));
-		
+//		System.out.println("deptcode" + request.getParameter("deptcode"));
+//		System.out.println("사번 : "+Integer.parseInt(request.getParameter("empno")));
 		int result = dao.MemberInfoUpdate(Integer.parseInt(request.getParameter("empno")),dto);
 		
-		if(result==0){
-			response.setContentType("text/html;charset=utf-8");
-	   		PrintWriter out=response.getWriter();
+		if(result!=2){
+			
+	   		
 	   		out.println("<script>");
-	   		out.println("alert('실패했습니다');");
+	   		out.println("alert('fail');");
 	   		out.println("history.go(-1);");
 	   		out.println("</script>");
 	   		out.close();
 	   		return null;
 		}
 		
-		forward.setRedirect(true);
-		forward.setPath("SubMain.jsp");
-		return forward;
+		out.println("<script>");
+   		out.println("alert('Success');");
+   		out.println("window.close();");
+   		out.println("</script>");
+		
+		/*forward.setRedirect(true);
+		forward.setPath("SubMain.jsp");*/
+		return null;
 	}
 	
 }
