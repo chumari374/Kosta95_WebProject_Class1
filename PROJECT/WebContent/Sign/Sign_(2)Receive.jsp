@@ -28,6 +28,9 @@
 		level = ing-1;
 		end = level*5;
 	}
+ 	
+ 	String status =  request.getParameter("status");
+ 	System.out.println("status : " + request.getParameter("status"));
 %>
 
 <html>
@@ -120,7 +123,7 @@
 			<%if(level<=1){ %>
 			<input type="button" value="이전" >&nbsp;
 			<%}else{ %>
-			<a href ="CompNoticeList.cn?page=<%=level*5-5 %>"><input type="button" value="이전 "></a>&nbsp;
+			<a href ="getSignList.hong?status=<%=status%>&page=<%=level*5-5 %>"><input type="button" value="이전 "></a>&nbsp;
 			<%} %>
 			
 			<%for(int i=level*5-4;i<= end ;i++){
@@ -129,7 +132,7 @@
 				<%}else{ 
 					if(i<=maxpage){
 				%>
-					<a href="CompNoticeList.cn?page=<%=i %>"><input type="button" value="<%=i %>"></a>&nbsp;
+					<a href="getSignList.hong?status=<%=status%>&page=<%=i %>"><input type="button" value="<%=i %>"></a>&nbsp;
 				<%
 					}
 				 }
@@ -139,7 +142,7 @@
 			<%if(level>=(maxpage/5)+1){ %>
 			<input type="button" value="다음">
 			<%}else{ %>
-			<a href="CompNoticeList.cn?page=<%=level*5+1 %>"><input type="button" value="다음"></a>
+			<a href="getSignList.hong?status=<%=status%>&page=<%=level*5+1 %>"><input type="button" value="다음"></a>
 			<%} %>
 		</td>
 	</tr>
