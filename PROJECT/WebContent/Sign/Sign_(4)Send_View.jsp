@@ -66,7 +66,14 @@ table, td, tr {
 					</tr>
 					<tr>
 						<td>파일</td>
-						<td><%=filepath %></td>
+						<td>
+							<%if(!(signdata.getFile_sign()==null)){ %>
+							
+							<a href="Sign_(6)File_Down.jsp?file_name=<%=signdata.getFile_sign() %>">
+							<%=signdata.getFile_sign() %>
+							
+							<%} %>
+						</td>
 					</tr>
 					<tr class="content">
 						<td>내용</td>
