@@ -7,6 +7,9 @@
 	SignDTO signdata = (SignDTO) request.getAttribute("signdata");
 	SignDAO signdao = new SignDAO();
 	
+	ServletContext context = getServletContext();
+	String SignDownLoadPath = context.getRealPath("signUpload");
+	
 	int signnum = signdata.getSignnum();
 
 	String title = signdata.getTitle();

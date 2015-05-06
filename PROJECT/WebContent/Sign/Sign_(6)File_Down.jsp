@@ -6,5 +6,38 @@
 <%
 
 	String filename = request.getParameter("file_name");
-
+	String savePath ="signUpload";
+	
+	ServletContext context = getServletContext();
+	String SignDownLoadPath = context.getRealPath(savePath);
+	
+	String SignFilePath = SignDownLoadPath + "\\" + filename.trim();
+	
+	 byte[] b = new byte[4096];
+	 
+	 FileInputStream in = new FileInputStream(SignFilePath);
+	 
+	 String sMimeType = getServletContext().getMimeType(SignFilePath);
+	 
+	 if(sMimeType ==null) { // 파일 형식 지정
+   	  sMimeType = "application/octet-stream";
+     }
+	 
+	 response.setContentType(sMimeType);
+	 
+	 // 한글처리 형식
+	 String sEncoding = new String(filename.getBytes("utf-8"),"8859_1");
+     response.setHeader("Content-Disposition","attachment;filename= " + sEncoding);
+     
+     ServletOutputStream out2 = response.getOutputStream();
+     int numRead;
+     
+     while((numRead = in.read(b,0,b.length))!=-1) {
+    	 out2.write(b,0,numRead);
+     }
+     
+     out2.flush();
+     out2.close();
+     in.close();
+%>
 	
