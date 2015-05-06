@@ -9,9 +9,10 @@ import javax.servlet.http.HttpSession;
 import Action.Action;
 import Action.ActionForward;
 import DAO.C_BrdDAO;
+import DAO.C_N_BrdDAO;
 import DTO.C_BrdDTO;
 
-public class CompBoardModifyAction implements Action {
+public class CompNoticeModifyAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request,
@@ -26,7 +27,7 @@ public class CompBoardModifyAction implements Action {
 		 
 		 int num=Integer.parseInt(request.getParameter("num"));
 		 
-		 C_BrdDAO boarddao=new C_BrdDAO();
+		 C_N_BrdDAO boarddao=new C_N_BrdDAO();
 	//	 C_BrdDTO boarddata=new C_BrdDTO();
 		 
 		 boolean usercheck=boarddao.isboardWriter(num, empno);
@@ -35,14 +36,14 @@ public class CompBoardModifyAction implements Action {
 		   		PrintWriter out=response.getWriter();
 		   		out.println("<script>");
 		   		out.println("alert('수정할 권한이 없습니다.');");
-		   		out.println("location.href='./CompBoardList.cp';");
+		   		out.println("location.href='./CompNoticeList.cp';");
 		   		out.println("</script>");
 		   		out.close();
 		   		return null;
 		 }
-		 
+		System.out.println("음 자네가 맞구만");
 		forward.setRedirect(false);
-	   	forward.setPath("./CompBoardModifyView.cp");
+	   	forward.setPath("./CompNoticeModifyView.cp");
 		return forward;
 	}
 

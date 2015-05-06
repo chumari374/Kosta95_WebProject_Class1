@@ -106,6 +106,7 @@ if(listcount > 0){
 		<td style="font-family:Tahoma;font-size:10pt;">
 <%-- 			<div align="center" onclick="info(<%=bl.getEmpno()%>)"><%=bl.getEname() %></div> --%>
 			<a href="#" onclick="info(<%=bl.getEmpno()%>)"><%=bl.getEname() %></a>
+<!-- Admin -->
 			<!-- Member.info?empno= -->
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt;">

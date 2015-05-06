@@ -20,7 +20,13 @@ import Action.Comp.CompBoardModifyView;
 import Action.Comp.CompBoardRealModifyAction;
 import Action.Comp.CompBoardReplyAction;
 import Action.Comp.CompBoardReplyView;
+import Action.Notice.CompNoticeAddAction;
+import Action.Notice.CompNoticeDeleteAction;
+import Action.Notice.CompNoticeDetailAction;
 import Action.Notice.CompNoticeListAction;
+import Action.Notice.CompNoticeModifyAction;
+import Action.Notice.CompNoticeModifyView;
+import Action.Notice.CompNoticeRealModifyAction;
 
 @WebServlet("*.cn")
 public class CompNoticeController extends HttpServlet {
@@ -46,67 +52,68 @@ public class CompNoticeController extends HttpServlet {
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }
-	   }else if(command.equals("/CompBoardWrite.cp")){
+	   }else if(command.equals("/CompNoticeWrite.cn")){
 		   forward=new ActionForward();
 		   forward.setRedirect(false);
-		   forward.setPath("./Comp/Comp_Board/Comp_Board_Write.jsp");
-	   }else if(command.equals("/CompBoardWriteOk.cp")){
-		   	action = new CompBoardAddAction();
+		   forward.setPath("./Comp/Comp_Notice/Comp_Notice_Write.jsp");
+	   }else if(command.equals("/CompNoticeWriteOk.cn")){
+		   	action = new CompNoticeAddAction();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }
-	   }else if(command.equals("/CompBoardDetailAction.cp")){
-		   	action = new CompBoardDetailAction();
+	   }else if(command.equals("/CompNoticeDetailAction.cn")){
+		   	action = new CompNoticeDetailAction();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }
-	   }else if(command.equals("/CompBoardDeleteAction.cp")){
-		   	action = new CompBoardDeleteAction();
+	   }else if(command.equals("/CompNoticeDeleteAction.cn")){
+		   	action = new CompNoticeDeleteAction();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }
-	   }else if(command.equals("/CompBoardModify.cp")){
-		   	action = new CompBoardModifyAction();
+	   }else if(command.equals("/CompNoticeModify.cn")){
+		   	action = new CompNoticeModifyAction();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }
-	   }else if(command.equals("/CompBoardModifyView.cp")){
-		   	action = new CompBoardModifyView();
+	   }else if(command.equals("/CompNoticeModifyView.cn")){
+		   	action = new CompNoticeModifyView();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }
-	   }else if(command.equals("/CompBoardRealModifyAction.cp")){
-		   	action = new CompBoardRealModifyAction();
-		   try{
-			   forward=action.execute(request, response);
-		   }catch(Exception e){
-			   e.printStackTrace();
-		   }
-	   }else if(command.equals("/CompBoardReplyView.cp")){
-		   	action = new CompBoardReplyView();
-		   try{
-			   forward=action.execute(request, response);
-		   }catch(Exception e){
-			   e.printStackTrace();
-		   }
-	   }else if(command.equals("/CompBoardReplyAction.cp")){
-		   	action = new CompBoardReplyAction();
+	   }else if(command.equals("/CompNoticeRealModifyAction.cn")){
+		   	action = new CompNoticeRealModifyAction();
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }
 	   }
+//	   else if(command.equals("/CompBoardReplyView.cp")){
+//		   	action = new CompBoardReplyView();
+//		   try{
+//			   forward=action.execute(request, response);
+//		   }catch(Exception e){
+//			   e.printStackTrace();
+//		   }
+//	   }else if(command.equals("/CompBoardReplyAction.cp")){
+//		   	action = new CompBoardReplyAction();
+//		   try{
+//			   forward=action.execute(request, response);
+//		   }catch(Exception e){
+//			   e.printStackTrace();
+//		   }
+//	   }
 	   
 	   
 	   

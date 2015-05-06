@@ -57,7 +57,7 @@ public class CompNoticeAddAction implements Action {
 
 				System.out.println("게시판 등록 실패");
 				forward.setRedirect(true);
-				forward.setPath("./CompNoticeList.cp");
+				forward.setPath("./CompNoticeList.cn");
 				return forward;
 			}
 
@@ -68,7 +68,7 @@ public class CompNoticeAddAction implements Action {
 			System.out.println("게시판 등록 완료");
 //			response.setCharacterEncoding("UTF-8");
 			forward.setRedirect(true);
-			forward.setPath("./CompNoticeList.cp");
+			forward.setPath("./CompNoticeList.cn");
 			return forward;
 
 		}catch(Exception ex){
