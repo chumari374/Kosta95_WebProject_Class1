@@ -41,18 +41,19 @@
 <script type="text/javascript" src="../../js/myscript.js"></script>
 <style>
    #title {
-      margin: 70px;
+      margin: 30px;
+      margin-bottom: 10px;
    }
 </style>
 </head>
 <body>
 <jsp:include page="../../Main.jsp"></jsp:include>
-   <div id="main" align="center">
-<div id="title"><h3><b>사내 공지사항</b></h3></div>
-<div class="container">
+   <div id="main" align="left">
+<div id="title"><h3>사내 공지사항</h3></div>
+<div class="container" style="margin-left: 100px;" >
 	<div class="row">
-		<div class="col-md-9">
-    	<table width=50% border="0" cellpadding="0" cellspacing="0">
+		<div>
+    	<table class="table" style="width: 70%;">
 <%
 if(listcount > 0){
 %>

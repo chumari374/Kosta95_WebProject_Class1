@@ -25,7 +25,7 @@
    <div id="main" align="center">
 
 <form action="#" method="post" name="downloadForm">
-<table cellpadding="0" cellspacing="0" >
+<table cellpadding="0" cellspacing="0" class="table" style="width: 70%; margin-top: 50px;">
 	<tr align="center" valign="middle">
 		<td colspan="6">사내 자료실</td>
 	</tr>
@@ -72,10 +72,10 @@
 		
 		
 		
-	<tr bgcolor="cccccc">
+<!-- 	<tr bgcolor="cccccc">
 		<td colspan="3" style="height:1px;">
 		</td>
-	</tr>
+	</tr> -->
 	
 	<tr>
 		<td style="font-family:돋음; font-size:12">
@@ -91,11 +91,11 @@
 			</table>
 		</td>
 	</tr>
-	<tr bgcolor="cccccc">
+<!-- 	<tr bgcolor="cccccc">
 		<td colspan="3" style="height:1px;">
 		</td>
 	</tr>
-	
+	 -->
 	<tr>
 		<td style="font-family:돋음; font-size:12" height="17">
 			<div align="center">첨부파일&nbsp;&nbsp;</div>
