@@ -4,11 +4,10 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	List<ScheduleDTO> list = (List)session.getAttribute("list");
+	List<ScheduleDTO> list = (List<ScheduleDTO>)session.getAttribute("list");
 %>
 <jsp:include page="../Main.jsp"></jsp:include>
 	<div id="main" align="left">
-	<c:set var="list" value="<%= list %>"/>
 <!-- 내일정관리 페이지 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -691,35 +690,54 @@
 				}
 			}	
 		});
-		var list = ${list};
+		var list = <%=list%>;
 		console.log(list);
 		$.each(list,function(index,obj){
-			alert(index+'/'+obj);
-		});
-		/* jfcalplugin.addAgendaItem(
+			var startDate = obj.startdate;
+			console.log(startDate);
+			var startDtArray = startDate.split("-");
+			var startYear = startDtArray[0];
+			// jquery datepicker months start at 1 (1=January)		
+			var startMonth = startDtArray[1];		
+			var startDay = startDtArray[2];
+			// strip any preceeding 0's		
+			startMonth = startMonth.replace(/^[0]+/g,"");
+			startDay = startDay.replace(/^[0]+/g,"");
+
+			var endDate = obj.enddate;
+			var endDtArray = endDate.split("-");
+			var endYear = endDtArray[0];
+			// jquery datepicker months start at 1 (1=January)		
+			var endMonth = endDtArray[1];		
+			var endDay = endDtArray[2];
+			// strip any preceeding 0's		
+			endMonth = endMonth.replace(/^[0]+/g,"");
+			endDay = endDay.replace(/^[0]+/g,"");
+			
+			// Dates use integers
+			var startDateObj = new Date(parseInt(startYear),parseInt(startMonth)-1,parseInt(startDay),0,0);
+			var endDateObj = new Date(parseInt(endYear),parseInt(endMonth)-1,parseInt(endDay),0,0);
+			//alert(obj.empno+"/"+obj.title+"/"+obj.startdate+"/"+obj.enddate)
+			jfcalplugin.addAgendaItem(
 				"#mycal",
-				what,
+				obj.title,
 				startDateObj,
 				endDateObj,
 				false,
-				{
-					fname: "Santa",
-					lname: "Claus",
-					leadReindeer: "Rudolph",
-					myDate: new Date(),
-					myNum: 42
-				},
+				{empno:obj.empno},
 				{
 					backgroundColor: $("#colorBackground").val(),
 					foregroundColor: $("#colorForeground").val()
 				}
-		); */
+			);
+		});
+		
 		
 	});
 	</script>
 
 
-		<div id="example" style="margin: auto; width:80%;">
+		<div id="example" style="margin: auto; width:70%;">
 		
 		<br>
 		

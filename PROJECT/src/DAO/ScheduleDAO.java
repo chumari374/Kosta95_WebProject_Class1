@@ -64,13 +64,13 @@ public class ScheduleDAO {
 	
 	public List<ScheduleDTO> scheduleList(){
 		List<ScheduleDTO> list = new ArrayList<ScheduleDTO>();
-		ScheduleDTO schedule = new ScheduleDTO();
-		String sql = "select * from schedule";
+		String sql = "select * from schedule order by scnum";
 		try{
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()){
+				ScheduleDTO schedule = new ScheduleDTO();
 				schedule.setScnum(rs.getInt("SCNUM"));
 				schedule.setEmpno(rs.getInt("EMPNO"));
 				schedule.setStartdate(rs.getDate("STARTDATE"));
@@ -78,7 +78,6 @@ public class ScheduleDAO {
 				schedule.setTitle(rs.getString("TITLE"));
 				list.add(schedule);
 			}
-			
 		}catch(SQLException ex){
 			ex.printStackTrace();
 		}

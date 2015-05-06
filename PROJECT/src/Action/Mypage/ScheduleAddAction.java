@@ -36,10 +36,11 @@ public class ScheduleAddAction implements Action{
 		
 		int empno = (int)session.getAttribute("empno");
 		dto.setEmpno(empno);
-		dto.setStartdate(new Date(Integer.parseInt(startDt[0]),Integer.parseInt(startDt[1])-1,Integer.parseInt(startDt[2])));
-		dto.setEnddate(new Date(Integer.parseInt(endDt[0]),Integer.parseInt(endDt[1])-1,Integer.parseInt(endDt[2])));
+		dto.setStartdate(new Date(Integer.parseInt(startDt[0])-1900,Integer.parseInt(startDt[1])-1,Integer.parseInt(startDt[2])));
+		dto.setEnddate(new Date(Integer.parseInt(endDt[0])-1900,Integer.parseInt(endDt[1])-1,Integer.parseInt(endDt[2])));
 		dto.setTitle(title);
 		int result = dao.ScheduleAdd(dto);
+		
 		if(result>0){
 			response.setContentType("text/html;charset=utf-8");
 	   		PrintWriter out=response.getWriter();

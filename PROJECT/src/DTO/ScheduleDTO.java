@@ -73,10 +73,9 @@ public class ScheduleDTO {
 
 	@Override
 	public String toString() {
-		return "{scnum=" + scnum + ", empno=" + empno
-				+ ", startdate=" + startdate + ", enddate=" + enddate
-				+ ", title=" + title + ", content=" + content + "}";
+		return "{scnum:" + scnum + ", empno:" + empno
+				+ ", startdate:'" + startdate + "', enddate:'" + enddate
+				+ "', title:'" + title + "', content:" + content + "}";
 	}
 
-	
 }

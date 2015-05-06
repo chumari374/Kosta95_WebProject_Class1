@@ -59,7 +59,7 @@ public class Account_UpdateAction implements Action{
 		}
 		
 		forward.setRedirect(false);
-		forward.setPath("Main.jsp");
+		forward.setPath("SubMain.jsp");
 		return forward;
 	}
 	
