@@ -40,18 +40,19 @@
 <script type="text/javascript" src="../../js/myscript.js"></script>
 <style>
    #title {
-      margin: 70px;
+      margin: 30px;
+      margin-bottom: 10px;
    }
 </style>
 </head>
 <body>
 <jsp:include page="../../Main.jsp"></jsp:include>
-   <div id="main" align="center">
-<div id="title"><h3><b>사내게시판</b></h3></div>
-<div class="container">
+   <div id="main" align="left">
+<div id="title"><h3>사내게시판</h3></div>
+<div class="container" style="margin-left: 100px;" >
 	<div class="row">
-		<div class="col-md-9">
-    	<table width=50% border="0" cellpadding="0" cellspacing="0">
+		<div>
+    	<table class="table" style="width: 70%;">
 <%
 if(listcount > 0){
 %>
@@ -105,7 +106,7 @@ if(listcount > 0){
 		<td style="font-family:Tahoma;font-size:10pt;">
 			<a href="#" onclick="info(<%=bl.getEmpno()%>)"><%=bl.getEname() %></a>
 		</td>
-		<td style="font-family:Tahoma;font-size:10pt;">
+		<td style="font-family:Tahoma;font-size:10pt ">
 			<div align="center"><%=bl.getWrite_date() %></div>
 		</td>	
 		<td style="font-family:Tahoma;font-size:10pt;">
@@ -158,7 +159,7 @@ if(listcount > 0){
 	<%} %>
 	<!-- 페이징처리 시작 -->
 	<tr align=center height=20>
-		<td colspan=7 style=font-family:Tahoma;font-size:10pt;>
+		<td colspan="4" style="font-family:Tahoma;font-size:10pt;">
 			<%if(level<=1){ %>
 			<input type="button" value="이전" >&nbsp;
 			<%}else{ %>
@@ -184,6 +185,9 @@ if(listcount > 0){
 			<a href="CompBoardList.cp?page=<%=level*5+1 %>"><input type="button" value="다음"></a>
 			<%} %>
 		</td>
+		<td align="right">
+	   		<a href="CompBoardWrite.cp"><input type="button" value="글쓰기"></a>
+		</td>
 	</tr>
 	<!-- 페이징처리 끝 -->
 	<%
@@ -200,11 +204,11 @@ if(listcount > 0){
 	<%
 	} 
 	%>
-	<tr align="right">
+<!-- 	<tr align="right">
 		<td colspan="5">
 	   		<a href="CompBoardWrite.cp"><input type="button" value="글쓰기"></a>
 		</td>
-	</tr>
+	</tr> -->
 </table>
 	</div>
 	</div>
