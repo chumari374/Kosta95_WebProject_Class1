@@ -63,7 +63,7 @@
 	<div id="main" align="center">
 		<!-- 게시판 리스트 -->
 
-		<table class="table" style="width: 80%">
+		<table class="table" style="width: 80%; margin-top: 50px;">
 			<%
 				if (listcount > 0) {
 			%>

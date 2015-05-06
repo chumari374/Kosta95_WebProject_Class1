@@ -31,17 +31,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>결재문서 열람</title>
 <script src="http://icode.jquery.com/jquery-1.11.2.min.js"></script>
-<script>
-</script>
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <style type="text/css">
-table, td, tr {
+/* table, td, tr {
 	border: 1px solid gray;
 	border-collapse: collapse;
 	width: 800px;
 }
-
+ */
 .content {
-	height: 250px;
+	height: 200px;
 }
 </style>
 </head>
@@ -51,7 +57,10 @@ table, td, tr {
 		<form action="SignAddAction.hong" method="post"
 			enctype="multipart/form-data">
 			<center>
-				<table>
+				<table class="table" style="width: 80%; margin-top: 50px;">
+					<tr align="center" valign="middle">
+						<td colspan="2"><b>보낸 결재함</b></td>
+					</tr>
 					<tr>
 						<td>제목</td>
 						<td><%=title %></td>
