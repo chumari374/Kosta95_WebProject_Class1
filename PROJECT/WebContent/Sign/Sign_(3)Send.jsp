@@ -27,6 +27,8 @@
 	System.out.println(listcount + "/ " + nowpage + " / " + maxpage
 			+ " / ");
 	System.out.println(startpage + " / " + endpage);
+
+	String status = request.getParameter("status");
 %>
 
 <html>
@@ -64,7 +66,13 @@
 			%>
 			<tr align="center" valign="middle">
 				<td colspan="4">보낸 결제함</td>
-				<td align=right></td>
+				<td align=right><select
+					onchange="goUrl(this.options[this.selectedIndex].value)">
+						<option value="sendSignList.hong">선택</option>
+						<option value="sendSignList.hong?status=대기">대기</option>
+						<option value="sendSignList.hong?status=승인">승인</option>
+						<option value="sendSignList.hong?status=취소">취소</option>
+				</select></td>
 			</tr>
 
 			<tr align="center" valign="middle" bordercolor="#333333">
@@ -124,7 +132,7 @@
 			<%if(level<=1){ %>
 			<input type="button" value="이전" >&nbsp;
 			<%}else{ %>
-			<a href ="sendSignList.hong?page=<%=level*5-5 %>"><input type="button" value="이전 "></a>&nbsp;
+			<a href ="sendSignList.hong?status=<%=status %>&page=<%=level*5-5 %>"><input type="button" value="이전 "></a>&nbsp;
 			<%} %>
 			
 			<%for(int i=level*5-4;i<= end ;i++){
@@ -133,7 +141,7 @@
 				<%}else{ 
 					if(i<=maxpage){
 				%>
-					<a href="sendSignList.hong?page=<%=i %>"><input type="button" value="<%=i %>"></a>&nbsp;
+					<a href="sendSignList.hong?status=<%=status %>&page=<%=i %>"><input type="button" value="<%=i %>"></a>&nbsp;
 				<%
 					}
 				 }
@@ -143,7 +151,7 @@
 			<%if(level>=(maxpage/5)+1){ %>
 			<input type="button" value="다음">
 			<%}else{ %>
-			<a href="sendSignList.hong?page=<%=level*5+1 %>"><input type="button" value="다음"></a>
+			<a href="sendSignList.hong?status=<%=status %>&page=<%=level*5+1 %>"><input type="button" value="다음"></a>
 			<%} %>
 		</td>
 		<td align="right">
@@ -156,7 +164,14 @@
 			%>
 			<tr align="center" valign="middle">
 				<td colspan="4">보낸 결제함</td>
-				<td align=right><font size=2>보낸 결재가 없습니다</font></td>
+				<td align=right><select
+					onchange="goUrl(this.options[this.selectedIndex].value)">
+						<option value="sendSignList.hong">선택</option>
+						<option value="sendSignList.hong?status=대기">대기</option>
+						<option value="sendSignList.hong?status=승인">승인</option>
+						<option value="sendSignList.hong?status=취소">취소</option>
+				</select></td>
+				<td align="center">보낸 결제가 없습니다</td>
 			</tr>
 			<%
 				}
