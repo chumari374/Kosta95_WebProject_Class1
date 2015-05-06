@@ -42,7 +42,6 @@
 <style>
    #title {
       margin: 30px;
-      margin-bottom: 10px;
    }
 </style>
 </head>
