@@ -1,4 +1,5 @@
 
+<%@page import="DTO.C_BrdDTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%
 	String empno = (String.valueOf(session.getAttribute("empno"))); 
@@ -7,6 +8,8 @@
 	String teamname = (String)session.getAttribute("teamname");
 	String deptcode = (String.valueOf(session.getAttribute("deptcode")));
 	String grade = (String.valueOf(session.getAttribute("grade")));
+	
+	C_BrdDTO board = (C_BrdDTO)request.getAttribute("boarddata");
 	
 
 	/*
@@ -89,7 +92,11 @@
 <!-- 게시판 등록 -->
 <jsp:include page="../../Main.jsp"></jsp:include>
    <div id="main" align="center">
-<form action="CompBoardWriteOk.cp" method="post" name="boardform">
+<form action="CompBoardReplyAction.cp" method="post" name="boardform">
+<input type="hidden" name="BOARD_NUM" value="<%=board.getNum() %>">
+<input type="hidden" name="BOARD_RE_REF" value="<%=board.getRef() %>">
+<input type="hidden" name="BOARD_RE_LEV" value="<%=board.getDpth() %>">
+<input type="hidden" name="BOARD_RE_SEQ" value="<%=board.getStep() %>">  
 <input type="hidden" name="BOARD_ID" value="<%=empno %>">
 <table width="700px" height="600px" cellpadding="0" cellspacing="0" width="100%">
 	<tr align="center" valign="middle">
@@ -109,9 +116,9 @@
 		</td>
 		<td style="font-family:돋음; font-size:12" height="16">
 			<input name="BOARD_TITLE" type="text" size="50" maxlength="100" 
-				value=""/>
+				value="Re: <%= board.getTitle()%>"/>
 		
-			 공지사항 <input type="checkbox" name = "BOARD_NOTICE"/>
+<!-- 			 공지사항 <input type="checkbox" name = "BOARD_NOTICE"/> -->
 		
 		</td>
 	</tr>

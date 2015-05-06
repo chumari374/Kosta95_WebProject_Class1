@@ -48,8 +48,8 @@
 		</td>
 		
 		<td style="font-family:돋음; font-size:12">
-<%-- 		<%=board.getEname() %> --%>
-		Admin
+		<%=board.getEname() %>
+
 		</td>
 		</tr>
 		
