@@ -42,11 +42,12 @@ public class Account_UpdateAction implements Action{
 		dto.setAddr(multi.getParameter("addr"));
 		dto.setCelphone(multi.getParameter("celphone"));
 		dto.setP_picture(p_picture);
+		
 		System.out.println(p_picture);
 		dto.setP_content(multi.getParameter("p_content"));
 		int result = dao.AccountUpdate((int)session.getAttribute("empno"),dto);
 		System.out.println(result);
-		
+		session.setAttribute("p_picture", p_picture);
 		if(result==0){
 			response.setContentType("text/html;charset=utf-8");
 	   		PrintWriter out=response.getWriter();
@@ -58,7 +59,7 @@ public class Account_UpdateAction implements Action{
 	   		return null;
 		}
 		
-		forward.setRedirect(false);
+		forward.setRedirect(true);
 		forward.setPath("SubMain.jsp");
 		return forward;
 	}
