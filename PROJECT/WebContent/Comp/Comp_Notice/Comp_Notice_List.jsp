@@ -1,6 +1,7 @@
 <%@page import="DTO.C_N_BrdDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="DTO.C_BrdDTO"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -162,8 +163,13 @@ if(listcount > 0){
 	} 
 	%>
 	<tr align="right">
+	
+	
 		<td colspan="5">
-	   		<a href="CompNoticeWrite.cn"><input type="button" value="글쓰기"></a>
+	 
+	   		<c:if test="${sessionScope.admin == true}">
+            <a href="CompNoticeWrite.cn"><input type="button" value="글쓰기"></a>
+         </c:if>
 		</td>
 	</tr>
 </table>

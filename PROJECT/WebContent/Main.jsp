@@ -34,7 +34,8 @@
    </nav> 
 
    <aside id="left">
-      <h4><b>KOSTA 인트라넷</b></h4>
+     
+     <h4 onclick="javascript:location.href='SubMain.jsp'"><b> KOSTA 인트라넷 </b></h4>
       <div id="leftdiv1">
                   <p>회원 Login 정보 표시</p>
                   <p><img src="http://192.168.7.235:8090/PROJECT/Upload/${sessionScope.p_picture}" width="80px" height="80px"></p>

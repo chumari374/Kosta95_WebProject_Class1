@@ -36,14 +36,14 @@ public class CompNoticeModifyAction implements Action {
 		   		PrintWriter out=response.getWriter();
 		   		out.println("<script>");
 		   		out.println("alert('수정할 권한이 없습니다.');");
-		   		out.println("location.href='./CompNoticeList.cp';");
+		   		out.println("location.href='./CompNoticeList.cn';");
 		   		out.println("</script>");
 		   		out.close();
 		   		return null;
 		 }
 		System.out.println("음 자네가 맞구만");
 		forward.setRedirect(false);
-	   	forward.setPath("./CompNoticeModifyView.cp");
+	   	forward.setPath("./CompNoticeModifyView.cn");
 		return forward;
 	}
 
