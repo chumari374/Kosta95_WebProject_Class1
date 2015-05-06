@@ -1,7 +1,14 @@
+<%@page import="DTO.ScheduleDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	List<ScheduleDTO> list = (List)session.getAttribute("list");
+%>
 <jsp:include page="../Main.jsp"></jsp:include>
 	<div id="main" align="left">
+	<c:set var="list" value="<%= list %>"/>
 <!-- 내일정관리 페이지 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -684,6 +691,29 @@
 				}
 			}	
 		});
+		var list = ${list};
+		console.log(list);
+		$.each(list,function(index,obj){
+			alert(index+'/'+obj);
+		});
+		/* jfcalplugin.addAgendaItem(
+				"#mycal",
+				what,
+				startDateObj,
+				endDateObj,
+				false,
+				{
+					fname: "Santa",
+					lname: "Claus",
+					leadReindeer: "Rudolph",
+					myDate: new Date(),
+					myNum: 42
+				},
+				{
+					backgroundColor: $("#colorBackground").val(),
+					foregroundColor: $("#colorForeground").val()
+				}
+		); */
 		
 	});
 	</script>
