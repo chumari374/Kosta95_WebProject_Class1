@@ -347,7 +347,7 @@
 						// Dates use integers
 						var startDateObj = new Date(parseInt(startYear),parseInt(startMonth)-1,parseInt(startDay),0,0);
 						var endDateObj = new Date(parseInt(endYear),parseInt(endMonth)-1,parseInt(endDay),0,0);
-						alert('도착1');
+						
 						// add new event to the calendar
 						jfcalplugin.addAgendaItem(
 							"#mycal",

@@ -26,9 +26,9 @@ server.addListener('upgrade', function(request, socket, head) {
 
 		console.log(count);
 		//ws.send(event.data); //원본소스
-		//수정 소스
 		
-		sendmsg(ip,count+"||"+data);
+		//수정 소스
+		sendmsg(count+"||"+data);
 	};
 
 	ws.onclose = function(event) { //커넥션이 끊기면
@@ -45,7 +45,7 @@ server.addListener('upgrade', function(request, socket, head) {
 		
 	};
 	
-	var sendmsg = function(ip,msg) {
+	var sendmsg = function(msg) {
 		for (var i = 0; i < clients.length; i++) { //객체 갯수만큼
 			try {
 				var temp = clients[i]._stream. _readableState.pipes._driver._request.headers.origin.replace('http://',"").split(':');
