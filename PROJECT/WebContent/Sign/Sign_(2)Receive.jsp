@@ -178,7 +178,7 @@
 					</select></font></td>
 			</tr>
 			<tr>
-				<td align="center">결제가 없습니다</td>
+				<td colspan="5" align="center">결제가 없습니다</td>
 			</tr>
 			<%
 				}
