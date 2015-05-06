@@ -29,6 +29,9 @@
 	System.out.println(startpage + " / " + endpage);
 
 	String status = request.getParameter("status");
+	if (request.getParameter("status") == null) {
+ 		status = "전체";
+ 	}
 %>
 
 <html>
