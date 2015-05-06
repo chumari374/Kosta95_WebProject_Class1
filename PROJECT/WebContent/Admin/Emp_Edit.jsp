@@ -1,8 +1,8 @@
 <%@page import="DTO.MemberInfoDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
-<!-- (¾îµå¹ÎÀü¿ë)»ç¿øÁ¤º¸¼öÁ¤ ÆäÀÌÁö -->
-<!-- ÀÚ½ÅÀÌ ¼öÁ¤ÇÒ¼öÀÖ´Â Á¤º¸´Â input text°¡ ÀÖ°í, ¼öÁ¤ÇÒ¼ö¾ø´Â Á¤º¸´Â º¸¿©ÁÖ±â¸¸ -->
+    pageEncoding="UTF-8"%>
+<!-- (ì–´ë“œë¯¼ì „ìš©)ì‚¬ì›ì •ë³´ìˆ˜ì • í˜ì´ì§€ -->
+<!-- ìì‹ ì´ ìˆ˜ì •í• ìˆ˜ìˆëŠ” ì •ë³´ëŠ” input textê°€ ìˆê³ , ìˆ˜ì •í• ìˆ˜ì—†ëŠ” ì •ë³´ëŠ” ë³´ì—¬ì£¼ê¸°ë§Œ -->
 <% 
 	MemberInfoDTO member = (MemberInfoDTO)request.getAttribute("member");
 %>
@@ -30,14 +30,17 @@ table, tr, td  {
 <script type="text/javascript" src="js/myscript.js"></script>
 <script type="text/javascript">
 $(function(){
+	
+	memberDeptname = "<%= member.getDeptname() %>";
+	
 	$.ajax({
         url : './Emp_Search/Dept.jsp',
         dataType : "json",
         success : function(data){
       	  var options="";
             $.each(data, function(index,dlist){
-            	if(dlist.deptname==member.deptname){
-            	   options += "<option value="+dlist.deptcode+">"+dlist.deptname+"</option>";
+            	if(dlist.deptname==memberDeptname){
+            	   options += "<option value="+dlist.deptcode+" selected>"+dlist.deptname+"</option>";
             	}else{
                    options += "<option value="+dlist.deptcode+">"+dlist.deptname+"</option>";
             	}
@@ -50,8 +53,8 @@ $(function(){
        }
     });
 	
-	 $('#deptlist').on("change",function(){
- 	  	// ÆÀ ¸ñ·Ï Ãâ·Â
+	 $('#deptlist').on("click",function(){
+ 	  	// íŒ€ ëª©ë¡ ì¶œë ¥
  	  	$('#teamlist').empty();
  	  	 $.ajax({
               url : './Emp_Search/Team.jsp',
@@ -75,7 +78,7 @@ $(function(){
 	<center>
 	<table height="400px" width="500px">
 		<tr>
-			<td colspan="2" style="border-bottom: 2px solid #0469AF"><h4>${member.ename}´ÔÀÇ »ç¿øÁ¤º¸</h4></td>
+			<td colspan="2" style="border-bottom: 2px solid #0469AF"><h4>${member.ename}ë‹˜ì˜ ì‚¬ì›ì •ë³´</h4></td>
 		</tr>
 		<tr>
 			<td>
@@ -84,38 +87,38 @@ $(function(){
 						<td align="center"><img src="http://192.168.7.235:8090/PROJECT/Upload/${member.p_picture}" width="200px" height="200px"></td>
 					</tr>
 					<tr>
-						<td align="center" style="background-image: url('img/¹è°æ2.png');">" ${member.p_content} "</td>
+						<td align="center" style="background-image: url('img/ë°°ê²½2.png');">" ${member.p_content} "</td>
 					</tr>
 				</table>
 			</td>
 			<td>
 				<table height="300px" width="300px" id="emp">
 					<tr style="border-bottom: 1px solid #A2A2A2">
-						<td>»ç¿ø¹øÈ£</td>
+						<td>ì‚¬ì›ë²ˆí˜¸</td>
 						<td>${member.empno}</td>
 					</tr>
 					<tr style="border-bottom: 1px solid #A2A2A2">
-						<td>ÀÌ¸§</td>
+						<td>ì´ë¦„</td>
 						<td>${member.ename}</td>
 					</tr>
 					<tr style="border-bottom: 1px solid #A2A2A2">
-						<td>»ı³â¿ùÀÏ</td>
+						<td>ìƒë…„ì›”ì¼</td>
 						<td>${member.birth}</td>
 					</tr>
 					<tr style="border-bottom: 1px solid #A2A2A2">
-						<td>¼ºº°</td>
+						<td>ì„±ë³„</td>
 						<td>${member.sex}</td>
 					</tr>
 					<tr style="border-bottom: 1px solid #A2A2A2">
-						<td>ÇÚµåÆù</td>
+						<td>í•¸ë“œí°</td>
 						<td>${member.celphone}</td>
 					</tr>
 					<tr style="border-bottom: 1px solid #A2A2A2">
-						<td>ÀÌ¸ŞÀÏ</td>
+						<td>ì´ë©”ì¼</td>
 						<td>${member.email}</td>
 					</tr>
 					<tr style="border-bottom: 1px solid #A2A2A2">
-						<td>¼Ò¼ÓºÎ¼­</td>
+						<td>ì†Œì†ë¶€ì„œ</td>
 						<td>
 							<select id="deptlist">
 							</select>
@@ -123,7 +126,7 @@ $(function(){
 						</td>
 					</tr>
 					<tr style="border-bottom: 1px solid #A2A2A2">
-						<td>¼Ò¼ÓÆÀ</td>
+						<td>ì†Œì†íŒ€</td>
 						<td>
 							<select id="teamlist">
 							</select>
@@ -131,19 +134,19 @@ $(function(){
 						</td>
 					</tr>
 					<tr style="border-bottom: 1px solid #A2A2A2">
-						<td>Á÷±Ş</td>
+						<td>ì§ê¸‰</td>
 						<td>
 							<select id="gradelist">
-								<option value="1">´ëÇ¥ÀÌ»ç</option>
-								<option value="2">ºÎÀå</option>
-								<option value="3">ÆÀÀå</option>
-								<option value="4" selected>»ç¿ø</option>
+								<option value="1">ëŒ€í‘œì´ì‚¬</option>
+								<option value="2">ë¶€ì¥</option>
+								<option value="3">íŒ€ì¥</option>
+								<option value="4" selected>ì‚¬ì›</option>
 							</select>
 							<%-- ${member.gradename} --%>
 						</td>
 					</tr>
 					<tr>
-						<td>»ç³»ÀüÈ­¹øÈ£</td>
+						<td>ì‚¬ë‚´ì „í™”ë²ˆí˜¸</td>
 						<td><input type="text" value="${member.emptel}"><%-- ${member.emptel} --%></td>
 					</tr>
 				</table>
@@ -151,8 +154,8 @@ $(function(){
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-			<input type="button" class="btn btn-primary" value="¼öÁ¤ÇÏ±â" onclick="editAdmin(${member.empno})">&nbsp;
-			<input type="button" class="btn btn-default" value="Ãë¼Ò" onclick="window.close()"></td>
+			<input type="button" class="btn btn-primary" value="ìˆ˜ì •í•˜ê¸°" onclick="editAdmin(${member.empno})">&nbsp;
+			<input type="button" class="btn btn-default" value="ì·¨ì†Œ" onclick="window.close()"></td>
 		</tr>
 	</table>
 </center>
