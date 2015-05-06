@@ -15,9 +15,9 @@ function ppurija(ad) {
    }); 
 }
 
-function chatting_window(){
+function chatting_window(teamname){
 	var ip = $('#ip').val();
-	window.open("http://"+ip+":8090/PROJECT/chatting/client.html", "chattingroom", "height=500 width=350")
+	window.open("http://"+ip+":8090/PROJECT/chatting/client.jsp?teamname="+teamname, "chattingroom", "height=500 width=350")
 }
 
 function info(empno){
