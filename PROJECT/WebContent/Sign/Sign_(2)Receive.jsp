@@ -61,6 +61,7 @@
 				<td align=right><select
 					onchange="goUrl(this.options[this.selectedIndex].value)">
 						<option value="getSignList.hong">선택</option>
+						<option value="getSignList.hong?status=전체">전체</option>
 						<option value="getSignList.hong?status=대기">대기</option>
 						<option value="getSignList.hong?status=승인">승인</option>
 						<option value="getSignList.hong?status=취소">취소</option>
@@ -154,6 +155,7 @@
 				<td align=right><font size=2><select
 						onchange="goUrl(this.options[this.selectedIndex].value)">
 							<option value="getSignList.hong">선택</option>
+							<option value="getSignList.hong?status=전체">전체</option>
 							<option value="getSignList.hong?status=대기">대기</option>
 							<option value="getSignList.hong?status=승인">승인</option>
 							<option value="getSignList.hong?status=취소">취소</option>
