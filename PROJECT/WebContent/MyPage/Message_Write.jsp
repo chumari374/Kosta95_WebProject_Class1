@@ -8,6 +8,7 @@
 <style>
 	
 	    h3 { text-align: center; }
+	    body{background-color: #EFEFEF;}
 		#message_write_table { color: #4C4C4C;}
 		#message_write_table th
 		{
@@ -23,8 +24,8 @@
 		#f5f5f5);
 	background: -webkit-gradient(
 		linear, left top, left bottom,
-		from(#f5f5f5),
-		to(#f5f5f5));
+		from(#6db2da),
+		to(#6db2da));
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;

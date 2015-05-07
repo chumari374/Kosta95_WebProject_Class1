@@ -14,6 +14,8 @@
      text-align: center;
  }
  
+ body {background-color: #EFEFEF;}
+ 
  button.css3button {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
