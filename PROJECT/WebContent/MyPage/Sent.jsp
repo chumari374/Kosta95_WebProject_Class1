@@ -124,7 +124,9 @@ table th { background-color: #E7E7E7;}
 	     </a>
 		</td>
 		<td  align="center" valign="middle" bordercolor="#333333">
-		    <%= ml.getSendempno() %> 
+		  <a href="#" onclick="window.open('Member.info?empno=<%= ml.getSendempno() %>  ','window팝업','left=300, top=50, width=600, height=400, menubar=no, status=no, toolbar=no');">
+	      <%= ml.getSendempno() %> 
+	     </a>   
 		</td>
 		<td>
 			 <%-- <a href="MessageDetailAction.mb?msgnum=<%=ml.getMsgnum()%>" target="blank"> --%>	 
