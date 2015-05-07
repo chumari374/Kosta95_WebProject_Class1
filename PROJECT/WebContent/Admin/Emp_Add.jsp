@@ -66,7 +66,7 @@
 </head>
 <body>
 	<jsp:include page="../Main.jsp"></jsp:include>
-
+ <div id="main" align="left" style="overflow: scroll;">
 	<div class="container" >
 	<div id="wrapper" style="width: 90%;">
 		<div align="center" style="margin-bottom: 0px;">
@@ -128,6 +128,7 @@
 		</table>
 		</div>
 	
+	</div>
 	</div>
 	</div>
 <jsp:include page="../Footer.jsp"></jsp:include>
