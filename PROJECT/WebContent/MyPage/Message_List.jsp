@@ -1,4 +1,4 @@
-<%@page import="java.util.List"%>
+<%-- <%@page import="java.util.List"%>
 <%@page import="DTO.MessageDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -65,4 +65,4 @@ function Sent(id) {
   <a href="../MessageWrite.mb" target="_blank"><input type="button" value="쪽지보내기"></a>
 
 	</div>
-</html>
+</html> --%>
