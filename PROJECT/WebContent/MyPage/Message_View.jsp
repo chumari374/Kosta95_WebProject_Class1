@@ -48,6 +48,18 @@
  
  
 </style>
+<script>
+function msgsend(){
+
+	var popupWidth = 310;
+	var popupHeight = 200;
+	var popup_options = "top="+((screen.availHeight - popupWidth)/2)+", left="+((screen.availWidth - popupHeight)/2)+", width=310, height=200, location=no";
+	var url = "./MessageReply.mb?sendempno=${messagedata.empno}";
+	var target = "_blank";
+
+	window.open(url, target, popup_options);
+}
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
@@ -122,9 +134,12 @@
 			
 			
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="./MessageReply.mb?sendempno=${messagedata.empno}" target="blank">
+<%-- 			<a href="./MessageReply.mb?sendempno=${messagedata.empno}" target="blank">
 			<button type="button" value="" class="css3button">답장</button>
-			</a>&nbsp;&nbsp;
+			</a>&nbsp;&nbsp; --%>
+			
+			<button type="button" value="" class="css3button" onclick="msgsend()">답장</button>
+			
 			<%-- ./MessageReplyAction.mb?empno=${messagedata.empno} --%>
 			
 			<button type="button" value="" onclick="window.close();" class="css3button">닫기</button>
