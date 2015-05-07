@@ -48,6 +48,24 @@ public class Emp_UpdateAdminAction implements Action {
 	   		out.close();
 	   		return null;
 		}
+		
+		if(Integer.parseInt(request.getParameter("teamcode"))%1000 ==0 && Integer.parseInt(request.getParameter("grade"))!=2){
+	   		out.println("<script>");
+	   		out.println("alert('fail : sorry error...');"); //~~부장으로 팀 이름이 끝나는데 직급이 부장이 아닐경우
+	   		out.println("history.go(-1);");
+	   		out.println("</script>");
+	   		out.close();
+	   		return null;
+		}
+		
+		if(Integer.parseInt(request.getParameter("deptcode"))==100 && Integer.parseInt(request.getParameter("grade"))!=1){
+	   		out.println("<script>");
+	   		out.println("alert('fail : sorry error...');"); //부서가 대표이사인데 직급이 대표이사가 아닐경우
+	   		out.println("history.go(-1);");
+	   		out.println("</script>");
+	   		out.close();
+	   		return null;
+		}
 
 		if(Integer.parseInt(request.getParameter("grade"))!=4){
 			int count = dao.MemberCount(dto);
