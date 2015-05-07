@@ -67,7 +67,7 @@
 <body>
 <!-- 게시판 등록 -->
 <jsp:include page="../../Main.jsp"></jsp:include>
-   <div id="main" align="center" style="overflow: scroll;">
+   <div id="main" align="center">
 <form action="CompDataBoardRealModifyAction.cf" method="post" method="post" name="boardform" enctype="multipart/form-data">
 <input type="hidden" name="BOARD_ID" value="<%=empno %>">
 <input type="hidden" name="BOARD_NUM" value="<%=boarddata.getNum()%>">

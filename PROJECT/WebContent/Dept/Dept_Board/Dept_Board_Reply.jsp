@@ -92,7 +92,7 @@
 <body>
 <!-- 게시판 등록 -->
 <jsp:include page="../../Main.jsp"></jsp:include>
-   <div id="main" align="center" style="overflow: scroll;">
+   <div id="main" align="center">
 <form action="DeptBoardReplyAction.dp" method="post" name="boardform">
 <input type="hidden" name="BOARD_NUM" value="<%=board.getNum() %>">
 <input type="hidden" name="BOARD_RE_REF" value="<%=board.getRef() %>">

@@ -13,7 +13,7 @@
 
 <body>
 <jsp:include page="../../Main.jsp"></jsp:include>
-   <div id="main" align="center" style="overflow: scroll;">
+   <div id="main" align="center">
 <!-- 게시판 수정 -->
 <input type="hidden" value="<%=empno%>"/>
 <table cellpadding="0" cellspacing="0" class="table" style="width: 70%; margin-top: 50px;">
