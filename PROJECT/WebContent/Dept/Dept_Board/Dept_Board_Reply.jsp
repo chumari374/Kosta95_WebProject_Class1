@@ -77,7 +77,28 @@
 	
 	}
 	
-
+.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #383838;
+	padding: 4px 10px;
+	background: -moz-linear-gradient(
+		top,
+		#f7f7f7 0%,
+		#ebebeb 50%,
+		#dbdbdb 50%,
+		#dbdbdb);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#f7f7f7),
+		color-stop(0.50, #ebebeb),
+		color-stop(0.50, #dbdbdb),
+		to(#dbdbdb));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 5px;
+	border: 1px solid #c7c7c7;
+}
 	</style>
 	   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
@@ -105,7 +126,7 @@
 	</tr>
 	<tr>
 		<td style="font-family:돋음; font-size:12" height="16">
-			<div align="center">글쓴이</div>
+			<div align="center"><b>글쓴이</b></div>
 		</td>
 		<td>
 			<%=ename %>
@@ -113,7 +134,7 @@
 	</tr>
 	<tr>
 		<td style="font-family:돋음; font-size:12" height="16">
-			<div align="center">제 목</div>	
+			<div align="center"><b>제 목</b></div>	
 		</td>
 		<td style="font-family:돋음; font-size:12" height="16">
 			<input name="BOARD_TITLE" type="text" size="50" maxlength="100" 
@@ -127,7 +148,7 @@
 	<tr>
 	
 		<td style="font-family:돋음; font-size:12">
-			<div align="center">내 용</div>
+			<div align="center"><b>내 용</b></div>
 		</td>
 		<td>
 		
@@ -144,9 +165,9 @@
 		<td colspan="5">
 		
 				<a href="javascript:addboard()">
-				<input type="submit" value="등록" class="btn btn-primary btn-inline-block btn-lg">
+				<input type="submit" value="등록" class="css3button">
 				</a>
-				<a href="javascript:history.go(-1)" class="btn btn-success btn-inline-block btn-lg">
+				<a href="javascript:history.go(-1)" class="css3button">
 				뒤로</a>
 		</td>
 	</tr>

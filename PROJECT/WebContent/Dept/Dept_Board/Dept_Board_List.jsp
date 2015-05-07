@@ -45,6 +45,29 @@
 	margin: 30px;
 	margin-bottom: 10px;
 }
+
+input.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #383838;
+	padding: 4px 10px;
+	background: -moz-linear-gradient(
+		top,
+		#f7f7f7 0%,
+		#ebebeb 50%,
+		#dbdbdb 50%,
+		#dbdbdb);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#f7f7f7),
+		color-stop(0.50, #ebebeb),
+		color-stop(0.50, #dbdbdb),
+		to(#dbdbdb));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 5px;
+	border: 1px solid #c7c7c7;
+}
 </style>
 </head>
 <body>
@@ -210,7 +233,7 @@
  %>
 							</td>
 							<td align="right"><a href="DeptBoardWrite.dp"><input
-									type="button" value="글쓰기"></a></td>
+									type="button" value="글쓰기" class="css3button"></a></td>
 						</tr>
 						<!-- 페이징처리 끝 -->
 						<%
@@ -220,7 +243,7 @@
 							<td colspan="4">부서 게시판</td>
 							<td align=right><font size=2>등록된 글이 없습니다.</font></td>
 							<td align="right"><a href="DeptBoardWrite.dp"><input
-									type="button" value="글쓰기"></a></td>
+									type="button" value="글쓰기" class="css3button"></a></td>
 						</tr>
 						<%
 							}
