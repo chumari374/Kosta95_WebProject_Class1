@@ -29,8 +29,8 @@
 		var now = new Date();
 
 		var year = now.getFullYear(); //년
-		var month = now.getMonth(); //월
-		var day = now.getDay(); //일
+		var month = now.getMonth()+1; //월
+		var day = now.getDay()+3; //일
 		var hour = now.getHours(); //시
 		var min = now.getMinutes(); //분
 		var sec = now.getSeconds(); //초
