@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<!-- ±¸±Û ¸Ê api -->
+<!-- êµ¬ê¸€ ë§µ api -->
 <!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no"> -->
-<!-- ±¸±Û ¸Ê api ³¡-->
+<!-- êµ¬ê¸€ ë§µ api ë-->
 
 <title>Insert title here</title>
 <link rel="stylesheet"
@@ -17,33 +17,33 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-<!-- ±¸±Û ¸Ê api -->
+<!-- êµ¬ê¸€ ë§µ api -->
 <!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script> -->
-<!-- ±¸±Û ¸Ê api ³¡-->
+<!-- êµ¬ê¸€ ë§µ api ë-->
 
 
-<!-- ½Ç½Ã°£ ½Ã°è -->
+<!-- ì‹¤ì‹œê°„ ì‹œê³„ -->
 <script type="text/javascript">
 	function go_time() {
 
 		var now = new Date();
 
-		var year = now.getFullYear(); //³â
-		var month = now.getMonth() + 1; //¿ù
-		var day = now.getDay() + 3; //ÀÏ
-		var hour = now.getHours(); //½Ã
-		var min = now.getMinutes(); //ºĞ
-		var sec = now.getSeconds(); //ÃÊ
+		var year = now.getFullYear(); //ë…„
+		var month = now.getMonth() + 1; //ì›”
+		var day = now.getDay() + 3; //ì¼
+		var hour = now.getHours(); //ì‹œ
+		var min = now.getMinutes(); //ë¶„
+		var sec = now.getSeconds(); //ì´ˆ
 
-		document.getElementById("clock").innerHTML = year + "³â " + month + "¿ù "
-				+ day + "ÀÏ " + hour + ":" + min + ":" + sec
-		//id°¡ clockÀÎ html¿¡ ÇöÀç½Ã°¢À» ³ÖÀ½
+		document.getElementById("clock").innerHTML = year + "ë…„ " + month + "ì›” "
+				+ day + "ì¼ " + hour + ":" + min + ":" + sec
+		//idê°€ clockì¸ htmlì— í˜„ì¬ì‹œê°ì„ ë„£ìŒ
 
 		setTimeout("go_time()", 1000);
-		//1ÃÊ¸¶´Ù ÇØ´ç Æã¼ÇÀ» ½ÇÇàÇÔ.
+		//1ì´ˆë§ˆë‹¤ í•´ë‹¹ í‘ì…˜ì„ ì‹¤í–‰í•¨.
 	}
 </script>
-<!-- ½Ç½Ã°£ ½Ã°è ³¡ -->
+<!-- ì‹¤ì‹œê°„ ì‹œê³„ ë -->
 
 <style>
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
@@ -53,16 +53,16 @@
 	text-align: right;
 }
 
-/* ±¸±Û ¸Ê api */
+/* êµ¬ê¸€ ë§µ api */
 /* html, body, #map-canvas {
 	height: 100%;
 	margin: 0px;
 	padding: 0px
 } */
-/* ±¸±Û ¸Ê api ³¡ */
+/* êµ¬ê¸€ ë§µ api ë */
 </style>
 
-<!-- ±¸±Û ¸Ê api -->
+<!-- êµ¬ê¸€ ë§µ api -->
 <!-- <script>
 	var map;
 	function initialize() {
@@ -76,7 +76,7 @@
 
 	google.maps.event.addDomListener(window, 'load', initialize);
 </script> -->
-<!-- ±¸±Û ¸Ê api ³¡ -->
+<!-- êµ¬ê¸€ ë§µ api ë -->
 
 </head>
 <body onload="go_time()">
@@ -86,10 +86,10 @@
 			<table>
 				<tr>
 					<td>
-						<!-- ½Ç½Ã°£ ½Ã°è -->
+						<!-- ì‹¤ì‹œê°„ ì‹œê³„ -->
 						<div id="clock"
 							style="font-size: 18px; color: black; text-align: center;"></div>
-						<!-- ½Ç½Ã°£ ½Ã°è ³¡ -->
+						<!-- ì‹¤ì‹œê°„ ì‹œê³„ ë -->
 					</td>
 				</tr>
 				<tr>
@@ -136,10 +136,10 @@
 						</div></td>
 
 					<!-- <td>
-						±¸±Û ¸Ê api
+						êµ¬ê¸€ ë§µ api
 						<div id="map-canvas"
 							style="width: 300px; height: 360px; margin-top: 0px; padding-top: 0px;"></div>
-						±¸±Û ¸Ê api ³¡
+						êµ¬ê¸€ ë§µ api ë
 					</td> -->
 				</tr>
 
