@@ -81,11 +81,19 @@
 </head>
 <body onload="go_time()">
 	<jsp:include page="Main.jsp"></jsp:include>
-	<div id="main" align="left">
+	<div id="main" align="left" style="padding-left: 80px;">
 		<div class="container">
 			<table>
 				<tr>
-					<td rowspan="2"><br>
+					<td>
+						<!-- 실시간 시계 -->
+						<div id="clock"
+							style="font-size: 18px; color: black; text-align: center;"></div>
+						<!-- 실시간 시계 끝 -->
+					</td>
+				</tr>
+				<tr>
+					<td><br>
 						<div id="myCarousel" class="carousel slide" data-ride="carousel"
 							style="width: 900px; height: auto;">
 							<!-- Indicators -->
@@ -127,21 +135,14 @@
 							</a>
 						</div></td>
 
-					<td>
-						<!-- 구글 맵 api -->
-						<!-- <div id="map-canvas"
-							style="width: 300px; height: 360px; margin-top: 0px; padding-top: 0px;"></div> -->
-						<!-- 구글 맵 api 끝 -->
-					</td>
+					<!-- <td>
+						구글 맵 api
+						<div id="map-canvas"
+							style="width: 300px; height: 360px; margin-top: 0px; padding-top: 0px;"></div>
+						구글 맵 api 끝
+					</td> -->
 				</tr>
-				<tr>
-					<td>
-						<!-- 실시간 시계 -->
-						<div id="clock"
-							style="font-size: 18px; color: blue; text-align: center;"></div>
-						<!-- 실시간 시계 끝 -->
-					</td>
-				</tr>
+
 
 			</table>
 		</div>
