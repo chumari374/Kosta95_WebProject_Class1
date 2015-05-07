@@ -135,6 +135,8 @@ button.css3button {
 
 <body>
 <h3>받은쪽지함</h3>
+<jsp:include page="../Main.jsp"></jsp:include>
+   <div id="main" align="left">
 <div id="menudiv">
 
      <a href="./Sent.mb">보낸쪽지함</a>&nbsp;
@@ -216,5 +218,7 @@ button.css3button {
 	</tr>
 	<!-- 페이징처리 끝 -->
 		</table>
+		</div>
+		<jsp:include page="../Footer.jsp"></jsp:include>
 </body>
 </html>
