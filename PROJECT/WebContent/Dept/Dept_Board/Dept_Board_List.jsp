@@ -68,6 +68,58 @@ input.css3button {
 	border-radius: 5px;
 	border: 1px solid #c7c7c7;
 }
+/* //페이징 부분*/
+/* 숫자 페이지 부분 */
+input.page {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 4px 10px;
+	background-color: #F6F6F6;
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-radius: 0px;
+	border: 1px solid #3196dc;
+}
+/* 현재 페이지 */
+input.pageC {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 4px 10px;
+	background-color: #B2EBF4;
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-radius: 0px;
+	border: 1px solid #3196dc;
+}
+/* [이전] 페이지 */
+input.pageP {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 4px 10px;
+	background-color: #F6F6F6;
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-bottom-left-radius: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border: 1px solid #3196dc;
+}
+/* [다음] 페이지 */
+input.pageN {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 4px 10px;
+	background-color: #F6F6F6;
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-bottom-left-radius: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border: 1px solid #3196dc;
+}
+
 </style>
 </head>
 <body>
@@ -203,32 +255,32 @@ input.css3button {
 							<td colspan="4" style="font-family: Tahoma; font-size: 10pt;">
 								<%
 									if (level <= 1) {
-								%> <input type="button" value="이전">&nbsp;
+								%> <input type="button" value="이전" class="pageP">
 								<%
 									} else {
 								%> <a href="DeptBoardList.dp?page=<%=level * 5 - 5%>"><input
-									type="button" value="이전 "></a>&nbsp; <%
+									type="button" value="이전 " class="pageP"></a> <%
  	}
  %> <%
  	for (int i = level * 5 - 4; i <= end; i++) {
  			if (i == nowpage) {
  %> <input type="button" value="<%=i%>"
-								style="background-color: #B2EBF4">&nbsp; <%
+								style="background-color: #B2EBF4" class="pageC"> <%
  	} else {
  				if (i <= maxpage) {
  %> <a href="DeptBoardList.dp?page=<%=i%>"><input type="button"
-									value="<%=i%>"></a>&nbsp; <%
+									value="<%=i%>" class="page"></a> <%
  	}
  			}
  %> <%
  	}
  %> <%
  	if (level >= (maxpage / 5) + 1) {
- %> <input type="button" value="다음">
+ %> <input type="button" value="다음" class="pageN">
 								<%
 									} else {
 								%> <a href="DeptBoardList.dp?page=<%=level * 5 + 1%>"><input
-									type="button" value="다음"></a> <%
+									type="button" value="다음" class="pageN"></a> <%
  	}
  %>
 							</td>
