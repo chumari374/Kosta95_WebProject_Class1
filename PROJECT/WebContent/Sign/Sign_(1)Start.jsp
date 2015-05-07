@@ -68,6 +68,11 @@
 
 		document.write.submit();
 	}
+	
+	function goBack() {
+	    window.history.back();
+	}
+
 </SCRIPT>
 </head>
 <body>
@@ -116,7 +121,8 @@
 				<input id="GETSIGN" name="GETSIGN" type="hidden"
 					value="<%=getSignNum%>"> <input id="STEP" name="STEP"
 					type="hidden" value="1"> <input type="button" value="작성완료"
-					onclick="check()">
+					onclick="check()"> <input type="button" value="취소"
+					onclick="goBack()">
 			</center>
 		</form>
 	</div>

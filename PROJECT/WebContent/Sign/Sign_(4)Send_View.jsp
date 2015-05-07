@@ -28,6 +28,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script type="text/javascript">
+function goBack() {
+    window.history.back();
+}
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>결재문서 열람</title>
 <script src="http://icode.jquery.com/jquery-1.11.2.min.js"></script>
@@ -97,6 +102,8 @@
 						<td><%=status %></td>
 					</tr>
 				</table>
+				<hr>
+				<input type="button" value="뒤로가기" onclick="goBack()">
 			</center>
 		</form>
 	</div>
