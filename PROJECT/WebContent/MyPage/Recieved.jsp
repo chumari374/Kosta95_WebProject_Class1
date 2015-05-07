@@ -123,7 +123,7 @@ button.css3button {
 
 <body>
 <jsp:include page="../Main.jsp"></jsp:include>
-   <div id="main" align="left">
+   <div id="main" align="left" style="overflow: scroll;">
 <h3>받은쪽지함</h3>
 
 <div id="menudiv">
