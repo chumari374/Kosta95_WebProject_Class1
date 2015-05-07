@@ -155,9 +155,10 @@ button.css3button {
 		    <%=ml.getSendempno() %> 
 		</td>
 		<td>
-			 <a href="MessageDetailAction.mb?msgnum=<%=ml.getMsgnum()%>" target="blank">
-				<%=ml.getTitle()%>
-			</a> 
+			<%-- <a href="MessageDetailAction.mb?msgnum=<%=ml.getMsgnum()%>" target="blank"> --%>	 
+			 <a href="#" onclick="window.open('MessageDetailAction.mb?msgnum=<%=ml.getMsgnum()%>','window팝업','left=300, top=50, width=600, height=400, menubar=no, status=no, toolbar=no');">
+			 <%=ml.getTitle()%></a>
+			
 		</td>
 		<td width="10%">
 		   	<a href="SentDeleteAction.mb?msgnum=<%=ml.getMsgnum()%>">

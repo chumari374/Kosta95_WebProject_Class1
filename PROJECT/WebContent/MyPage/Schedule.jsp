@@ -779,13 +779,8 @@
 	});
 	</script>
 
-
 		<div id="example" style="margin: auto; width:70%;">
-		
-		<br>
-		
-		<br><br>
-
+		<h3 align="center">일정 관리</h3>
 		<div id="toolbar" class="ui-widget-header ui-corner-all" style="padding:3px; vertical-align: middle; white-space:nowrap; overflow: hidden;">
 			<button id="BtnPreviousMonth">이전 달</button>
 			<button id="BtnNextMonth">다음 달</button>
