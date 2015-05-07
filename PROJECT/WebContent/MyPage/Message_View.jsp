@@ -13,6 +13,40 @@
      font-size: 12px;
      text-align: center;
  }
+ 
+ button.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #282828;
+	padding: 6px 14px;
+	background: -moz-linear-gradient(
+		top,
+		#f5f5f5 0%,
+		#f5f5f5);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#f5f5f5),
+		to(#f5f5f5));
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	border: 1px solid #c4c4c4;
+	-moz-box-shadow:
+		0px 1px 2px rgba(000,000,000,0.5),
+		inset 0px 1px 1px rgba(255,255,255,0.5);
+/* 	-webkit-box-shadow:
+		0px 1px 2px rgba(000,000,000,0.5),
+		inset 0px 1px 1px rgba(255,255,255,0.5);
+	box-shadow:
+		0px 1px 2px rgba(000,000,000,0.5),
+		inset 0px 1px 1px rgba(255,255,255,0.5); */
+	text-shadow:
+		0px 0px 0px rgba(000,000,000,0),
+		0px 0px 0px rgba(255,255,255,0);
+}
+ 
+ 
+ 
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
@@ -88,10 +122,10 @@
 			
 			
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="./MessageReply.mb?sendempno=${messagedata.empno}" target="blank"><input type="button" value="답장"></a>&nbsp;&nbsp;
+			<a href="./MessageReply.mb?sendempno=${messagedata.empno}" target="blank"><button type="button" value="" class="css3button">답장</button></a>&nbsp;&nbsp;
 			<%-- ./MessageReplyAction.mb?empno=${messagedata.empno} --%>
 			
-			<input type="button" value="닫기" onclick="window.close();">
+			<button type="button" value="" onclick="window.close();" class="css3button">닫기</button>
 
 <%-- 			<a href="./MessageList.mb?page=<%=Integer.parseInt(request.getParameter("page"))%>">
 			[목록]</a>&nbsp;&nbsp; --%>

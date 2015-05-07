@@ -116,6 +116,20 @@ button.css3button {
 
 		window.open(url, target, popup_options);
 	}
+	
+	
+	function openwindow(){
+
+		var popupWidth = 600;
+		var popupHeight = 600;
+		var popup_options = "top="+((screen.availHeight - popupWidth)/2)+", left="+((screen.availWidth - popupHeight)/2)+", width=600, height=600, location=no";
+		var url = "";
+		var target = "_blank";
+
+		window.open(url, target, popup_options);
+	}
+	
+	
 	</script>
 </head>
 
@@ -151,7 +165,8 @@ button.css3button {
 		    <%= ml.getSendempno() %> 
 		</td>
 		<td>
-			 <a href="MessageDetailAction.mb?msgnum=<%=ml.getMsgnum()%>" target="blank">
+			 <%-- <a href="MessageDetailAction.mb?msgnum=<%=ml.getMsgnum()%>" target="blank"> --%>
+			 <a href="MessageDetailAction.mb?msgnum=<%=ml.getMsgnum()%>" onclick='windowopen()'>
 				<%=ml.getTitle()%>
 			</a> 
 		</td>
