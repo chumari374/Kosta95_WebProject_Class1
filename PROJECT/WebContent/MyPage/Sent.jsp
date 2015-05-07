@@ -119,7 +119,9 @@ table th { background-color: #E7E7E7;}
 			 <%=ml.getMsgnum()%> 
 		</td>
 		<td  align="center" valign="middle" bordercolor="#333333">
-			 <%=ml.getEmpno() %> 
+			  <a href="#" onclick="window.open('Member.info?empno=<%=ml.getEmpno() %> ','window팝업','left=300, top=50, width=600, height=400, menubar=no, status=no, toolbar=no');">
+	     <%=ml.getEmpno() %>
+	     </a>
 		</td>
 		<td  align="center" valign="middle" bordercolor="#333333">
 		    <%= ml.getSendempno() %> 
