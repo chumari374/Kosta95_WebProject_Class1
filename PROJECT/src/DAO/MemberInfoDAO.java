@@ -80,23 +80,26 @@ public class MemberInfoDAO {
       
       try{
          conn = ds.getConnection();
-         pstmt = conn.prepareStatement("select deptname, teamname, ename, gradename, emptel, celphone from memberinfo order by grade");
+         pstmt = conn.prepareStatement(
+        		 "select m.deptname, m.teamname, m.ename, m.gradename, m.emptel, m.celphone, d.exist from MEMBERINFO m "
+         		+ "join domain_set d on m.empno=d.empno "
+         		+ "where d.exist='true' order by m.grade");
          
          rs= pstmt.executeQuery();
          
          while(rs.next()){
             MemberInfoDTO memberinfo = new MemberInfoDTO();
-            memberinfo.setDeptname(rs.getString("DEPTNAME"));
-            memberinfo.setTeamname(rs.getString("TEAMNAME"));
-            memberinfo.setEname(rs.getString("ENAME"));
-            memberinfo.setGradename(rs.getString("GRADENAME"));
-            memberinfo.setEmptel(rs.getString("EMPTEL"));
-            memberinfo.setCelphone(rs.getString("CELPHONE"));
+            memberinfo.setDeptname(rs.getString("m.DEPTNAME"));
+            memberinfo.setTeamname(rs.getString("m.TEAMNAME"));
+            memberinfo.setEname(rs.getString("m.ENAME"));
+            memberinfo.setGradename(rs.getString("m.GRADENAME"));
+            memberinfo.setEmptel(rs.getString("m.EMPTEL"));
+            memberinfo.setCelphone(rs.getString("m.CELPHONE"));
             list.add(memberinfo);
          }
          
       }catch(Exception ex){
-         System.out.println("getMemberInfo 占쏙옙占쏙옙 : " + ex);
+         System.out.println("memberlist : " + ex);
       }finally{
          if(rs!=null)try{rs.close();}catch(SQLException ex){}
          if(pstmt !=null)try{pstmt.close();}catch(SQLException ex){}

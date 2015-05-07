@@ -15,11 +15,7 @@ public class Emp_DeleteAdminAction implements Action{
 			HttpServletResponse response) throws Exception {
 		ActionForward forward = new ActionForward();
 		MemberInfoDAO dao = new MemberInfoDAO();
-		
-		List MemberList = new ArrayList();
-		MemberList = dao.MemberList();
 
-		request.setAttribute("MemberList", MemberList);
 		forward.setRedirect(false);
 		forward.setPath("Admin/Emp_Delete.jsp");
 		return forward;

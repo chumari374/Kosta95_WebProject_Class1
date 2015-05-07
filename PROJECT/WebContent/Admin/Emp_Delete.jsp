@@ -207,7 +207,7 @@
 <jsp:include page="../Main.jsp"></jsp:include>
    <div id="main" align="center">
    <div id="wrapper" style="width: 90%;">
-   		<div align="left" style="height: 50px;"><h2>사원검색</h2></div>
+   		<div align="left" style="height: 50px;"><h2>퇴사처리</h2></div>
 		<div align="center" style="margin-bottom: 0px;">
 			<div style=" float: left;"><select id="deptlist" class="form-control" style="width:150px; margin-left: 30px; margin-right: 20px; margin-bottom: 10px;"></select></div>
 			<div style=" float: left;"><select id="teamlist" class="form-control" style="width:250px; margin-right: 150px;">
