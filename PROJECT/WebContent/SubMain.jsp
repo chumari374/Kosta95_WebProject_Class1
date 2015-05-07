@@ -134,7 +134,7 @@ html, body, #map-canvas {
 	<!-- 구글 맵 api 끝 -->
 
 	<!-- 실시간 시계 -->
-	<div id="clock"></div>
+	<div id="clock" style="font-size: 18px; color: white;"></div>
 	<!-- 실시간 시계 끝 -->
 
 
