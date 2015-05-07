@@ -12,7 +12,7 @@
 <link type="text/css" rel="stylesheet" href="css/mystyle.css">
 <style>
 body {
-	background-image: url("img/10.jpg");
+	background-image: url("img/mainpageimage.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -75,9 +75,9 @@ body {
 </head>
 <body>
 	<div id="mainpagetitle">
-		<h1>
+	<!-- 	<h1>
 			<b>KOSTA 95기 1조 회사 인트라넷 페이지</b>
-		</h1>
+		</h1> -->
 	</div>
 	<div class="container">
 		<div class="row">
