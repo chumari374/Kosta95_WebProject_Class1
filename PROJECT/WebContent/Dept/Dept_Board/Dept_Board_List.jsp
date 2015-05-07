@@ -49,7 +49,7 @@
 </head>
 <body>
 	<jsp:include page="../../Main.jsp"></jsp:include>
-	<div id="main" align="left">
+	<div id="main" align="left" style="overflow: scroll;">
 		<div id="title">
 			<h3>부서 게시판</h3>
 		</div>
