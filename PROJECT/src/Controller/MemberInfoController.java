@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import Action.Action;
 import Action.ActionForward;
+import Action.Check_EmpEmpnoAction;
+import Action.Emp_AddAdminAction;
 import Action.Emp_DeleteAdminAction;
 import Action.Emp_EditAdminAction;
 import Action.Emp_ExistUpdateAdminAction;
@@ -129,13 +131,23 @@ public class MemberInfoController extends HttpServlet {
 			forward.setPath("Admin/Emp_Add.jsp");
 			
 		} if(command.equals("/MemberAddUpdate.admin")){
-			action = new Emp_UpdateAdminAction();
+			action = new Emp_AddAdminAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 					e.printStackTrace();
 			}
+		} if(command.equals("/empnoCheck.admin")){
+			action = new Check_EmpEmpnoAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+		
+		
 		if(forward != null){
 			if(forward.isRedirect()){ //view ´Ü ¹Ù·Î....
 				System.out.println("forward.isRedirect() : " + forward.isRedirect());

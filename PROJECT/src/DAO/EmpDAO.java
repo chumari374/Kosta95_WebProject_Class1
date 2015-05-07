@@ -63,4 +63,61 @@ public class EmpDAO {
 		}
 		return result;
 	}
+	
+	public int EmpCount(EmpDTO Emp){
+	      
+	      int result = 0;
+	      
+	      try{
+	         conn = ds.getConnection();
+	         String sql = "select count(*) from emp where deptcode=? and teamcode=? and grade=?";
+	         ps = conn.prepareStatement(sql);
+	         ps.setInt(1, Emp.getDeptcode());
+	         ps.setInt(2, Emp.getTeamcode());
+	         ps.setInt(3, Emp.getGrade());
+	         System.out.println(Emp.getDeptcode() + " / " + Emp.getTeamcode() + " / " + Emp.getGrade());
+
+	         rs = ps.executeQuery();
+	         
+	         if(rs.next()){
+	            result = rs.getInt(1);
+	            System.out.println("EmpCount:"+rs.getInt(1));
+	         }
+	         System.out.println("CountResult : " + result);
+	         
+	         return result;
+	         
+	      }catch(Exception e){
+	         e.getStackTrace();
+	      }finally{
+	         if (rs != null)try {rs.close();} catch (Exception e) {}
+	         if (ps != null)try {ps.close();} catch (Exception e) {}
+	         if (conn != null)try {conn.close();} catch (Exception e) {}
+	      }
+	      return result;
+	}
+	
+	//사번 존재 여부
+	public boolean isExistEmpno(int empno){
+		boolean isExistEmpno = false;
+		try {
+			conn = ds.getConnection();
+			String sql = "select empno from emp";
+			ps = conn.prepareStatement(sql);
+			
+			rs = ps.executeQuery();
+			while(rs.next()){
+				if(rs.getInt("empno")==empno){ 
+					isExistEmpno = true;
+				}
+			}
+		}catch(Exception e){
+			e.getStackTrace();
+		}finally{
+			if (rs != null)try {rs.close();} catch (Exception e) {}
+			if (ps != null)try {ps.close();} catch (Exception e) {}
+			if (conn != null)try {conn.close();} catch (Exception e) {}
+		}
+		return isExistEmpno;
+	}
 }

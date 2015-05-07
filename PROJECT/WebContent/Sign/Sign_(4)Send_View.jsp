@@ -54,6 +54,28 @@ function goBack() {
 .content {
 	height: 200px;
 }
+.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #383838;
+	padding: 4px 10px;
+	background: -moz-linear-gradient(
+		top,
+		#f7f7f7 0%,
+		#ebebeb 50%,
+		#dbdbdb 50%,
+		#dbdbdb);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#f7f7f7),
+		color-stop(0.50, #ebebeb),
+		color-stop(0.50, #dbdbdb),
+		to(#dbdbdb));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 5px;
+	border: 1px solid #c7c7c7;
+}
 </style>
 </head>
 <body>
@@ -67,19 +89,19 @@ function goBack() {
 						<td colspan="2"><b>보낸 결재함</b></td>
 					</tr>
 					<tr>
-						<td>제목</td>
+						<td><b>제목</b></td>
 						<td><%=title %></td>
 					</tr>
 					<tr>
-						<td>기안자</td>
+						<td><b>기안자</b></td>
 						<td><a href="#" onclick="info(<%=signdata.getStarter()%>)"><%=starter %></a></td>
 					</tr>
 					<tr>
-						<td>송부자</td>
+						<td><b>송부자</b></td>
 						<td><a href="#" onclick="info(<%=signdata.getEmpno()%>)"><%=sender %></a></td>
 					</tr>
 					<tr>
-						<td>파일</td>
+						<td><b>파일</b></td>
 						<td>
 							<%if(!(signdata.getFile_sign()==null)) { %>
 							
@@ -90,20 +112,20 @@ function goBack() {
 						</td>
 					</tr>
 					<tr class="content">
-						<td>내용</td>
+						<td><b>내용</b></td>
 						<td><%=content %></td>
 					</tr>
 					<tr>
-						<td>결재자</td>
+						<td><b>결재자</b></td>
 						<td><a href="#" onclick="info(<%=signdata.getGetsign()%>)"><%=getsign %></a></td>
 					</tr>
 						<tr>
-						<td>상태</td>
+						<td><b>상태</b></td>
 						<td><%=status %></td>
 					</tr>
 				</table>
 				<hr>
-				<input type="button" value="뒤로가기" onclick="goBack()">
+				<input type="button" value="뒤로가기" onclick="goBack()" class="css3button">
 			</center>
 		</form>
 	</div>

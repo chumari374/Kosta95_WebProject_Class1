@@ -15,32 +15,64 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			$('#checkEmpno').click(function(){
-				var length = $('#empno').val().length;
-				var empno = $('#empno').val();
-				if(length==0){
-					alert('입력하세요');
-					return false;
-				}
-				//비동기 처리
-				//존재하면 ""(빈값)
-				//존재하지않으면 email
-				$.post(
-					url="empnoCheck.ad",
-					'empno='+empno,
-					function(data){
-						opener.document.registerForm.empno.value = data;
-						console.log(data);
-						if(data.length>0){ //길이가 0보다 크면 사용가능한 사번
-							alert('사용가능한 사원번호입니다.');
-							window.close();
-						}else{ //길이가 0이면 존재한는 사번
-							alert('존재하는 사원번호입니다.');
-						}
-						
+			console.log(opener.window.document.location.pathname);
+			var path = opener.window.document.location.pathname;
+			if(path=='/PROJECT/Register.jsp'){
+				$('#checkEmpno').click(function(){
+					var length = $('#empno').val().length;
+					var empno = $('#empno').val();
+					if(length==0){
+						alert('입력하세요');
+						return false;
 					}
-				);
-			});
+					//비동기 처리
+					//존재하면 ""(빈값)
+					//존재하지않으면 email
+					$.post(
+						url="empnoCheck.ad",
+						'empno='+empno,
+						function(data){
+							opener.document.registerForm.empno.value = data;
+							console.log(data);
+							if(data.length>0){ //길이가 0보다 크면 사용가능한 사번
+								alert('사용가능한 사원번호입니다.');
+								window.close();
+							}else{ //길이가 0이면 존재한는 사번
+								alert('존재하는 사원번호입니다.');
+							}
+							
+						}
+					);
+				});
+			}else if(path=='/PROJECT/MemberAdd.admin'){
+				$('#checkEmpno').click(function(){
+					var length = $('#empno').val().length;
+					var empno = $('#empno').val();
+					if(length==0){
+						alert('입력하세요');
+						return false;
+					}
+					//비동기 처리
+					//존재하면 ""(빈값)
+					//존재하지않으면 email
+					$.post(
+						url="empnoCheck.admin",
+						'empno='+empno,
+						function(data){
+							opener.document.MemberAddForm.empno.value = data;
+							console.log(data);
+							if(data.length>0){ //길이가 0보다 크면 사용가능한 사번
+								alert('사용가능한 사원번호입니다.');
+								window.close();
+							}else{ //길이가 0이면 존재한는 사번
+								alert('존재하는 사원번호입니다.');
+							}
+							
+						}
+					);
+				});
+			}
+			
 		});
 	</script>
 </head>
