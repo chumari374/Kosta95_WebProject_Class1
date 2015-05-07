@@ -17,7 +17,7 @@
 	ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
 
 	conn = ds.getConnection();
-	String sql = "select m.teamname, m.teamcode from MEMBERINFO m "
+	String sql = "select DISTINCT m.teamname, m.teamcode from MEMBERINFO m "
             + "join domain_set d on m.empno=d.empno where d.exist='true' and m.deptcode = ? order by m.teamcode";
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1, request.getParameter("deptcode"));
