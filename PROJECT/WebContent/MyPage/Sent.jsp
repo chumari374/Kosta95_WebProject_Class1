@@ -120,9 +120,11 @@ button.css3button {
 	</script>
 </head>
 <body>
-<h3>보낸쪽지함</h3>
 <jsp:include page="../Main.jsp"></jsp:include>
    <div id="main" align="left">
+
+<h3>보낸쪽지함</h3>
+
 <div id="menudiv">
 
      <a href="./Recieved.mb">받은쪽지함</a>&nbsp;
