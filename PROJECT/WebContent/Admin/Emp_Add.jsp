@@ -73,12 +73,12 @@
 		<table>
 			<tr>
 				<td>사원번호</td>
-				<td><input type="text" name="empno"></td>
+				<td><input type="text" name="empno" size="10px"></td>
 				<td><input type="button" id="empnocheck" value="중복확인"></td>
 			</tr>
 			<tr>
 				<td>이름</td>
-				<td><input type="text" name="ename"></td>
+				<td><input type="text" name="ename" size="10px"></td>
 			</tr>
 			<tr>
 				<td>관리자권한</td>
@@ -99,7 +99,7 @@
 			</tr>
 			<tr>
 				<td>직급</td>
-				<td><select id="gradelist" name="grade">
+				<td><select id="gradelist" name="grade" >
 									<option value="1">대표이사</option>
 									<option value="2">부장</option>
 									<option value="3">팀장</option>
@@ -108,7 +108,7 @@
 			</tr>
 			<tr>
 				<td>사내전화번호</td>
-				<td><input type="text" name="emptel"></td>
+				<td><input type="text" name="emptel" size="10px"></td>
 			</tr>
 			<tr>
 				<td>성별</td>
