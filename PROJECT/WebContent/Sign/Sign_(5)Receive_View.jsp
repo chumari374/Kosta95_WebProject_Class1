@@ -109,7 +109,7 @@ function goBack() {
 				<input type="submit" id="status" name="status" value="상부보고">
 				<%} %>
 			</center>
-			<input type="button" onclick="goBack()" value="뒤로가기">
+			<input type="button" class="btn" onclick="goBack()" value="뒤로가기">
 		</div>
 	</form>
 	<jsp:include page="../Footer.jsp"></jsp:include>
