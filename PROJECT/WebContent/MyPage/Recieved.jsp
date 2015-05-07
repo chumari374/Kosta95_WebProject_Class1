@@ -34,9 +34,12 @@ if(nowpage%5==0){//그러나 5의 배수일 경우는 1단계 떨어뜨려줌  �
 	 #title {
 	margin: 30px;
 	margin-bottom: 10px;
+
 }
 
 #menudiv {margin-left: 80%; font-size: 12px;}
+
+table th { background-color: #E7E7E7;}
 
 	</style>
 	<script>
@@ -86,19 +89,19 @@ if(nowpage%5==0){//그러나 5의 배수일 경우는 1단계 떨어뜨려줌  �
 				<div>
 					<table class="table" style="width: 70%;">
 						<tr align="center" valign="middle" bordercolor="#333333">
-							<td style="font-family: Tahoma; font-size: 10pt;" width="15%"
+							<th style="font-family: Tahoma; font-size: 10pt;" width="15%"
 								height="26">
 								<div align="center"><b>쪽지번호</b></div>
-							</td>
-							<td style="font-family: Tahoma; font-size: 10pt;" width="15%">
+							</th>
+							<th style="font-family: Tahoma; font-size: 10pt;" width="15%">
 								<div align="center"><b>보낸사람</b></div>
-							</td>
-							<td style="font-family: Tahoma; font-size: 10pt;" width="15%">
+							</th>
+							<th style="font-family: Tahoma; font-size: 10pt;" width="15%">
 								<div align="center"><b>받는사람</b></div>
-							</td>
-							<td style="font-family: Tahoma; font-size: 10pt;" colspan="2">
+							</th>
+							<th style="font-family: Tahoma; font-size: 10pt;" colspan="2">
 								<div align="center"><b>제목</b></div>
-							</td>
+							</th>
 						</tr>
 
 						<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
