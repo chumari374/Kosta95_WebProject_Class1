@@ -118,18 +118,6 @@ button.css3button {
 	}
 	
 	
-	function openwindow(){
-
-		var popupWidth = 600;
-		var popupHeight = 600;
-		var popup_options = "top="+((screen.availHeight - popupWidth)/2)+", left="+((screen.availWidth - popupHeight)/2)+", width=600, height=600, location=no";
-		var url = "";
-		var target = "_blank";
-
-		window.open(url, target, popup_options);
-	}
-	
-	
 	</script>
 </head>
 
@@ -168,10 +156,10 @@ button.css3button {
 		    <%= ml.getSendempno() %> 
 		</td>
 		<td>
-			 <%-- <a href="MessageDetailAction.mb?msgnum=<%=ml.getMsgnum()%>" target="blank"> --%>
-			 <a href="MessageDetailAction.mb?msgnum=<%=ml.getMsgnum()%>" onclick='windowopen()'>
-				<%=ml.getTitle()%>
-			</a> 
+			 <%-- <a href="MessageDetailAction.mb?msgnum=<%=ml.getMsgnum()%>" target="blank"> --%>	 
+			 <a href="#" onclick="window.open('MessageDetailAction.mb?msgnum=<%=ml.getMsgnum()%>','window팝업','left=300, top=50, width=600, height=400, menubar=no, status=no, toolbar=no');">
+			 <%=ml.getTitle()%></a>
+			
 		</td>
 			<td width="10%">
 		   	<a href="RecievedDeleteAction.mb?msgnum=<%=ml.getMsgnum()%>">
