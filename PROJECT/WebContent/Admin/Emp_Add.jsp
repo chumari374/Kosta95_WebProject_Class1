@@ -94,6 +94,7 @@
 		}
 	}
 	function checkForm(){
+		alert('도착');
 		var year = $('#year').val();
 		var month = $('#month').val();
 		var day = $('#day').val();
@@ -115,12 +116,11 @@
 			if(day>30 || day < 1)
 				alert("1부터 30까지 넣어주세요");
 			return false;
-		}else{
+		}else if(month==1||month==3||month==5||month==7||month==8||month==10||month==12){
 			if(day>31 || day < 1)
 				alert("1부터 31까지 넣어주세요");
 			return false;
 		}
-		document.MemberAddForm.submit();
 	}
 </script>
 <title>Insert title here</title>
@@ -198,7 +198,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="4" align="center"><input type="button" class="css3button" value="등록" onclick="checkForm()">&nbsp;
+					<td colspan="4" align="center"><input type="submit" class="css3button" value="등록" onclick="checkForm()">&nbsp;
 					<input type="reset" class="css3button" value="취소"></td>
 				</tr>
 			</table>
