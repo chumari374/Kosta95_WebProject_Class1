@@ -25,12 +25,14 @@ function info(empno){
 }
 
 function msgsend(empno){
-	
-	if(empno==""){
-		window.open('MessageWrite.mb','쪽지보내기', 'width=310 height=200')
-	}else{
-		window.open('MessageWrite.mb?empno='+empno,'쪽지보내기', 'width=310 height=200')
-	}	
+
+	var popupWidth = 310;
+	var popupHeight = 200;
+	var popup_options = "top="+((screen.availHeight - popupWidth)/2)+", left="+((screen.availWidth - popupHeight)/2)+", width=310, height=200, location=no";
+	var url = "MessageWrite.mb";
+	var target = "_blank";
+
+	window.open(url, target, popup_options);
 }
 
 function logout(path){
