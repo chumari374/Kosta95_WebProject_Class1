@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%
 	int ceo = (Integer)(session.getAttribute("grade"));
 	String ad = (String)session.getAttribute("admin");
@@ -14,7 +13,7 @@
 	
 	String gradeName = "";
 	String adminCheck = "";
-	
+	/* 직급, 관리자 */
 	if (grade.equals("1")){
 		gradeName = "대표이사";
 	} else if (grade.equals("2")) {
