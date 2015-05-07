@@ -16,37 +16,19 @@
  
  body {background-color: #EFEFEF;}
  
- button.css3button {
+button.css3button {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	color: #282828;
-	padding: 6px 14px;
-	background: -moz-linear-gradient(
-		top,
-		#f5f5f5 0%,
-		#f5f5f5);
-	background: -webkit-gradient(
-		linear, left top, left bottom,
-		from(#f5f5f5),
-		to(#f5f5f5));
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-	border: 1px solid #c4c4c4;
-	-moz-box-shadow:
-		0px 1px 2px rgba(000,000,000,0.5),
-		inset 0px 1px 1px rgba(255,255,255,0.5);
-/* 	-webkit-box-shadow:
-		0px 1px 2px rgba(000,000,000,0.5),
-		inset 0px 1px 1px rgba(255,255,255,0.5);
-	box-shadow:
-		0px 1px 2px rgba(000,000,000,0.5),
-		inset 0px 1px 1px rgba(255,255,255,0.5); */
-	text-shadow:
-		0px 0px 0px rgba(000,000,000,0),
-		0px 0px 0px rgba(255,255,255,0);
+	color: #383838;
+	padding: 4px 10px;
+	background: -moz-linear-gradient(top, #f7f7f7 0%, #ebebeb 50%, #dbdbdb 50%, #dbdbdb);
+	background: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7),
+		color-stop(0.50, #ebebeb), color-stop(0.50, #dbdbdb), to(#dbdbdb));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 5px;
+	border: 1px solid #c7c7c7;
 }
- 
  
  
 </style>
@@ -80,7 +62,7 @@ function msgsend(){
 			<div align="center">力&nbsp; 格&nbsp;&nbsp;</div>
 		</td>
 		
-		<td>
+		<td style="border-bottom:1px #A6A6A6 solid;">
 		${messagedata.title}
 		</td>
 	
@@ -89,7 +71,7 @@ function msgsend(){
 			<td>
 			<div align="center">累己老&nbsp;&nbsp;</div>
 		</td>
-		<td>
+		<td style="border-bottom:1px #A6A6A6 solid;">
 		 ${messagedata.write_date}
 		</td>
 		</tr>
@@ -106,8 +88,8 @@ function msgsend(){
 		
 		
 		
-	<tr bgcolor="cccccc">
-		<td colspan="2" style="height:1px;">
+	<tr bgcolor="#3196dc">
+		<td colspan="2" style="height:2px;">
 		</td>
 	</tr>
 	
@@ -125,8 +107,8 @@ function msgsend(){
 			</table>
 		</td>
 	</tr>
-	<tr bgcolor="cccccc">
-		<td colspan="2" style="height:1px;"></td>
+	<tr bgcolor="#3196dc">
+		<td colspan="2" style="height:2px;"></td>
 	</tr>
 	<tr><td colspan="2">&nbsp;</td></tr>
 
