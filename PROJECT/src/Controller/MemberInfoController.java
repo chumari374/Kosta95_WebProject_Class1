@@ -128,6 +128,13 @@ public class MemberInfoController extends HttpServlet {
 			forward.setRedirect(false);
 			forward.setPath("Admin/Emp_Add.jsp");
 			
+		} if(command.equals("/MemberAddUpdate.admin")){
+			action = new Emp_UpdateAdminAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+					e.printStackTrace();
+			}
 		}
 		if(forward != null){
 			if(forward.isRedirect()){ //view ´Ü ¹Ù·Î....
