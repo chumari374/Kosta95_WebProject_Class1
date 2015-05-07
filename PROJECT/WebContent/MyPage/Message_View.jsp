@@ -56,57 +56,44 @@ function msgsend(){
 	<tr align="center" valign="middle">
 		<td colspan="6"></td>
 	</tr>
-			<tr>
-		 <td colspan="2">
-			<div align="center">&nbsp;</div>
-		 </td>
-		</tr>
 	<tr>
-		<td>
+		<th>
 			<div align="center">제&nbsp; 목&nbsp;&nbsp;</div>
-		</td>
+		</th>
 		
-		<td style="border-bottom:0px #A6A6A6 solid;">
-		${messagedata.title}
+		<td style="border-bottom: 1px solid #A2A2A2">
+		<p>${messagedata.title}</p>
 		</td>
 	
 	</tr>
 		<tr>
-			<td>
+			<th>
 			<div align="center">작성일&nbsp;&nbsp;</div>
-		</td>
-		<td style="border-bottom:0px #A6A6A6 solid;">
-		 ${messagedata.write_date}
+		</th>
+		<td style="border-bottom: 1px solid #A2A2A2">
+		 <p>${messagedata.write_date}</p>
 		</td>
 		</tr>
 		
 		<tr>
-			<td>
+			<th>
 			<div align="center">보낸사람&nbsp;&nbsp;</div>
-		</td>
+		</th>
 		
 		<td>
-		${messagedata.empno }
+		<p>${messagedata.empno }</p>
 		</td>
 		</tr>
 		
-		<tr>
-		 <td colspan="2">
-			<div align="center">&nbsp;</div>
-		 </td>
-		</tr>
-		
-		
-		
-	<tr bgcolor="#3196dc">
+	<tr bgcolor="#0469AF">
 		<td colspan="2" style="height:2px;">
 		</td>
 	</tr>
 	
 	<tr>
-		<td>
+		<th>
 			<div align="center">내 용</div>
-		</td>
+		</th>
 		<td>
 			<table border=0 width=490 height=250 style="table-layout:fixed">
 				<tr>
