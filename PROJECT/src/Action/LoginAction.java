@@ -19,54 +19,54 @@ public class LoginAction implements Action{
 
 		int empno = Integer.parseInt(request.getParameter("empno"));
 		ActionForward forward = new ActionForward();
-		AccountsDAO dao = new AccountsDAO(); //°èÁ¤Á¤º¸¸¦ ÃßÃâÇÒ dao
+		AccountsDAO dao = new AccountsDAO(); //ê³„ì •ì •ë³´ë¥¼ ì¶”ì¶œí•  dao
 		
-		MemberInfoDAO dao2 = new MemberInfoDAO(); //¼¼¼ÇÁ¤º¸¸¦ ÃßÃâÀ» À§ÇÑ dao2
-		MemberInfoDTO dto = dao2.getMemberInfo(empno); //¼¼¼ÇÁ¤º¸¸¦ ´ãÀ» dto
+		MemberInfoDAO dao2 = new MemberInfoDAO(); //ì„¸ì…˜ì •ë³´ë¥¼ ì¶”ì¶œì„ ìœ„í•œ dao2
+		MemberInfoDTO dto = dao2.getMemberInfo(empno); //ì„¸ì…˜ì •ë³´ë¥¼ ë‹´ì„ dto
 		
 		System.out.println("empno/"+empno);
 		String pwd = request.getParameter("pwd");
-		boolean loginCheck = dao.loginCheck(empno, pwd); //ÀÏÄ¡È®ÀÎ ÇÔ¼ö
+		boolean loginCheck = dao.loginCheck(empno, pwd); //ì¼ì¹˜í™•ì¸ í•¨ìˆ˜
 		
-		if(loginCheck==false){ // false (ÀÏÄ¡ÇÏÁö ¾ÊÀ¸¸é)
+		if(loginCheck==false){ // false (ì¼ì¹˜í•˜ì§€ ì•Šìœ¼ë©´)
 			response.setContentType("text/html;charset=utf-8");
 	   		PrintWriter out=response.getWriter();
 	   		out.println("<script>");
-	   		out.println("alert('»ç¹ø°ú ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.');");
+	   		out.println("alert('ì‚¬ë²ˆê³¼ ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.');");
 	   		out.println("location.href='Login.jsp';");
 	   		out.println("</script>");
 	   		out.close();
 	   		return null;
 		}
-		// true (ÀÏÄ¡ÇÏ¸é)
-		EmpDTO emp = dao.getEmp(empno);//¼¼¼ÇÁ¤º¸¸¦ ´ãÀ» »ç¿øÁ¤º¸ ÃßÃâ
+		// true (ì¼ì¹˜í•˜ë©´)
+		EmpDTO emp = dao.getEmp(empno);//ì„¸ì…˜ì •ë³´ë¥¼ ë‹´ì„ ì‚¬ì›ì •ë³´ ì¶”ì¶œ
 		
-		HttpSession session = request.getSession();//¼¼¼ÇÀ» ¹Ş¾Æ¿È
-		//ÇÊ¿äÇÑ ¼¼¼ÇÁ¤º¸ ¼³Á¤
+		HttpSession session = request.getSession();//ì„¸ì…˜ì„ ë°›ì•„ì˜´
+		//í•„ìš”í•œ ì„¸ì…˜ì •ë³´ ì„¤ì •
 		session.setAttribute("empno", emp.getEmpno());
 		session.setAttribute("ename", emp.getEname());
 		session.setAttribute("teamcode", emp.getTeamcode());
 		String teamName = dto.getTeamname();
 		switch (teamName) {
-		case "¿ÜÁÖÆÀ":
+		case "ì™¸ì£¼íŒ€":
 			session.setAttribute("teamname", "dev");
 			break;
-		case "¼Ö·ç¼ÇÆÀ":
+		case "ì†”ë£¨ì…˜íŒ€":
 			session.setAttribute("teamname", "sol");
 			break;
-		case "°æ¸®ÆÀ":
+		case "ê²½ë¦¬íŒ€":
 			session.setAttribute("teamname", "acc");
 			break;
-		case "°æ¿µÆÀ":
+		case "ê²½ì˜íŒ€":
 			session.setAttribute("teamname", "manage");
 			break;
-		case "ÀÎ»çÆÀ":
+		case "ì¸ì‚¬íŒ€":
 			session.setAttribute("teamname", "person");
 			break;
-		case "±â¼ú°æ¿µÆÀ":
+		case "ê¸°ìˆ ê²½ì˜íŒ€":
 			session.setAttribute("teamname", "tec_mg");
 			break;
-		case "A/SÆÀ":
+		case "A/SíŒ€":
 			session.setAttribute("teamname", "AS");
 			break;
 		default:
@@ -83,7 +83,7 @@ public class LoginAction implements Action{
 		//System.out.println(host);
 		
 		forward.setRedirect(false);
-		forward.setPath("SubMain.jsp"); //SubMain.jsp·Î forward
+		forward.setPath("SubMain.jsp"); //SubMain.jspë¡œ forward
 		return forward;
 	}
 
