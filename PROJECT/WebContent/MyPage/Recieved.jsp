@@ -36,6 +36,8 @@ if(nowpage%5==0){//그러나 5의 배수일 경우는 1단계 떨어뜨려줌  �
 	margin-bottom: 10px;
 }
 
+#menudiv {margin-left: 80%; font-size: 12px;}
+
 	</style>
 	<script>
 	function msgsend(empno){
@@ -71,6 +73,14 @@ if(nowpage%5==0){//그러나 5의 배수일 경우는 1단계 떨어뜨려줌  �
 		<div id="title">
 			<h3>받은 쪽지함</h3>
 		</div>
+		
+		<div id="menudiv">
+
+     <a href="./Sent.mb">보낸쪽지함</a>&nbsp;
+     <a href="" onclick='msgsend("+entry.empno+")'>쪽지보내기</a>
+     
+</div> 
+		
 		<div class="container" style="margin-left: 100px;">
 			<div class="row">
 				<div>
@@ -128,7 +138,7 @@ if(nowpage%5==0){//그러나 5의 배수일 경우는 1단계 떨어뜨려줌  �
  	
  		<!-- 페이징처리 시작 -->
 	<tr align=center height=20>
-		<td colspan="4" style="font-family:Tahoma;font-size:10pt;">
+		<td colspan="5" style="font-family:Tahoma;font-size:10pt;">
 			<%if(level<=1){ %>
 			<button type="button" value="" class="css3button">이전 </button>
 			<%}else{ %>
