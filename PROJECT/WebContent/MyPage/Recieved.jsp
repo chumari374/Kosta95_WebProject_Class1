@@ -67,7 +67,7 @@ if(nowpage%5==0){//그러나 5의 배수일 경우는 1단계 떨어뜨려줌  �
 		
 		#message_list_table td {border-bottom:1px dashed #D5D5D5;}
 		#pagingtable {border: 0px; margin-left: 40%;}
-		#menudiv {margin-left: 50%;}
+		#menudiv {margin-left: 67%; font-size: 12px;}
 		a {color: #4C4C4C; text-decoration: none;}
 		a:hover{color: #A6A6A6;}
 		
@@ -109,9 +109,11 @@ button.css3button {
 <body>
 <h3>받은쪽지함</h3>
 <div id="menudiv">
-     <a href="./MessageWrite.mb" target="_blank"><button type="button" value="" class="css3button">쪽지보내기</button></a>
-</div> 
 
+     <a href="./Sent.mb">보낸쪽지함</a>&nbsp;
+     <a href="./MessageWrite.mb" target="_blank">쪽지보내기</a>
+     
+</div> 
 <table id="message_list_table" width="60%" height="50%">
 			<tr>
 				<th width="15%">쪽지번호</th>
