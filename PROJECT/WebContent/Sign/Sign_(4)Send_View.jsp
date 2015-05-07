@@ -72,11 +72,11 @@ function goBack() {
 					</tr>
 					<tr>
 						<td>기안자</td>
-						<td><%=starter %></td>
+						<td><a href="#" onclick="info(<%=signdata.getStarter()%>)"><%=starter %></a></td>
 					</tr>
 					<tr>
 						<td>송부자</td>
-						<td><%=sender %></td>
+						<td><a href="#" onclick="info(<%=signdata.getEmpno()%>)"><%=sender %></a></td>
 					</tr>
 					<tr>
 						<td>파일</td>
@@ -95,7 +95,7 @@ function goBack() {
 					</tr>
 					<tr>
 						<td>결재자</td>
-						<td><%=getsign %></td>
+						<td><a href="#" onclick="info(<%=signdata.getGetsign()%>)"><%=getsign %></a></td>
 					</tr>
 						<tr>
 						<td>상태</td>
