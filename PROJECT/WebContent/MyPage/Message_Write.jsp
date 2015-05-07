@@ -8,75 +8,32 @@
 <style>
 	
 	    h3 { text-align: center; }
-		#message_write_table { color: #4C4C4C;}
-		#message_write_table th
-		{
-		/* border:0px solid black; 
-		text-align:center; 
-		background-color: #D5D5D5; */
-		font-size: 13.5px;
-		color: #282828;
-	padding: 6px 14px;
-	background: -moz-linear-gradient(
-		top,
-		#f5f5f5 0%,
-		#f5f5f5);
-	background: -webkit-gradient(
-		linear, left top, left bottom,
-		from(#f5f5f5),
-		to(#f5f5f5));
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-	/* border: 1px solid #c4c4c4; */
-	-moz-box-shadow:
-		0px 1px 2px rgba(000,000,000,0.5),
-		inset 0px 1px 1px rgba(255,255,255,0.5);
-/* 	-webkit-box-shadow:
-		0px 1px 2px rgba(000,000,000,0.5),
-		inset 0px 1px 1px rgba(255,255,255,0.5); */
-/* 	box-shadow:
-		0px 1px 2px rgba(000,000,000,0.5),
-		inset 0px 1px 1px rgba(255,255,255,0.5); */
-	text-shadow:
-		0px 0px 0px rgba(000,000,000,0),
-		0px 0px 0px rgba(255,255,255,0);
+	    body{background-color: #f5f5f5;}
+		#message_reply_table { color: #4C4C4C; border-radius: 2px;}
+		th { 
+		border: 0px #4587c0 solid; 
+		border-radius: 2px;
+		background-color: #abd1e3;
+		color: #3c6d97;
 		font-size: 12px;
 		}
 		
-		#message_write_table td {border-bottom:1px dashed #D5D5D5;}
+		#message_reply_table td {border-bottom:1px dashed #4587c0;}
 		a {color: #4C4C4C; text-decoration: none;}
 		a:hover{color: #A6A6A6;}
 		
 button.css3button {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	color: #282828;
-	padding: 6px 14px;
-	background: -moz-linear-gradient(
-		top,
-		#f5f5f5 0%,
-		#f5f5f5);
-	background: -webkit-gradient(
-		linear, left top, left bottom,
-		from(#f5f5f5),
-		to(#f5f5f5));
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-	border: 1px solid #c4c4c4;
-	-moz-box-shadow:
-		0px 1px 2px rgba(000,000,000,0.5),
-		inset 0px 1px 1px rgba(255,255,255,0.5);
-/* 	-webkit-box-shadow:
-		0px 1px 2px rgba(000,000,000,0.5),
-		inset 0px 1px 1px rgba(255,255,255,0.5);
-	box-shadow:
-		0px 1px 2px rgba(000,000,000,0.5),
-		inset 0px 1px 1px rgba(255,255,255,0.5); */
-	text-shadow:
-		0px 0px 0px rgba(000,000,000,0),
-		0px 0px 0px rgba(255,255,255,0);
+	color: #383838;
+	padding: 4px 10px;
+	background: -moz-linear-gradient(top, #f7f7f7 0%, #ebebeb 50%, #dbdbdb 50%, #dbdbdb);
+	background: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7),
+		color-stop(0.50, #ebebeb), color-stop(0.50, #dbdbdb), to(#dbdbdb));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 5px;
+	border: 1px solid #c7c7c7;
 }
 
 #menudiv {margin-left: 30%;}

@@ -130,24 +130,24 @@
  <div id="main" align="left" style="overflow: scroll;">
 	<div class="container" >
 	<div id="wrapper" style="width: 90%;">
-		<div align="center" style="margin-bottom: 0px;">
-		<div style="margin-bottom: 60px;"><h3>신입사원 추가</h3></div>
+		<div style="margin: 30px; "><h3>신입사원 추가</h3></div>
+		<div align="left" style="margin-bottom: 0px; margin-left: 300px;">
 		<form action="MemberAddUpdate.admin" method="post" name="MemberAddForm">
 			<table class="table" style="width: 60%">
 				<tr>
-					<td>사원번호</td>
+					<th>사원번호</th>
 					<td colspan="3">
 						<input type="text" name="empno" size="10px" readonly="readonly">&nbsp;
 						<input type="button" id="empnocheck" value="중복확인" class="css3button">
 					</td>
 				</tr>
 				<tr>
-					<td>이름</td>
+					<th>이름</th>
 					<td><input type="text" name="ename" size="10px"></td>
 					<td colspan="2"></td>
 				</tr>
 				<tr>
-					<td>관리자권한</td>
+					<th>관리자권한</th>
 					<td><select name="admin" id="admin">
 							<option value="true">관리자</option>
 							<option value="false">일반사용자</option>
@@ -155,19 +155,19 @@
 					<td colspan="2">
 				</tr>
 				<tr>
-					<td>부서</td>
+					<th>부서</th>
 					<td><select name="dept" id="deptlist">
 					</select></td>
 					<td colspan="2">
 				</tr>
 				<tr>
-					<td>팀</td>
+					<th>팀</th>
 					<td><select name="team" id="teamlist">
 					</select></td>
 					<td colspan="2">
 				</tr>
 				<tr>
-					<td>직급</td>
+					<th>직급</th>
 					<td><select id="gradelist" name="grade" >
 										<option value="1">&nbsp;&nbsp;대표이사</option>
 										<option value="2">&nbsp;&nbsp;&nbsp;부장</option>
@@ -177,12 +177,12 @@
 					<td colspan="2"></td>
 				</tr>
 				<tr>
-					<td>사내전화번호</td>
+					<th>사내전화번호</th>
 					<td><input type="text" name="emptel" size="10px"></td>
 					<td colspan="2">
 				</tr>
 				<tr>
-					<td>성별</td>
+					<th>성별</th>
 					<td><select name="sex">
 							<option value="남자">남자</option>
 							<option value="여자">여자</option>
@@ -190,7 +190,7 @@
 					<td colspan="2">
 				</tr>
 				<tr>
-					<td>생년월일</td>
+					<th>생년월일</th>
 					<td colspan="3">
 						<input type="text" name="year" id="year" height="40px" size="10px" maxlength="4" onkeypress="onlyNum()">&nbsp;년 &nbsp;&nbsp;
 						<input type="text" name="month" id="month" size="5px" maxlength="2" onkeypress="onlyNum()">&nbsp;월 &nbsp;&nbsp;

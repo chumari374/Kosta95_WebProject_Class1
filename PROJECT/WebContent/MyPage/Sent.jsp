@@ -36,11 +36,62 @@ if(nowpage%5==0){//그러나 5의 배수일 경우는 1단계 떨어뜨려줌  �
 	margin-bottom: 10px;
 }
 
-#menudiv {margin-left: 80%; font-size: 12px;}
+#menudiv {margin-left: 77%; font-size: 12px;}
 
 
 table th { background-color: #E7E7E7;}
 
+/* //페이징 부분*/
+/* 숫자 페이지 부분 */
+.page {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 4px 10px;
+	background-color: #F6F6F6;
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-radius: 0px;
+	border: 1px solid #3196dc;
+}
+/* 현재 페이지 */
+.pageC {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 4px 10px;
+	background-color: #B2EBF4;
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-radius: 0px;
+	border: 1px solid #3196dc;
+}
+/* [이전] 페이지 */
+.pageP {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 4px 10px;
+	background-color: #F6F6F6;
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-bottom-left-radius: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border: 1px solid #3196dc;
+}
+/* [다음] 페이지 */
+.pageN {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 4px 10px;
+	background-color: #F6F6F6;
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-bottom-left-radius: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border: 1px solid #3196dc;
+}
 	</style>
 	<script>
 	function msgsend(){
@@ -147,18 +198,18 @@ table th { background-color: #E7E7E7;}
 	<tr align=center height=20>
 		<td colspan="5" style="font-family:Tahoma;font-size:10pt;">
 			<%if(level<=1){ %>
-			<button type="button" value="" class="css3button">이전 </button>
+			<button type="button" value="" class="pageP">이전 </button>
 			<%}else{ %>
-			<a href ="Sent.mb?page=<%=level*5-5 %>"><button type="button" value="" class="css3button">이전 </button></a>&nbsp;
+			<a href ="Sent.mb?page=<%=level*5-5 %>"><button type="button" value="" class="pageP">이전 </button></a>
 			<%} %>
 			
 			<%for(int i=level*5-4;i<= end ;i++){
 				if(i==nowpage){%>
-				<button type="button" value="" class="css3button"><%=i %> </button>&nbsp;
+				<button type="button" value="" class="pageC"><%=i %> </button>
 				<%}else{ 
 					if(i<=maxpage){
 				%>
-					<a href="Sent.mb?page=<%=i %>"><button type="button" value="" class="css3button"><%=i %></button></a>&nbsp;
+					<a href="Sent.mb?page=<%=i %>"><button type="button" value="" class="page"><%=i %></button></a>
 				<%
 					}
 				 }
@@ -166,9 +217,9 @@ table th { background-color: #E7E7E7;}
 			<%} %>
 			
 			<%if(level>=(maxpage/5)+1){ %>
-			<button type="button" value="" class="css3button">다음</button>
+			<button type="button" value="" class="pageN">다음</button>
 			<%}else{ %>
-			<a href="Sent.mb?page=<%=level*5+1 %>"><button type="button" value="" class="css3button">다음</button></a>
+			<a href="Sent.mb?page=<%=level*5+1 %>"><button type="button" value="" class="pageN">다음</button></a>
 			<%} %>
 		</td>
 	</tr>

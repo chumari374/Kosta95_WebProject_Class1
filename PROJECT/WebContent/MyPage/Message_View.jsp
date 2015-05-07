@@ -14,37 +14,21 @@
      text-align: center;
  }
  
- button.css3button {
+ body {background-color: #EFEFEF !important;}
+ 
+button.css3button {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	color: #282828;
-	padding: 6px 14px;
-	background: -moz-linear-gradient(
-		top,
-		#f5f5f5 0%,
-		#f5f5f5);
-	background: -webkit-gradient(
-		linear, left top, left bottom,
-		from(#f5f5f5),
-		to(#f5f5f5));
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-	border: 1px solid #c4c4c4;
-	-moz-box-shadow:
-		0px 1px 2px rgba(000,000,000,0.5),
-		inset 0px 1px 1px rgba(255,255,255,0.5);
-/* 	-webkit-box-shadow:
-		0px 1px 2px rgba(000,000,000,0.5),
-		inset 0px 1px 1px rgba(255,255,255,0.5);
-	box-shadow:
-		0px 1px 2px rgba(000,000,000,0.5),
-		inset 0px 1px 1px rgba(255,255,255,0.5); */
-	text-shadow:
-		0px 0px 0px rgba(000,000,000,0),
-		0px 0px 0px rgba(255,255,255,0);
+	color: #383838;
+	padding: 4px 10px;
+	background: -moz-linear-gradient(top, #f7f7f7 0%, #ebebeb 50%, #dbdbdb 50%, #dbdbdb);
+	background: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7),
+		color-stop(0.50, #ebebeb), color-stop(0.50, #dbdbdb), to(#dbdbdb));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 5px;
+	border: 1px solid #c7c7c7;
 }
- 
  
  
 </style>
@@ -60,6 +44,18 @@ function msgsend(){
 	window.open(url, target, popup_options);
 }
 </script>
+
+</style>
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/myscript.js"></script>
+
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
@@ -72,47 +68,47 @@ function msgsend(){
 	<tr align="center" valign="middle">
 		<td colspan="6"></td>
 	</tr>
-	
 	<tr>
-		<td>
+		<th>
 			<div align="center">제&nbsp; 목&nbsp;&nbsp;</div>
-		</td>
+		</th>
 		
-		<td>
-		${messagedata.title}
+		<td style="border-bottom: 1px solid #A2A2A2">
+		<p></p>
+		<p>${messagedata.title}</p>
 		</td>
 	
 	</tr>
 		<tr>
-			<td>
+			<th>
 			<div align="center">작성일&nbsp;&nbsp;</div>
-		</td>
-		<td>
-		 ${messagedata.write_date}
+		</th>
+		<td style="border-bottom: 1px solid #A2A2A2">
+		<p></p>
+		 <p>${messagedata.write_date}</p>
 		</td>
 		</tr>
 		
 		<tr>
-			<td>
+			<th>
 			<div align="center">보낸사람&nbsp;&nbsp;</div>
-		</td>
+		</th>
 		
 		<td>
-		${messagedata.empno }
+		<p></p>
+		<p>${messagedata.empno }</p>
 		</td>
 		</tr>
 		
-		
-		
-	<tr bgcolor="cccccc">
-		<td colspan="2" style="height:1px;">
+	<tr bgcolor="#0469AF">
+		<td colspan="2" style="height:2px;">
 		</td>
 	</tr>
 	
 	<tr>
-		<td>
+		<th>
 			<div align="center">내 용</div>
-		</td>
+		</th>
 		<td>
 			<table border=0 width=490 height=250 style="table-layout:fixed">
 				<tr>
@@ -123,9 +119,9 @@ function msgsend(){
 			</table>
 		</td>
 	</tr>
-	<tr bgcolor="cccccc">
-		<td colspan="2" style="height:1px;"></td>
-	</tr>
+<!-- 	<tr bgcolor="#0469AF">
+		<td colspan="2" style="height:2px;"></td>
+	</tr> -->
 	<tr><td colspan="2">&nbsp;</td></tr>
 
 	<tr align="center" valign="middle">
@@ -138,11 +134,11 @@ function msgsend(){
 			<button type="button" value="" class="css3button">답장</button>
 			</a>&nbsp;&nbsp; --%>
 			
-			<button type="button" value="" class="css3button" onclick="msgsend()">답장</button>
+			<button type="button" value="" class="btn btn-primary" onclick="msgsend()">답장</button>
 			
 			<%-- ./MessageReplyAction.mb?empno=${messagedata.empno} --%>
 			
-			<button type="button" value="" onclick="window.close();" class="css3button">닫기</button>
+			<button type="button" value="" onclick="window.close();" class="btn btn-default">닫기</button>
 
 <%-- 			<a href="./MessageList.mb?page=<%=Integer.parseInt(request.getParameter("page"))%>">
 			[목록]</a>&nbsp;&nbsp; --%>
