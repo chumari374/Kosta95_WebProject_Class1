@@ -11,9 +11,10 @@
   		<style>
   			.carousel-inner > .item > img,
   			.carousel-inner > .item > a > img {
-      			width: 80%;
+      			width: 100%;
       			height: 60%;
-      			margin: auto;
+      			margin: 0;
+      			text-align: right;
   			}
   		</style>
 	</head>
