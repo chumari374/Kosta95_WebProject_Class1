@@ -9,24 +9,24 @@ html{height: 100%}
 body {height:100%}
 
 body {
-      background-color: #0469af !important; 
+      background-color: white !important; 
           
 }
 
 header {
 	font-size: 11px;
-	background-color: black;
-	color: white;
+	background-color: white;
+	color: #3196dc;
 }
 
-
+/* 
 nav {
 
-/* border-color: #8AC007; */
+border-color: #8AC007;
 font-size: 11px;
 color: white;
 
-} 
+}  */
 
 aside#left {
 width: 17%;
@@ -36,13 +36,13 @@ margin-top: 0px;
 margin-left: 10px;
 margin-bottom: 0px;
 float: left;
-background-color: #0469af;
+background-color: white;
 font-family: ¸¼Àº °íµñ;
 border-left: 1px;
 border-top: 1px;
 border-bottom: 1px;
 border-right: 1px;
-border-color: #0469af;
+border-color: white;
 border-style: solid;
 font-size: 13px;
 }
@@ -51,50 +51,52 @@ font-size: 13px;
 text-align: center;
 font-family: °íµñ, Helvetica, sans-serif;
 font-size: 20px;
-color: white;
+color: #0469af;
 }
 
 #left h4:hover {
 text-align: center;
 font-family: °íµñ, Helvetica, sans-serif;
 font-size: 20px;
-color: #C1F3FF;
+color: #3196dc;
 }
 
 #leftdiv2 ul {
 text-align: left;
 font-family: Arial, Helvetica, sans-serif;
 font-size: 15px;
-color: white;
+color: #3196dc;
 list-style: none;
 text-indent: 15px;
 
 }
 
 #leftdiv2 ul li {
-background: #0469af;
+background-color: white;
+color: #3196dc;
 line-height: 28px;
 }
 
 #leftdiv2 ul li a {
 text-decoration: none;
-color: white;
+color: #3196dc;
 display: block;
 }
 
 #leftdiv2 ul li a:hover {
-background: white;
+background-color: #dcf1fd;
 font-style: bold;
- color: #2BA5BA; 
+ color: #0469af;
 }
 
 #leftdiv2 li:hover{
-	background: #0469af;
-color: #C1F3FF;
+	background-color: white;
+color:#0469af;
 }
 
 #leftdiv2 ul li#active {
-background: #0469af;
+background-color: white;
+color: #3196dc;
 }
 
 
@@ -119,8 +121,8 @@ background: #0469af;
 	height: 200px;
 	margin: 10px;
 	border-width: 1px;
-	border-color: grey;
-	border-style: hidden;
+	border-color: #0469af;
+	border-style: solid;
 	text-align: center;
 	font-family: °íµñ, Helvetica, sans-serif;
 	font-size: 12px;
@@ -139,7 +141,7 @@ background: #0469af;
 	text-align: left;
 	font-family: °íµñ, Helvetica, sans-serif;
 	font-style: bold;
-	background-color: #0469af; !important;
+	background-color: white; !important;
 
 }
 
@@ -159,6 +161,7 @@ border-width: 1px;
 margin-top: 0px;
 margin-bottom: 0px;
 padding: 10px;
+border-radius: 5px;
 } 
 
 /* #div1{
@@ -220,13 +223,14 @@ float: left;
 } */
 
 footer {
-margin: 10px;
-padding: 30px;
+
 font-size: 9pt;
 text-align: center;
-color: white;
+text-valign: middle;
+color: #0469af;
 height: 50px;
 clear: both;
+background-color: white;
 }
 }
 

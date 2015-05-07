@@ -123,6 +123,11 @@ public class MemberInfoController extends HttpServlet {
 			}catch(Exception e) {
 					e.printStackTrace();
 			}
+		} if(command.equals("/MemberAdd.admin")){
+			forward=new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("Admin/Emp_Add.jsp");
+			
 		}
 		if(forward != null){
 			if(forward.isRedirect()){ //view ´Ü ¹Ù·Î....
