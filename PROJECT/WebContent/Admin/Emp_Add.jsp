@@ -4,6 +4,54 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/myscript.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$.ajax({
+	        url : '../Emp_Search/Dept.jsp',
+	        dataType : "json",
+	        success : function(data){
+	      	  var options="";
+	            $.each(data, function(index,dlist){
+	            	 options += "<option value="+dlist.deptcode+">"+dlist.deptname+"</option>";
+	            });
+	            $('#deptlist').append(options);
+	            
+	        },
+	       error: function (xhr,Options,thrownError) {
+	       }
+	    });
+		
+
+		 $('#deptlist').on("click",function(){
+	 	  	// 팀 목록 출력
+	 	  	$('#teamlist').empty();
+	 	  	 $.ajax({
+	              url : '../Emp_Search/Team.jsp',
+	              data:{deptcode:$('#deptlist').val()},
+	              dataType : "json",
+	              success : function(data){
+	            	  var options="";
+	                  $.each(data, function(index,tlist){
+	                         options += "<option value="+tlist.teamcode+">"+tlist.teamname+"</option>";
+	                  });
+	                  $('#teamlist').append(options);
+	              },
+	             error: function (xhr,Options,thrownError) {
+	             }
+	 	  	});
+	 	 });
+		 
+	});
+</script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -20,30 +68,28 @@
 		</tr>
 		<tr>
 			<td>관리자권한</td>
-			<td><select name="admin">
-					<option>관리자</option>
-					<option>일반사용자</option>
+			<td><select name="admin" id="admin">
+					<option value="true">관리자</option>
+					<option value="false">일반사용자</option>
 			</select></td>
 		</tr>
 		<tr>
 			<td>부서</td>
-			<td><select name="dept">
-					<option>부서1</option>
-					<option>부서2</option>
+			<td><select name="dept" id="deptlist">
 			</select></td>
 		</tr>
 		<tr>
 			<td>팀</td>
-			<td><select name="team">
-					<option>팀1</option>
-					<option>팀2</option>
+			<td><select name="team" id="teamlist">
 			</select></td>
 		</tr>
 		<tr>
 			<td>직급</td>
-			<td><select name="admin">
-					<option>관리자</option>
-					<option>일반사용자</option>
+			<td><select id="gradelist" name="grade">
+								<option value="1">대표이사</option>
+								<option value="2">부장</option>
+								<option value="3">팀장</option>
+								<option value="4" selected>사원</option>
 			</select><input type="button" id="gradecheck" value="직급확인"></td>
 		</tr>
 		<tr>
