@@ -81,7 +81,7 @@
 </head>
 <body onload="go_time()">
 	<jsp:include page="Main.jsp"></jsp:include>
-	<div id="main" align="left" style="padding-left: 80px;">
+	<div id="submain" align="left" style="padding-left: 80px;">
 		<div class="container">
 			<table>
 				<tr>

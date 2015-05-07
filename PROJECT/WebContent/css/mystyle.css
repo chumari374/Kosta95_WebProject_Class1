@@ -150,7 +150,28 @@ background-color: #F6F6F6;
 font-family: Arial, Helvetica, sans-serif;
 font-size: 12px;
 color: black;
+overflow-x: hidden;
 overflow-y: scroll;
+float: left;
+width: 81%;
+height: 100%;
+min-height: 90%;
+border-style: solid;
+border-color: #0469af;
+border-width: 1px;
+margin-top: 0px;
+margin-bottom: 0px;
+padding: 10px;
+border-radius: 5px;
+} 
+
+#submain {
+background-color: #F6F6F6;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+color: black;/* 
+overflow-x: hidden;
+overflow-y: scroll; */
 float: left;
 width: 81%;
 height: 100%;
