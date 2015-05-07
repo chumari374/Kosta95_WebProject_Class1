@@ -20,43 +20,44 @@
 
 	SignDAO signdao = new SignDAO();
 
-	int ing = (nowpage/5)+1; // 계층을 계산함 1~5 1단계 6~10 2단계 ...
+	int ing = (nowpage / 5) + 1; // 계층을 계산함 1~5 1단계 6~10 2단계 ...
 	int level = ing;// 위와 같은 의미로 쓰임
- 	int end = level*5;//단계에 5를 곱하면 현재 페이지의 끝페이지 알수 있음
-	
-	if(nowpage%5==0){//그러나 5의 배수일 경우는 1단계 떨어뜨려줌  그렇지않으면 다음단계로 계산됌
-		level = ing-1;
-		end = level*5;
+	int end = level * 5;//단계에 5를 곱하면 현재 페이지의 끝페이지 알수 있음
+
+	if (nowpage % 5 == 0) {//그러나 5의 배수일 경우는 1단계 떨어뜨려줌  그렇지않으면 다음단계로 계산됌
+		level = ing - 1;
+		end = level * 5;
 	}
- 	
- 	String status =  request.getParameter("status");
- 	if (request.getParameter("status") == null) {
- 		status = "전체";
- 	}
- 	
- 	
- 	System.out.println("status : " + request.getParameter("status"));
+
+	String status = request.getParameter("status");
+	if (request.getParameter("status") == null) {
+		status = "전체";
+	}
+
+	System.out.println("status : " + request.getParameter("status"));
 %>
 
 <html>
 <head>
 <script type="text/javascript">
-	function goUrl(url)
-
-	{
-
+	function goUrl(url){
 		window.location.href = url;
-
+	}
+	function info(empno){
+		window.open('Member.info?empno='+empno,'상세정보', 'width=600 height=424')
 	}
 </script>
-   <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
 
 <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../js/myscript.js"></script>
 <title>받은 결재함</title>
 </head>
@@ -116,13 +117,14 @@
 					<%=signdto.getSignnum()%>
 				</td>
 				<td style="font-family: Tahoma; font-size: 10pt;"><a
-					href="DetailGetSignList.hong?num=<%=signdto.getSignnum()%>"><div
-							align="center"><%=signdto.getTitle()%></div></a></td>
+					href="DetailGetSignList.hong?num=<%=signdto.getSignnum()%>">
+						<div align="center"><%=signdto.getTitle()%></div>
+				</a></td>
 				<td style="font-family: Tahoma; font-size: 10pt;">
-					<div align="center"><%=signdao.getEmpname(signdto.getStarter())%></div>
+					<a href="#"><div align="center" onclick="info(<%=signdto.getStarter()%>)"><%=signdao.getEmpname(signdto.getStarter())%></div></a>
 				</td>
 				<td style="font-family: Tahoma; font-size: 10pt;">
-					<div align="center"><%=signdao.getEmpname(signdto.getEmpno())%></div>
+					<a href="#"><div align="center" onclick="info(<%=signdto.getEmpno()%>)"><%=signdao.getEmpname(signdto.getEmpno())%></div></a>
 				</td>
 				<td style="font-family: Tahoma; font-size: 10pt;">
 					<div align="center"><%=signdto.getWrite_date()%></div>
@@ -135,33 +137,40 @@
 				}
 			%>
 			<tr align=center height=20>
-		<td colspan=7 style=font-family:Tahoma;font-size:10pt;>
-			<%if(level<=1){ %>
-			<input type="button" value="이전" >&nbsp;
-			<%}else{ %>
-			<a href ="getSignList.hong?status=<%=status%>&page=<%=level*5-5 %>"><input type="button" value="이전 "></a>&nbsp;
-			<%} %>
-			
-			<%for(int i=level*5-4;i<= end ;i++){
-				if(i==nowpage){%>
-				<input type="button" value="<%=i %>" style="background-color: #B2EBF4">&nbsp;
-				<%}else{ 
-					if(i<=maxpage){
-				%>
-					<a href="getSignList.hong?status=<%=status%>&page=<%=i %>"><input type="button" value="<%=i %>"></a>&nbsp;
-				<%
-					}
-				 }
-				%>
-			<%} %>
-			
-			<%if(level>=(maxpage/5)+1){ %>
-			<input type="button" value="다음">
-			<%}else{ %>
-			<a href="getSignList.hong?status=<%=status%>&page=<%=level*5+1 %>"><input type="button" value="다음"></a>
-			<%} %>
-		</td>
-	</tr>
+				<td colspan=7 style="font-family: Tahoma; font-size: 10pt;">
+					<%
+						if (level <= 1) {
+					%> <input type="button" value="이전">&nbsp; <%
+ 	} else {
+ %>
+					<a href="getSignList.hong?status=<%=status%>&page=<%=level * 5 - 5%>"><input
+						type="button" value="이전 "></a>&nbsp; <%
+ 	}
+ %> <%
+ 	for (int i = level * 5 - 4; i <= end; i++) {
+ 			if (i == nowpage) {
+ %> <input type="button" value="<%=i%>"
+					style="background-color: #B2EBF4">&nbsp; <%
+ 	} else {
+ 				if (i <= maxpage) {
+ %> <a href="getSignList.hong?status=<%=status%>&page=<%=i%>"><input
+						type="button" value="<%=i%>"></a>&nbsp; <%
+ 	}
+ 			}
+ %> <%
+ 	}
+ %> <%
+ 	if (level >= (maxpage / 5) + 1) {
+ %> <input type="button" value="다음">
+					<%
+						} else {
+					%> <a
+					href="getSignList.hong?status=<%=status%>&page=<%=level * 5 + 1%>"><input
+						type="button" value="다음"></a> <%
+ 	}
+ %>
+				</td>
+			</tr>
 			<%
 				} else {
 			%>

@@ -52,7 +52,9 @@
 
 	function goUrl(url) {
 		window.location.href = url;
-
+	}
+	function info(empno){
+		window.open('Member.info?empno='+empno,'상세정보', 'width=600 height=424')
 	}
 </script>
 
@@ -116,10 +118,10 @@
 					href="DetailSendSignList.hong?num=<%=signdto.getSignnum()%>"><div
 							align="center"><%=signdto.getTitle()%></div></a></td>
 				<td style="font-family: Tahoma; font-size: 10pt;">
-					<div align="center"><%=signdao.getEmpname(signdto.getStarter())%></div>
+					<a href="#"><div align="center" onclick="info(<%=signdto.getStarter()%>)"><%=signdao.getEmpname(signdto.getStarter())%></div></a>
 				</td>
 				<td style="font-family: Tahoma; font-size: 10pt;">
-					<div align="center"><%=signdao.getEmpname(signdto.getGetsign())%></div>
+					<a href="#"><div align="center" onclick="info(<%=signdto.getGetsign()%>)"><%=signdao.getEmpname(signdto.getGetsign())%></div></a>
 				</td>
 				<td style="font-family: Tahoma; font-size: 10pt;">
 					<div align="center"><%=signdto.getWrite_date()%></div>
