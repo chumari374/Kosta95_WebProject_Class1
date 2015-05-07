@@ -187,7 +187,7 @@
 				</select></td>
 			</tr>
 			<tr>
-				<td colspan="7" align="center">보낸 결재가 없습니다</td>
+				<td colspan="7" align="center">보낸 결재가 없습니다</td>				
 			</tr>
 			<%
 				}

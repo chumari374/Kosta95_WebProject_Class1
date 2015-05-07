@@ -47,7 +47,7 @@
 </head>
 <body>
 <jsp:include page="../../Main.jsp"></jsp:include>
-   <div id="main" align="left">
+   <div id="main" align="left" style="overflow: scroll;">
 <div id="title"><h3>사내게시판</h3></div>
 <div class="container" style="margin-left: 100px;" >
 	<div class="row">

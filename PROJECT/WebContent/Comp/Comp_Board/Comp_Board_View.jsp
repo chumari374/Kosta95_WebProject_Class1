@@ -13,7 +13,7 @@
 
 <body>
 <jsp:include page="../../Main.jsp"></jsp:include>
-   <div id="main" align="center">
+   <div id="main" align="center" style="overflow: scroll;">
 <!-- 게시판 수정 -->
 <input type="hidden" value="<%=empno%>"/>
 <table cellpadding="0" cellspacing="0" class="table" style="width: 70%; margin-top: 50px;">
@@ -76,6 +76,7 @@
 			<table border=0 width=490 height=250 style="table-layout:fixed">
 				<tr>
 					<td valign=top style="font-family:돋음; font-size:12">
+<!-- 					<textarea ></textarea>  -->
 					<%=board.getContent() %>
 					</td>
 				</tr>
