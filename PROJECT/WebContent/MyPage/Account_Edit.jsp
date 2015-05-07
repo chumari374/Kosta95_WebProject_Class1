@@ -14,15 +14,18 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script>
    $(function() {
-	  $("td").css("background-color","white");
-      $("td:first-child").css("background-color", "#E8E8E8");
-      $("table,tr,td").css("border","1px solid #F6F6F6");
+// 	  $("td").css("background-color","white");
+//       $("td:first-child").css("background-color", "#E8E8E8");
+//       $("table,tr,td").css("border","1px solid #F6F6F6");
       $("table").css("margin-bottom","10px");
       $("table").css("width","500px");
       $("td:first-child").css("width","100px");
    });
 </script>
 <style type="text/css">
+body,table,tr,td{
+	font-size: 13px; 
+}
 input.css3button {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
@@ -51,55 +54,55 @@ input.css3button {
 <jsp:include page="../Main.jsp"></jsp:include>
    <div id="main" align="left">
    <div style="margin-left: 30px; margin-bottom: 10px;"><h3>개인정보 수정</h3></div>
-   <div id="wrapper" style="width: 70%; margin-left: 30px;">
+   <div id="wrapper" style="width: 70%; margin-left: 250px;">
 	<form action="Account_Update.mp" method="post" enctype="multipart/form-data">
-		<table class="table table-bordered">
+		<table class="table table-striped">
 			<tr>
-				<td>사원번호  </td>
+				<td><b>사원번호 </b></td>
 				<td>${requestScope.memberInfo.empno}</td>
 			</tr>
 			<tr>
-				<td>이름 </td>
+				<td><b>이름 </b></td>
 				<td>${requestScope.memberInfo.ename}</td>
 			</tr>
 			<tr>
-				<td>생년월일  </td>
+				<td><b>생년월일</b>  </td>
 				<td>${requestScope.memberInfo.birth}</td>
 			</tr>
 			<tr>
-				<td>성별  </td>
+				<td><b>성별</b>  </td>
 				<td>${requestScope.memberInfo.sex}</td>
 			</tr>
 			<tr>
-				<td>소속부서 </td>
+				<td><b>소속부서 </b></td>
 				<td>${requestScope.memberInfo.deptname}</td>
 			</tr>
 			<tr>
-				<td>소속팀 </td>
+				<td><b>소속팀</b> </td>
 				<td>${requestScope.memberInfo.teamname}</td>
 			</tr>
 			<tr>
-				<td>패스워드  </td>
+				<td><b>패스워드</b>  </td>
 				<td><input type="password" name="pwd" id="pwd" value="${requestScope.account.pwd}"></td>
 			</tr>
 			<tr>
-				<td>이메일 주소 </td>
+				<td><b>이메일 주소 </b></td>
 				<td><input type="text" name="email" id="email" value="${requestScope.account.email}"></td>
 			</tr>
 			<tr>
-				<td>주소  </td>
+				<td><b>주소 </b> </td>
 				<td><input type="text" size="30" name="addr" id="addr" value="${requestScope.account.addr}"></td>
 			</tr>
 			<tr>
-				<td>핸드폰 번호  </td>
+				<td><b>핸드폰 번호</b>  </td>
 				<td><input type="text" name="celphone" id="celphone" value="${requestScope.account.celphone}"></td>
 			</tr>
 			<tr>
-				<td>프로필 사진  </td>
+				<td><b>프로필 사진 </b> </td>
 				<td><input type="file" name="p_picture" id="p_picture" ></td>
 			</tr>
 			<tr>
-				<td>프로필 메세지 </td>
+				<td><b>프로필 메세지 </b></td>
 				<td><textarea rows="5" cols="32" name="p_content" id="p_content">${requestScope.account.p_content}</textarea></td>
 			</tr>
 		</table>
