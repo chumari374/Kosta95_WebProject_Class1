@@ -13,7 +13,7 @@
 	SignDAO sign = new SignDAO();
 	ArrayList infoList = (ArrayList) sign.getInfoList(grade, deptcode,
 			teamcode);
-                                                                                                                                                                           
+
 	String deptname = (String) infoList.get(0);
 	String teamname = (String) infoList.get(1);
 	String getSign = (String) infoList.get(2);

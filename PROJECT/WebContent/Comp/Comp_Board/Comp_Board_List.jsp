@@ -200,6 +200,9 @@ if(listcount > 0){
 		<td align=right>
 			<font size=2>등록된 글이 없습니다.</font>
 		</td>
+		<td align="right">
+	   		<a href="CompBoardWrite.cp"><input type="button" value="글쓰기"></a>
+		</td>
 	</tr>
 	<%
 	} 

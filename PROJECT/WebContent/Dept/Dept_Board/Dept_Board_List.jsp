@@ -219,6 +219,8 @@
 						<tr align="center" valign="middle">
 							<td colspan="4">부서 게시판</td>
 							<td align=right><font size=2>등록된 글이 없습니다.</font></td>
+							<td align="right"><a href="DeptBoardWrite.dp"><input
+									type="button" value="글쓰기"></a></td>
 						</tr>
 						<%
 							}
