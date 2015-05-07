@@ -27,9 +27,9 @@ function info(empno){
 function msgsend(empno){
 	
 	if(empno==""){
-		window.open('MessageWrite.mb','쪽지보내기', 'width=600 height=424')
+		window.open('MessageWrite.mb','쪽지보내기', 'width=310 height=200')
 	}else{
-		window.open('MessageWrite.mb?empno='+empno,'쪽지보내기', 'width=600 height=424')
+		window.open('MessageWrite.mb?empno='+empno,'쪽지보내기', 'width=310 height=200')
 	}	
 }
 
