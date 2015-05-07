@@ -88,7 +88,7 @@
 					<td>
 						<!-- 실시간 시계 -->
 						<div id="clock"
-							style="font-size: 18px; color: black; text-align: center;"></div>
+							style="font-size: 18px; color: #0469af ; text-align: center;"></div>
 						<!-- 실시간 시계 끝 -->
 					</td>
 				</tr>

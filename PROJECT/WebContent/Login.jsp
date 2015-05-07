@@ -75,8 +75,8 @@ body {
 </head>
 <body>
 	<div id="mainpagetitle">
-     	<h1>
-			<b>KOSTA 95기 1조 회사 인트라넷 페이지</b>
+     	<h1>	
+			<b>KOSTA INTRANET</b>
 		</h1> 
 	</div>
 	<div class="container">

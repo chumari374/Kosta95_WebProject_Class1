@@ -85,7 +85,7 @@ input.css3button {
 	<aside id="left">
 
 		<h4 onclick="javascript:location.href='SubMain.jsp'">
-			<b>KOSTA 인트라넷 </b>
+			<b>KOSTA INTRANET </b>
 		</h4>
 		<div id="leftdiv1">
 			<br>
