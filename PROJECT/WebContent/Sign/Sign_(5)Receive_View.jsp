@@ -54,6 +54,29 @@ function goBack() {
 .content {
 	height: 200px;
 }
+
+.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #383838;
+	padding: 4px 10px;
+	background: -moz-linear-gradient(
+		top,
+		#f7f7f7 0%,
+		#ebebeb 50%,
+		#dbdbdb 50%,
+		#dbdbdb);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#f7f7f7),
+		color-stop(0.50, #ebebeb),
+		color-stop(0.50, #dbdbdb),
+		to(#dbdbdb));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 5px;
+	border: 1px solid #c7c7c7;
+}
 </style>
 </head>
 <body>
@@ -66,19 +89,19 @@ function goBack() {
 						<td colspan="2"><b>받은 결재함</b></td>
 					</tr>
 					<tr>
-						<td>제목</td>
+						<td><b>제목</b></td>
 						<td><%=title%></td>
 					</tr>
 					<tr>
-						<td>기안자</td>
+						<td><b>기안자</b></td>
 						<td><%=starter%></td>
 					</tr>
 					<tr>
-						<td>송부자</td>
+						<td><b>송부자</b></td>
 						<td><%=sender%></td>
 					</tr>
 					<tr>
-						<td>파일</td>
+						<td><b>파일</b></td>
 						<td>
 							<%if(!(signdata.getFile_sign()==null)) { %>
 							
@@ -89,15 +112,15 @@ function goBack() {
 						</td>
 					</tr>
 					<tr class="content">
-						<td>내용</td>
+						<td><b>내용</b></td>
 						<td><%=content%></td>
 					</tr>
 					<tr>
-						<td>결재자</td>
+						<td><b>결재자</b></td>
 						<td><%=getsign%></td>
 					</tr>
 					<tr>
-						<td>상태</td>
+						<td><b>상태</b></td>
 						<td><%=status%></td>
 					</tr>
 				</table>
@@ -107,14 +130,16 @@ function goBack() {
 				<input type="hidden" id="step" name="step" 
 					value="<%=signdata.getStep()%>"> 
 				<%if(status.equals("대기")) {%> 
-				<input type="submit" id="status" name="status" value="승인"> 
-				<input type="submit" id="status" name="status" value="취소"> 
+				<input type="submit" id="status" name="status" value="승인" class="css3button"> 
+				<input type="submit" id="status" name="status" value="취소" class="css3button"> 
 					<%if(grade != 1) {%>
-				<input type="submit" id="status" name="status" value="상부보고">
+				<input type="submit" id="status" name="status" value="상부보고" class="css3button">
 					<%}
 				}%>
+				<input type="button" onclick="goBack()" value="뒤로가기" class="css3button">
 			</center>
-			<input type="button" class="btn" onclick="goBack()" value="뒤로가기">
+			<!-- <input type="button" onclick="goBack()" value="뒤로가기" class="css3button"> -->
+			<!-- center 아래에 있던거 위로 옮김(문제 생길까봐 써놓음 ㅠㅠ) -->
 		</div>
 	</form>
 	<jsp:include page="../Footer.jsp"></jsp:include>

@@ -43,6 +43,28 @@
 .content {
 	height: 250px;
 }
+input.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #383838;
+	padding: 4px 10px;
+	background: -moz-linear-gradient(
+		top,
+		#f7f7f7 0%,
+		#ebebeb 50%,
+		#dbdbdb 50%,
+		#dbdbdb);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#f7f7f7),
+		color-stop(0.50, #ebebeb),
+		color-stop(0.50, #dbdbdb),
+		to(#dbdbdb));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 5px;
+	border: 1px solid #c7c7c7;
+}
 </style>
 <script type="text/javascript" src="./ckeditor/ckeditor.js">
 	CKEDITOR.replace('content', {
@@ -86,33 +108,33 @@
 			<center>
 				<table class="table" style="width: 70%">
 					<tr>
-						<td>부서</td>
+						<td><font size="2"><b>부서</b></font></td>
 						<td><%=deptname%></td>
 					</tr>
 					<tr>
-						<td>팀</td>
+						<td><font size="2"><b>팀</b></font></td>
 						<td><%=teamname%></td>
 					</tr>
 					<tr>
 					</tr>
 					<tr>
-						<td>제목</td>
+						<td><font size="2"><b>제목</b></font></td>
 						<td><input id="TITLE" name="TITLE" type="text"
 							style="width: 500px"></td>
 					</tr>
 					<tr>
-						<td>파일첨부</td>
-						<td>&nbsp;<input id="File_sign" name="File_sign" type="file"></td>
+						<td><font size="2"><b>파일첨부</b></font></td>
+						<td><input id="File_sign" name="File_sign" type="file"></td>
 					</tr>
 					<tr class="content">
-						<td>내용</td>
+						<td><font size="2"><b>내용</b></font></td>
 						<td><textarea rows="10" cols="60" name="CONTENT" id="CONTENT"></textarea>
 							<script type="text/javascript">
 								CKEDITOR.replace('CONTENT');
 							</script></td>
 					</tr>
 					<tr>
-						<td>결재자</td>
+						<td><font size="2"><b>결재자</b></font></td>
 						<td><%=getSign%></td>
 					</tr>
 				</table>
@@ -120,8 +142,8 @@
 				<input id="EMPNO" name="EMPNO" type="hidden" value="<%=empno%>">
 				<input id="GETSIGN" name="GETSIGN" type="hidden"
 					value="<%=getSignNum%>"> <input id="STEP" name="STEP"
-					type="hidden" value="1"> <input type="button" value="작성완료"
-					onclick="check()"> <input type="button" value="취소"
+					type="hidden" value="1"> <input type="button" class="css3button" value="작성완료"
+					onclick="check()"> <input type="button" class="css3button" value="취소"
 					onclick="goBack()">
 			</center>
 		</form>
