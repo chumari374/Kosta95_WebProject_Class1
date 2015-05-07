@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <% String teamname = (String)session.getAttribute("teamname"); %>
 <!DOCTYPE html>
-<html style="background-image: url('../img/Lighthouse.jpg');background-position: 30%">
+<!-- <html style="background-image: url('../img/Lighthouse.jpg');background-position: 30%"> -->
+<html>
 <head>
 	<meta charset="UTF-8">
 	<title>Chatting Room</title>
@@ -11,7 +12,9 @@
 	<script src="js/style.js"></script>
 	<script src="js/jquery-1.11.2.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
-	<link rel="stylesheet" href="css/common.css">	
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/mystyle.css">
+		
 </head>
 <body>
 <!--		 메인 화면			 -->

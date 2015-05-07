@@ -164,3 +164,16 @@ insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values 
 commit;
 
 
+insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150000,'È«±æµ¿','A/SÆÀ','true','true','false',300,3003,4);
+insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (150000,'02-1234-0224',sysdate,sysdate,'³²ÀÚ',sysdate,'true');
+
+commit;
+
+
+
+delete from ACCOUNTS where empno = 150000;
+delete from emp where empno=150000;
+delete from DOMAIN_SET where empno =150000;
+
+commit;
+
