@@ -43,7 +43,7 @@ table th { background-color: #E7E7E7;}
 
 	</style>
 	<script>
-	function msgsend(empno){
+	function msgsend(){
 
 		var popupWidth = 310;
 		var popupHeight = 200;
@@ -80,7 +80,7 @@ table th { background-color: #E7E7E7;}
 		<div id="menudiv">
 
      <a href="./Sent.mb">보낸쪽지함</a>&nbsp;
-     <a href="" onclick='msgsend("+entry.empno+")'>쪽지보내기</a>
+     <a href="" onclick='msgsend()'>쪽지보내기</a>
      
 </div> 
 		
