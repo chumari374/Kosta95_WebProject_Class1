@@ -43,7 +43,7 @@ public class MessageDeleteAction implements Action {
 		   	
 		   	System.out.println("쪽지 삭제 성공");
 		   	forward.setRedirect(true);
-	   		forward.setPath("../MessageList.mb");
+	   		forward.setPath("./MessageList.mb");
 	   		return forward;
 	}
 
