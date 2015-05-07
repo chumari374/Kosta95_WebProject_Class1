@@ -125,14 +125,8 @@ if(nowpage%5==0){//그러나 5의 배수일 경우는 1단계 떨어뜨려줌  �
 	</tr>
 	
  	<%} %>
-		</table>
-		<br>
-		
-		
-		
-		<table id="pagingtable">
-		 	
- 	<!-- 페이징처리 시작 -->
+ 	
+ 		<!-- 페이징처리 시작 -->
 	<tr align=center height=20>
 		<td colspan="4" style="font-family:Tahoma;font-size:10pt;">
 			<%if(level<=1){ %>
@@ -162,7 +156,9 @@ if(nowpage%5==0){//그러나 5의 배수일 경우는 1단계 떨어뜨려줌  �
 		</td>
 	</tr>
 	<!-- 페이징처리 끝 -->
+ 	
 		</table>
+
 		</div>
 		</div>
 		</div>
