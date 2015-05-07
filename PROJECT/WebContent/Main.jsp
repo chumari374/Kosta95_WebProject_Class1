@@ -102,8 +102,8 @@
              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;마이페이지                    
               <ul class="submenu">         
                  <li><a href="Account_Edit.mp">개인정보 수정</a></li>          
-                 <li><a href="">받은메세지함</a></li>
-                 <li><a href="">보낸메세지함</a></li>         
+                 <li><a href="Recieved.mb">받은메세지함</a></li>
+                 <li><a href="Sent.mb">보낸메세지함</a></li>         
                  <li><a href="SchedulePage.mp">일정관리</a></li>    
               </ul>    
         </li>
