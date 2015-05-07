@@ -56,7 +56,11 @@ function msgsend(){
 	<tr align="center" valign="middle">
 		<td colspan="6"></td>
 	</tr>
-	
+			<tr>
+		 <td colspan="2">
+			<div align="center">&nbsp;</div>
+		 </td>
+		</tr>
 	<tr>
 		<td>
 			<div align="center">Á¦&nbsp; ¸ñ&nbsp;&nbsp;</div>
@@ -86,6 +90,12 @@ function msgsend(){
 		</td>
 		</tr>
 		
+		<tr>
+		 <td colspan="2">
+			<div align="center">&nbsp;</div>
+		 </td>
+		</tr>
+		
 		
 		
 	<tr bgcolor="#3196dc">
@@ -107,7 +117,7 @@ function msgsend(){
 			</table>
 		</td>
 	</tr>
-	<tr bgcolor="#3196dc">
+	<tr bgcolor="#0469AF">
 		<td colspan="2" style="height:2px;"></td>
 	</tr>
 	<tr><td colspan="2">&nbsp;</td></tr>
