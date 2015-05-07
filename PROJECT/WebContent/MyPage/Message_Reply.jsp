@@ -151,6 +151,7 @@ button.css3button {
 				<br>
 				<div id="menudiv">
 				<button type="submit" value="" class="css3button">등록</button>
+				<button type="button" value="" onclick="window.close();" class="css3button">닫기</button>
 				</div>
 			
 		</form>
