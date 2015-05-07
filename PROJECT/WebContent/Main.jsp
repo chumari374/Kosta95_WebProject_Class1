@@ -16,8 +16,30 @@
    <script type="text/javascript" src="chatting/js/async.js"></script>
    <link type="text/css" rel="stylesheet" href="css/mystyle.css">
 	<script type="text/javascript" src="js/myscript.js"></script>
-   <style>
-   </style>
+   <style type="text/css">
+	input.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #383838;
+	padding: 4px 10px;
+	background: -moz-linear-gradient(
+		top,
+		#f7f7f7 0%,
+		#ebebeb 50%,
+		#dbdbdb 50%,
+		#dbdbdb);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#f7f7f7),
+		color-stop(0.50, #ebebeb),
+		color-stop(0.50, #dbdbdb),
+		to(#dbdbdb));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 5px;
+	border: 1px solid #c7c7c7;
+}
+</style>
    <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
 
@@ -48,7 +70,7 @@
                   <p> </p>
                   <p><img src="http://192.168.7.235:8090/PROJECT/Upload/${sessionScope.p_picture}" width="80px" height="80px"></p>
                   <p>${sessionScope.ename }님 로그인 하셨습니다.</p>
-                  <p><input type="button" value="로그아웃" onclick="logout('<%= request.getContextPath()%>')"></p>
+                  <p><input type="button" class="css3button" value="로그아웃" onclick="logout('<%= request.getContextPath()%>')"></p>
       
       </div>
       

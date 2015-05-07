@@ -43,6 +43,54 @@
       margin: 30px;
       margin-bottom: 10px;
    }
+   
+input.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #383838;
+	padding: 4px 10px;
+	background: -moz-linear-gradient(
+		top,
+		#f7f7f7 0%,
+		#ebebeb 50%,
+		#dbdbdb 50%,
+		#dbdbdb);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#f7f7f7),
+		color-stop(0.50, #ebebeb),
+		color-stop(0.50, #dbdbdb),
+		to(#dbdbdb));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 5px;
+	border: 1px solid #c7c7c7;
+}
+
+input.page {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #1c92ba;
+	padding: 4px 10px;
+	background-color: white;
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-radius: 0px;
+	border: 1px solid #1c92ba;
+}
+
+input.pageC {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #1c92ba;
+	padding: 4px 10px;
+	background-color: #B2EBF4;
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-radius: 0px;
+	border: 1px solid #1c92ba;
+}
+
 </style>
 </head>
 <body>
@@ -161,18 +209,18 @@ if(listcount > 0){
 	<tr align=center height=20>
 		<td colspan="4" style="font-family:Tahoma;font-size:10pt;">
 			<%if(level<=1){ %>
-			<input type="button" value="이전" >&nbsp;
+			<input type="button" value="이전" class="page">&nbsp;
 			<%}else{ %>
-			<a href ="CompBoardList.cp?page=<%=level*5-5 %>"><input type="button" value="이전 "></a>&nbsp;
+			<a href ="CompBoardList.cp?page=<%=level*5-5 %>"><input type="button" value="이전 " class="page"></a>&nbsp;
 			<%} %>
 			
 			<%for(int i=level*5-4;i<= end ;i++){
 				if(i==nowpage){%>
-				<input type="button" value="<%=i %>" style="background-color: #B2EBF4">&nbsp;
+				<input type="button" value="<%=i %>" class="pageC">&nbsp;
 				<%}else{ 
 					if(i<=maxpage){
 				%>
-					<a href="CompBoardList.cp?page=<%=i %>"><input type="button" value="<%=i %>"></a>&nbsp;
+					<a href="CompBoardList.cp?page=<%=i %>"><input type="button" value="<%=i %>" class="page"></a>&nbsp;
 				<%
 					}
 				 }
@@ -180,13 +228,13 @@ if(listcount > 0){
 			<%} %>
 			
 			<%if(level>=(maxpage/5)+1){ %>
-			<input type="button" value="다음">
+			<input type="button" value="다음" class="page">
 			<%}else{ %>
-			<a href="CompBoardList.cp?page=<%=level*5+1 %>"><input type="button" value="다음"></a>
+			<a href="CompBoardList.cp?page=<%=level*5+1 %>"><input type="button" value="다음" class="page"></a>
 			<%} %>
 		</td>
 		<td align="right">
-	   		<a href="CompBoardWrite.cp"><input type="button" value="글쓰기"></a>
+	   		<a href="CompBoardWrite.cp"><input type="button" class="css3button" value="글쓰기"></a>
 		</td>
 	</tr>
 	<!-- 페이징처리 끝 -->
