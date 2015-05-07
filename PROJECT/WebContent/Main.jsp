@@ -121,7 +121,7 @@ input.css3button {
 						<li><a href="DeptBoardList.dp">부서 게시판</a></li>
 						<li><a href="#"
 							onclick="chatting_window('${sessionScope.teamname}')">팀 게시판</a></li>
-						<li><a href="#" onclick="alert('WARNING!!! YOUR COMPUTER IS HACKING BY ANNONYMOUSE SHUT DOWN SYSTEM RIGHT NOW.')">자료실(공사중)</a></li>
+						<li><a href="#" onclick="alert('WARNING!!! YOUR COMPUTER IS HACKED BY ANNONYMOUSE SHUT DOWN SYSTEM RIGHT NOW.')">자료실(공사중)</a></li>
 					</ul></li>
 
 				<li><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;결재
