@@ -43,7 +43,7 @@ table th { background-color: #E7E7E7;}
 
 	</style>
 	<script>
-	function msgsend(empno){
+	function msgsend(){
 
 		var popupWidth = 310;
 		var popupHeight = 200;
@@ -80,7 +80,7 @@ table th { background-color: #E7E7E7;}
 		<div id="menudiv">
 
      <a href="./Recieved.mb">받은쪽지함</a>&nbsp;
-     <a href="" onclick='msgsend("+entry.empno+")'>쪽지보내기</a>
+     <a href="" onclick='msgsend()'>쪽지보내기</a>
      
 </div> 
 		
@@ -119,10 +119,14 @@ table th { background-color: #E7E7E7;}
 			 <%=ml.getMsgnum()%> 
 		</td>
 		<td  align="center" valign="middle" bordercolor="#333333">
-			 <%=ml.getEmpno() %> 
+			  <a href="#" onclick="window.open('Member.info?empno=<%=ml.getEmpno() %> ','window팝업','left=300, top=50, width=600, height=400, menubar=no, status=no, toolbar=no');">
+	     <%=ml.getEmpno() %>
+	     </a>
 		</td>
 		<td  align="center" valign="middle" bordercolor="#333333">
-		    <%= ml.getSendempno() %> 
+		  <a href="#" onclick="window.open('Member.info?empno=<%= ml.getSendempno() %>  ','window팝업','left=300, top=50, width=600, height=400, menubar=no, status=no, toolbar=no');">
+	      <%= ml.getSendempno() %> 
+	     </a>   
 		</td>
 		<td>
 			 <%-- <a href="MessageDetailAction.mb?msgnum=<%=ml.getMsgnum()%>" target="blank"> --%>	 

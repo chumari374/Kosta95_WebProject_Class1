@@ -10,6 +10,30 @@
 <html>
 <head>
 	<title>사내 게시판</title>
+	<style type="text/css">
+	.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #383838;
+	padding: 4px 10px;
+	background: -moz-linear-gradient(
+		top,
+		#f7f7f7 0%,
+		#ebebeb 50%,
+		#dbdbdb 50%,
+		#dbdbdb);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#f7f7f7),
+		color-stop(0.50, #ebebeb),
+		color-stop(0.50, #dbdbdb),
+		to(#dbdbdb));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 5px;
+	border: 1px solid #c7c7c7;
+}
+	</style>
 </head>
 
 <body>
@@ -19,12 +43,12 @@
 <input type="hidden" value="<%=empno%>"/>
 <table cellpadding="0" cellspacing="0" class="table" style="width: 70%; margin-top: 50px;">
 	<tr align="center" valign="middle">
-		<td colspan="6">부서 게시판</td>
+		<td colspan="6"><b>부서 게시판</b></td>
 	</tr>
 	
 	<tr>
-		<td style="font-family:돋음; font-size:12" height="16">
-			<div align="center">제&nbsp; 목&nbsp;&nbsp;</div>
+		<td style="font-family:돋음; font-size:14" height="16">
+			<div align="center"><b>제&nbsp; 목&nbsp;&nbsp;</b></div>
 		</td>
 		
 		<td style="font-family:돋음; font-size:12">
@@ -33,8 +57,8 @@
 	
 	</tr>
 		<tr>
-			<td style="font-family:돋음; font-size:12" height="16">
-			<div align="center">작성일&nbsp;&nbsp;</div>
+			<td style="font-family:돋음; font-size:14" height="16">
+			<div align="center"><b>작성일&nbsp;&nbsp;</b></div>
 		</td>
 		
 		<td style="font-family:돋음; font-size:12">
@@ -43,8 +67,8 @@
 		</tr>
 		
 		<tr>
-			<td style="font-family:돋음; font-size:12" height="16">
-			<div align="center">작성자&nbsp;&nbsp;</div>
+			<td style="font-family:돋음; font-size:14" height="16">
+			<div align="center"><b>작성자&nbsp;&nbsp;</b></div>
 		</td>
 		
 		<td style="font-family:돋음; font-size:12">
@@ -53,8 +77,8 @@
 		</tr>
 		
 		<tr>
-			<td style="font-family:돋음; font-size:12" height="16">
-			<div align="center">조회수&nbsp;&nbsp;</div>
+			<td style="font-family:돋음; font-size:14" height="16">
+			<div align="center"><b>조회수&nbsp;&nbsp;</b></div>
 		</td>
 		
 		<td style="font-family:돋음; font-size:12">
@@ -70,8 +94,8 @@
 	</tr> -->
 	
 	<tr>
-		<td style="font-family:돋음; font-size:12">
-			<div align="center">내 용</div>
+		<td style="font-family:돋음; font-size:14">
+			<div align="center"><b>내&nbsp; 용&nbsp;&nbsp;</b></div>
 		</td>
 		<td style="font-family:돋음; font-size:12">
 			<table border=0 width=490 height=250 style="table-layout:fixed">
@@ -92,17 +116,17 @@
 		<td colspan="5">
 			<font size=2>
 			<a href="./DeptBoardReplyView.dp?num=<%=board.getNum() %>">
-			<input type="button" value="답변">
+			<input type="button" value="답변" class="css3button">
 			</a>&nbsp;&nbsp;
 			<a href="./DeptBoardModify.dp?num=<%=board.getNum() %>">
-			<input type="button" value="수정">
+			<input type="button" value="수정" class="css3button">
 			</a>&nbsp;&nbsp;
 			<a href="./DeptBoardDeleteAction.dp?num=<%=board.getNum() %>"
 			>
-			<input type="button" value="삭제">
+			<input type="button" value="삭제" class="css3button">
 			</a>&nbsp;&nbsp;
 			<a href="./DeptBoardList.dp?page=<%=Integer.parseInt(request.getParameter("page"))%>">
-			<input type="button" value="목록">
+			<input type="button" value="목록" class="css3button">
 			</a>&nbsp;&nbsp;
 			</font>
 		</td>

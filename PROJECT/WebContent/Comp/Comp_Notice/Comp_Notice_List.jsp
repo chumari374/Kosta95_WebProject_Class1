@@ -43,6 +43,28 @@
    #title {
       margin: 30px;
    }
+      input.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #383838;
+	padding: 4px 10px;
+	background: -moz-linear-gradient(
+		top,
+		#f7f7f7 0%,
+		#ebebeb 50%,
+		#dbdbdb 50%,
+		#dbdbdb);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#f7f7f7),
+		color-stop(0.50, #ebebeb),
+		color-stop(0.50, #dbdbdb),
+		to(#dbdbdb));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 5px;
+	border: 1px solid #c7c7c7;
+}
 </style>
 </head>
 <body>
@@ -168,7 +190,7 @@ if(listcount > 0){
 		<td colspan="5">
 	 
 	   		<c:if test="${sessionScope.admin == true}">
-            <a href="CompNoticeWrite.cn"><input type="button" value="글쓰기"></a>
+            <a href="CompNoticeWrite.cn"><input type="button" value="글쓰기" class="css3button"></a>
          </c:if>
 		</td>
 	</tr>

@@ -75,9 +75,10 @@
 	
 	}
 	
-	input.css3button {
+	.css3button {
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 12px;
+		height: 26px;
 		color: #383838;
 		padding: 4px 10px;
 		background: -moz-linear-gradient(
@@ -115,21 +116,21 @@
 <form action="CompBoardRealModifyAction.cp" method="post" name="boardform">
 <input type="hidden" name="BOARD_ID" value="<%=empno %>">
 <input type="hidden" name="BOARD_NUM" value="<%=boarddata.getNum()%>">
-<table width="700px" height="600px" cellpadding="0" cellspacing="0" width="100%">
+<table width="700px" height="600px" cellspacing="0" width="100%" style="padding: 5px;">
 	<tr align="center" valign="middle">
 		<td colspan="5"><h3><b>사내 게시판</b></h3></td>
 	</tr>
 	<tr>
-		<td style="font-family:돋음; font-size:12" height="16">
-			<div align="center">글쓴이</div>
+		<td style="font-family:돋음; font-size:14" height="16">
+			<div align="center"><b>글쓴이</b></div>
 		</td>
 		<td>
 			<%=ename %>
 		</td>
 	</tr>
 	<tr>
-		<td style="font-family:돋음; font-size:12" height="16">
-			<div align="center">제 목</div>	
+		<td style="font-family:돋음; font-size:14" height="16">
+			<div align="center"><b>제 목</b></div>	
 		</td>
 		<td style="font-family:돋음; font-size:12" height="16">
 			<input name="BOARD_TITLE" type="text" size="50" maxlength="100" 
@@ -142,8 +143,8 @@
 
 	<tr>
 	
-		<td style="font-family:돋음; font-size:12">
-			<div align="center">내 용</div>
+		<td style="font-family:돋음; font-size:14">
+			<div align="center"><b>내 용</b></div>
 		</td>
 		<td>
 		
