@@ -81,10 +81,13 @@ html, body, #map-canvas {
 </head>
 <body onload="go_time()">
 	<jsp:include page="Main.jsp"></jsp:include>
-
-	<div class="container" style="width: 65%; height: 50%;">
+	 <div id="main" align="left">
+	<div class="container">
+	<table>
+		<tr>
+		<td rowspan="2">
 		<br>
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 650px; height: auto;">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -123,22 +126,29 @@ html, body, #map-canvas {
 				<span class="sr-only">Next</span>
 			</a>
 		</div>
+		</td>
+		
+		<td>
+			<!-- 구글 맵 api -->
+			<div id="map-canvas"
+				style="width: 300px; height: 360px; margin-top: 0px; padding-top: 0px;"></div>
+			<!-- 구글 맵 api 끝 -->
+		</td>
+		</tr>
+		<tr>
+		<td>
+			<!-- 실시간 시계 -->
+			<div id="clock" style="font-size: 18px; color: blue; text-align: center;"></div>
+			<!-- 실시간 시계 끝 -->
+		</td>
+		</tr>
 
+	</table>
+	</div>
 
 
 
 	</div>
-	<!-- 구글 맵 api -->
-	<div id="map-canvas"
-		style="width: 18%; height: 50%; left: 870px; bottom: 284px; padding-right: 15px;"></div>
-	<!-- 구글 맵 api 끝 -->
-
-	<!-- 실시간 시계 -->
-	<div id="clock" style="font-size: 18px; color: white;"></div>
-	<!-- 실시간 시계 끝 -->
-
-
-
 
 
 
