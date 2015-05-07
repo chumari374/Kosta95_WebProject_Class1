@@ -60,7 +60,46 @@
 	 	  	});
 	 	 });
 		 
+		 $('#empnocheck').click(function(){
+			 open('Popup_Empno.jsp', 'checkEmpno', 'width=500 height=200');
+		 });
+		  
 	});
+	function onlyNum(){
+		//event 객체 (mouse 제어, 키보드 입력값 제어)
+		if((event.keyCode<48)||(event.keyCode>57)){
+			event.returnValue = false;
+		}
+	}
+	function checkForm(){
+		var year = $('#year').val();
+		var month = $('#month').val();
+		var day = $('#day').val();
+		
+		if(month>12 || month < 1){
+			alert("1부터 12까지 넣어주세요");
+			return false;
+		}
+		
+		if(month==2){
+			if(year%4==0 && (day>29 || day < 1)){
+				alert("1부터 29까지 넣어주세요");
+				return false;
+			}else if(day>28 || day < 1){
+				alert("1부터 28까지 넣어주세요");
+				return false;
+			}
+		}else if(month==4||month==6||month==9||month==11){
+			if(day>30 || day < 1)
+				alert("1부터 30까지 넣어주세요");
+			return false;
+		}else{
+			if(day>31 || day < 1)
+				alert("1부터 31까지 넣어주세요");
+			return false;
+		}
+		document.MemberAddForm.submit();
+	}
 </script>
 <title>Insert title here</title>
 </head>
@@ -70,11 +109,11 @@
 	<div class="container" >
 	<div id="wrapper" style="width: 90%;">
 		<div align="center" style="margin-bottom: 0px;">
-		<form action="MemberAddUpdate.admin" method="post">
+		<form action="MemberAddUpdate.admin" method="post" name="MemberAddForm">
 			<table>
 				<tr>
 					<td>사원번호</td>
-					<td><input type="text" name="empno" size="10px"></td>
+					<td><input type="text" name="empno" size="10px" readonly="readonly"></td>
 					<td colspan="2"><input type="button" id="empnocheck" value="중복확인"></td>
 				</tr>
 				<tr>
@@ -110,7 +149,7 @@
 										<option value="3">&nbsp;&nbsp;&nbsp;팀장</option>
 										<option value="4" selected >&nbsp;&nbsp;&nbsp;사원</option>
 					</select></td>
-					<td colspan="2"><input type="button" id="gradecheck" value="직급확인"></td>
+					<td colspan="2"></td>
 				</tr>
 				<tr>
 					<td>사내전화번호</td>
@@ -127,12 +166,12 @@
 				</tr>
 				<tr>
 					<td>생년월일</td>
-					<td><input type="text" name="year" height="40px" size="10px">년</td>
-					<td><input type="text" name="month" size="5px">월</td>
-					<td><input type="text" name="day" size="5px">일</td>
+					<td><input type="text" name="year" id="year" height="40px" size="10px" maxlength="4" onkeypress="onlyNum()">년</td>
+					<td><input type="text" name="month" id="month" size="5px" maxlength="2" onkeypress="onlyNum()">월</td>
+					<td><input type="text" name="day" id="day" size="5px" maxlength="2" onkeypress="onlyNum()">일</td>
 				</tr>
 				<tr>
-					<td colspan="4" align="center"><input type="submit" value="등록"><input type="reset" value="취소"></td>
+					<td colspan="4" align="center"><input type="button" value="등록" onclick="checkForm()"><input type="reset" value="취소"></td>
 				</tr>
 			</table>
 		</form>
