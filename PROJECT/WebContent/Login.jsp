@@ -104,7 +104,7 @@ body {
 									value="로그인" id="login">
 							</fieldset>
 						</form>
-						<hr />
+						<hr/>
 						<center>
 							<h4>OR</h4>
 						</center>
