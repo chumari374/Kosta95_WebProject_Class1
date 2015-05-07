@@ -93,15 +93,15 @@
 <input type="hidden" name="BOARD_ID" value="<%=empno %>">
 <table width="700px" height="600px" cellpadding="0" cellspacing="0" width="100%">
 	<tr align="center" valign="middle">
-		<td colspan="5"><h3><b>사내 게시판</b></h3></td>
+		<td colspan="5"><h3><b>사내 공지사항</b></h3></td>
 	</tr>
 	<tr>
 		<td style="font-family:돋음; font-size:12" height="16">
 			<div align="center">글쓴이</div>
 		</td>
 		<td>
-			Admin
-<%-- 			<%=ename %> --%>
+<!-- 			Admin -->
+			<%=ename %>
 		</td>
 	</tr>
 	<tr>
