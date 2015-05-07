@@ -107,19 +107,19 @@
 							<!-- Wrapper for slides -->
 							<div class="carousel-inner" role="listbox">
 								<div class="item active">
-									<img src="img/1.jpg" alt="Chania" width="460" height="200">
+									<img src="img/slide_1.jpg" alt="Chania" width="460" height="200">
 								</div>
 
 								<div class="item">
-									<img src="img/2.jpg" alt="Chania" width="460" height="200">
+									<img src="img/slide_2.png" alt="Chania" width="460" height="200">
 								</div>
 
 								<div class="item">
-									<img src="img/3.jpg" alt="Flower" width="460" height="200">
+									<img src="img/slide_3.jpg" alt="Flower" width="460" height="200">
 								</div>
 
 								<div class="item">
-									<img src="img/4.jpg" alt="Flower" width="460" height="200">
+									<img src="img/slide_4.png" alt="Flower" width="460" height="200">
 								</div>
 							</div>
 
