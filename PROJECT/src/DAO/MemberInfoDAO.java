@@ -184,4 +184,27 @@ public class MemberInfoDAO {
 		}
 		return result;
 	}
+	
+	//삭제
+	public int MemberInfoDelete(int empno){
+		int result = 0;
+		try{
+			conn = ds.getConnection();
+			String sql = "update domain_set set exist='false' where empno=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, empno);
+
+			result = pstmt.executeUpdate();
+
+			return result;
+			
+		}catch(Exception e){
+			e.getStackTrace();
+		}finally{
+			if (rs != null)try {rs.close();} catch (Exception e) {}
+			if (pstmt != null)try {pstmt.close();} catch (Exception e) {}
+			if (conn != null)try {conn.close();} catch (Exception e) {}
+		}
+		return result;
+	}
 }

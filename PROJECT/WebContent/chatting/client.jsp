@@ -16,7 +16,6 @@
 <body>
 <!--		 메인 화면			 -->
 <center>
-<!-- <div id="dialog" title="KOSTA 95th Chattingroom Version_1.3"> -->
 	<div id="main">
 		<span>KOSTA 95th Chattingroom Version_1.3</span>
 		<hr color="red">
@@ -46,7 +45,6 @@
 	</div>
 	<input type="hidden" id="ip">
 	<input type="hidden" id="teamname" value="<%= teamname %>">
-<!-- </div> -->
 </center>
 </body>
 </html>

@@ -47,3 +47,8 @@ function editAdmin(empno){
 	window.close()
 	window.open('MemberEdit.admin?empno='+empno,'정보수정','width=600 height=424')
 }
+
+function deleteAdmin(empno){
+	alert('Arrive');
+	location.href="MemberExistUpdate.admin?empno="+empno;
+}

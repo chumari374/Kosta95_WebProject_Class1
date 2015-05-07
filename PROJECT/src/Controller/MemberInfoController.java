@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import Action.Action;
 import Action.ActionForward;
+import Action.Emp_DeleteAdminAction;
 import Action.Emp_EditAdminAction;
+import Action.Emp_ExistUpdateAdminAction;
 import Action.Emp_SearchAction;
 import Action.Emp_SearchAdminAction;
 import Action.Emp_UpdateAdminAction;
@@ -99,6 +101,22 @@ public class MemberInfoController extends HttpServlet {
 //			forward=new ActionForward();
 //			forward.setRedirect(true);
 			action = new Emp_UpdateAdminAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+					e.printStackTrace();
+			}
+		} if(command.equals("/MemberDelete.admin")){
+			action = new Emp_DeleteAdminAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+					e.printStackTrace();
+			}
+		} if(command.equals("/MemberExistUpdate.admin")){
+			action = new Emp_ExistUpdateAdminAction();
 			
 			try {
 				forward = action.execute(request, response);
