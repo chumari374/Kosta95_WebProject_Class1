@@ -22,7 +22,7 @@
 
 <body>
 <jsp:include page="../../Main.jsp"></jsp:include>
-   <div id="main" align="center">
+   <div id="main" align="center" style="overflow: scroll;">
 
 <form action="#" method="post" name="downloadForm">
 <table cellpadding="0" cellspacing="0" class="table" style="width: 70%; margin-top: 50px;">

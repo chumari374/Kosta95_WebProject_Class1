@@ -212,7 +212,7 @@
 </head>
 <body>
 <jsp:include page="../Main.jsp"></jsp:include>
-   <div id="main" align="center">
+   <div id="main" align="center" >
    <div id="wrapper" style="width: 90%;">
    		<div align="left" style="height: 50px;"><h2>사원검색</h2></div>
 		<div align="center" style="margin-bottom: 0px;">
