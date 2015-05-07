@@ -242,7 +242,7 @@ if(listcount > 0){
 			
 			<%for(int i=level*5-4;i<= end ;i++){
 				if(i==nowpage){%>
-				<input type="button" value="<%=i %>" class="pageC">&nbsp;
+				<input type="button" value="<%=i %>" class="pageC" style="background-color: #B2EBF4;">&nbsp;
 				<%}else{ 
 					if(i<=maxpage){
 				%>

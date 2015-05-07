@@ -42,12 +42,12 @@ input.css3button {
 <input type="hidden" value="<%=empno%>"/>
 <table cellpadding="0" cellspacing="0" class="table" style="width: 70%; margin-top: 50px;">
 	<tr align="center" valign="middle">
-		<td colspan="6">사내 게시판</td>
+		<td colspan="6"><b>사내 게시판</b></td>
 	</tr>
 	
 	<tr>
-		<td style="font-family:돋음; font-size:12" height="16">
-			<div align="center">제&nbsp; 목&nbsp;&nbsp;</div>
+		<td style="font-family:돋음; font-size:14" height="16">
+			<div align="center"><b>제&nbsp; 목&nbsp;&nbsp;</b></div>
 		</td>
 		
 		<td style="font-family:돋음; font-size:12">
@@ -56,8 +56,8 @@ input.css3button {
 	
 	</tr>
 		<tr>
-			<td style="font-family:돋음; font-size:12" height="16">
-			<div align="center">작성일&nbsp;&nbsp;</div>
+			<td style="font-family:돋음; font-size:14" height="16">
+			<div align="center"><b>작성일</b>&nbsp;&nbsp;</div>
 		</td>
 		
 		<td style="font-family:돋음; font-size:12">
@@ -66,8 +66,8 @@ input.css3button {
 		</tr>
 		
 		<tr>
-			<td style="font-family:돋음; font-size:12" height="16">
-			<div align="center">작성자&nbsp;&nbsp;</div>
+			<td style="font-family:돋음; font-size:14" height="16">
+			<div align="center"><b>작성자</b>&nbsp;&nbsp;</div>
 		</td>
 		
 		<td style="font-family:돋음; font-size:12">
@@ -76,8 +76,8 @@ input.css3button {
 		</tr>
 		
 		<tr>
-			<td style="font-family:돋음; font-size:12" height="16">
-			<div align="center">조회수&nbsp;&nbsp;</div>
+			<td style="font-family:돋음; font-size:14" height="16">
+			<div align="center"><b>조회수&nbsp;&nbsp;</b></div>
 		</td>
 		
 		<td style="font-family:돋음; font-size:12">
@@ -93,8 +93,8 @@ input.css3button {
 	</tr> -->
 	
 	<tr>
-		<td style="font-family:돋음; font-size:12">
-			<div align="center">내 용</div>
+		<td style="font-family:돋음; font-size:15">
+			<div align="center"><b>내&nbsp; 용&nbsp;&nbsp;</b></div>
 		</td>
 		<td style="font-family:돋음; font-size:12">
 			<table border=0 width=490 height=250 style="table-layout:fixed">
