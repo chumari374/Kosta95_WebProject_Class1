@@ -27,11 +27,22 @@ public class Emp_UpdateAdminAction implements Action {
 		dto.setGrade(Integer.parseInt(request.getParameter("grade")));
 		dto.setEmptel(request.getParameter("emptel"));
 		
-		System.out.println(Integer.parseInt(request.getParameter("grade")));
+		System.out.println("teamcode : " + Integer.parseInt(request.getParameter("teamcode")));
+		System.out.println("teamcode : " + Integer.parseInt(request.getParameter("teamcode"))%1000);
+		System.out.println("grade : " + Integer.parseInt(request.getParameter("grade")));
+		
+		if(Integer.parseInt(request.getParameter("grade"))==1){
+			out.println("<script>");
+	   		out.println("alert('fail : head of our company is only steve hong !!!');");
+	   		out.println("history.go(-1);");
+	   		out.println("</script>");
+	   		out.close();
+	   		return null;
+		}
 		
 		if(Integer.parseInt(request.getParameter("teamcode"))%1000 !=0 && Integer.parseInt(request.getParameter("grade"))==2){
 	   		out.println("<script>");
-	   		out.println("alert('fail : head of department doesn't have a team...');");
+	   		out.println("alert('fail : head of department does not have a team...');");
 	   		out.println("history.go(-1);");
 	   		out.println("</script>");
 	   		out.close();
