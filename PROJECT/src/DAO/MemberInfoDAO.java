@@ -184,4 +184,37 @@ public class MemberInfoDAO {
 		}
 		return result;
 	}
+	
+	public int MemberCount(MemberInfoDTO member){
+		
+		int result = 0;
+		
+		try{
+			conn = ds.getConnection();
+			String sql = "select count(*) from memberinfo where deptcode=? and teamcode=? and grade=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, member.getDeptcode());
+			pstmt.setInt(2, member.getTeamcode());
+			pstmt.setInt(3, member.getGrade());
+			System.out.println(member.getDeptcode() + " / " + member.getTeamcode() + " / " + member.getGrade());
+
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				result = rs.getInt(1);
+				System.out.println(rs.getInt(1));
+			}
+			System.out.println("CountResult : " + result);
+			
+			return result;
+			
+		}catch(Exception e){
+			e.getStackTrace();
+		}finally{
+			if (rs != null)try {rs.close();} catch (Exception e) {}
+			if (pstmt != null)try {pstmt.close();} catch (Exception e) {}
+			if (conn != null)try {conn.close();} catch (Exception e) {}
+		}
+		return result;
+	}
 }
