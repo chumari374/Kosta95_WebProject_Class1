@@ -66,11 +66,10 @@ input.css3button {
 	border-radius: 5px;
 	border: 1px solid #c7c7c7;
 }
-
+/* 페이징 부분을 바꿔보려 했으나.. 안어울려서 안추가함..
 input.page {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
-	color: #1c92ba;
 	padding: 4px 10px;
 	background-color: white;
 	-moz-border-radius: 30px;
@@ -82,7 +81,6 @@ input.page {
 input.pageC {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
-	color: #1c92ba;
 	padding: 4px 10px;
 	background-color: #B2EBF4;
 	-moz-border-radius: 30px;
@@ -91,6 +89,34 @@ input.pageC {
 	border: 1px solid #1c92ba;
 }
 
+input.pageP {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 4px 10px;
+	background-color: white;
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-bottom-left-radius: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border: 1px solid #1c92ba;
+}
+
+input.pageN {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 4px 10px;
+	background-color: white;
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-bottom-left-radius: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border: 1px solid #1c92ba;
+}
+ */
 </style>
 </head>
 <body>
@@ -209,9 +235,9 @@ if(listcount > 0){
 	<tr align=center height=20>
 		<td colspan="4" style="font-family:Tahoma;font-size:10pt;">
 			<%if(level<=1){ %>
-			<input type="button" value="이전" class="page">&nbsp;
+			<input type="button" value="이전" class="pageP">&nbsp;
 			<%}else{ %>
-			<a href ="CompBoardList.cp?page=<%=level*5-5 %>"><input type="button" value="이전 " class="page"></a>&nbsp;
+			<a href ="CompBoardList.cp?page=<%=level*5-5 %>"><input type="button" value="이전 " class="pageP"></a>&nbsp;
 			<%} %>
 			
 			<%for(int i=level*5-4;i<= end ;i++){
@@ -228,9 +254,9 @@ if(listcount > 0){
 			<%} %>
 			
 			<%if(level>=(maxpage/5)+1){ %>
-			<input type="button" value="다음" class="page">
+			<input type="button" value="다음" class="pageN">
 			<%}else{ %>
-			<a href="CompBoardList.cp?page=<%=level*5+1 %>"><input type="button" value="다음" class="page"></a>
+			<a href="CompBoardList.cp?page=<%=level*5+1 %>"><input type="button" value="다음" class="pageN"></a>
 			<%} %>
 		</td>
 		<td align="right">

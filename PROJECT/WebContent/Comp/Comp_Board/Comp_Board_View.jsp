@@ -9,6 +9,30 @@
 <html>
 <head>
 	<title>사내 게시판</title>
+<style type="text/css">
+input.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #383838;
+	padding: 4px 10px;
+	background: -moz-linear-gradient(
+		top,
+		#f7f7f7 0%,
+		#ebebeb 50%,
+		#dbdbdb 50%,
+		#dbdbdb);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#f7f7f7),
+		color-stop(0.50, #ebebeb),
+		color-stop(0.50, #dbdbdb),
+		to(#dbdbdb));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 5px;
+	border: 1px solid #c7c7c7;
+}
+</style>	
 </head>
 
 <body>
@@ -92,17 +116,17 @@
 		<td colspan="5">
 			<font size=2>
 			<a href="./CompBoardReplyView.cp?num=<%=board.getNum() %>">
-			<input type="button" value="답변">
+			<input type="button" class="css3button" value="답변">
 			</a>&nbsp;&nbsp;
 			<a href="./CompBoardModify.cp?num=<%=board.getNum() %>">
-			<input type="button" value="수정">
+			<input type="button" class="css3button" value="수정">
 			</a>&nbsp;&nbsp;
 			<a href="./CompBoardDeleteAction.cp?num=<%=board.getNum() %>"
 			>
-			<input type="button" value="삭제">
+			<input type="button" class="css3button" value="삭제">
 			</a>&nbsp;&nbsp;
 			<a href="./CompBoardList.cp?page=<%=Integer.parseInt(request.getParameter("page"))%>">
-			<input type="button" value="목록">
+			<input type="button" class="css3button" value="목록">
 			</a>&nbsp;&nbsp;
 			</font>
 		</td>

@@ -75,7 +75,28 @@
 	
 	}
 	
-
+	input.css3button {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 12px;
+		color: #383838;
+		padding: 4px 10px;
+		background: -moz-linear-gradient(
+			top,
+			#f7f7f7 0%,
+			#ebebeb 50%,
+			#dbdbdb 50%,
+			#dbdbdb);
+		background: -webkit-gradient(
+			linear, left top, left bottom,
+			from(#f7f7f7),
+			color-stop(0.50, #ebebeb),
+			color-stop(0.50, #dbdbdb),
+			to(#dbdbdb));
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		border-radius: 5px;
+		border: 1px solid #c7c7c7;
+	}
 	</style>
 	   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
@@ -139,9 +160,9 @@
 		<td colspan="5">
 		
 				<a href="javascript:addboard()">
-				<input type="submit" value="수정" class="btn btn-primary btn-inline-block btn-lg">
+				<input type="submit" value="수정" class="css3button">
 				</a>
-				<a href="javascript:history.go(-1)" class="btn btn-success btn-inline-block btn-lg">
+				<a href="javascript:history.go(-1)" class="css3button">
 				뒤로</a>
 		</td>
 	</tr>

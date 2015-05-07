@@ -26,10 +26,10 @@ function info(empno){
 
 function msgsend(empno){
 
-	var popupWidth = 310;
-	var popupHeight = 200;
-	var popup_options = "top="+((screen.availHeight - popupWidth)/2)+", left="+((screen.availWidth - popupHeight)/2)+", width=310, height=200, location=no";
-	var url = "MessageReply.mb";
+	var popupWidth = 300;
+	var popupHeight = 280;
+	var popup_options = "top="+((screen.availHeight - popupWidth)/2)+", left="+((screen.availWidth - popupHeight)/2)+", width=300, height=280, location=no";
+	var url = "MessageReply.mb?sendempno="+empno;
 	var target = "_blank";
 
 	window.open(url, target, popup_options);
