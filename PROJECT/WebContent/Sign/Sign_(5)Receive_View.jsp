@@ -4,6 +4,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
+	int grade = (Integer) session.getAttribute("grade");
+	
+
 	SignDTO signdata = (SignDTO) request.getAttribute("signdata");
 	SignDAO signdao = new SignDAO();
 
@@ -106,8 +109,10 @@ function goBack() {
 				<%if(status.equals("대기")) {%> 
 				<input type="submit" id="status" name="status" value="승인"> 
 				<input type="submit" id="status" name="status" value="취소"> 
+					<%if(grade != 1) {%>
 				<input type="submit" id="status" name="status" value="상부보고">
-				<%} %>
+					<%}
+				}%>
 			</center>
 			<input type="button" class="btn" onclick="goBack()" value="뒤로가기">
 		</div>

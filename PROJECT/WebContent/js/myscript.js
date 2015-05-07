@@ -17,7 +17,7 @@ function ppurija(ad) {
 
 function chatting_window(teamname){
 	var ip = $('#ip').val();
-	window.open("http://192.168.7.235:8090/PROJECT/chatting/client.jsp?teamname="+teamname, "chattingroom", "height=500 width=350")
+	window.open("http://192.168.7.235:8090/PROJECT/chatting/client.jsp", "chattingroom", "height=500 width=350")
 }
 
 function info(empno){
