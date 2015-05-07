@@ -62,7 +62,7 @@ function msgsend(){
 			<div align="center">力&nbsp; 格&nbsp;&nbsp;</div>
 		</td>
 		
-		<td style="border-bottom:1px #A6A6A6 solid;">
+		<td style="border-bottom:0px #A6A6A6 solid;">
 		${messagedata.title}
 		</td>
 	
@@ -71,7 +71,7 @@ function msgsend(){
 			<td>
 			<div align="center">累己老&nbsp;&nbsp;</div>
 		</td>
-		<td style="border-bottom:1px #A6A6A6 solid;">
+		<td style="border-bottom:0px #A6A6A6 solid;">
 		 ${messagedata.write_date}
 		</td>
 		</tr>
