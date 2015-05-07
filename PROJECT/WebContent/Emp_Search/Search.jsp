@@ -24,7 +24,8 @@
 	ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
 
 	conn = ds.getConnection();
-	String sql = "select empno, deptname, teamname, ename, gradename, emptel, celphone from memberinfo where deptcode like '%"+deptcode+"%' and teamcode like '%"+teamcode+"%' order by grade";
+	String sql = "select m.empno, m.deptname, m.teamname, m.ename, m.gradename, m.emptel, m.celphone, d.exist from MEMBERINFO m "
+            + "join domain_set d on m.empno=d.empno where d.exist='true' and m.deptcode like '%"+deptcode+"%' and m.teamcode like '%"+teamcode+"%' order by m.grade";
 	pstmt = conn.prepareStatement(sql);
 
 	rs = pstmt.executeQuery();

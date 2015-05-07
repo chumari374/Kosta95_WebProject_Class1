@@ -22,6 +22,32 @@
 
 
 
+--직급 추가     
+insert into grade (grade,gradename) values(1,'대표이사');
+insert into grade (grade,gradename) values(2,'부장');
+insert into grade (grade,gradename) values(3,'팀장');
+insert into grade (grade,gradename) values(4,'사원');
+     
+--부서코드 추가
+insert into dept (deptcode,deptname) values(100,'대표이사');
+insert into dept (deptcode,deptname) values(200,'개발부');
+insert into dept (deptcode,deptname) values(300,'총무부');
+insert into dept (deptcode,deptname) values(400,'영업부');
+
+--팀코드 추가
+insert into team (deptcode,teamcode,teamname) values(100,1000,'대표이사');
+insert into team (deptcode,teamcode,teamname) values(200,2000,'개발부장');
+insert into team (deptcode,teamcode,teamname) values(200,2001,'솔루션팀');
+insert into team (deptcode,teamcode,teamname) values(200,2002,'외주팀');
+insert into team (deptcode,teamcode,teamname) values(300,3000,'총무부장');
+insert into team (deptcode,teamcode,teamname) values(300,3001,'경리팀');
+insert into team (deptcode,teamcode,teamname) values(300,3002,'인사팀');
+insert into team (deptcode,teamcode,teamname) values(300,3003,'경영팀');
+insert into team (deptcode,teamcode,teamname) values(400,4000,'영업부장');
+insert into team (deptcode,teamcode,teamname) values(400,4001,'기술경영팀');
+insert into team (deptcode,teamcode,teamname) values(400,4002,'A/S팀');
+
+
 insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150101,'홍순호','대표이사','true','true','true',100,1000,1);
 insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150102,'이상문','개발부장','true','true','true',200,2000,2);
 insert into emp (empno,ename,teamname,signcheck,msgcheck,admin,deptcode,teamcode,grade)values(150103,'이준하','총무부장','true','true','true',300,3000,2);
@@ -98,7 +124,7 @@ insert into domain_set (empno,emptel,hiredate,firedate,sex,birth,exist) values (
 -------------------------------------------------------------------------------( 사번    ,     사내전화번호    ,  입사일    , 퇴사일    , 성별   , 생년월일 , 재직여부)
 commit;
 
-select * from accounts;
+
 --회원가입
 insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150101,1004,'0113784358@naver.com','판교 사원아파트 101호','010-1234-0101','tnsgh.jpg','좋은아침~'); 
 insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150102,1004,'tkdans100@naver.com','판교 사원아파트 102호','010-1234-0102','프로필사진','프로필메세지');
@@ -136,3 +162,5 @@ insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values 
 insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150223,1004,'jangboyeong@naver.com','판교 사원아파트 223호','010-1234-0223','프로필사진','프로필메세지');
 insert into accounts (empno,pwd,email,addr,celphone,p_picture,p_content) values (150224,1004,'jhm9595@naver.com','판교 사원아파트 224호','010-1234-0224','프로필사진','프로필메세지');
 commit;
+
+

@@ -20,8 +20,9 @@ request.setCharacterEncoding("utf-8");
 		MessageDAO messagedao=new MessageDAO();
 	   	MessageDTO messagedata=new MessageDTO();
 	   	
-		int num=Integer.parseInt(request.getParameter("num"));
-	   	messagedata=messagedao.getMessageDetail(num);
+	   	
+		int msgnum=Integer.parseInt(request.getParameter("msgnum"));
+	   	messagedata=messagedao.getMessageDetail(msgnum);
 	   	
 	   	if(messagedata==null){
 	   		System.out.println("상세보기 실패");

@@ -1,6 +1,7 @@
 package Action.Mypage;
 
 import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,7 +11,7 @@ import Action.ActionForward;
 import DAO.MessageDAO;
 import DTO.MessageDTO;
 
-public class MessageAddAction implements Action {
+public class MessageReplyAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request,
@@ -20,6 +21,7 @@ public class MessageAddAction implements Action {
 		MessageDAO messagedao=new MessageDAO();
 		MessageDTO messagedto=new MessageDTO();
 		ActionForward forward=new ActionForward();
+   		
 
 		request.setCharacterEncoding("UTF-8");	
 		response.setCharacterEncoding("UTF-8");
@@ -61,7 +63,6 @@ public class MessageAddAction implements Action {
 			out.println("</script>");
 
 			System.out.println("발송 완료");
-			
 /*
 			forward.setRedirect(false);
 			forward.setPath("./MessageList.mb");

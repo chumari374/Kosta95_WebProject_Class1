@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- 사원검색 페이지 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
  	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -66,7 +65,7 @@
 								"</td><td>" + entry.gradename + 
 								"</td><td>" + entry.emptel + 
 								"</td><td>" + entry.celphone  + 
-								"</td><td><button onclick='infoAdmin("+entry.empno+")' class='btn btn-back btn-xs'>상세정보</button>"
+								"</td><td><button onclick='deleteAdmin("+entry.empno+")' class='btn btn-back btn-xs'>퇴사처리</button>"
 								+ "</td></tr>"		
 							);
 						});
@@ -102,7 +101,7 @@
 									"</td><td>" + entry.gradename + 
 									"</td><td>" + entry.emptel + 
 									"</td><td>" + entry.celphone  + 
-									"</td><td><button onclick='infoAdmin("+entry.empno+")' class='btn btn-back btn-xs'>상세정보</button>"
+									"</td><td><button onclick='deleteAdmin("+entry.empno+")' class='btn btn-back btn-xs'>퇴사처리</button>"
 									+ "</td></tr>"		
 								);
 							});
@@ -156,7 +155,7 @@
 									"</td><td>" + entry.gradename + 
 									"</td><td>" + entry.emptel + 
 									"</td><td>" + entry.celphone  + 
-									"</td><td><button onclick='infoAdmin("+entry.empno+")' class='btn btn-back btn-xs'>상세정보</button>"
+									"</td><td><button onclick='deleteAdmin("+entry.empno+")' class='btn btn-back btn-xs'>퇴사처리</button>"
 									+ "</td></tr>"		
 								);
 							});
@@ -192,7 +191,7 @@
 										"</td><td>" + entry.gradename + 
 										"</td><td>" + entry.emptel + 
 										"</td><td>" + entry.celphone  + 
-										"</td><td><button onclick='infoAdmin("+entry.empno+")' class='btn btn-back btn-xs'>상세정보</button>"
+										"</td><td><button onclick='deleteAdmin("+entry.empno+")' class='btn btn-back btn-xs'>퇴사처리</button>"
 										+ "</td></tr>"		
 									);
 								});
@@ -208,7 +207,7 @@
 <jsp:include page="../Main.jsp"></jsp:include>
    <div id="main" align="center">
    <div id="wrapper" style="width: 90%;">
-   		<div align="left" style="height: 50px;"><h2>사원정보수정</h2></div>
+   		<div align="left" style="height: 50px;"><h2>퇴사처리</h2></div>
 		<div align="center" style="margin-bottom: 0px;">
 			<div style=" float: left;"><select id="deptlist" class="form-control" style="width:150px; margin-left: 30px; margin-right: 20px; margin-bottom: 10px;"></select></div>
 			<div style=" float: left;"><select id="teamlist" class="form-control" style="width:250px; margin-right: 150px;">
@@ -224,6 +223,6 @@
 			</div>
 	</div>
 	</div>
-	<jsp:include page="../Footer.jsp"></jsp:include>
+<jsp:include page="../Footer.jsp"></jsp:include>
 </body>
 </html>

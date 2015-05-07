@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/myscript.js"></script>
 	<style type="text/css">
 		body {
 			font-size: 72.5%;
@@ -71,7 +72,7 @@
 								"</td><td>" + entry.gradename + 
 								"</td><td>" + entry.emptel + 
 								"</td><td>" + entry.celphone  + 
-								"</td><td><button onclick='info("+entry.empno+")' class='btn btn-back btn-xs'>상세정보</button>&nbsp;<button onclick='msgsend("+entry.empno+")'>쪽지(미구현)</button>"
+								"</td><td><button onclick='info("+entry.empno+")' class='btn btn-back btn-xs'>상세정보</button>&nbsp;<button onclick='msgsend("+entry.empno+")'>&nbsp;&nbsp;쪽지&nbsp;&nbsp;</button>"
 								+ "</td></tr>"		
 							);
 						});

@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
+encoding//src/Action/Emp_DeleteAdminAction.java=UTF-8
 encoding//src/DAO/C_BrdDAO.java=UTF-8
 encoding//src/DAO/C_N_BrdDAO.java=UTF-8
 encoding//src/DAO/D_BrdDAO.java=UTF-8
 encoding//src/DAO/MemberInfoDAO.java=UTF-8
+encoding//src/filter/EncodingFilter.java=UTF-8

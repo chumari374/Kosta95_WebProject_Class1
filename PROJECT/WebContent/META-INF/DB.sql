@@ -145,6 +145,9 @@ CREATE TABLE MESSAGE (
    CONTENT VARCHAR2(4000) NOT NULL, /* 내용 */
    FILEPATH VARCHAR2(40), /* 첨부파일 */
    SENDEMPNO NUMBER NOT NULL /* 받는사람 */
+   WRITE_DATE DATE NOT NULL /*글쓴시간*/
+   REVDELETECHECK VARCHAR(2) NOT NULL /*받은쪽지삭제체크*/
+   SENTDELETECHECK VARCHAR(2) NOT NULL /*보낸쪽지삭제체크*/
 );
 
 CREATE UNIQUE INDEX PK_MESSAGE
@@ -804,3 +807,5 @@ create sequence Schedule_num -- 스케쥴 num 시퀀스
      increment by 1 
      start with 1        
      nocache;
+     
+     

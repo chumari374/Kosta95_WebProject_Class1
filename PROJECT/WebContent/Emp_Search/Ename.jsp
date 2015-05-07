@@ -24,7 +24,8 @@
 
 	conn = ds.getConnection();
 	System.out.println("ename : " + ename);
-	String sql = "select empno, deptname, teamname, ename, gradename, emptel, celphone from memberinfo where ename like '%"+ename+"%'order by grade";
+	String sql = "select m.empno, m.deptname, m.teamname, m.ename, m.gradename, m.emptel, m.celphone, d.exist from MEMBERINFO m "
+            + "join domain_set d on m.empno=d.empno where d.exist='true' and m.ename like '%"+ename+"%'order by m.grade";
 	System.out.println(sql);
 	pstmt = conn.prepareStatement(sql);
 

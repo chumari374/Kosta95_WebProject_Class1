@@ -4,10 +4,21 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+		
+		<!-- 구글 맵 api -->
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+		<!-- 구글 맵 api 끝-->
+		
 		<title>Insert title here</title>
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  		
+  		<!-- 구글 맵 api -->
+  		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+  		<!-- 구글 맵 api 끝-->
+  		
+  		
   		<style>
   			.carousel-inner > .item > img,
   			.carousel-inner > .item > a > img {
@@ -16,7 +27,32 @@
       			margin: 0;
       			text-align: right;
   			}
+  			
+  			/* 구글 맵 api */
+  			html, body, #map-canvas {
+        		height: 100%;
+        		margin: 0px;
+        		padding: 0px
+      		}
+  			/* 구글 맵 api 끝 */
   		</style>
+  		
+  		<!-- 구글 맵 api -->
+  		<script>
+  		var map;
+  		function initialize() {
+  		  var mapOptions = {
+  		    zoom: 8,
+  		    center: new google.maps.LatLng(-34.397, 150.644)
+  		  };
+  		  map = new google.maps.Map(document.getElementById('map-canvas'),
+  		      mapOptions);
+  		}
+
+  		google.maps.event.addDomListener(window, 'load', initialize);
+  		</script>
+  		<!-- 구글 맵 api 끝 -->
+  		
 	</head>
 	<body>
 		<jsp:include page="Main.jsp"></jsp:include>
@@ -61,9 +97,14 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+  
+  
+  
+  
 </div>
-	
-	
+<!-- 구글 맵 api -->
+	<div id="map-canvas" style="width: 18%; height: 50%; float: right; vertical-align: top;" ></div>
+<!-- 구글 맵 api 끝 -->
 	
 	
 	

@@ -25,12 +25,14 @@ function info(empno){
 }
 
 function msgsend(empno){
-	
-	if(empno==""){
-		window.open('MessageWrite.mb','쪽지보내기', 'width=600 height=424')
-	}else{
-		window.open('MessageWrite.mb?empno='+empno,'쪽지보내기', 'width=600 height=424')
-	}	
+
+	var popupWidth = 310;
+	var popupHeight = 200;
+	var popup_options = "top="+((screen.availHeight - popupWidth)/2)+", left="+((screen.availWidth - popupHeight)/2)+", width=310, height=200, location=no";
+	var url = "MessageReply.mb";
+	var target = "_blank";
+
+	window.open(url, target, popup_options);
 }
 
 function logout(path){
@@ -46,4 +48,9 @@ function infoAdmin(empno){
 function editAdmin(empno){
 	window.close()
 	window.open('MemberEdit.admin?empno='+empno,'정보수정','width=600 height=424')
+}
+
+function deleteAdmin(empno){
+	alert('Arrive');
+	location.href="MemberExistUpdate.admin?empno="+empno;
 }

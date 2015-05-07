@@ -17,10 +17,10 @@ public class Emp_SearchAdminAction implements Action{
 		
 		MemberInfoDAO dao = new MemberInfoDAO();
 		
-		List MemberList = new ArrayList();
-		MemberList = dao.MemberList();
+		//List MemberList = new ArrayList();
+		//MemberList = dao.MemberList();
 
-		request.setAttribute("MemberList", MemberList);
+		//request.setAttribute("MemberList", MemberList);
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

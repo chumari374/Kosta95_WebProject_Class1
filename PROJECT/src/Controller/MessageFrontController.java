@@ -15,6 +15,7 @@ import Action.Mypage.MessageAddAction;
 import Action.Mypage.MessageDeleteAction;
 import Action.Mypage.MessageDetailAction;
 import Action.Mypage.MessageListAction;
+import Action.Mypage.MessageReplyAction;
 
 @WebServlet("*.mb")
 public class MessageFrontController extends HttpServlet {
@@ -25,7 +26,6 @@ public class MessageFrontController extends HttpServlet {
     }
     
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	System.out.println("doProcessOk");
    	 
      request.setCharacterEncoding("UTF-8");
      String RequestURI=request.getRequestURI();
@@ -33,16 +33,35 @@ public class MessageFrontController extends HttpServlet {
 	 String command=RequestURI.substring(contextPath.length());
 	 ActionForward forward=null;
 	 Action action=null;
-	 System.out.println (command);
-	 
+ System.out.println (command);
+	   
 	   if(command.equals("/MessageList.mb")){
-		   action = new MessageListAction();
+		   action = new MessageListAction(command);
 		   System.out.println("MessageListOk");
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }
+		   
+	   }else if(command.equals("/MessageReply.mb")){
+		   forward=new ActionForward();
+		   forward.setRedirect(false);
+		   forward.setPath("./MyPage/Message_Reply.jsp");
+		   System.out.println("MessageReply");
+		   
+	   }else if(command.equals("/MessageReplyOk.mb")){
+		   System.out.println("messageReplyActionOk");
+		   	action = new MessageAddAction();
+		   	System.out.println("MessageReplyOk");
+		   	
+		   try{
+			   forward=action.execute(request, response);
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
+	   
+		   
 	   }else if(command.equals("/MessageWrite.mb")){
 		   forward=new ActionForward();
 		   forward.setRedirect(true);
@@ -72,10 +91,58 @@ public class MessageFrontController extends HttpServlet {
 		   try{
 			   forward=action.execute(request, response);
 		   }catch(Exception e){
-			   e.printStackTrace();
+			   e.printStackTrace(); 
 		   }
 	  
+	   }else if(command.equals("/Message_List.mb")){
+		  
+		   forward=new ActionForward();
+		   forward.setRedirect(true);
+		   forward.setPath("./MyPage/Message_List.jsp");
 	   }
+	   
+    else if(command.equals("/Recieved.mb")){
+    	   action = new MessageListAction(command);
+		   System.out.println("RecievedOk");
+		   try{
+			   forward=action.execute(request, response);
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
+	   }
+	   
+      else if(command.equals("/Sent.mb")){
+    	   action = new MessageListAction(command);
+		   System.out.println("SentOk");
+		   try{
+			   forward=action.execute(request, response);
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
+    }
+	   
+      else if(command.equals("/RecievedDeleteAction.mb")){
+    	  action = new MessageDeleteAction(command);
+    	  System.out.println("RecievedDeleteOk");
+    	  try{
+    		  forward = action.execute(request, response);
+    	  }catch(Exception e){
+    		  e.printStackTrace();
+    	  }
+      }
+	   
+      else if(command.equals("/SentDeleteAction.mb")){
+    	  action = new MessageDeleteAction(command);
+    	  System.out.println("SentDeleteOk");
+    	  try{
+    		  forward = action.execute(request, response);
+    	  }catch(Exception e){
+    		  e.printStackTrace();
+    	  }
+      }
+
+	   
+	   
 	   
 	   if(forward != null){
 		   if(forward.isRedirect()){
