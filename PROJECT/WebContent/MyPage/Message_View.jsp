@@ -122,7 +122,9 @@
 			
 			
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="./MessageReply.mb?sendempno=${messagedata.empno}" target="blank"><button type="button" value="" class="css3button">답장</button></a>&nbsp;&nbsp;
+			<a href="./MessageReply.mb?sendempno=${messagedata.empno}" target="blank">
+			<button type="button" value="" class="css3button">답장</button>
+			</a>&nbsp;&nbsp;
 			<%-- ./MessageReplyAction.mb?empno=${messagedata.empno} --%>
 			
 			<button type="button" value="" onclick="window.close();" class="css3button">닫기</button>
