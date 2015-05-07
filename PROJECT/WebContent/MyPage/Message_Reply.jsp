@@ -20,12 +20,12 @@
 		th { 
 		border: 0px #4587c0 solid; 
 		border-radius: 2px;
-		background-color: #abd1e3;
-		color: #3c6d97;
+		background-color: #3c80af;
+		color: white;
 		font-size: 12px;
 		}
 		
-		#message_reply_table td {border-bottom:1px dashed #4587c0;}
+		#message_reply_table td {border-bottom:1px dashed #0469AF;}
 		a {color: #4C4C4C; text-decoration: none;}
 		a:hover{color: #A6A6A6;}
 		

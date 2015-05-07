@@ -14,7 +14,7 @@
      text-align: center;
  }
  
- body {background-color: #EFEFEF;}
+ body {background-color: #EFEFEF !important;}
  
 button.css3button {
 	font-family: Arial, Helvetica, sans-serif;
@@ -44,6 +44,18 @@ function msgsend(){
 	window.open(url, target, popup_options);
 }
 </script>
+
+</style>
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/myscript.js"></script>
+
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
@@ -62,6 +74,7 @@ function msgsend(){
 		</th>
 		
 		<td style="border-bottom: 1px solid #A2A2A2">
+		<p></p>
 		<p>${messagedata.title}</p>
 		</td>
 	
@@ -71,6 +84,7 @@ function msgsend(){
 			<div align="center">작성일&nbsp;&nbsp;</div>
 		</th>
 		<td style="border-bottom: 1px solid #A2A2A2">
+		<p></p>
 		 <p>${messagedata.write_date}</p>
 		</td>
 		</tr>
@@ -81,6 +95,7 @@ function msgsend(){
 		</th>
 		
 		<td>
+		<p></p>
 		<p>${messagedata.empno }</p>
 		</td>
 		</tr>
@@ -104,9 +119,9 @@ function msgsend(){
 			</table>
 		</td>
 	</tr>
-	<tr bgcolor="#0469AF">
+<!-- 	<tr bgcolor="#0469AF">
 		<td colspan="2" style="height:2px;"></td>
-	</tr>
+	</tr> -->
 	<tr><td colspan="2">&nbsp;</td></tr>
 
 	<tr align="center" valign="middle">
@@ -119,11 +134,11 @@ function msgsend(){
 			<button type="button" value="" class="css3button">답장</button>
 			</a>&nbsp;&nbsp; --%>
 			
-			<button type="button" value="" class="css3button" onclick="msgsend()">답장</button>
+			<button type="button" value="" class="btn btn-primary" onclick="msgsend()">답장</button>
 			
 			<%-- ./MessageReplyAction.mb?empno=${messagedata.empno} --%>
 			
-			<button type="button" value="" onclick="window.close();" class="css3button">닫기</button>
+			<button type="button" value="" onclick="window.close();" class="btn btn-default">닫기</button>
 
 <%-- 			<a href="./MessageList.mb?page=<%=Integer.parseInt(request.getParameter("page"))%>">
 			[목록]</a>&nbsp;&nbsp; --%>
