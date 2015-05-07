@@ -29,7 +29,7 @@ if(nowpage%5==0){//그러나 5의 배수일 경우는 1단계 떨어뜨려줌  �
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-	<style>
+	 <style>
 	    h3 { text-align: center; }
 		#message_list_table {margin-left: 20%; color: #4C4C4C;}
 		#message_list_table th 
@@ -101,7 +101,7 @@ button.css3button {
 	text-shadow:
 		0px 0px 0px rgba(000,000,000,0),
 		0px 0px 0px rgba(255,255,255,0);
-}
+} 
 
 
 	</style>
@@ -134,9 +134,10 @@ button.css3button {
 </head>
 
 <body>
-<h3>받은쪽지함</h3>
 <jsp:include page="../Main.jsp"></jsp:include>
    <div id="main" align="left">
+<h3>받은쪽지함</h3>
+
 <div id="menudiv">
 
      <a href="./Sent.mb">보낸쪽지함</a>&nbsp;
