@@ -30,7 +30,7 @@ if(nowpage%5==0){//그러나 5의 배수일 경우는 1단계 떨어뜨려줌  �
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-	<style>
+		<style>
 	    h3 { text-align: center; }
 		#message_list_table {margin-left: 20%; color: #4C4C4C;}
 		#message_list_table th 
@@ -38,6 +38,7 @@ if(nowpage%5==0){//그러나 5의 배수일 경우는 1단계 떨어뜨려줌  �
 		/* border:0px solid black; 
 		text-align:center; 
 		background-color: #D5D5D5; */
+		font-size: 14px;
 		color: #282828;
 	padding: 6px 14px;
 	background: -moz-linear-gradient(
@@ -66,7 +67,7 @@ if(nowpage%5==0){//그러나 5의 배수일 경우는 1단계 떨어뜨려줌  �
 		0px 0px 0px rgba(255,255,255,0);
 		}
 		
-		#message_list_table td {border-bottom:1px dashed #D5D5D5;}
+		#message_list_table td {border-bottom:1px dashed #D5D5D5; font-size: 13.5px;}
 		#pagingtable {border: 0px; margin-left: 40%;}
 		#menudiv {margin-left: 67%; font-size: 12px;}
 		a {color: #4C4C4C; text-decoration: none;}
@@ -74,7 +75,7 @@ if(nowpage%5==0){//그러나 5의 배수일 경우는 1단계 떨어뜨려줌  �
 		
 button.css3button {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 13px;
+	font-size: 12px;
 	color: #282828;
 	padding: 6px 14px;
 	background: -moz-linear-gradient(
@@ -105,13 +106,25 @@ button.css3button {
 
 
 	</style>
+	<script>
+	function msgsend(empno){
+
+		var popupWidth = 310;
+		var popupHeight = 200;
+		var popup_options = "top="+((screen.availHeight - popupWidth)/2)+", left="+((screen.availWidth - popupHeight)/2)+", width=310, height=200, location=no";
+		var url = "MessageWrite.mb";
+		var target = "_blank";
+
+		window.open(url, target, popup_options);
+	}
+	</script>
 </head>
 <body>
 <h3>보낸쪽지함</h3>
 <div id="menudiv">
 
      <a href="./Recieved.mb">받은쪽지함</a>&nbsp;
-     <a href="./MessageWrite.mb" target="_blank">쪽지보내기</a>
+     <a href="" onclick='msgsend("+entry.empno+")'>쪽지보내기</a>
      
 </div> 
 <table id="message_list_table" width="60%" height="50%">
