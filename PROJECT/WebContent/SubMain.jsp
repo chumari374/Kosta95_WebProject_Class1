@@ -42,8 +42,8 @@
   		var map;
   		function initialize() {
   		  var mapOptions = {
-  		    zoom: 8,
-  		    center: new google.maps.LatLng(-34.397, 150.644)
+  		    zoom: 16,
+  		    center: new google.maps.LatLng(37.3908894, 127.0967915)
   		  };
   		  map = new google.maps.Map(document.getElementById('map-canvas'),
   		      mapOptions);
@@ -103,7 +103,7 @@
   
 </div>
 <!-- ±¸±Û ¸Ê api -->
-	<div id="map-canvas" style="width: 18%; height: 50%; float: right; vertical-align: top;" ></div>
+	<div id="map-canvas" style="width: 18%; height: 50%; left: 870px; bottom: 284px; padding-right: 15px;" ></div>
 <!-- ±¸±Û ¸Ê api ³¡ -->
 	
 	
