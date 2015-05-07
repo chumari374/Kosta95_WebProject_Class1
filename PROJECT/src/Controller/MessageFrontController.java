@@ -16,6 +16,7 @@ import Action.Mypage.MessageDeleteAction;
 import Action.Mypage.MessageDetailAction;
 import Action.Mypage.MessageListAction;
 import Action.Mypage.MessageReplyAction;
+import Action.Mypage.MessageSentDeleteAction;
 
 @WebServlet("*.mb")
 public class MessageFrontController extends HttpServlet {
@@ -132,7 +133,7 @@ public class MessageFrontController extends HttpServlet {
       }
 	   
       else if(command.equals("/SentDeleteAction.mb")){
-    	  action = new MessageDeleteAction(command);
+    	  action = new MessageSentDeleteAction(command);
     	  System.out.println("SentDeleteOk");
     	  try{
     		  forward = action.execute(request, response);

@@ -52,7 +52,12 @@ public class MessageListAction implements Action {
 				System.out.println("page" + page);
 				System.out.println("limit" + limit);
 				int messagelistcount = messagedao.getMessageListCount(); // 총 리스트 수를 받아옴
+				
+				System.out.println("messagelistcount : " + messagelistcount);
+				
 				messagelist = messagedao.getMessageList(empno, url, page, limit); // 리스트를 받아옴
+				
+				System.out.println("messagelist : " + messagelist);
 				// page =2 , limit =10 (페이지당 개수)
 
 				// 총 페이지 수

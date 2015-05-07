@@ -32,7 +32,10 @@ public class MessageDAO {
 
 	// 받은쪽지 리스트 출력
 	public List<MessageDTO> getMessageList(int empno , String requesturl, int page, int limit){
-		
+		System.out.println("empno: "+empno);
+		System.out.println("url" + requesturl);
+		System.out.println("page " + page);
+		System.out.println("limit " + limit);
 		// 글 목록 보기
 		/*
 		 * 18건 
@@ -105,6 +108,7 @@ public class MessageDAO {
 	
 	// 메세지 내용보기
 	public MessageDTO getMessageDetail(int msgnum){
+		
 		
 		MessageDTO message = null;
 		
@@ -195,7 +199,7 @@ public class MessageDAO {
 	
 		
 		int result=0;
-		
+		System.out.println("result값");
 		try{
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(messageDelete_sql);

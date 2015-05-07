@@ -10,12 +10,12 @@ import Action.Action;
 import Action.ActionForward;
 import DAO.MessageDAO;
 
-public class MessageDeleteAction implements Action {
+public class MessageSentDeleteAction implements Action {
 	
 	String url;
-    public MessageDeleteAction(){
+    public MessageSentDeleteAction(){
     }
-    public MessageDeleteAction(String url){
+    public MessageSentDeleteAction(String url){
        this.url = url;
     }
 
@@ -43,7 +43,7 @@ public class MessageDeleteAction implements Action {
 		   	
 		   	System.out.println("쪽지 삭제 성공");
 		   	forward.setRedirect(false);
-	   		forward.setPath("./Recieved.mb");
+	   		forward.setPath("./Sent.mb");
 	   		return forward;
 	}
 
