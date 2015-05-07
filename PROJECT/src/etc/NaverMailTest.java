@@ -13,21 +13,21 @@ import javax.mail.internet.MimeMessage;
 
 import DTO.AccountsDTO;
 
-//메일발송 클래스
+//硫붿씪諛쒖넚 �겢�옒�뒪
 public class NaverMailTest {
     public void sendmail(AccountsDTO account) throws MessagingException{
-        // 메일 관련 정보
+        // 硫붿씪 愿��젴 �젙蹂�
     	
-        String host = "smtp.naver.com"; //호스트 정보
-        final String username = "public_kosta"; //보낼아이디
-        final String password = "kosta1004"; //보낼아이디의 암호
-        int port=465; //지정된 포트번호
+        String host = "smtp.naver.com"; //�샇�뒪�듃 �젙蹂�
+        final String username = "public_kosta"; //蹂대궪�븘�씠�뵒
+        final String password = "kosta1004"; //蹂대궪�븘�씠�뵒�쓽 �븫�샇
+        int port=465; //吏��젙�맂 �룷�듃踰덊샇
          
-        // 메일 내용
+        // 硫붿씪 �궡�슜
         String recipient = account.getEmail();
-        String subject = account.getEmpno()+"님 비밀번호입니다."; //제목
-        String body = account.getEmpno()+"님의 비밀번호는 "+account.getPwd()
-        		+" 입니다";//내용
+        String subject = account.getEmpno()+"님의 비밀번호 입니다."; //�젣紐�
+        String body = account.getEmpno()+"님의 비밀번호는  "+account.getPwd()
+        		+" 입니다 ";//�궡�슜
         
         Properties props = System.getProperties();
          
@@ -48,10 +48,10 @@ public class NaverMailTest {
         session.setDebug(true); //for debug
           
         Message mimeMessage = new MimeMessage(session);
-        mimeMessage.setFrom(new InternetAddress("public_kosta@naver.com"));//보낸사람설정(위의 보낼아이디와 같게)
+        mimeMessage.setFrom(new InternetAddress("public_kosta@naver.com"));//蹂대궦�궗�엺�꽕�젙(�쐞�쓽 蹂대궪�븘�씠�뵒�� 媛숆쾶)
         mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
         mimeMessage.setSubject(subject);
         mimeMessage.setText(body);
-        Transport.send(mimeMessage); //발송
+        Transport.send(mimeMessage); //諛쒖넚
     }
 }
