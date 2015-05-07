@@ -29,7 +29,7 @@ function msgsend(empno){
 	var popupWidth = 310;
 	var popupHeight = 200;
 	var popup_options = "top="+((screen.availHeight - popupWidth)/2)+", left="+((screen.availWidth - popupHeight)/2)+", width=310, height=200, location=no";
-	var url = "MessageWrite.mb";
+	var url = "MessageReply.mb";
 	var target = "_blank";
 
 	window.open(url, target, popup_options);

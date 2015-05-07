@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
-		<style>
+	
 	    h3 { text-align: center; }
 		#message_write_table { color: #4C4C4C;}
 		#message_write_table th
