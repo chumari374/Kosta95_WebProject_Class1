@@ -25,7 +25,7 @@
 	}
 
 	if (admin.equals("true") ) {
-		adminCheck = ",관리자";
+		adminCheck = ", 관리자";
 	} else if (admin.equals("true")){
 		adminCheck = "";
 	}
@@ -75,9 +75,7 @@ input.css3button {
 
 <BODY>
 	<header>
-		${sessionScope.empno},${sessionScope.ename},${sessionScope.teamname},
-
-		<%=gradeName %><%=adminCheck %>
+		${sessionScope.empno}, ${sessionScope.ename}, ${sessionScope.teamname}, <%=gradeName %><%=adminCheck %>
 	</header>
 
 	<nav>&nbsp;</nav>
@@ -85,7 +83,7 @@ input.css3button {
 	<aside id="left">
 
 		<h4 onclick="javascript:location.href='SubMain.jsp'">
-			<b>KOSTA 인트라넷 </b>
+			<b>KOSTA INTRANET </b>
 		</h4>
 		<div id="leftdiv1">
 			<br>

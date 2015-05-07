@@ -14,17 +14,44 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script>
    $(function() {
+	  $("td").css("background-color","white");
       $("td:first-child").css("background-color", "#E8E8E8");
       $("table,tr,td").css("border","1px solid #F6F6F6");
       $("table").css("margin-bottom","10px");
+      $("table").css("width","500px");
+      $("td:first-child").css("width","100px");
    });
 </script>
+<style type="text/css">
+input.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #383838;
+	padding: 4px 10px;
+	background: -moz-linear-gradient(
+		top,
+		#f7f7f7 0%,
+		#ebebeb 50%,
+		#dbdbdb 50%,
+		#dbdbdb);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#f7f7f7),
+		color-stop(0.50, #ebebeb),
+		color-stop(0.50, #dbdbdb),
+		to(#dbdbdb));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 5px;
+	border: 1px solid #c7c7c7;
+}
+</style>
 </head>
 <body>
 <jsp:include page="../Main.jsp"></jsp:include>
-   <div id="main" align="center">
-   <div id="wrapper" style="width: 70%;">
-   <h2>개인정보 수정</h2>
+   <div id="main" align="left">
+   <div style="margin-left: 30px; margin-bottom: 10px;"><h3>개인정보 수정</h3></div>
+   <div id="wrapper" style="width: 70%; margin-left: 30px;">
 	<form action="Account_Update.mp" method="post" enctype="multipart/form-data">
 		<table class="table table-bordered">
 			<tr>
@@ -76,8 +103,9 @@
 				<td><textarea rows="5" cols="32" name="p_content" id="p_content">${requestScope.account.p_content}</textarea></td>
 			</tr>
 		</table>
-			<div align="center"><input type="submit" class="btn btn-primary" value="수정">&nbsp;
-			<input type="button" value="취소" class="btn btn-default" onclick="script:history.go(-1)"></div>
+			<div align="left" style="margin-left: 200px;"><input type="submit" class="css3button" value="수정">&nbsp;
+			<input type="button" value="취소" class="css3button" onclick="script:history.go(-1)">
+			</div>
 	</form>
 	</div>
    </div>
