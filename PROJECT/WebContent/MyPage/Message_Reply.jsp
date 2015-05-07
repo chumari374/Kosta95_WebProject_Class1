@@ -86,7 +86,7 @@ button.css3button {
 		0px 0px 0px rgba(255,255,255,0);
 }
 
-#menudiv {margin-left: 40%;}
+#menudiv {margin-left: 30%;}
 
 </style>
 
@@ -151,7 +151,7 @@ button.css3button {
 				<br>
 				<div id="menudiv">
 				<button type="submit" value="" class="css3button">등록</button>
-				<button type="button" value="" onclick="window.close();" class="css3button">닫기</button>
+				<button type="button" value="" onclick="window.close();" class="css3button">취소</button>
 				</div>
 			
 		</form>

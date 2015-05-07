@@ -79,7 +79,7 @@ button.css3button {
 		0px 0px 0px rgba(255,255,255,0);
 }
 
-#menudiv {margin-left: 40%;}
+#menudiv {margin-left: 30%;}
 
 </style>
 
