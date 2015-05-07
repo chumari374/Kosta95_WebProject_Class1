@@ -17,11 +17,33 @@
 	body {
 		font-size: 72.5%;
 	}
-	table {border:1px solid black}
+/* 	table {border:1px solid black}
 	.btn-back {
 		background-color: #5B5847;
 		color: white;
-	}
+	} */
+	input.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #383838;
+	padding: 4px 10px;
+	background: -moz-linear-gradient(
+		top,
+		#f7f7f7 0%,
+		#ebebeb 50%,
+		#dbdbdb 50%,
+		#dbdbdb);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#f7f7f7),
+		color-stop(0.50, #ebebeb),
+		color-stop(0.50, #dbdbdb),
+		to(#dbdbdb));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 5px;
+	border: 1px solid #c7c7c7;
+}
 </style>
 <script type="text/javascript">
 	$(function(){
@@ -109,17 +131,20 @@
 	<div class="container" >
 	<div id="wrapper" style="width: 90%;">
 		<div align="center" style="margin-bottom: 0px;">
+		<div style="margin-bottom: 60px;"><h3>신입사원 추가</h3></div>
 		<form action="MemberAddUpdate.admin" method="post" name="MemberAddForm">
-			<table>
+			<table class="table" style="width: 60%">
 				<tr>
 					<td>사원번호</td>
-					<td><input type="text" name="empno" size="10px" readonly="readonly"></td>
-					<td colspan="2"><input type="button" id="empnocheck" value="중복확인"></td>
+					<td colspan="3">
+						<input type="text" name="empno" size="10px" readonly="readonly">&nbsp;
+						<input type="button" id="empnocheck" value="중복확인" class="css3button">
+					</td>
 				</tr>
 				<tr>
 					<td>이름</td>
 					<td><input type="text" name="ename" size="10px"></td>
-					<td colspan="2">
+					<td colspan="2"></td>
 				</tr>
 				<tr>
 					<td>관리자권한</td>
@@ -166,12 +191,15 @@
 				</tr>
 				<tr>
 					<td>생년월일</td>
-					<td><input type="text" name="year" id="year" height="40px" size="10px" maxlength="4" onkeypress="onlyNum()">년</td>
-					<td><input type="text" name="month" id="month" size="5px" maxlength="2" onkeypress="onlyNum()">월</td>
-					<td><input type="text" name="day" id="day" size="5px" maxlength="2" onkeypress="onlyNum()">일</td>
+					<td colspan="3">
+						<input type="text" name="year" id="year" height="40px" size="10px" maxlength="4" onkeypress="onlyNum()">&nbsp;년 &nbsp;&nbsp;
+						<input type="text" name="month" id="month" size="5px" maxlength="2" onkeypress="onlyNum()">&nbsp;월 &nbsp;&nbsp;
+						<input type="text" name="day" id="day" size="5px" maxlength="2" onkeypress="onlyNum()">&nbsp;일
+					</td>
 				</tr>
 				<tr>
-					<td colspan="4" align="center"><input type="button" value="등록" onclick="checkForm()"><input type="reset" value="취소"></td>
+					<td colspan="4" align="center"><input type="button" class="css3button" value="등록" onclick="checkForm()">&nbsp;
+					<input type="reset" class="css3button" value="취소"></td>
 				</tr>
 			</table>
 		</form>
