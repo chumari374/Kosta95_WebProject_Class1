@@ -14,33 +14,33 @@ public class Pwd_SearchAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		boolean mailcheck = false; //사번과 이메일 일치하는지 참,거짓 변수
+		boolean mailcheck = false; //�궗踰덇낵 �씠硫붿씪 �씪移섑븯�뒗吏� 李�,嫄곗쭞 蹂��닔
 		
 		ActionForward forward = new ActionForward();
 		AccountsDAO dao = new AccountsDAO();
 		
-		int empno = Integer.parseInt(request.getParameter("empno")); //사번
-		String email = request.getParameter("email"); //이메일
-		mailcheck = dao.isEmail(empno, email); // 사번과 이메일을 확인하는 함수(return : boolean)
+		int empno = Integer.parseInt(request.getParameter("empno")); //�궗踰�
+		String email = request.getParameter("email"); //�씠硫붿씪
+		mailcheck = dao.isEmail(empno, email); // �궗踰덇낵 �씠硫붿씪�쓣 �솗�씤�븯�뒗 �븿�닔(return : boolean)
 		
-		if(mailcheck==false){ //false(맞지않다면)
+		if(mailcheck==false){ //false(留욎��븡�떎硫�)
 			response.setContentType("text/html;charset=utf-8");
 	   		PrintWriter out=response.getWriter();
 	   		out.println("<script>");
 	   		out.println("alert('사원번호와 이메일이 일치하지 않습니다.');");
-	   		out.println("location.href='Pwd_Search.jsp';"); //다시 비밀번호 찾기 페이지로 이동
+	   		out.println("location.href='Pwd_Search.jsp';"); //�떎�떆 鍮꾨�踰덊샇 李얘린 �럹�씠吏�濡� �씠�룞
 	   		out.println("</script>");
 	   		out.close();
 	   		return null;
 		}
-		// true면...
-		AccountsDTO account = dao.pwd_search(empno); //사번의 계정 객체 찾기
+		// true硫�...
+		AccountsDTO account = dao.pwd_search(empno); //�궗踰덉쓽 怨꾩젙 媛앹껜 李얘린
 		//System.out.println("account="+account);
 		
-		new NaverMailTest().sendmail(account); //메일발송
+		new NaverMailTest().sendmail(account); //硫붿씪諛쒖넚
 		
 		forward.setRedirect(true);
-		forward.setPath("Login.jsp"); //메일 발송후에 로그인페이지로 리다이렉트 
+		forward.setPath("Login.jsp"); //硫붿씪 諛쒖넚�썑�뿉 濡쒓렇�씤�럹�씠吏�濡� 由щ떎�씠�젆�듃 
 		return forward;
 	}
 
