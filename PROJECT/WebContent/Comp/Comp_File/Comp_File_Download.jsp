@@ -12,7 +12,7 @@
    //ServletContext context = getServletContext();
    //String sDownLoadPath = context.getRealPath(savePath);
    
-   String sDownLoadPath = "\\\\192.168.7.235\\Upload";
+   String sDownLoadPath = "\\\\192.168.7.241\\Upload";
    String sFilePath = sDownLoadPath + "\\" + filename;
    //file명  + 실 저장경로 TEST
    System.out.println("sFilePath : " + sFilePath);
