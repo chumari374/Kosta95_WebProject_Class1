@@ -15,7 +15,7 @@ public class RegisterAction implements Action{
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String path = request.getRealPath("upload");
-		String path2 = "\\\\192.168.7.235\\Upload"; // 저장경로 설정
+		String path2 = "\\\\192.168.7.241\\Upload"; // 저장경로 설정
 		System.out.println("--:"+path);
 		
 		//파일업로드 위한 MultipartRequest 객체 생성

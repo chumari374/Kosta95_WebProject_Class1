@@ -90,7 +90,7 @@ input.css3button {
 			<p></p>
 			<p>
 				<img
-					src="http://192.168.7.235:8090/PROJECT/Upload/${sessionScope.p_picture}"
+					src="http://192.168.7.241:8090/PROJECT/Upload/${sessionScope.p_picture}"
 					width="80px" height="80px">
 			</p>
 			<p>${sessionScope.ename }님로그인하셨습니다.</p>

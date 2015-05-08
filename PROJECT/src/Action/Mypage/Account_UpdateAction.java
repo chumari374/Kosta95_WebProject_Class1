@@ -20,7 +20,7 @@ public class Account_UpdateAction implements Action{
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String path = request.getRealPath("upload");
-		String path2 = "\\\\192.168.7.235\\Upload";
+		String path2 = "\\\\192.168.7.241\\Upload";
 		System.out.println("--:"+path);
 		
 		MultipartRequest multi =  new MultipartRequest(
