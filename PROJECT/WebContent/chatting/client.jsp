@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% 
-	String teamname = (String)session.getAttribute("teamname");
+	String teamname = (String)request.getParameter("teamname");
 	String ename = (String)request.getParameter("ename");
 %>
 <!DOCTYPE html>

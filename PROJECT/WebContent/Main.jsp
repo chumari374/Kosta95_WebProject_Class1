@@ -118,7 +118,7 @@ input.css3button {
 					<ul class="submenu">
 						<li><a href="DeptBoardList.dp">부서 게시판</a></li>
 						<li><a href="#"
-							onclick="chatting_window('${sessionScope.ename}')">팀 게시판</a></li>
+							onclick="chatting_window('${sessionScope.ename}','${sessionScope.teamname}')">팀 게시판</a></li>
 						<li><a href="#" onclick="alert('WARNING!!! YOUR COMPUTER IS HACKED BY ANNONYMOUSE SHUT DOWN SYSTEM RIGHT NOW.')">자료실(공사중)</a></li>
 					</ul></li>
 
