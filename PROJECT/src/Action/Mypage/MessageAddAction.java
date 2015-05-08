@@ -44,7 +44,7 @@ public class MessageAddAction implements Action {
 			if(result==false){
 
 				out.println("<script charset='UTF-8'>");
-				out.println("alert('발송 실패.');");
+				out.println("alert('Fail');");
 				out.println("</script>");
 
 				System.out.println("발송 실패");
@@ -54,7 +54,7 @@ public class MessageAddAction implements Action {
 			}
      
 			out.println("<script charset='UTF-8'>");
-			out.println("alert('발송 성공');");
+			out.println("alert('Success');");
 			out.println("</script>");
 			out.println("<script charset='UTF-8'>");
 			out.println("window.close();");
