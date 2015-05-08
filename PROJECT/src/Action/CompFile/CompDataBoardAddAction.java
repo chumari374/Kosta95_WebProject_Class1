@@ -19,7 +19,7 @@ public class CompDataBoardAddAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		String path2 = "\\\\192.168.7.235\\Upload";
+		String path2 = "\\\\192.168.7.241\\Upload";
 		System.out.println("--:"+path2);
 		
 		MultipartRequest multi =  new MultipartRequest(
