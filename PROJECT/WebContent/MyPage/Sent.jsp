@@ -36,7 +36,7 @@ if(nowpage%5==0){//그러나 5의 배수일 경우는 1단계 떨어뜨려줌  �
 	margin-bottom: 10px;
 }
 
-#menudiv {margin-left: 77%; font-size: 12px;}
+#menudiv {margin-left: 73%; font-size: 12px;}
 
 
 table th { background-color: #E7E7E7;}
