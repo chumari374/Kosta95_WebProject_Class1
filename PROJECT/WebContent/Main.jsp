@@ -93,7 +93,7 @@ input.css3button {
 					src="http://192.168.7.241:8090/PROJECT/Upload/${sessionScope.p_picture}"
 					width="80px" height="80px">
 			</p>
-			<p>${sessionScope.ename }님로그인하셨습니다.</p>
+			<p>${sessionScope.ename }님 로그인하셨습니다.</p>
 			<p>
 				<input type="button" class="css3button" value="로그아웃"
 					onclick="logout('<%=request.getContextPath()%>')">
