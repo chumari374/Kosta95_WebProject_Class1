@@ -14,7 +14,7 @@
      text-align: center;
  }
  
- body {background-color: #EFEFEF !important;}
+ body {background-color: #f5f5f5 !important;}
  
 button.css3button {
 	font-family: Arial, Helvetica, sans-serif;
