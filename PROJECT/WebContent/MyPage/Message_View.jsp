@@ -33,7 +33,7 @@ button.css3button {
  
 </style>
 <script>
-function msgsend(){
+function msgreply(){
 
 	var popupWidth = 310;
 	var popupHeight = 200;
@@ -135,7 +135,7 @@ function msgsend(){
 			<button type="button" value="" class="css3button">답장</button>
 			</a>&nbsp;&nbsp; --%>
 			
-			<button type="button" value="" class="btn btn-primary" onclick="msgsend()">답장</button>
+			<button type="button" value="" class="btn btn-primary" onclick="msgreply()">답장</button>
 			
 			<%-- ./MessageReplyAction.mb?empno=${messagedata.empno} --%>
 			
