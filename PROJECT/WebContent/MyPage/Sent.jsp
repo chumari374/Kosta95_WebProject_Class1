@@ -94,7 +94,7 @@ table th { background-color: #E7E7E7;}
 }
 	</style>
 	<script>
-	function msgsend(){
+	function msgwritepopup(){
 
 		var popupWidth = 310;
 		var popupHeight = 200;
@@ -131,7 +131,7 @@ table th { background-color: #E7E7E7;}
 		<div id="menudiv">
 
      <a href="./Recieved.mb">받은쪽지함</a>&nbsp;
-     <a href="" onclick='msgsend()'>쪽지보내기</a>
+     <a href="" onclick='msgwritepopup()'>쪽지보내기</a>
      
 </div> 
 		
