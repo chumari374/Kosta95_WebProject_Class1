@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% String teamname = (String)session.getAttribute("teamname"); %>
+<% 
+	String teamname = (String)session.getAttribute("teamname");
+	String ename = (String)request.getParameter("ename");
+%>
 <!DOCTYPE html>
 <!-- <html style="background-image: url('../img/Lighthouse.jpg');background-position: 30%"> -->
 <html>
@@ -43,11 +46,12 @@
 			<input type="text" id="ename" size="3" readonly="readonly">
 			<!-- To:<input type="text" id="to" size="3"> -->
 			<input type="text" id="msg" size="8">
-			<input type="submit" id="submit" value="전송"><br>
+			<input type="button" id="submit" value="전송"><br>
 		</form>
 	</div>
 	<input type="hidden" id="ip">
 	<input type="hidden" id="teamname" value="<%= teamname %>">
+	<input type="hidden" id="temp" value="<%= ename %>">
 </center>
 </body>
 </html>
