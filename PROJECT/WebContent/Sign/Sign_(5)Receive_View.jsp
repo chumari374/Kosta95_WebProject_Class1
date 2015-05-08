@@ -11,7 +11,7 @@
 	SignDAO signdao = new SignDAO();
 
 	ServletContext context = getServletContext();
-	String SignDownLoadPath =  "\\\\192.168.7.235\\Upload";
+	String SignDownLoadPath =  "\\\\192.168.7.421\\Upload";
 	
 	String title = signdata.getTitle();
 	String starter = signdao.getEmpname(signdata.getStarter());
