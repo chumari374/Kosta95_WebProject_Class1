@@ -64,13 +64,14 @@
 		</select>
 		현재 접속자 : <span id="clients"></span>
 		</div>
-		<form action="#">
+		<form action="client.jsp?ename='<%=ename%>'&teamname='<%=teamname%>'" method="get">
 			<textarea rows="21" cols="42" id="replymsg" class="replymsg" readonly="readonly"></textarea>
 			<div style="height: 30px;">
 			<input type="text" id="ename" size="3" readonly="readonly">
 			<!-- To:<input type="text" id="to" size="3"> -->
 			<input type="text" id="msg" size="8">
-			<input type="button" id="submit" value="전송" class="css3button"><br>
+			<button id="submit" class="css3button">전송</button>
+			<!-- <input type="button" id="submit" value="전송" class="css3button" > --><br>
 			</div>
 		</form>
 	</div>

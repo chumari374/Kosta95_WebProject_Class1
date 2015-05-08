@@ -41,6 +41,7 @@ window.onload = function() {
 		console.log(ip+"/"+teamname+"/"+ename);
 		ws.send(ename+","+msg+","+ip+","+teamname);
 		document.getElementById("msg").value = "";
+		return false;
 	}
 	
 	var Notification = window.Notification || window.mozNotification || window.webkitNotification;

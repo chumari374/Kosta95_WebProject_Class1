@@ -41,6 +41,7 @@ function getip2(){
 }
 
 function getEname(ename){
+	console.log(ename);
 	$.get(
 			"getEname.jsp",
 			{ename:ename},
