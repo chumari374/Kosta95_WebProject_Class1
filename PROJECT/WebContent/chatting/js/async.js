@@ -40,9 +40,10 @@ function getip2(){
 	);
 }
 
-function getEname(){
+function getEname(ename){
 	$.get(
 			"getEname.jsp",
+			{ename:ename},
 			function(data){
 				$('#ename').val(data);
 			}

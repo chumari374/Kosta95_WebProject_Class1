@@ -15,10 +15,10 @@ function ppurija(ad) {
    }); 
 }
 
-function chatting_window(teamname){
+function chatting_window(ename){
 	var ip = $('#ip').val();
 	/*window.open("http://"+ip+":8090/PROJECT/chatting/client.jsp", "chattingroom", "height=500 width=350")*/
-	window.open("http://192.168.7.241:8090/PROJECT/chatting/client.jsp", "chattingroom", "height=500 width=350")
+	window.open("http://192.168.7.241:8090/PROJECT/chatting/client.jsp?ename="+ename, "chattingroom", "height=500 width=350")
 }
 
 function info(empno){
