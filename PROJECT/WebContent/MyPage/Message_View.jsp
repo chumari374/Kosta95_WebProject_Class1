@@ -96,7 +96,8 @@ function msgsend(){
 		
 		<td>
 		<p></p>
-		<p>${messagedata.empno }</p>
+		<p> <a href="#" onclick="window.open('Member.info?empno=${messagedata.empno }  ','windowÆË¾÷','left=300, top=50, width=600, height=400, menubar=no, status=no, toolbar=no');">
+	     </a>${messagedata.empno }</p>
 		</td>
 		</tr>
 		

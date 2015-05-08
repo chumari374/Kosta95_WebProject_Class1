@@ -5,20 +5,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 <style>
 	
 	    h3 { text-align: center; }
 	    body{background-color: #f5f5f5;}
 		#message_reply_table { color: #4C4C4C; border-radius: 2px;}
 		th { 
-		border: 0px #4587c0 solid; 
-		border-radius: 2px;
-		background-color: #abd1e3;
-		color: #3c6d97;
+		border-bottom: 1px #B8B8B8 solid; 
+		color: #5D5D5D;
 		font-size: 12px;
 		}
 		
-		#message_reply_table td {border-bottom:1px dashed #4587c0;}
+		#message_reply_table td {border-bottom:0px dashed #0469AF;}
 		a {color: #4C4C4C; text-decoration: none;}
 		a:hover{color: #A6A6A6;}
 		
@@ -54,6 +53,9 @@ button.css3button {
 <body>
 	<div id="message_write_div">
 		<form action="../MessageWriteOk.mb" method="post" name="messageboardform">
+		
+			<hr style=" border-color: #1b7dc0; ">
+		
 			<table id="message_write_table">
 			    <tr>
 			       <th>보내는사원번호</th>

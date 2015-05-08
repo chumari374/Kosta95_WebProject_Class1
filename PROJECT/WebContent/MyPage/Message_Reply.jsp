@@ -18,14 +18,12 @@
 	    body{background-color: #f5f5f5;}
 		#message_reply_table { color: #4C4C4C; border-radius: 2px;}
 		th { 
-		border: 0px #4587c0 solid; 
-		border-radius: 2px;
-		background-color: #3c80af;
-		color: white;
+		border-bottom: 1px #B8B8B8 solid; 
+		color: #5D5D5D;
 		font-size: 12px;
 		}
 		
-		#message_reply_table td {border-bottom:1px dashed #0469AF;}
+		#message_reply_table td {border-bottom:0px dashed #0469AF;}
 		a {color: #4C4C4C; text-decoration: none;}
 		a:hover{color: #A6A6A6;}
 		
@@ -73,6 +71,9 @@ button.css3button {
 <c:set var="messagedata" value="${messagedata}"/>
 	<div id="message_reply_div">
 		<form action="./MessageReplyOk.mb" method="post" name="messageboardform">
+		
+	<hr style=" border-color: #1b7dc0; ">
+	
 			<table id="message_reply_table">
 			    <tr>
 			       <th>보내는사원번호</th>
