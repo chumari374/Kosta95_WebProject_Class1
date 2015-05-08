@@ -2,6 +2,7 @@ package Action.Mypage;
 
 import java.io.PrintWriter;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -45,8 +46,8 @@ public class MessageReplyAction implements Action{
 
 			if(result==false){
 
-				out.println("<script charset='euc-kr'>");
-				out.println("alert('발송 실패.');");
+				out.println("<script charset='UTF-8'>");
+				out.println("alert('Failed.');");
 				out.println("</script>");
 
 				System.out.println("발송 실패");
@@ -55,10 +56,10 @@ public class MessageReplyAction implements Action{
 				return forward;*/
 			}
      
-			out.println("<script charset=euc-kr'>");
-			out.println("alert('발송 성공');");
+			out.println("<script charset=UTF-8'>");
+			out.println("alert('Success');");
 			out.println("</script>");
-			out.println("<script charset=euc-kr'>");
+			out.println("<script charset=UTF-8'>");
 			out.println("window.close();");
 			out.println("</script>");
 
