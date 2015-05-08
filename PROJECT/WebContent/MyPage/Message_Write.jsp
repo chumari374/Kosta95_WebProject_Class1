@@ -54,8 +54,8 @@ button.css3button {
 	<div id="message_write_div">
 		<form action="../MessageWriteOk.mb" method="post" name="messageboardform">
 		
-			<hr style=" border-color: #1b7dc0; ">
-		
+			<hr noshade="noshade" style=" background-color: #0469AF; border-color: #0469AF; "> 
+			
 			<table id="message_write_table">
 			    <tr>
 			       <th>보내는사원번호</th>

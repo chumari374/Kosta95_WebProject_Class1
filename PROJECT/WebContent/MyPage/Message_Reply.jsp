@@ -72,7 +72,7 @@ button.css3button {
 	<div id="message_reply_div">
 		<form action="./MessageReplyOk.mb" method="post" name="messageboardform">
 		
-	<hr style=" border-color: #1b7dc0; ">
+			<hr noshade="noshade" style=" background-color: #0469AF; border-color: #0469AF; "> 
 	
 			<table id="message_reply_table">
 			    <tr>
