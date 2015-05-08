@@ -94,7 +94,6 @@
 		}
 	}
 	function checkForm(){
-		alert('도착');
 		var year = $('#year').val();
 		var month = $('#month').val();
 		var day = $('#day').val();
